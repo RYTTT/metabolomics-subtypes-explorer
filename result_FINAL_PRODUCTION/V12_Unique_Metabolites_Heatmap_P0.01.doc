@@ -1,0 +1,51 @@
+<html><head><meta charset='utf-8'>
+<style>
+table { border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 12px; }
+th, td { border: 1px solid #ddd; padding: 4px; text-align: center; }
+th { background-color: #f2f2f2; }
+.up { background-color: #ff9999; color: black; }
+.down { background-color: #99ccff; color: black; }
+.none { background-color: #ffffff; color: #ccc; }
+</style>
+</head><body>
+<h2>Unique Metabolites Heatmap (P < 0.01 in exactly 1 category)</h2>
+<p>Colors: <span style='background-color:#ff9999'><b>Red</b></span> = Upregulated (P < 0.01, logFC > 0), <span style='background-color:#99ccff'><b>Blue</b></span> = Downregulated (P < 0.01, logFC < 0).</p>
+<p>Significance: ** (P < 0.001), * (P < 0.01). Cells show logFC.</p>
+<table>
+<tr><th>Metabolite</th><th>Cognitive_CogPos_vs_CogNeg</th><th>Cognitive_CogPos_vs_Control</th><th>Subtypes_Cognitive_vs_Control</th><th>Subtypes_Depressive_vs_Control</th><th>Subtypes_MildPTSD_vs_Control</th><th>Subtypes_SeverePTSD_vs_Control</th></tr>
+<tr><td style='text-align: left;'><b>1,2-dilinoleoyl-GPC (18:2/18:2)</b></td><td class='none'>-0.04</td><td class='none'>0.02</td><td class='none'>0.04</td><td class='up'>0.16 *</td><td class='none'>-0.01</td><td class='none'>0.05</td></tr>
+<tr><td style='text-align: left;'><b>1,2-dipalmitoyl-GPC (16:0/16:0)</b></td><td class='none'>-0.01</td><td class='none'>0.03</td><td class='none'>0.02</td><td class='none'>-0.02</td><td class='up'>0.07 **</td><td class='none'>0.02</td></tr>
+<tr><td style='text-align: left;'><b>1-dihomo-linolenoyl-GPC (20:3n3 or n6)*</b></td><td class='none'>0.02</td><td class='none'>0.07</td><td class='none'>0.08</td><td class='up'>0.17 *</td><td class='none'>0.04</td><td class='none'>0.03</td></tr>
+<tr><td style='text-align: left;'><b>1-margaroyl-2-oleoyl-GPC (17:0/18:1)*</b></td><td class='none'>0.03</td><td class='none'>0.04</td><td class='up'>0.09 *</td><td class='none'>-0.02</td><td class='none'>0.02</td><td class='none'>-0.02</td></tr>
+<tr><td style='text-align: left;'><b>1-myristoyl-2-linoleoyl-GPC (14:0/18:2)*</b></td><td class='none'>0.03</td><td class='up'>0.11 *</td><td class='none'>0.12</td><td class='none'>0.05</td><td class='none'>0.04</td><td class='none'>0.09</td></tr>
+<tr><td style='text-align: left;'><b>1-oleoyl-2-docosahexaenoyl-GPE (18:1/22:6)*</b></td><td class='none'>0.17</td><td class='none'>-0.04</td><td class='none'>-0.02</td><td class='down'>-0.47 *</td><td class='none'>-0.19</td><td class='none'>-0.11</td></tr>
+<tr><td style='text-align: left;'><b>1-palmitoleoyl-2-linolenoyl-GPC (16:1/18:3)*</b></td><td class='none'>-0.18</td><td class='none'>-0.22</td><td class='down'>-0.39 *</td><td class='none'>-0.03</td><td class='none'>0.00</td><td class='none'>-0.12</td></tr>
+<tr><td style='text-align: left;'><b>1-palmitoleoyl-GPC (16:1)*</b></td><td class='none'>0.04</td><td class='none'>0.10</td><td class='up'>0.13 *</td><td class='none'>0.11</td><td class='none'>0.04</td><td class='none'>0.06</td></tr>
+<tr><td style='text-align: left;'><b>1-palmitoyl-2-(hydroxylinoleoyl)-GPC (16:0/18:2(OH))*</b></td><td class='none'>-0.01</td><td class='none'>0.05</td><td class='none'>0.02</td><td class='none'>-0.03</td><td class='none'>0.05</td><td class='up'>0.13 *</td></tr>
+<tr><td style='text-align: left;'><b>1-palmitoyl-2-docosahexaenoyl-GPC (16:0/22:6)</b></td><td class='none'>-0.01</td><td class='none'>-0.04</td><td class='none'>-0.03</td><td class='down'>-0.20 **</td><td class='none'>0.04</td><td class='none'>-0.06</td></tr>
+<tr><td style='text-align: left;'><b>1-palmitoyl-2-docosahexaenoyl-GPE (16:0/22:6)*</b></td><td class='none'>0.09</td><td class='none'>-0.00</td><td class='none'>0.00</td><td class='down'>-0.35 *</td><td class='none'>0.01</td><td class='none'>-0.08</td></tr>
+<tr><td style='text-align: left;'><b>1-palmitoyl-2-palmitoleoyl-GPC (16:0/16:1)*</b></td><td class='none'>0.08</td><td class='up'>0.15 *</td><td class='none'>0.16</td><td class='none'>0.01</td><td class='none'>0.06</td><td class='none'>0.11</td></tr>
+<tr><td style='text-align: left;'><b>1-stearoyl-2-arachidonoyl-GPS (18:0/20:4)</b></td><td class='down'>-0.36 *</td><td class='none'>-0.28</td><td class='none'>-0.33</td><td class='none'>0.11</td><td class='none'>0.04</td><td class='none'>-0.01</td></tr>
+<tr><td style='text-align: left;'><b>1-stearoyl-2-docosahexaenoyl-GPE (18:0/22:6)*</b></td><td class='none'>0.08</td><td class='none'>-0.00</td><td class='none'>-0.01</td><td class='down'>-0.38 **</td><td class='none'>0.01</td><td class='none'>-0.05</td></tr>
+<tr><td style='text-align: left;'><b>17alpha-hydroxypregnenolone 3-sulfate</b></td><td class='down'>-0.28 *</td><td class='none'>-0.12</td><td class='none'>-0.04</td><td class='none'>0.37</td><td class='none'>0.13</td><td class='none'>-0.03</td></tr>
+<tr><td style='text-align: left;'><b>2-linoleoyl-GPC (18:2)*</b></td><td class='none'>-0.07</td><td class='none'>-0.01</td><td class='none'>0.06</td><td class='up'>0.22 *</td><td class='none'>0.03</td><td class='none'>0.02</td></tr>
+<tr><td style='text-align: left;'><b>21-hydroxypregnenolone monosulfate (1)</b></td><td class='down'>-0.32 **</td><td class='none'>-0.18</td><td class='none'>-0.22</td><td class='none'>0.15</td><td class='none'>0.17</td><td class='none'>-0.00</td></tr>
+<tr><td style='text-align: left;'><b>3-hydroxyoctanoylcarnitine (1)</b></td><td class='none'>-0.11</td><td class='none'>-0.23</td><td class='down'>-0.33 *</td><td class='none'>-0.18</td><td class='none'>-0.06</td><td class='none'>-0.16</td></tr>
+<tr><td style='text-align: left;'><b>GABR</b></td><td class='none'>0.06</td><td class='none'>-0.01</td><td class='none'>0.01</td><td class='none'>-0.08</td><td class='none'>-0.06</td><td class='down'>-0.08 *</td></tr>
+<tr><td style='text-align: left;'><b>N-acetyltryptophan</b></td><td class='none'>-0.06</td><td class='none'>0.03</td><td class='none'>-0.01</td><td class='up'>0.25 *</td><td class='none'>0.00</td><td class='none'>0.11</td></tr>
+<tr><td style='text-align: left;'><b>adenosine 3',5'-cyclic monophosphate (cAMP)</b></td><td class='down'>-0.20 *</td><td class='none'>-0.09</td><td class='none'>-0.11</td><td class='none'>0.25</td><td class='none'>0.12</td><td class='none'>-0.03</td></tr>
+<tr><td style='text-align: left;'><b>androstenediol (3beta,17beta) disulfate (1)</b></td><td class='none'>-0.11</td><td class='none'>0.06</td><td class='none'>0.05</td><td class='up'>0.36 *</td><td class='none'>0.14</td><td class='none'>0.12</td></tr>
+<tr><td style='text-align: left;'><b>cortisone</b></td><td class='down'>-0.14 *</td><td class='none'>-0.05</td><td class='none'>-0.06</td><td class='none'>0.11</td><td class='none'>0.08</td><td class='none'>0.01</td></tr>
+<tr><td style='text-align: left;'><b>deoxycholic acid glucuronide</b></td><td class='none'>-0.28</td><td class='none'>0.01</td><td class='none'>-0.07</td><td class='none'>0.27</td><td class='up'>0.41 *</td><td class='none'>0.15</td></tr>
+<tr><td style='text-align: left;'><b>glutamate</b></td><td class='none'>-0.01</td><td class='none'>0.05</td><td class='none'>0.01</td><td class='none'>0.06</td><td class='none'>0.00</td><td class='up'>0.10 *</td></tr>
+<tr><td style='text-align: left;'><b>glycochenodeoxycholate</b></td><td class='none'>0.07</td><td class='none'>0.14</td><td class='up'>0.35 *</td><td class='none'>-0.14</td><td class='none'>0.02</td><td class='none'>0.10</td></tr>
+<tr><td style='text-align: left;'><b>linoleoylcarnitine (C18:2)*</b></td><td class='none'>-0.05</td><td class='none'>-0.01</td><td class='none'>-0.02</td><td class='up'>0.18 *</td><td class='none'>-0.00</td><td class='none'>0.04</td></tr>
+<tr><td style='text-align: left;'><b>myristoleoylcarnitine/physeteroylcarnitine (C14:1)*</b></td><td class='none'>-0.07</td><td class='none'>-0.12</td><td class='down'>-0.23 *</td><td class='none'>0.02</td><td class='none'>-0.01</td><td class='none'>-0.03</td></tr>
+<tr><td style='text-align: left;'><b>myristoyl dihydrosphingomyelin (d18:0/14:0)*</b></td><td class='none'>0.07</td><td class='up'>0.09 *</td><td class='none'>0.11</td><td class='none'>-0.00</td><td class='none'>0.05</td><td class='none'>0.05</td></tr>
+<tr><td style='text-align: left;'><b>phosphatidylcholine (15:0/18:1, 17:0/16:1, 16:0/17:1)*</b></td><td class='none'>0.07</td><td class='none'>0.10</td><td class='up'>0.14 *</td><td class='none'>0.00</td><td class='none'>0.03</td><td class='none'>0.01</td></tr>
+<tr><td style='text-align: left;'><b>serotonin</b></td><td class='none'>-0.04</td><td class='none'>-0.24</td><td class='none'>-0.28</td><td class='none'>-0.14</td><td class='none'>0.01</td><td class='down'>-0.30 *</td></tr>
+<tr><td style='text-align: left;'><b>sphinganine-1-phosphate</b></td><td class='none'>-0.05</td><td class='none'>0.05</td><td class='none'>0.03</td><td class='none'>0.14</td><td class='none'>0.08</td><td class='up'>0.11 *</td></tr>
+<tr><td style='text-align: left;'><b>tetradecadienoate (14:2)*</b></td><td class='none'>-0.13</td><td class='none'>-0.14</td><td class='down'>-0.26 *</td><td class='none'>0.08</td><td class='none'>0.01</td><td class='none'>-0.02</td></tr>
+<tr><td style='text-align: left;'><b>ursodeoxycholate</b></td><td class='none'>-0.01</td><td class='none'>0.25</td><td class='none'>0.09</td><td class='none'>0.33</td><td class='none'>0.15</td><td class='up'>0.41 *</td></tr>
+</table>
+</body></html>

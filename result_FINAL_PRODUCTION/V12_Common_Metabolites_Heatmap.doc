@@ -1,0 +1,25 @@
+<html><head><meta charset='utf-8'>
+<style>
+table { border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 12px; }
+th, td { border: 1px solid #ddd; padding: 4px; text-align: center; }
+th { background-color: #f2f2f2; }
+.up { background-color: #ff9999; color: black; }
+.down { background-color: #99ccff; color: black; }
+.none { background-color: #ffffff; color: #ccc; }
+</style>
+</head><body>
+<h2>Common Metabolites Heatmap (FDR < 0.1 in >= 2 categories)</h2>
+<p>Colors: <span style='background-color:#ff9999'><b>Red</b></span> = Upregulated (FDR < 0.1, logFC > 0), <span style='background-color:#99ccff'><b>Blue</b></span> = Downregulated (FDR < 0.1, logFC < 0).</p>
+<p>Significance: ** (FDR < 0.05), * (FDR < 0.1). Cells show logFC.</p>
+<table>
+<tr><th>Metabolite</th><th>Cognitive_CogPos_vs_CogNeg</th><th>Cognitive_CogPos_vs_Control</th><th>Subtypes_Cognitive_vs_Control</th><th>Subtypes_Depressive_vs_Control</th><th>Subtypes_MildPTSD_vs_Control</th><th>Subtypes_SeverePTSD_vs_Control</th></tr>
+<tr><td style='text-align: left;'><b>1-margaroyl-2-docosahexaenoyl-GPC (17:0/22:6)*</b></td><td class='none'>0.04</td><td class='none'>-0.15</td><td class='none'>-0.13</td><td class='down'>-0.41 **</td><td class='none'>-0.09</td><td class='down'>-0.21 *</td></tr>
+<tr><td style='text-align: left;'><b>1-myristoyl-2-palmitoyl-GPC (14:0/16:0)</b></td><td class='none'>0.08</td><td class='up'>0.21 *</td><td class='up'>0.25 *</td><td class='none'>-0.01</td><td class='none'>0.16</td><td class='none'>0.11</td></tr>
+<tr><td style='text-align: left;'><b>1-pentadecanoyl-2-docosahexaenoyl-GPC (15:0/22:6)*</b></td><td class='none'>0.02</td><td class='none'>-0.10</td><td class='none'>-0.04</td><td class='down'>-0.30 *</td><td class='none'>-0.02</td><td class='down'>-0.18 **</td></tr>
+<tr><td style='text-align: left;'><b>2-myristoyl-GPC (14:0)*</b></td><td class='none'>0.05</td><td class='up'>0.17 *</td><td class='up'>0.25 **</td><td class='none'>0.09</td><td class='none'>0.12</td><td class='none'>0.10</td></tr>
+<tr><td style='text-align: left;'><b>5alpha-pregnan-3beta,20alpha-diol disulfate</b></td><td class='down'>-0.29 *</td><td class='down'>-0.29 *</td><td class='down'>-0.34 *</td><td class='none'>0.18</td><td class='none'>-0.03</td><td class='none'>-0.12</td></tr>
+<tr><td style='text-align: left;'><b>Glycolytic_Ratio</b></td><td class='none'>0.02</td><td class='up'>0.11 *</td><td class='none'>0.12</td><td class='none'>0.09</td><td class='none'>0.08</td><td class='up'>0.11 *</td></tr>
+<tr><td style='text-align: left;'><b>androstenediol (3beta,17beta) disulfate (2)</b></td><td class='down'>-0.20 **</td><td class='none'>-0.07</td><td class='none'>-0.06</td><td class='up'>0.27 *</td><td class='none'>0.11</td><td class='none'>0.03</td></tr>
+<tr><td style='text-align: left;'><b>phosphatidylcholine (14:0/14:0, 16:0/12:0)</b></td><td class='none'>0.12</td><td class='up'>0.35 *</td><td class='up'>0.42 *</td><td class='none'>0.09</td><td class='none'>0.22</td><td class='none'>0.23</td></tr>
+</table>
+</body></html>

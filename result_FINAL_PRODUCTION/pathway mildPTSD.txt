@@ -1,0 +1,64 @@
+© 2000-2026 QIAGEN. All rights reserved.
+
+Ingenuity Canonical Pathways	 -log(p-value)	Ratio	z-score	Molecules	
+Transport of bile salts and organic acids, metal ions and amine compounds	2.55E00	4.17E-02	NaN	L-glutamine,L-histidine,L-lactic acid	
+Transport of inorganic cations/anions and amino acids/oligopeptides	2.42E00	3.75E-02	NaN	L-glutamine,L-histidine,L-lactic acid	
+Role of Hypercytokinemia/hyperchemokinemia in the Pathogenesis of Influenza	2.38E00	1E00	NaN	sphingosine-1-phosphate	
+Histamine Biosynthesis	2.08E00	5E-01	NaN	L-histidine	
+Nicotinate metabolism	2.05E00	5.71E-02	NaN	L-glutamine,L-lactic acid	
+Glutamine Degradation I	1.9E00	3.33E-01	NaN	L-glutamine	
+tRNA Charging	1.88E00	4.65E-02	NaN	L-glutamine,L-histidine	
+G alpha (i) signalling events	1.82E00	4.35E-02	NaN	L-lactic acid,sphingosine-1-phosphate	
+Ceramide Signaling	1.78E00	2.5E-01	NaN	sphingosine-1-phosphate	
+Human Embryonic Stem Cell Pluripotency	1.78E00	2.5E-01	NaN	sphingosine-1-phosphate	
+Sphingosine-1-phosphate Signaling	1.78E00	2.5E-01	NaN	sphingosine-1-phosphate	
+Pyruvate Fermentation to Lactate	1.78E00	2.5E-01	NaN	L-lactic acid	
+Neurotransmitter uptake and metabolism In glial cells	1.6E00	1.67E-01	NaN	L-glutamine	
+Mitochondrial Division Signaling Pathway	1.6E00	1.67E-01	NaN	sphingosine-1-phosphate	
+Glutamine Biosynthesis I	1.6E00	1.67E-01	NaN	L-glutamine	
+PDGF Signaling	1.6E00	1.67E-01	NaN	sphingosine-1-phosphate	
+Asparagine Biosynthesis I	1.54E00	1.43E-01	NaN	L-glutamine	
+Glutamate Receptor Signaling	1.54E00	1.43E-01	NaN	L-glutamine	
+Osteoarthritis Pathway	1.54E00	1.43E-01	NaN	sphingosine-1-phosphate	
+Systemic Lupus Erythematosus in T Cell Signaling Pathway	1.54E00	1.43E-01	NaN	sphingosine-1-phosphate	
+Amyotrophic Lateral Sclerosis Signaling	1.43E00	1.11E-01	NaN	L-glutamine	
+L-glutamine Biosynthesis II (tRNA-dependent)	1.43E00	1.11E-01	NaN	L-glutamine	
+Miscellaneous transport and binding events	1.38E00	1E-01	NaN	L-histidine	
+Sphingosine and Sphingosine-1-phosphate Metabolism	1.38E00	1E-01	NaN	sphingosine-1-phosphate	
+Histidine Degradation III	1.38E00	1E-01	NaN	L-histidine	
+Histidine Degradation VI	1.38E00	1E-01	NaN	L-histidine	
+Class A/1 (Rhodopsin-like receptors)	1.35E00	2.44E-02	NaN	L-lactic acid,sphingosine-1-phosphate	
+Hematoma Resolution Signaling Pathway	1.34E00	9.09E-02	NaN	sphingosine-1-phosphate	
+Molecular Mechanisms of Cancer	1.34E00	9.09E-02	NaN	sphingosine-1-phosphate	
+NAD Biosynthesis from 2-amino-3-carboxymuconate Semialdehyde	1.34E00	9.09E-02	NaN	L-glutamine	
+UDP-N-acetyl-D-glucosamine Biosynthesis II	1.34E00	9.09E-02	NaN	L-glutamine	
+Pyrimidine Ribonucleotides Interconversion	1.34E00	9.09E-02	NaN	L-glutamine	
+Phagosome Formation	1.34E00	9.09E-02	NaN	sphingosine-1-phosphate	
+Cachexia Signaling Pathway	1.31E00	8.33E-02	NaN	sphingosine-1-phosphate	
+IL-12 Signaling and Production in Macrophages	1.31E00	8.33E-02	NaN	sphingosine-1-phosphate	
+eNOS Signaling	1.27E00	7.69E-02	NaN	sphingosine-1-phosphate	
+5-aminoimidazole Ribonucleotide Biosynthesis I	1.21E00	6.67E-02	NaN	L-glutamine	
+Uridine-5'-phosphate Biosynthesis	1.16E00	5.88E-02	NaN	L-glutamine	
+Citrulline Biosynthesis	1.13E00	5.56E-02	NaN	L-glutamine	
+NAD biosynthesis II (from tryptophan)	1.09E00	5E-02	NaN	L-glutamine	
+Phenylalanine Degradation IV (Mammalian, via Side Chain)	1.09E00	5E-02	NaN	L-glutamine	
+Aspirin ADME	1.07E00	4.76E-02	NaN	L-lactic acid	
+Tryptophan catabolism	1.05E00	4.55E-02	NaN	L-histidine	
+Azathioprine ADME	1.05E00	4.55E-02	NaN	L-glutamine	
+Pyrimidine Ribonucleotides De Novo Biosynthesis	1.05E00	4.55E-02	NaN	L-glutamine	
+Olfactory Signaling Pathway	1.03E00	4.35E-02	NaN	L-lactic acid	
+Aspartate and asparagine metabolism	1.03E00	4.35E-02	NaN	L-glutamine	
+Glutamate and glutamine metabolism	1.03E00	4.35E-02	NaN	L-glutamine	
+Extra-nuclear estrogen signaling	1.03E00	4.35E-02	NaN	sphingosine-1-phosphate	
+Signaling by VEGF	1.01E00	4.17E-02	NaN	sphingosine-1-phosphate	
+Superpathway of Citrulline Metabolism	1.01E00	4.17E-02	NaN	L-glutamine	
+TP53 Regulates Metabolic Genes	9.98E-01	4E-02	NaN	L-glutamine	
+Nucleotide biosynthesis	9.51E-01	3.57E-02	NaN	L-glutamine	
+Purine Nucleotides De Novo Biosynthesis II	9.23E-01	3.33E-02	NaN	L-glutamine	
+Neurotransmitter release cycle	8.72E-01	2.94E-02	NaN	L-glutamine	
+Pyruvate metabolism	8.37E-01	2.7E-02	NaN	L-lactic acid	
+Gap Junction Signaling	7.09E-01	1.96E-02	NaN	sphingosine-1-phosphate	
+Interconversion of nucleotide di- and triphosphates	6.87E-01	1.85E-02	NaN	L-glutamine	
+Asparagine N-linked glycosylation	6.66E-01	1.75E-02	NaN	L-glutamine	
+Sphingolipid metabolism	6.15E-01	1.54E-02	NaN	sphingosine-1-phosphate	
+Phase II - Conjugation of compounds	5.19E-01	1.19E-02	NaN	L-glutamine	

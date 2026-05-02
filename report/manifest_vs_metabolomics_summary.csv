@@ -1,0 +1,7 @@
+Condition,Total_in_Manifest,Matched_in_Excel_Cohen,Missing_from_Excel
+Comparison,40,11,29
+PTSD,31,31,0
+PTSD-TBI,40,40,0
+PTSD-sub,9,9,0
+TBI,40,0,40
+Total,160,91,69

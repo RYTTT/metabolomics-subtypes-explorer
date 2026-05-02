@@ -1,0 +1,49 @@
+© 2000-2026 QIAGEN. All rights reserved.
+
+Ingenuity Canonical Pathways	 -log(p-value)	Ratio	z-score	Molecules	
+Digestion	3.91E00	1.29E-01	2.000	glycochenodeoxycholate,glycocholic acid,taurochenodeoxycholate,taurocholic acid	
+Bile Acid Biosynthesis, Neutral Pathway	3.43E00	9.76E-02	2.000	glycochenodeoxycholate,glycocholic acid,taurochenodeoxycholate,taurocholic acid	
+Bile acid and bile salt metabolism	2.64E00	6.06E-02	2.000	glycochenodeoxycholate,glycocholic acid,taurochenodeoxycholate,taurocholic acid	
+Transport of vitamins, nucleosides, and related molecules	2.52E00	5.63E-02	2.000	glycochenodeoxycholate,glycocholic acid,taurochenodeoxycholate,taurocholic acid	
+Class A/1 (Rhodopsin-like receptors)	1.47E00	3.66E-02	NaN	kynurenic acid,L-lactic acid,succinic acid	
+Cellular response to hypoxia	1.46E00	2.5E-01	NaN	succinic acid	
+Pyruvate Fermentation to Lactate	1.46E00	2.5E-01	NaN	L-lactic acid	
+Chromatin modifications during the maternal to zygotic transition (MZT)	1.36E00	2E-01	NaN	succinic acid	
+Collagen biosynthesis and modifying enzymes	1.29E00	1.67E-01	NaN	succinic acid	
+GABA Receptor Signaling	1.29E00	1.67E-01	NaN	succinic acid	
+Macrophage Classical Activation Signaling Pathway	1.22E00	1.43E-01	NaN	succinic acid	
+Oxidative Stress Induced Senescence	1.22E00	1.43E-01	NaN	succinic acid	
+Glutamate Degradation III (via 4-aminobutyrate)	1.22E00	1.43E-01	NaN	succinic acid	
+4-aminobutyrate Degradation I	1.22E00	1.43E-01	NaN	succinic acid	
+G alpha (i) signalling events	1.22E00	4.35E-02	NaN	L-lactic acid,succinic acid	
+DNA Damage Reversal	1.17E00	1.25E-01	NaN	succinic acid	
+Morphine Biosynthesis	1.17E00	1.25E-01	NaN	succinic acid	
+Activated PKN1 stimulates transcription of AR regulated genes KLK2 and KLK3	1.12E00	1.11E-01	NaN	succinic acid	
+Ketolysis	1.12E00	1.11E-01	NaN	succinic acid	
+GABAergic Receptor Signaling Pathway (Enhanced)	1.07E00	1E-01	NaN	succinic acid	
+FXR/RXR Activation	1.07E00	1E-01	NaN	taurocholic acid	
+L-carnitine Biosynthesis	1.07E00	1E-01	NaN	succinic acid	
+Oxidative Phosphorylation	1.07E00	1E-01	NaN	succinic acid	
+Hepatic Fibrosis Signaling Pathway	1.07E00	1E-01	NaN	succinic acid	
+Carnitine synthesis	1.03E00	9.09E-02	NaN	succinic acid	
+Chromatin modifying enzymes	9.96E-01	8.33E-02	NaN	succinic acid	
+Mitotic Prophase	9.63E-01	7.69E-02	NaN	succinic acid	
+GABA synthesis, release, reuptake and degradation	9.33E-01	7.14E-02	NaN	succinic acid	
+Dopamine Degradation	9.33E-01	7.14E-02	NaN	dopamine 3-O-sulfate	
+Ketone body metabolism	9.05E-01	6.67E-02	NaN	succinic acid	
+Transport of bile salts and organic acids, metal ions and amine compounds	8.83E-01	2.78E-02	NaN	L-lactic acid,succinic acid	
+Hepatic Cholestasis	8.54E-01	5.88E-02	NaN	taurocholic acid	
+TCA Cycle II (Eukaryotic)	8.31E-01	5.56E-02	NaN	succinic acid	
+Respiratory electron transport	8.09E-01	5.26E-02	NaN	succinic acid	
+Gamma carboxylation, hypusinylation, hydroxylation, and arylsulfatase activation	7.69E-01	4.76E-02	NaN	succinic acid	
+Aspirin ADME	7.69E-01	4.76E-02	NaN	L-lactic acid	
+Olfactory Signaling Pathway	7.34E-01	4.35E-02	NaN	L-lactic acid	
+Citric acid cycle (TCA cycle)	6.57E-01	3.57E-02	NaN	succinic acid	
+Mitochondrial Dysfunction	6.18E-01	3.23E-02	NaN	succinic acid	
+Sirtuin Signaling Pathway	5.94E-01	3.03E-02	NaN	succinic acid	
+Nicotinate metabolism	5.72E-01	2.86E-02	NaN	L-lactic acid	
+Peroxisomal lipid metabolism	5.72E-01	2.86E-02	NaN	succinic acid	
+Pyruvate metabolism	5.52E-01	2.7E-02	NaN	L-lactic acid	
+Glycerophospholipid biosynthesis	3.27E-01	1.41E-02	NaN	1-14:0 lysophosphatidylcholine	
+Transport of inorganic cations/anions and amino acids/oligopeptides	2.9E-01	1.25E-02	NaN	L-lactic acid	
+Phase II - Conjugation of compounds	2.76E-01	1.19E-02	NaN	dopamine 3-O-sulfate	

@@ -1,0 +1,36 @@
+<html><head><meta charset='utf-8'></head><body>
+<h2>Differential Protein Expression Summary</h2>
+<p>Grouped by Protein Category. Showing significant proteins (P < 0.05). Note: Direction of regulation (logFC) is currently unavailable.</p>
+<table border='1' style='border-collapse: collapse; width: 100%;'>
+<tr>
+<th>Comparison</th><th>P < 0.05</th><th>P < 0.01</th><th>P < 0.05 Proteins (Grouped)</th>
+</tr>
+<tr>
+<td>FOUR SUBTYPE GROUP COMPARISON</td><td>6</td><td>2</td><td><b><u>Apoptosis/Neural Injury</u></b>: FGFR1*, CHEK2*, PDPK1*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Mitochondrial changes</u></b>: MMP9*<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: HSPB1**<br/><br/><b><u>Inflammation</u></b>: MDK**</td>
+</tr>
+<tr>
+<td>DEPRESSIVE SUBTYPE VS CONTROL</td><td>3</td><td>0</td><td><b><u>Apoptosis/Neural Injury</u></b>: ABL1*, ENO1*, FGFR1*</td>
+</tr>
+<tr>
+<td>CI+ VS CONTROL</td><td>23</td><td>16</td><td><b><u>Apoptosis/Neural Injury</u></b>: PIAS4**, ENO1**, FGFR3**, DAPK2**, ANXA6**, NGF**, SST*, ABL1*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Mitochondrial changes</u></b>: MMP9**<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Oxidative Stress</u></b>: SOD1**<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes</u></b>: YWHAQ**, CLU**<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes, Oxidative Stress</u></b>: BCL2**<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: HSPB1**<br/><br/><b><u>Inflammation</u></b>: MDK**, TNFRSF11A**, IL1R1**, MAPK14**, PTGS2*, ELANE*, ESR1*, PLA2G7*, PSMA6*</td>
+</tr>
+<tr>
+<td>SUBTHRESHOLD_MILD PTSD SUBTYPE </td><td>13</td><td>5</td><td><b><u>Apoptosis/Neural Injury</u></b>: ENO1**, ANXA6**, SST*, PRKCA*, PDPK1*, LGALS3*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation</u></b>: TNFRSF1A*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Oxidative Stress</u></b>: INS**<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes</u></b>: CLU**<br/><br/><b><u>Inflammation</u></b>: MAPK14**, MDK*, TNFRSF11A*, IL1R1*</td>
+</tr>
+<tr>
+<td>MODERATE_SEVERE PTSD SUBTYPE VS</td><td>42</td><td>31</td><td><b><u>Apoptosis/Neural Injury</u></b>: PIAS4**, ENO1**, PRKCA**, DAPK2**, PDPK1**, ANXA6**, SST**, TNFSF12**, LTBR**, NGF**, LGALS3**, FGFR3**, PDIA3*, ABL1*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation</u></b>: CX3CL1*, RB1*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Mitochondrial changes</u></b>: MMP9**<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Oxidative Stress</u></b>: INS**, SOD1*<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes</u></b>: CLU**, YWHAZ**, YWHAQ**<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes, Oxidative Stress</u></b>: BCL2*<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: FYN*, MCL1*, PPIA*<br/><br/><b><u>Inflammation</u></b>: MDK**, IL1R1**, LYN**, PTGS2**, PDE2A**, ELANE**, TNFRSF11A**, MAPK14**, PLA2G7**, APP**, BCL6**, XCL1*, GRN*<br/><br/><b><u>Mitochondrial changes</u></b>: HK2**, HSPD1**<br/><br/><b><u>Oxidative Stress</u></b>: MET**</td>
+</tr>
+<tr>
+<td>DEPRESSIVE SUBTYPE BINARY GROUP</td><td>10</td><td>3</td><td><b><u>Apoptosis/Neural Injury</u></b>: FGFR1**, PDPK1*, IL6R*, TNFSF12*<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: MCL1**, PPIA**, HSPB1*, FYN*<br/><br/><b><u>Inflammation</u></b>: LYN*<br/><br/><b><u>Oxidative Stress</u></b>: MET*</td>
+</tr>
+<tr>
+<td>COGNITIVE IMPAIRMENT SUBTYPE BI</td><td>10</td><td>1</td><td><b><u>Apoptosis/Neural Injury</u></b>: ENO1*, PDPK1*, MAPK9*, BCL2L2*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation</u></b>: CX3CL1*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Mitochondrial changes</u></b>: MMP9*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Oxidative Stress</u></b>: PARK7*<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes</u></b>: BID*<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: HSPB1**<br/><br/><b><u>Inflammation</u></b>: PSMA6*</td>
+</tr>
+<tr>
+<td>PTSD SEVERITY SUBTYPE BINARY GR</td><td>11</td><td>3</td><td><b><u>Apoptosis/Neural Injury</u></b>: FGFR1**, PDPK1*, IL6R*, TNFSF12*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation</u></b>: RB1*<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: MCL1**, PPIA**, HSPB1*, FYN*<br/><br/><b><u>Inflammation</u></b>: LYN*<br/><br/><b><u>Oxidative Stress</u></b>: MET*</td>
+</tr>
+<tr>
+<td>PTSD+ VS PTSD- BINARY COMPARISO</td><td>42</td><td>34</td><td><b><u>Apoptosis/Neural Injury</u></b>: PIAS4**, ENO1**, PRKCA**, DAPK2**, PDPK1**, ANXA6**, NGF**, SST**, ABL1**, LGALS3**, FGFR3**, LTBR**, TNFSF12*, CHEK1*, PDIA3*, BCL2L2*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation</u></b>: CX3CL1*<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Mitochondrial changes</u></b>: MMP9**<br/><br/><b><u>Apoptosis/Neural Injury, Inflammation, Oxidative Stress</u></b>: INS**, SOD1**<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes</u></b>: CLU**, YWHAZ**, YWHAQ**<br/><br/><b><u>Apoptosis/Neural Injury, Mitochondrial changes, Oxidative Stress</u></b>: BCL2**<br/><br/><b><u>Apoptosis/Neural Injury, Oxidative Stress</u></b>: FYN*<br/><br/><b><u>Inflammation</u></b>: MDK**, IL1R1**, PTGS2**, MAPK14**, PDE2A**, ELANE**, TNFRSF11A**, PLA2G7**, BCL6**, APP**, LYN**, XCL1**, ESR1*, TYRO3*<br/><br/><b><u>Mitochondrial changes</u></b>: HK2**, HSPD1**<br/><br/><b><u>Oxidative Stress</u></b>: MET**</td>
+</tr>
+</table>
+</body></html>

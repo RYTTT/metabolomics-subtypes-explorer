@@ -1,0 +1,25 @@
+© 2000-2026 QIAGEN. All rights reserved.
+
+Ingenuity Canonical Pathways	 -log(p-value)	Ratio	z-score	Molecules	
+Role of Hypercytokinemia/hyperchemokinemia in the Pathogenesis of Influenza	2.34E00	1E00	NaN	sphingosine-1-phosphate	
+Ceramide Signaling	1.74E00	2.5E-01	NaN	sphingosine-1-phosphate	
+Human Embryonic Stem Cell Pluripotency	1.74E00	2.5E-01	NaN	sphingosine-1-phosphate	
+Sphingosine-1-phosphate Signaling	1.74E00	2.5E-01	NaN	sphingosine-1-phosphate	
+Mitochondrial Division Signaling Pathway	1.56E00	1.67E-01	NaN	sphingosine-1-phosphate	
+PDGF Signaling	1.56E00	1.67E-01	NaN	sphingosine-1-phosphate	
+Osteoarthritis Pathway	1.5E00	1.43E-01	NaN	sphingosine-1-phosphate	
+Systemic Lupus Erythematosus in T Cell Signaling Pathway	1.5E00	1.43E-01	NaN	sphingosine-1-phosphate	
+Sphingosine and Sphingosine-1-phosphate Metabolism	1.35E00	1E-01	NaN	sphingosine-1-phosphate	
+Hematoma Resolution Signaling Pathway	1.31E00	9.09E-02	NaN	sphingosine-1-phosphate	
+Phagosome Formation	1.31E00	9.09E-02	NaN	sphingosine-1-phosphate	
+IL-12 Signaling and Production in Macrophages	1.27E00	8.33E-02	NaN	sphingosine-1-phosphate	
+eNOS Signaling	1.23E00	7.69E-02	NaN	sphingosine-1-phosphate	
+Extra-nuclear estrogen signaling	9.96E-01	4.35E-02	NaN	sphingosine-1-phosphate	
+Signaling by VEGF	9.79E-01	4.17E-02	NaN	sphingosine-1-phosphate	
+G alpha (i) signalling events	7.16E-01	2.17E-02	NaN	sphingosine-1-phosphate	
+Gap Junction Signaling	6.76E-01	1.96E-02	NaN	sphingosine-1-phosphate	
+Sphingolipid metabolism	5.83E-01	1.54E-02	NaN	sphingosine-1-phosphate	
+Transport of vitamins, nucleosides, and related molecules	5.5E-01	1.41E-02	NaN	dehydroepiandrosterone sulfate	
+Transport of bile salts and organic acids, metal ions and amine compounds	5.45E-01	1.39E-02	NaN	dehydroepiandrosterone sulfate	
+Class A/1 (Rhodopsin-like receptors)	4.97E-01	1.22E-02	NaN	sphingosine-1-phosphate	
+Phase II - Conjugation of compounds	4.88E-01	1.19E-02	NaN	dehydroepiandrosterone sulfate	

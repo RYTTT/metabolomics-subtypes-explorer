@@ -1,0 +1,184 @@
+© 2000-2026 QIAGEN. All rights reserved.
+
+Ingenuity Canonical Pathways	 -log(p-value)	Ratio	z-score	Molecules	
+Nicotinate metabolism	3.86E00	1.14E-01	1.000	L-glutamic acid,L-glutamine,L-lactic acid,N(1)-methylnicotinamide	
+Glutamine Degradation I	3.74E00	6.67E-01	NaN	L-glutamic acid,L-glutamine	
+Transport of bile salts and organic acids, metal ions and amine compounds	3.7E00	6.94E-02	-0.447	5-hydroxytryptamine,citric acid,L-glutamine,L-lactic acid,N(1)-methylnicotinamide	
+Ceramide Signaling	3.44E00	5E-01	NaN	D-sphingosine,sphingosine-1-phosphate	
+Human Embryonic Stem Cell Pluripotency	3.44E00	5E-01	NaN	D-sphingosine,sphingosine-1-phosphate	
+Sphingosine-1-phosphate Signaling	3.44E00	5E-01	NaN	D-sphingosine,sphingosine-1-phosphate	
+G alpha (i) signalling events	3.39E00	8.7E-02	1.000	5-hydroxytryptamine,L-glutamic acid,L-lactic acid,sphingosine-1-phosphate	
+Gap Junction Signaling	3.22E00	7.84E-02	NaN	5-hydroxytryptamine,D-sphingosine,L-glutamic acid,sphingosine-1-phosphate	
+Neurotransmitter uptake and metabolism In glial cells	3.04E00	3.33E-01	NaN	L-glutamic acid,L-glutamine	
+Glutamine Biosynthesis I	3.04E00	3.33E-01	NaN	L-glutamic acid,L-glutamine	
+PDGF Signaling	3.04E00	3.33E-01	NaN	D-sphingosine,sphingosine-1-phosphate	
+Asparagine Biosynthesis I	2.9E00	2.86E-01	NaN	L-glutamic acid,L-glutamine	
+Glutamate Receptor Signaling	2.9E00	2.86E-01	NaN	L-glutamic acid,L-glutamine	
+Calcium Signaling	2.78E00	2.5E-01	NaN	5-hydroxytryptamine,L-glutamic acid	
+Amyotrophic Lateral Sclerosis Signaling	2.67E00	2.22E-01	NaN	L-glutamic acid,L-glutamine	
+L-glutamine Biosynthesis II (tRNA-dependent)	2.67E00	2.22E-01	NaN	L-glutamic acid,L-glutamine	
+Neurotransmitter release cycle	2.64E00	8.82E-02	NaN	5-hydroxytryptamine,L-glutamic acid,L-glutamine	
+Sphingosine and Sphingosine-1-phosphate Metabolism	2.57E00	2E-01	NaN	D-sphingosine,sphingosine-1-phosphate	
+NAD Biosynthesis from 2-amino-3-carboxymuconate Semialdehyde	2.49E00	1.82E-01	NaN	L-glutamic acid,L-glutamine	
+UDP-N-acetyl-D-glucosamine Biosynthesis II	2.49E00	1.82E-01	NaN	L-glutamic acid,L-glutamine	
+Pyrimidine Ribonucleotides Interconversion	2.49E00	1.82E-01	NaN	L-glutamic acid,L-glutamine	
+Transport of inorganic cations/anions and amino acids/oligopeptides	2.48E00	5E-02	0.000	citric acid,L-glutamic acid,L-glutamine,L-lactic acid	
+Class A/1 (Rhodopsin-like receptors)	2.45E00	4.88E-02	0.000	5-hydroxytryptamine,icosapent,L-lactic acid,sphingosine-1-phosphate	
+Circadian Rhythm Signaling	2.34E00	1.54E-01	NaN	5-hydroxytryptamine,L-glutamic acid	
+5-aminoimidazole Ribonucleotide Biosynthesis I	2.22E00	1.33E-01	NaN	L-glutamic acid,L-glutamine	
+G alpha (q) signalling events	2.11E00	5.77E-02	NaN	5-hydroxytryptamine,icosapent,L-glutamic acid	
+Uridine-5'-phosphate Biosynthesis	2.11E00	1.18E-01	NaN	L-glutamic acid,L-glutamine	
+Cyclophilin Signaling Pathway	2.09E00	1E00	NaN	L-glutamic acid	
+Role of Hypercytokinemia/hyperchemokinemia in the Pathogenesis of Influenza	2.09E00	1E00	NaN	sphingosine-1-phosphate	
+Citrulline Biosynthesis	2.06E00	1.11E-01	NaN	L-glutamic acid,L-glutamine	
+NAD biosynthesis II (from tryptophan)	1.97E00	1E-01	NaN	L-glutamic acid,L-glutamine	
+Phenylalanine Degradation IV (Mammalian, via Side Chain)	1.97E00	1E-01	NaN	L-glutamic acid,L-glutamine	
+Azathioprine ADME	1.89E00	9.09E-02	NaN	L-glutamic acid,L-glutamine	
+Pyrimidine Ribonucleotides De Novo Biosynthesis	1.89E00	9.09E-02	NaN	L-glutamic acid,L-glutamine	
+Aspartate and asparagine metabolism	1.85E00	8.7E-02	NaN	L-glutamic acid,L-glutamine	
+Glutamate and glutamine metabolism	1.85E00	8.7E-02	NaN	L-glutamic acid,L-glutamine	
+Superpathway of Citrulline Metabolism	1.82E00	8.33E-02	NaN	L-glutamic acid,L-glutamine	
+Synaptic adhesion-like molecules	1.8E00	5E-01	NaN	L-glutamic acid	
+Glutamate Removal from Folates	1.8E00	5E-01	NaN	L-glutamic acid	
+Glutamate Dependent Acid Resistance	1.8E00	5E-01	NaN	L-glutamic acid	
+TP53 Regulates Metabolic Genes	1.78E00	8E-02	NaN	L-glutamic acid,L-glutamine	
+Sensory perception of taste	1.69E00	7.14E-02	NaN	citric acid,L-glutamic acid	
+Nucleotide biosynthesis	1.69E00	7.14E-02	NaN	L-glutamic acid,L-glutamine	
+Purine Nucleotides De Novo Biosynthesis II	1.63E00	6.67E-02	NaN	L-glutamic acid,L-glutamine	
+Glucose metabolism	1.6E00	6.45E-02	NaN	citric acid,L-glutamic acid	
+Sirtuin Signaling Pathway	1.55E00	6.06E-02	NaN	citric acid,L-glutamic acid	
+Wound Healing Signaling Pathway	1.5E00	2.5E-01	NaN	5-hydroxytryptamine	
+Activation of kainate receptors upon glutamate binding	1.5E00	2.5E-01	NaN	L-glutamic acid	
+Alanine metabolism	1.5E00	2.5E-01	NaN	L-glutamic acid	
+Neuropathic Pain Signaling in Dorsal Horn Neurons	1.5E00	2.5E-01	NaN	L-glutamic acid	
+Pyruvate Fermentation to Lactate	1.5E00	2.5E-01	NaN	L-lactic acid	
+Alanine Degradation III	1.5E00	2.5E-01	NaN	L-glutamic acid	
+Alanine Biosynthesis II	1.5E00	2.5E-01	NaN	L-glutamic acid	
+4-hydroxyphenylpyruvate Biosynthesis	1.5E00	2.5E-01	NaN	L-glutamic acid	
+Aspartate Biosynthesis	1.5E00	2.5E-01	NaN	L-glutamic acid	
+Pyruvate metabolism	1.46E00	5.41E-02	NaN	L-glutamic acid,L-lactic acid	
+UFMylation Signaling Pathway	1.4E00	2E-01	NaN	L-glutamic acid	
+nNOS Signaling in Neurons	1.4E00	2E-01	NaN	L-glutamic acid	
+Proline Degradation	1.4E00	2E-01	NaN	L-glutamic acid	
+Glutamate Biosynthesis II	1.4E00	2E-01	NaN	L-glutamic acid	
+Glutamate Degradation X	1.4E00	2E-01	NaN	L-glutamic acid	
+tRNA Charging	1.34E00	4.65E-02	NaN	L-glutamic acid,L-glutamine	
+Huntington's Disease Signaling	1.33E00	1.67E-01	NaN	L-glutamic acid	
+Neurotransmitter receptors and postsynaptic signal transmission	1.33E00	1.67E-01	NaN	5-hydroxytryptamine	
+BMAL1:CLOCK,NPAS2 activates circadian expression	1.33E00	1.67E-01	NaN	icosapent	
+Sensory processing of sound by inner hair cells of the cochlea	1.33E00	1.67E-01	NaN	L-glutamic acid	
+Mitochondrial Division Signaling Pathway	1.33E00	1.67E-01	NaN	sphingosine-1-phosphate	
+Glutathione Biosynthesis	1.33E00	1.67E-01	NaN	L-glutamic acid	
+Glutamate Degradation II	1.33E00	1.67E-01	NaN	L-glutamic acid	
+GABA Receptor Signaling	1.33E00	1.67E-01	NaN	L-glutamic acid	
+Macrophage Classical Activation Signaling Pathway	1.26E00	1.43E-01	NaN	citric acid	
+Activation of gene expression by SREBF (SREBP)	1.26E00	1.43E-01	NaN	icosapent	
+Expression of BMAL (ARNTL), CLOCK, and NPAS2	1.26E00	1.43E-01	NaN	icosapent	
+RORA,B,C and NR1D1 (REV-ERBA) regulate gene expression	1.26E00	1.43E-01	NaN	icosapent	
+Acetyl-CoA Biosynthesis III (from Citrate)	1.26E00	1.43E-01	NaN	citric acid	
+L-cysteine Degradation III	1.26E00	1.43E-01	NaN	L-glutamic acid	
+L-cysteine Degradation I	1.26E00	1.43E-01	NaN	L-glutamic acid	
+Glutamate Degradation III (via 4-aminobutyrate)	1.26E00	1.43E-01	NaN	L-glutamic acid	
+Aspartate Degradation II	1.26E00	1.43E-01	NaN	L-glutamic acid	
+4-aminobutyrate Degradation I	1.26E00	1.43E-01	NaN	L-glutamic acid	
+Osteoarthritis Pathway	1.26E00	1.43E-01	NaN	sphingosine-1-phosphate	
+Systemic Lupus Erythematosus in T Cell Signaling Pathway	1.26E00	1.43E-01	NaN	sphingosine-1-phosphate	
+Synaptic Long Term Potentiation	1.2E00	1.25E-01	NaN	L-glutamic acid	
+EPH-Ephrin signaling	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Transcriptional regulation of white adipocyte differentiation	1.2E00	1.25E-01	NaN	icosapent	
+Glutamate binding, activation of AMPA receptors and synaptic plasticity	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Proline catabolism	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Carboxyterminal post-translational modifications of tubulin	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Autism Signaling Pathway	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Malate-aspartate shuttle	1.2E00	1.25E-01	NaN	L-glutamic acid	
+CREB Signaling in Neurons	1.2E00	1.25E-01	NaN	L-glutamic acid	
+β-alanine Degradation I	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Synaptogenesis Signaling Pathway	1.2E00	1.25E-01	NaN	L-glutamic acid	
+Interconversion of nucleotide di- and triphosphates	1.16E00	3.7E-02	NaN	L-glutamic acid,L-glutamine	
+Synaptic Long Term Depression	1.15E00	1.11E-01	NaN	L-glutamic acid	
+Serine Biosynthesis	1.15E00	1.11E-01	NaN	L-glutamic acid	
+(S)-reticuline Biosynthesis II	1.15E00	1.11E-01	NaN	L-glutamic acid	
+4-hydroxyproline Degradation I	1.15E00	1.11E-01	NaN	L-glutamic acid	
+Arginine Degradation I (Arginase Pathway)	1.15E00	1.11E-01	NaN	L-glutamic acid	
+Tyrosine Degradation I	1.15E00	1.11E-01	NaN	L-glutamic acid	
+Asparagine N-linked glycosylation	1.12E00	3.51E-02	NaN	L-glutamic acid,L-glutamine	
+Multiple Sclerosis Signaling Pathway	1.11E00	1E-01	NaN	L-glutamic acid	
+GABAergic Receptor Signaling Pathway (Enhanced)	1.11E00	1E-01	NaN	L-glutamic acid	
+Pulmonary Hypertension Signaling Pathway	1.11E00	1E-01	NaN	5-hydroxytryptamine	
+Arginine Degradation VI (Arginase 2 Pathway)	1.11E00	1E-01	NaN	L-glutamic acid	
+Histidine Degradation III	1.11E00	1E-01	NaN	L-glutamic acid	
+Proline Biosynthesis I	1.11E00	1E-01	NaN	L-glutamic acid	
+Response to elevated platelet cytosolic Ca2+	1.07E00	9.09E-02	NaN	5-hydroxytryptamine	
+Hematoma Resolution Signaling Pathway	1.07E00	9.09E-02	NaN	sphingosine-1-phosphate	
+Serotonin and Melatonin Biosynthesis	1.07E00	9.09E-02	NaN	5-hydroxytryptamine	
+L-DOPA Degradation	1.07E00	9.09E-02	NaN	L-glutamic acid	
+γ-glutamyl Cycle	1.07E00	9.09E-02	NaN	L-glutamic acid	
+Phagosome Formation	1.07E00	9.09E-02	NaN	sphingosine-1-phosphate	
+Histidine catabolism	1.03E00	8.33E-02	NaN	L-glutamic acid	
+Serine metabolism	1.03E00	8.33E-02	NaN	L-glutamic acid	
+IL-12 Signaling and Production in Macrophages	1.03E00	8.33E-02	NaN	sphingosine-1-phosphate	
+Superpathway of Serine and Glycine Biosynthesis I	1.03E00	8.33E-02	NaN	L-glutamic acid	
+Glutathione-mediated Detoxification	1.03E00	8.33E-02	NaN	L-glutamic acid	
+Sphingolipid metabolism	1.02E00	3.08E-02	NaN	D-sphingosine,sphingosine-1-phosphate	
+Carnitine shuttle	1E00	7.69E-02	NaN	citric acid	
+Regulation of lipid metabolism by PPARalpha	1E00	7.69E-02	NaN	icosapent	
+eNOS Signaling	1E00	7.69E-02	NaN	sphingosine-1-phosphate	
+Proline Biosynthesis II (from Arginine)	1E00	7.69E-02	NaN	L-glutamic acid	
+Folate Polyglutamylation	1E00	7.69E-02	NaN	L-glutamic acid	
+Glutaminergic Receptor Signaling Pathway (Enhanced)	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+Class C/3 (Metabotropic glutamate/pheromone receptors)	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+RAF/MAP kinase cascade	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+GABA synthesis, release, reuptake and degradation	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+Dopamine-DARPP32 Feedback in cAMP Signaling	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+Lysine Degradation II	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+Histamine Degradation	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+Endocannabinoid Neuronal Synapse Pathway	9.7E-01	7.14E-02	NaN	L-glutamic acid	
+Mitochondrial biogenesis	9.42E-01	6.67E-02	NaN	icosapent	
+Isoleucine Degradation I	9.42E-01	6.67E-02	NaN	L-glutamic acid	
+4-hydroxybenzoate Biosynthesis	9.42E-01	6.67E-02	NaN	L-glutamic acid	
+Neuroinflammation Signaling Pathway	9.42E-01	6.67E-02	NaN	L-glutamic acid	
+Activation of NMDA receptors and postsynaptic events	9.16E-01	6.25E-02	NaN	L-glutamic acid	
+Parkinson's Signaling Pathway	9.16E-01	6.25E-02	NaN	L-glutamic acid	
+Synthesis of Prostaglandins (PG) and Thromboxanes (TX)	8.91E-01	5.88E-02	NaN	N(1)-methylnicotinamide	
+Heme signaling	8.91E-01	5.88E-02	NaN	icosapent	
+Valine Degradation I	8.91E-01	5.88E-02	NaN	L-glutamic acid	
+Serotonin Degradation	8.91E-01	5.88E-02	NaN	5-hydroxytryptamine	
+Leucine Degradation I	8.91E-01	5.88E-02	NaN	L-glutamic acid	
+Arginine Biosynthesis IV	8.68E-01	5.56E-02	NaN	L-glutamic acid	
+TCA Cycle II (Eukaryotic)	8.68E-01	5.56E-02	NaN	citric acid	
+Metabolism of folate and pterines	8.46E-01	5.26E-02	NaN	L-glutamic acid	
+Incretin synthesis, secretion, and inactivation	8.46E-01	5.26E-02	NaN	icosapent	
+Gustation Pathway	8.46E-01	5.26E-02	NaN	L-glutamic acid	
+Phase II - Conjugation of compounds	8.39E-01	2.38E-02	NaN	L-glutamic acid,L-glutamine	
+Urea cycle	8.25E-01	5E-02	NaN	L-glutamic acid	
+Paracetamol ADME	8.25E-01	5E-02	NaN	L-glutamic acid	
+Lysine Degradation V	8.25E-01	5E-02	NaN	L-glutamic acid	
+Lysine catabolism	8.06E-01	4.76E-02	NaN	L-glutamic acid	
+Aspirin ADME	8.06E-01	4.76E-02	NaN	L-lactic acid	
+Neurotransmitter clearance	7.87E-01	4.55E-02	NaN	5-hydroxytryptamine	
+Tryptophan catabolism	7.87E-01	4.55E-02	NaN	L-glutamic acid	
+Fatty acyl-CoA biosynthesis	7.87E-01	4.55E-02	NaN	citric acid	
+Olfactory Signaling Pathway	7.69E-01	4.35E-02	NaN	L-lactic acid	
+Extra-nuclear estrogen signaling	7.69E-01	4.35E-02	NaN	sphingosine-1-phosphate	
+Insulin Secretion Signaling Pathway	7.69E-01	4.35E-02	NaN	citric acid	
+Signaling by VEGF	7.53E-01	4.17E-02	NaN	sphingosine-1-phosphate	
+G alpha (s) signalling events	7.53E-01	4.17E-02	NaN	5-hydroxytryptamine	
+Branched-chain amino acid catabolism	7.53E-01	4.17E-02	NaN	L-glutamic acid	
+Phenylalanine and tyrosine metabolism	7.53E-01	4.17E-02	NaN	L-glutamic acid	
+Glyoxylate metabolism and glycine degradation	7.36E-01	4E-02	NaN	L-glutamic acid	
+Cytoprotection by HMOX1	7.36E-01	4E-02	NaN	icosapent	
+Neurovascular Coupling Signaling Pathway	7.21E-01	3.85E-02	NaN	L-glutamic acid	
+Folate Signaling Pathway	7.21E-01	3.85E-02	NaN	L-glutamic acid	
+Citric acid cycle (TCA cycle)	6.92E-01	3.57E-02	NaN	citric acid	
+Serotonin Receptor Signaling	6.92E-01	3.57E-02	NaN	5-hydroxytryptamine	
+Ferroptosis Signaling Pathway	6.92E-01	3.57E-02	NaN	L-glutamic acid	
+Arachidonate metabolism	6.65E-01	3.33E-02	NaN	L-glutamic acid	
+Metabolism of amine-derived hormones	6.53E-01	3.23E-02	NaN	5-hydroxytryptamine	
+Superpathway of Methionine Degradation	6.17E-01	2.94E-02	NaN	L-glutamic acid	
+Metabolism of cofactors	5.76E-01	2.63E-02	NaN	citric acid	
+Selenoamino acid metabolism	5.66E-01	2.56E-02	NaN	N(1)-methylnicotinamide	
+S-Adenosylmethionine Regulatory Signaling Pathway	5.66E-01	2.56E-02	NaN	N(1)-methylnicotinamide	
+Sulfur amino acid metabolism	5.05E-01	2.17E-02	NaN	L-glutamic acid	
+Glycerophospholipid biosynthesis	3.56E-01	1.41E-02	NaN	1-14:0 lysophosphatidylcholine	
+Transport of vitamins, nucleosides, and related molecules	3.56E-01	1.41E-02	NaN	5-hydroxytryptamine	
+Phase I - Functionalization of compounds	2.13E-01	8.7E-03	NaN	5-hydroxytryptamine	

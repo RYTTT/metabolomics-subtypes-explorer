@@ -1,0 +1,11 @@
+# Ignore large data files to avoid GitHub limits
+resource/Bridged metabolomics data_subtype analysis_2026.4.22_NEW CONTROLS-2.xlsx
+
+# macOS system files
+.DS_Store
+
+# R related files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/

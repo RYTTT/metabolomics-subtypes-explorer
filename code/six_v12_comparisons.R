@@ -1,0 +1,119 @@
+library(readxl)
+library(dplyr)
+library(limma)
+
+options(stringsAsFactors = FALSE)
+cat("Running IPW Limma specifically for the 6 target V12 comparisons...\n")
+
+working_dir <- "/Users/ruotingyang/Desktop/Projects/Meta subtype/"
+input_path <- file.path(working_dir, "Meta subtype  Antigravity", "resource", "Bridged metabolomics data_subtype analysis_2026.4.22_NEW CONTROLS-2.xlsx")
+anno_path <- file.path(working_dir, "Bridged metabolomics data_subtype analysis_2025.12.18 V3.xlsx")
+out_dir <- file.path(working_dir, "Meta subtype  Antigravity", "result_FINAL_PRODUCTION", "IPW_V12_Six_Comparisons")
+dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+
+metab_data <- read_excel(input_path, sheet = "LogGroup-norm Data Bridged wImp")
+annotation <- read_excel(anno_path, sheet = "annotation")
+status_df <- read_excel(input_path, sheet = "ID match & status") %>% distinct(Metabolon_ID, .keep_all = TRUE)
+demo_df <- read_excel(input_path, sheet = "demographics") %>% distinct(Metabolon_ID, .keep_all = TRUE)
+
+metadata <- full_join(status_df, demo_df, by = "Metabolon_ID") %>%
+  mutate(PTSD_status_binary = case_when(
+    !is.na(`NEW Control group status`) & `NEW Control group status` == "Control" ~ "Control", 
+    !is.na(`OLD CATEGORY_PTSD_status_binary`) & `OLD CATEGORY_PTSD_status_binary` == "PTSD" ~ "PTSD", 
+    TRUE ~ NA_character_
+  ))
+
+common_samples <- intersect(metab_data$PARENT_SAMPLE_NAME, metadata$Metabolon_ID)
+m_data <- metab_data %>% filter(PARENT_SAMPLE_NAME %in% common_samples) %>% arrange(PARENT_SAMPLE_NAME)
+m_meta <- metadata %>% filter(Metabolon_ID %in% common_samples) %>% arrange(Metabolon_ID)
+
+mat <- t(as.matrix(m_data %>% select(-PARENT_SAMPLE_NAME)))
+colnames(mat) <- m_data$PARENT_SAMPLE_NAME
+
+m_meta <- m_meta %>% mutate(Age=as.numeric(Age), BMI=as.numeric(BMI), Gender=as.factor(Gender), Cohort=as.factor(Cohort))
+idx_complete <- complete.cases(m_meta[, c("Age", "Gender", "BMI", "Cohort")])
+m_meta <- m_meta[idx_complete,]
+mat <- mat[, idx_complete]
+
+# V12 Filter Construction
+unlog <- function(x) 2^x 
+find_id <- function(kw) annotation$CHEM_ID[grep(kw, annotation$CHEMICAL_NAME, ignore.case=TRUE)[1]]
+v_arg <- mat[as.character(find_id("^arginine$")), ]; v_orn <- mat[as.character(find_id("^ornithine$")), ]; v_cit <- mat[as.character(find_id("^citrulline$")), ]
+if(!is.null(v_arg)) mat <- rbind(mat, "GABR" = log2(unlog(v_arg)/(unlog(v_orn)+unlog(v_cit))))
+v_lac <- mat[as.character(find_id("^lactate$")), ]; v_pyr <- mat[as.character(find_id("^pyruvate$")), ]; v_citr <- mat[as.character(find_id("^citrate$")), ]
+if(!is.null(v_lac)) mat <- rbind(mat, "Glycolytic_Ratio" = log2((unlog(v_lac)+unlog(v_pyr))/unlog(v_citr)))
+
+mito <- c("Glycolysis, Gluconeogenesis, and Pyruvate Metabolism", "TCA Cycle", "Oxidative Phosphorylation", "Nicotinate and Nicotinamide Metabolism")
+lipids <- c("Ceramides", "Sphingomyelins", "Dihydrosphingomyelins", "Sphingosines", "Sphingolipid Synthesis", "Hexosylceramides (HCER)", "Lactosylceramides (LCER)", "Phosphatidylcholine (PC)", "Phosphatidylethanolamine (PE)", "Lysophospholipid", "Triacylglycerol")
+fa <- c("Carnitine Metabolism", "Ketone Bodies", "Long Chain Saturated Fatty Acid", "Long Chain Monounsaturated Fatty Acid", "Long Chain Polyunsaturated Fatty Acid (n3 and n6)", "Medium Chain Fatty Acid", "Short Chain Fatty Acid", "Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)", "Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)", "Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)", "Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)", "Fatty Acid Metabolism (Acyl Carnitine, Polyunsaturated)", "Fatty Acid Metabolism (Acyl Carnitine, Short Chain)")
+bile <- c("Primary Bile Acid Metabolism", "Secondary Bile Acid Metabolism")
+steroid <- c("Pregnenolone Steroids", "Corticosteroids", "Progestin Steroids", "Androgenic Steroids")
+purine <- c("Xanthine Metabolism", "Purine Metabolism, (Hypo)Xanthine/Inosine containing", "Purine Metabolism, Adenine containing", "Purine Metabolism, Guanine containing")
+
+base_kw <- "(tryptophan|kynuren|quinolin|kynurenic|xanthuren|anthranil|ethanolamide|PEA\\b|AEA\\b|2-AG\\b|arachidonoyl)"
+v8 <- (annotation$SUB_PATHWAY %in% c(mito, lipids, fa, bile, steroid, purine)) | grepl(base_kw, annotation$CHEMICAL_NAME, ignore.case=TRUE)
+priority <- c("serotonin", "5-HIAA", "tryptophan", "tryptamine", "melatonin", "dopamine", "dopac", "3,4-dihydroxyphenylacetate", "homovanillate", "homovanillic acid", "3-methoxytyramine", "norepinephrine", "noradrenaline", "epinephrine", "adrenaline", "metanephrine", "normetanephrine", "vanillylmandelate", "VMA", "glutamate", "glutamine", "GABA", "gamma-aminobutyrate", "acetylcholine", "choline", "histamine", "histidine")
+v12 <- rep(FALSE, nrow(annotation))
+for(p in priority) v12 <- v12 | grepl(paste0("\\b",p,"\\b"), annotation$CHEMICAL_NAME, ignore.case=TRUE)
+
+targets <- c(as.character(annotation$CHEM_ID[v8 | v12]), "GABR", "Glycolytic_Ratio")
+mat <- mat[rownames(mat) %in% targets, ]
+
+# Setup Groupings
+m_meta <- m_meta %>% mutate(
+  Group_Sub = case_when(
+    PTSD_status_binary=="Control"~"Control", 
+    four_subtypes=="Depressive Symptom Subtype"~"Depressive", 
+    four_subtypes=="Impaired Cognitive Function"~"Cognitive", 
+    four_subtypes=="Subthreshold/Mild PTSD Subtype"~"MildPTSD",
+    four_subtypes=="Moderate/Severe PTSD Subtype"~"SeverePTSD", 
+    TRUE~NA_character_),
+  
+  Group_Cog = case_when(
+    PTSD_status_binary=="Control"~"Control",
+    cognitive_function=="+ Cognitive Impairment"~"Cog_Pos",
+    cognitive_function=="- Cognitive Impairment"~"Cog_Neg",
+    TRUE~NA_character_)
+)
+
+results_out <- data.frame()
+
+run_ipw <- function(data_meta, data_mat, grp_var, case_val, control_val, comp_name) {
+  sub_m <- data_meta %>% filter(!is.na(!!sym(grp_var)) & !!sym(grp_var) %in% c(case_val, control_val))
+  sub_mat <- data_mat[, sub_m$Metabolon_ID]
+  sub_m$IsCase <- ifelse(sub_m[[grp_var]] == case_val, 1, 0)
+  
+  ps_mod <- glm(IsCase ~ Age + Gender + BMI + Cohort, data=sub_m, family=binomial)
+  sub_m$PS <- predict(ps_mod, type="response")
+  marg <- mean(sub_m$IsCase)
+  sub_m$SW <- ifelse(sub_m$IsCase==1, marg/sub_m$PS, (1-marg)/(1-sub_m$PS))
+  
+  q_low <- quantile(sub_m$SW, 0.05); q_high <- quantile(sub_m$SW, 0.95)
+  sub_m$Trunc_Weight <- pmax(pmin(sub_m$SW, q_high), q_low)
+  
+  Grp <- factor(sub_m$IsCase, levels=c(0,1), labels=c("ControlGrp", "CaseGrp"))
+  dsn <- model.matrix(~0 + Grp + Age + Gender + BMI + Cohort, data=sub_m)
+  
+  fit <- eBayes(contrasts.fit(lmFit(sub_mat, dsn, weights=sub_m$Trunc_Weight), makeContrasts("GrpCaseGrp-GrpControlGrp", levels=dsn)), robust=TRUE, trend=TRUE)
+  res <- topTable(fit, coef=1, n=Inf, sort.by="P")
+  
+  sig_01 <- sum(res$P.Value < 0.01)
+  sig_fdr <- sum(res$adj.P.Val < 0.05)
+  
+  results_out <<- rbind(results_out, data.frame(Comparison = comp_name, P_01_Nodes = sig_01, FDR_05_Nodes = sig_fdr))
+  
+  res$CHEM_ID <- rownames(res); res$Original_ID <- res$CHEM_ID; res$CHEM_ID <- suppressWarnings(as.numeric(res$CHEM_ID))
+  res_out <- left_join(res, annotation, by="CHEM_ID")
+  res_out$CHEMICAL_NAME <- ifelse(is.na(res_out$CHEMICAL_NAME), res_out$Original_ID, res_out$CHEMICAL_NAME)
+  write.csv(res_out, file.path(out_dir, paste0(comp_name, ".csv")), row.names=FALSE)
+}
+
+# The 6 Comparisons
+run_ipw(m_meta, mat, "Group_Cog", "Cog_Pos", "Cog_Neg", "1_CogPos_vs_CogNeg")
+run_ipw(m_meta, mat, "Group_Cog", "Cog_Pos", "Control", "2_CogPos_vs_Control")
+run_ipw(m_meta, mat, "Group_Sub", "Depressive", "Control", "3_Depressive_vs_Control")
+run_ipw(m_meta, mat, "Group_Sub", "Cognitive", "Control", "4_Cognitive_vs_Control")
+run_ipw(m_meta, mat, "Group_Sub", "MildPTSD", "Control", "5_MildPTSD_vs_Control")
+run_ipw(m_meta, mat, "Group_Sub", "SeverePTSD", "Control", "6_SeverePTSD_vs_Control")
+
+print(results_out)

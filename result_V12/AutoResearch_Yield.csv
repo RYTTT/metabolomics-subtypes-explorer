@@ -1,0 +1,7 @@
+"Model","Depressive - Control","Cognitive - Control","MildPTSD - Control"
+"Model 0: Base GLM Matrix",22,18,3
+"Model 1: Sparse (Less Covariates)",16,48,3
+"Model 2: Robust eBayes",23,21,6
+"Model 3: SVA Latent Denoising",18,48,4
+"Model 4: Quantile Normalized",16,16,3
+"Model 5: IPW Randomization",42,47,6

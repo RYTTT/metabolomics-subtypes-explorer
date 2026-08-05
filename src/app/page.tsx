@@ -4,19 +4,12 @@ import React, { useState, useMemo } from "react";
 import {
   Search,
   Download,
-  Filter,
   RefreshCw,
   Brain,
-  Sparkles,
   Activity,
   Layers,
   BookOpen,
-  CheckCircle2,
-  ChevronDown,
   ArrowUpDown,
-  BarChart2,
-  PieChart,
-  ShieldCheck,
 } from "lucide-react";
 import rawData from "@/data/metabolites_data.json";
 import { Metabolite, ComparisonKey, COMPARISON_LABELS } from "@/types/metabolite";

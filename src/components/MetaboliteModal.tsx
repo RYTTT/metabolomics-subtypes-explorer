@@ -9,7 +9,6 @@ import {
   Dna,
   Layers,
   Activity,
-  CheckCircle2,
 } from "lucide-react";
 import {
   BarChart,
@@ -22,7 +21,7 @@ import {
   Cell,
   ReferenceLine,
 } from "recharts";
-import { Metabolite, ComparisonKey, COMPARISON_LABELS } from "@/types/metabolite";
+import { Metabolite, COMPARISON_LABELS } from "@/types/metabolite";
 
 interface MetaboliteModalProps {
   metabolite: Metabolite | null;
@@ -175,7 +174,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
         <div className="mt-6">
           <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-2">
             <Layers className="w-4 h-4 text-cyan-400" />
-            Differential Statistics across 6 Comparisons
+            Differential Statistics across 7 Comparisons
           </h3>
           <div className="overflow-x-auto rounded-xl border border-slate-800">
             <table className="w-full text-xs text-left">

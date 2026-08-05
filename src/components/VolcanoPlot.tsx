@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   ScatterChart,
   Scatter,
@@ -140,7 +140,7 @@ export default function VolcanoPlot({
 
             <Scatter
               data={data}
-              onClick={(entry: any) => {
+              onClick={(entry: { metabolite?: Metabolite; payload?: { metabolite?: Metabolite } }) => {
                 const met = entry?.metabolite || entry?.payload?.metabolite;
                 if (met) {
                   onSelectMetabolite(met);

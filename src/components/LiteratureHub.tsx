@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BookOpen, ExternalLink, Brain, Sparkles, Filter, CheckCircle2 } from "lucide-react";
+import { BookOpen, ExternalLink, Filter } from "lucide-react";
 import { Metabolite } from "@/types/metabolite";
 
 interface LiteratureHubProps {
@@ -55,7 +55,7 @@ export default function LiteratureHub({ metabolites, onSelectMetabolite }: Liter
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {categorized.slice(0, 30).map((m) => {
           // Check top significant comparisons for badge display
-          const sigComps = Object.entries(m.comparisons).filter(([_, c]) => c["P.Value"] < 0.05);
+          const sigComps = Object.entries(m.comparisons).filter(([, c]) => c["P.Value"] < 0.05);
 
           return (
             <div

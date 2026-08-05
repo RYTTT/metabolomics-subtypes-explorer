@@ -9,3 +9,12 @@ resource/Bridged metabolomics data_subtype analysis_2026.4.22_NEW CONTROLS-2.xls
 .RData
 .Ruserdata
 .Rproj.user/
+
+# Web App build files
+node_modules/
+.next/
+out/
+build/
+metabolomics-web/node_modules/
+metabolomics-web/.next/
+metabolomics-web/out/

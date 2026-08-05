@@ -1,0 +1,10 @@
+{
+  "name": "metabolomics-subtypes-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd metabolomics-web && npm run dev",
+    "build": "cd metabolomics-web && npm run build",
+    "start": "cd metabolomics-web && npm run start"
+  }
+}

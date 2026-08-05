@@ -1,0 +1,5 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "cd metabolomics-web && npm run build",
+  "outputDirectory": "metabolomics-web/.next"
+}

@@ -18,12 +18,12 @@ import MetaboliteModal from "@/components/MetaboliteModal";
 import LiteratureHub from "@/components/LiteratureHub";
 
 const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }> = {
-  Depressive_vs_Control: { title: "Depressive Subtype", subtitle: "MDD vs Control" },
+  Depressive_vs_Control: { title: "MDD+ vs MDD-", subtitle: "Depressive Subtype vs Control" },
   Cognitive_vs_Control: { title: "Cognitive Subtype", subtitle: "CogPos vs Control" },
-  MildPTSD_vs_Control: { title: "Mild PTSD", subtitle: "PTSD+ vs Control" },
-  SeverePTSD_vs_Control: { title: "Severe PTSD", subtitle: "PTSD+ vs Control" },
-  MildPTSD_vs_SeverePTSD: { title: "Mild vs Severe", subtitle: "Mild vs Severe PTSD" },
-  CogPos_vs_Control: { title: "CogPos Overall", subtitle: "+Cog vs Control" },
+  MildPTSD_vs_Control: { title: "Mild PTSD+ vs PTSD-", subtitle: "Mild PTSD vs Control" },
+  SeverePTSD_vs_Control: { title: "Severe PTSD+ vs PTSD-", subtitle: "Severe PTSD vs Control" },
+  MildPTSD_vs_SeverePTSD: { title: "Mild vs Severe PTSD", subtitle: "Mild vs Severe" },
+  CogPos_vs_Control: { title: "CogPos vs Control", subtitle: "+Cog vs Control" },
   CogPos_vs_CogNeg: { title: "CogPos vs CogNeg", subtitle: "+Cog vs -Cog" },
 };
 

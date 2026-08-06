@@ -1,6 +1,6 @@
 [
   {
-    "chem_id": "100008992.0",
+    "chem_id": "100008992",
     "chemical_name": "1-stearoyl-2-docosahexaenoyl-GPE (18:0/22:6)*",
     "plot_name": "1-stearoyl-2-docosahexaenoyl-GPE (18:0/22:6)*",
     "super_pathway": "Lipid",
@@ -117,7 +117,7 @@
     }
   },
   {
-    "chem_id": "100008915.0",
+    "chem_id": "100008915",
     "chemical_name": "1-palmitoyl-2-docosahexaenoyl-GPC (16:0/22:6)",
     "plot_name": "1-palmitoyl-2-docosahexaenoyl-GPC (16:0/22:6)",
     "super_pathway": "Lipid",
@@ -234,7 +234,7 @@
     }
   },
   {
-    "chem_id": "100008916.0",
+    "chem_id": "100008916",
     "chemical_name": "1-stearoyl-2-docosahexaenoyl-GPC (18:0/22:6)",
     "plot_name": "1-stearoyl-2-docosahexaenoyl-GPC (18:0/22:6)",
     "super_pathway": "Lipid",
@@ -351,7 +351,7 @@
     }
   },
   {
-    "chem_id": "100009125.0",
+    "chem_id": "100009125",
     "chemical_name": "1-margaroyl-2-docosahexaenoyl-GPC (17:0/22:6)*",
     "plot_name": "1-margaroyl-2-docosahexaenoyl-GPC (17:0/22:6)*",
     "super_pathway": "Lipid",
@@ -468,7 +468,7 @@
     }
   },
   {
-    "chem_id": "100008991.0",
+    "chem_id": "100008991",
     "chemical_name": "1-palmitoyl-2-docosahexaenoyl-GPE (16:0/22:6)*",
     "plot_name": "1-palmitoyl-2-docosahexaenoyl-GPE (16:0/22:6)*",
     "super_pathway": "Lipid",
@@ -585,7 +585,7 @@
     }
   },
   {
-    "chem_id": "100009123.0",
+    "chem_id": "100009123",
     "chemical_name": "1-pentadecanoyl-2-docosahexaenoyl-GPC (15:0/22:6)*",
     "plot_name": "1-pentadecanoyl-2-docosahexaenoyl-GPC (15:0/22:6)*",
     "super_pathway": "Lipid",
@@ -702,7 +702,7 @@
     }
   },
   {
-    "chem_id": "100020214.0",
+    "chem_id": "100020214",
     "chemical_name": "glyco-beta-muricholate**",
     "plot_name": "glyco-beta-muricholate**",
     "super_pathway": "Lipid",
@@ -819,7 +819,7 @@
     }
   },
   {
-    "chem_id": "100001994.0",
+    "chem_id": "100001994",
     "chemical_name": "androstenediol (3beta,17beta) disulfate (2)",
     "plot_name": "androstenediol (3beta,17beta) disulfate (2)",
     "super_pathway": "Lipid",
@@ -937,7 +937,7 @@
     }
   },
   {
-    "chem_id": "100021104.0",
+    "chem_id": "100021104",
     "chemical_name": "pregnenetriol disulfate*",
     "plot_name": "pregnenetriol disulfate*",
     "super_pathway": "Lipid",
@@ -1055,7 +1055,7 @@
     }
   },
   {
-    "chem_id": "100001557.0",
+    "chem_id": "100001557",
     "chemical_name": "2-linoleoyl-GPC (18:2)*",
     "plot_name": "2-linoleoyl-GPC (18:2)*",
     "super_pathway": "Lipid",
@@ -1172,7 +1172,7 @@
     }
   },
   {
-    "chem_id": "100001992.0",
+    "chem_id": "100001992",
     "chemical_name": "androstenediol (3beta,17beta) disulfate (1)",
     "plot_name": "androstenediol (3beta,17beta) disulfate (1)",
     "super_pathway": "Lipid",
@@ -1290,7 +1290,7 @@
     }
   },
   {
-    "chem_id": "100001993.0",
+    "chem_id": "100001993",
     "chemical_name": "pregnenediol disulfate (C21H34O8S2)*",
     "plot_name": "pregnen-diol disulfate*",
     "super_pathway": "Lipid",
@@ -1408,7 +1408,7 @@
     }
   },
   {
-    "chem_id": "100008903.0",
+    "chem_id": "100008903",
     "chemical_name": "1,2-dilinoleoyl-GPC (18:2/18:2)",
     "plot_name": "1,2-dilinoleoyl-GPC (18:2/18:2)",
     "super_pathway": "Lipid",
@@ -1525,7 +1525,7 @@
     }
   },
   {
-    "chem_id": "100000626.0",
+    "chem_id": "100000626",
     "chemical_name": "sphingosine 1-phosphate",
     "plot_name": "sphingosine 1-phosphate",
     "super_pathway": "Lipid",
@@ -1642,7 +1642,7 @@
     }
   },
   {
-    "chem_id": "100009130.0",
+    "chem_id": "100009130",
     "chemical_name": "1-oleoyl-2-docosahexaenoyl-GPC (18:1/22:6)*",
     "plot_name": "1-oleoyl-2-docosahexaenoyl-GPC (18:1/22:6)*",
     "super_pathway": "Lipid",
@@ -1759,7 +1759,7 @@
     }
   },
   {
-    "chem_id": "100009220.0",
+    "chem_id": "100009220",
     "chemical_name": "1-oleoyl-2-docosahexaenoyl-GPE (18:1/22:6)*",
     "plot_name": "1-oleoyl-2-docosahexaenoyl-GPE (18:1/22:6)*",
     "super_pathway": "Lipid",
@@ -1876,7 +1876,7 @@
     }
   },
   {
-    "chem_id": "100003151.0",
+    "chem_id": "100003151",
     "chemical_name": "linoleoylcarnitine (C18:2)*",
     "plot_name": "linoleoylcarnitine (C18:2)*",
     "super_pathway": "Lipid",
@@ -1993,7 +1993,7 @@
     }
   },
   {
-    "chem_id": "100001552.0",
+    "chem_id": "100001552",
     "chemical_name": "1-dihomo-linolenoyl-GPC (20:3n3 or n6)*",
     "plot_name": "1-dihomo-linolenoyl-GPC (20:3n3 or n6)*",
     "super_pathway": "Lipid",
@@ -2110,7 +2110,7 @@
     }
   },
   {
-    "chem_id": "100001254.0",
+    "chem_id": "100001254",
     "chemical_name": "N-acetyltryptophan",
     "plot_name": "N-acetyltryptophan",
     "super_pathway": "Amino Acid",
@@ -2227,7 +2227,7 @@
     }
   },
   {
-    "chem_id": "100001999.0",
+    "chem_id": "100001999",
     "chemical_name": "21-hydroxypregnenolone disulfate",
     "plot_name": "21-hydroxypregnenolone disulfate",
     "super_pathway": "Lipid",
@@ -2345,7 +2345,7 @@
     }
   },
   {
-    "chem_id": "100001776.0",
+    "chem_id": "100001776",
     "chemical_name": "2-linoleoyl-GPE (18:2)*",
     "plot_name": "2-linoleoyl-GPE (18:2)*",
     "super_pathway": "Lipid",
@@ -2462,7 +2462,7 @@
     }
   },
   {
-    "chem_id": "100001468.0",
+    "chem_id": "100001468",
     "chemical_name": "N1-methyl-2-pyridone-5-carboxamide",
     "plot_name": "N1-methyl-2-pyridone-5-carboxamide",
     "super_pathway": "Cofactors and Vitamins",
@@ -2572,7 +2572,7 @@
     }
   },
   {
-    "chem_id": "100001570.0",
+    "chem_id": "100001570",
     "chemical_name": "1-linoleoyl-GPE (18:2)*",
     "plot_name": "1-linoleoyl-GPE (18:2)*",
     "super_pathway": "Lipid",
@@ -2689,7 +2689,7 @@
     }
   },
   {
-    "chem_id": "100002028.0",
+    "chem_id": "100002028",
     "chemical_name": "androstenediol (3beta,17beta) monosulfate (1)",
     "plot_name": "androstenediol (3beta,17beta) monosulfate (1)",
     "super_pathway": "Lipid",
@@ -2807,7 +2807,7 @@
     }
   },
   {
-    "chem_id": "100001395.0",
+    "chem_id": "100001395",
     "chemical_name": "1-linoleoyl-GPC (18:2)",
     "plot_name": "1-linoleoyl-GPC (18:2)",
     "super_pathway": "Lipid",
@@ -2924,7 +2924,7 @@
     }
   },
   {
-    "chem_id": "100002128.0",
+    "chem_id": "100002128",
     "chemical_name": "17alpha-hydroxypregnenolone 3-sulfate",
     "plot_name": "17alpha-hydroxypregnenolone 3-sulfate",
     "super_pathway": "Lipid",
@@ -3042,7 +3042,7 @@
     }
   },
   {
-    "chem_id": "100009140.0",
+    "chem_id": "100009140",
     "chemical_name": "1-myristoyl-2-docosahexaenoyl-GPC (14:0/22:6)*",
     "plot_name": "1-myristoyl-2-docosahexaenoyl-GPC (14:0/22:6)*",
     "super_pathway": "Lipid",
@@ -3159,7 +3159,7 @@
     }
   },
   {
-    "chem_id": "100020542.0",
+    "chem_id": "100020542",
     "chemical_name": "11beta-hydroxyetiocholanolone glucuronide*",
     "plot_name": "11beta-hydroxyetiocholanolone glucuronide*",
     "super_pathway": "Lipid",
@@ -3277,7 +3277,7 @@
     }
   },
   {
-    "chem_id": "100005371.0",
+    "chem_id": "100005371",
     "chemical_name": "1-dihomo-linolenoyl-GPE (20:3n3 or n6)*",
     "plot_name": "1-dihomo-linolenoyl-GPE (20:3n3 or n6)*",
     "super_pathway": "Lipid",
@@ -3394,7 +3394,7 @@
     }
   },
   {
-    "chem_id": "100001556.0",
+    "chem_id": "100001556",
     "chemical_name": "2-oleoyl-GPC (18:1)*",
     "plot_name": "2-oleoyl-GPC (18:1)*",
     "super_pathway": "Lipid",
@@ -3511,7 +3511,7 @@
     }
   },
   {
-    "chem_id": "207.0",
+    "chem_id": "207",
     "chemical_name": "adenosine 3',5'-cyclic monophosphate (cAMP)",
     "plot_name": "adenosine 3',5'-cyclic monophosphate (cAMP)",
     "super_pathway": "Nucleotide",
@@ -3621,7 +3621,7 @@
     }
   },
   {
-    "chem_id": "100001869.0",
+    "chem_id": "100001869",
     "chemical_name": "1-stearoyl-2-arachidonoyl-GPC (18:0/20:4)",
     "plot_name": "1-stearoyl-2-arachidonoyl-GPC (18:0/20:4)",
     "super_pathway": "Lipid",
@@ -3738,7 +3738,7 @@
     }
   },
   {
-    "chem_id": "100001263.0",
+    "chem_id": "100001263",
     "chemical_name": "1-palmitoyl-GPC (16:0)",
     "plot_name": "1-palmitoyl-GPC (16:0)",
     "super_pathway": "Lipid",
@@ -3855,7 +3855,7 @@
     }
   },
   {
-    "chem_id": "100008989.0",
+    "chem_id": "100008989",
     "chemical_name": "1-palmitoyl-2-eicosapentaenoyl-GPC (16:0/20:5)*",
     "plot_name": "1-palmitoyl-2-eicosapentaenoyl-GPC (16:0/20:5)*",
     "super_pathway": "Lipid",
@@ -3972,7 +3972,7 @@
     }
   },
   {
-    "chem_id": "100006379.0",
+    "chem_id": "100006379",
     "chemical_name": "C-glycosyltryptophan",
     "plot_name": "C-glycosyltryptophan",
     "super_pathway": "Amino Acid",
@@ -4089,7 +4089,7 @@
     }
   },
   {
-    "chem_id": "100002106.0",
+    "chem_id": "100002106",
     "chemical_name": "sphingomyelin (d18:1/18:1, d18:2/18:0)",
     "plot_name": "sphingomyelin (d18:1/18:1, d18:2/18:0)",
     "super_pathway": "Lipid",
@@ -4206,7 +4206,7 @@
     }
   },
   {
-    "chem_id": "100004083.0",
+    "chem_id": "100004083",
     "chemical_name": "glycohyocholate",
     "plot_name": "glycohyocholate",
     "super_pathway": "Lipid",
@@ -4323,7 +4323,7 @@
     }
   },
   {
-    "chem_id": "100009124.0",
+    "chem_id": "100009124",
     "chemical_name": "1-margaroyl-2-arachidonoyl-GPC (17:0/20:4)*",
     "plot_name": "1-margaroyl-2-arachidonoyl-GPC (17:0/20:4)*",
     "super_pathway": "Lipid",
@@ -4440,7 +4440,7 @@
     }
   },
   {
-    "chem_id": "100001553.0",
+    "chem_id": "100001553",
     "chemical_name": "1-dihomo-linoleoyl-GPC (20:2)*",
     "plot_name": "1-eicosadienoyl-GPC* (20:2)*",
     "super_pathway": "Lipid",
@@ -4557,7 +4557,7 @@
     }
   },
   {
-    "chem_id": "100001562.0",
+    "chem_id": "100001562",
     "chemical_name": "2-palmitoyl-GPC (16:0)*",
     "plot_name": "2-palmitoyl-GPC (16:0)*",
     "super_pathway": "Lipid",
@@ -4674,7 +4674,7 @@
     }
   },
   {
-    "chem_id": "100001272.0",
+    "chem_id": "100001272",
     "chemical_name": "1-oleoyl-GPC (18:1)",
     "plot_name": "1-oleoyl-GPC (18:1)",
     "super_pathway": "Lipid",
@@ -4791,7 +4791,7 @@
     }
   },
   {
-    "chem_id": "100000015.0",
+    "chem_id": "100000015",
     "chemical_name": "xanthurenate",
     "plot_name": "xanthurenate",
     "super_pathway": "Amino Acid",
@@ -4908,7 +4908,7 @@
     }
   },
   {
-    "chem_id": "100001876.0",
+    "chem_id": "100001876",
     "chemical_name": "sphinganine-1-phosphate",
     "plot_name": "sphinganine-1-phosphate",
     "super_pathway": "Lipid",
@@ -5025,7 +5025,7 @@
     }
   },
   {
-    "chem_id": "100002027.0",
+    "chem_id": "100002027",
     "chemical_name": "androstenediol (3alpha, 17alpha) monosulfate (3)",
     "plot_name": "androstenediol (3alpha, 17alpha) monosulfate (3)",
     "super_pathway": "Lipid",
@@ -5143,7 +5143,7 @@
     }
   },
   {
-    "chem_id": "100021103.0",
+    "chem_id": "100021103",
     "chemical_name": "pregnenetriol sulfate*",
     "plot_name": "pregnenetriol sulfate*",
     "super_pathway": "Lipid",
@@ -5261,7 +5261,7 @@
     }
   },
   {
-    "chem_id": "100005350.0",
+    "chem_id": "100005350",
     "chemical_name": "1-linolenoyl-GPC (18:3)*",
     "plot_name": "1-linolenoyl-GPC (18:3)*",
     "super_pathway": "Lipid",
@@ -5378,7 +5378,7 @@
     }
   },
   {
-    "chem_id": "100000792.0",
+    "chem_id": "100000792",
     "chemical_name": "dehydroepiandrosterone sulfate (DHEA-S)",
     "plot_name": "dehydroepiandrosterone sulfate (DHEA-S)",
     "super_pathway": "Lipid",
@@ -5496,7 +5496,7 @@
     }
   },
   {
-    "chem_id": "100020864.0",
+    "chem_id": "100020864",
     "chemical_name": "1-(14 or 15)-methylpalmitoyl-GPC (a17:0 or i17:0)*",
     "plot_name": "1-(14 or 15)-methylpalmitoyl-GPC (a17:0 or i17:0)*",
     "super_pathway": "Lipid",
@@ -5613,7 +5613,7 @@
     }
   },
   {
-    "chem_id": "100006726.0",
+    "chem_id": "100006726",
     "chemical_name": "linoleoyl ethanolamide (18:2)",
     "plot_name": "linoleoyl ethanolamide (18:2)",
     "super_pathway": "Lipid",
@@ -5730,7 +5730,7 @@
     }
   },
   {
-    "chem_id": "100010936.0",
+    "chem_id": "100010936",
     "chemical_name": "oleoyl-arachidonoyl-glycerol (18:1/20:4) [1]*",
     "plot_name": "oleoyl-arachidonoyl-glycerol (18:1/20:4) [1]*",
     "super_pathway": "Lipid",
@@ -5847,7 +5847,7 @@
     }
   },
   {
-    "chem_id": "1489.0",
+    "chem_id": "1489",
     "chemical_name": "palmitoyl ethanolamide (16:0)",
     "plot_name": "palmitoyl ethanolamide (16:0)",
     "super_pathway": "Lipid",
@@ -5957,7 +5957,7 @@
     }
   },
   {
-    "chem_id": "355.0",
+    "chem_id": "355",
     "chemical_name": "histidine",
     "plot_name": "histidine",
     "super_pathway": "Amino Acid",
@@ -6067,7 +6067,7 @@
     }
   },
   {
-    "chem_id": "100010937.0",
+    "chem_id": "100010937",
     "chemical_name": "oleoyl-arachidonoyl-glycerol (18:1/20:4) [2]*",
     "plot_name": "oleoyl-arachidonoyl-glycerol (18:1/20:4) [2]*",
     "super_pathway": "Lipid",
@@ -6184,7 +6184,7 @@
     }
   },
   {
-    "chem_id": "100001566.0",
+    "chem_id": "100001566",
     "chemical_name": "1-docosahexaenoyl-GPC (22:6)*",
     "plot_name": "1-docosahexaenoyl-GPC (22:6)*",
     "super_pathway": "Lipid",
@@ -6301,7 +6301,7 @@
     }
   },
   {
-    "chem_id": "100001657.0",
+    "chem_id": "100001657",
     "chemical_name": "glycolithocholate sulfate*",
     "plot_name": "glycolithocholate sulfate*",
     "super_pathway": "Lipid",
@@ -6418,7 +6418,7 @@
     }
   },
   {
-    "chem_id": "100001271.0",
+    "chem_id": "100001271",
     "chemical_name": "1-stearoyl-GPC (18:0)",
     "plot_name": "1-stearoyl-GPC (18:0)",
     "super_pathway": "Lipid",
@@ -6535,7 +6535,7 @@
     }
   },
   {
-    "chem_id": "100001778.0",
+    "chem_id": "100001778",
     "chemical_name": "1-linoleoyl-GPI (18:2)*",
     "plot_name": "1-linoleoyl-GPI* (18:2)*",
     "super_pathway": "Lipid",
@@ -6652,7 +6652,7 @@
     }
   },
   {
-    "chem_id": "100006361.0",
+    "chem_id": "100006361",
     "chemical_name": "dopamine 3-O-sulfate",
     "plot_name": "dopamine 3-O-sulfate",
     "super_pathway": "Amino Acid",
@@ -6762,7 +6762,7 @@
     }
   },
   {
-    "chem_id": "100002026.0",
+    "chem_id": "100002026",
     "chemical_name": "androstenediol (3alpha, 17alpha) monosulfate (2)",
     "plot_name": "androstenediol (3alpha, 17alpha) monosulfate (2)",
     "super_pathway": "Lipid",
@@ -6880,7 +6880,7 @@
     }
   },
   {
-    "chem_id": "100020261.0",
+    "chem_id": "100020261",
     "chemical_name": "glutamine conjugate of C6H10O2 (1)*",
     "plot_name": "glutamine conjugate of C6H10O2 (1)*",
     "super_pathway": "Partially Characterized Molecules",
@@ -6990,7 +6990,7 @@
     }
   },
   {
-    "chem_id": "100020262.0",
+    "chem_id": "100020262",
     "chemical_name": "glutamine conjugate of C6H10O2 (2)*",
     "plot_name": "glutamine conjugate of C6H10O2 (2)*",
     "super_pathway": "Partially Characterized Molecules",
@@ -7100,7 +7100,7 @@
     }
   },
   {
-    "chem_id": "100001197.0",
+    "chem_id": "100001197",
     "chemical_name": "10-undecenoate (11:1n1)",
     "plot_name": "10-undecenoate (11:1n1)",
     "super_pathway": "Lipid",
@@ -7210,7 +7210,7 @@
     }
   },
   {
-    "chem_id": "100003594.0",
+    "chem_id": "100003594",
     "chemical_name": "phenylalanyltryptophan",
     "plot_name": "phenylalanyltryptophan",
     "super_pathway": "Peptide",
@@ -7327,7 +7327,7 @@
     }
   },
   {
-    "chem_id": "100009209.0",
+    "chem_id": "100009209",
     "chemical_name": "1-palmitoyl-2-eicosapentaenoyl-GPE (16:0/20:5)*",
     "plot_name": "1-palmitoyl-2-eicosapentaenoyl-GPE (16:0/20:5)*",
     "super_pathway": "Lipid",
@@ -7444,7 +7444,7 @@
     }
   },
   {
-    "chem_id": "100001511.0",
+    "chem_id": "100001511",
     "chemical_name": "1-palmitoleoyl-GPC (16:1)*",
     "plot_name": "1-palmitoleoyl-GPC (16:1)*",
     "super_pathway": "Lipid",
@@ -7561,7 +7561,7 @@
     }
   },
   {
-    "chem_id": "100001415.0",
+    "chem_id": "100001415",
     "chemical_name": "N6-carbamoylthreonyladenosine",
     "plot_name": "N6-carbamoylthreonyladenosine",
     "super_pathway": "Nucleotide",
@@ -7671,7 +7671,7 @@
     }
   },
   {
-    "chem_id": "132.0",
+    "chem_id": "132",
     "chemical_name": "3-phosphoglycerate",
     "plot_name": "3-phosphoglycerate",
     "super_pathway": "Carbohydrate",
@@ -7788,7 +7788,7 @@
     }
   },
   {
-    "chem_id": "100005714.0",
+    "chem_id": "100005714",
     "chemical_name": "1-linolenoyl-GPE (18:3)*",
     "plot_name": "1-linolenoyl-GPE (18:3)*",
     "super_pathway": "Lipid",
@@ -7905,7 +7905,7 @@
     }
   },
   {
-    "chem_id": "297.0",
+    "chem_id": "297",
     "chemical_name": "sphingosine",
     "plot_name": "sphingosine",
     "super_pathway": "Lipid",
@@ -8022,7 +8022,7 @@
     }
   },
   {
-    "chem_id": "100001461.0",
+    "chem_id": "100001461",
     "chemical_name": "1-stearoyl-GPE (18:0)",
     "plot_name": "1-stearoyl-GPE (18:0)",
     "super_pathway": "Lipid",
@@ -8139,7 +8139,7 @@
     }
   },
   {
-    "chem_id": "100001674.0",
+    "chem_id": "100001674",
     "chemical_name": "2-arachidonoyl-GPE (20:4)*",
     "plot_name": "2-arachidonoyl-GPE (20:4)*",
     "super_pathway": "Lipid",
@@ -8256,7 +8256,7 @@
     }
   },
   {
-    "chem_id": "100001658.0",
+    "chem_id": "100001658",
     "chemical_name": "taurolithocholate 3-sulfate",
     "plot_name": "taurolithocholate 3-sulfate",
     "super_pathway": "Lipid",
@@ -8373,7 +8373,7 @@
     }
   },
   {
-    "chem_id": "100001651.0",
+    "chem_id": "100001651",
     "chemical_name": "2-oleoyl-GPE (18:1)*",
     "plot_name": "2-oleoyl-GPE (18:1)*",
     "super_pathway": "Lipid",
@@ -8490,7 +8490,7 @@
     }
   },
   {
-    "chem_id": "100002871.0",
+    "chem_id": "100002871",
     "chemical_name": "1-adrenoyl-GPC (22:4)*",
     "plot_name": "1-adrenoyl-GPC (22:4)*",
     "super_pathway": "Lipid",
@@ -8607,7 +8607,7 @@
     }
   },
   {
-    "chem_id": "100009219.0",
+    "chem_id": "100009219",
     "chemical_name": "1-oleoyl-2-arachidonoyl-GPE (18:1/20:4)*",
     "plot_name": "1-oleoyl-2-arachidonoyl-GPE (18:1/20:4)*",
     "super_pathway": "Lipid",
@@ -8724,7 +8724,7 @@
     }
   },
   {
-    "chem_id": "100001108.0",
+    "chem_id": "100001108",
     "chemical_name": "3-methylxanthine",
     "plot_name": "3-methylxanthine",
     "super_pathway": "Xenobiotics",
@@ -8834,11 +8834,11 @@
     }
   },
   {
-    "chem_id": "nan",
+    "chem_id": "Glycolytic_Ratio",
     "chemical_name": "Glycolytic_Ratio",
-    "plot_name": "nan",
-    "super_pathway": "Uncategorized",
-    "sub_pathway": "Uncategorized",
+    "plot_name": "Glycolytic_Ratio",
+    "super_pathway": "Composite Index",
+    "sub_pathway": "Composite Index",
     "hmdb": "",
     "kegg": "",
     "pubchem": "",
@@ -8850,92 +8850,81 @@
     "ptsd_biopriority": true,
     "neuro_addon": true,
     "disorders": [
+      "Severe PTSD",
       "MDD",
-      "PTSD",
-      "Gut-Brain Axis"
+      "Mitochondrial Bioenergetic Deficit"
     ],
-    "mechanism": "Primary and secondary bile acids cross the blood-brain barrier and regulate central FXR/TGR5 nuclear receptors. Alterations signal gut-microbiome-brain axis perturbation in major depressive and post-traumatic states (PTSD+).",
-    "pathway_category": "Bile Acid & Gut-Brain Axis",
+    "mechanism": "Glycolytic Index = (Lactate + Pyruvate) / Citrate. Measures astroglial-neuronal glycolytic shift relative to TCA cycle oxidative phosphorylation. Elevated Glycolytic Index indicates anaerobic bioenergetic reprogramming and mitochondrial strain under severe trauma and psychiatric stress.",
+    "pathway_category": "Composite Index: Glycolytic Shift & Bioenergetics",
     "references": [
       {
-        "title": "Gut microbiome-derived bile acids in major depressive disorder and stress vulnerability",
-        "journal": "Cell Metab (2020)",
-        "pmid": "32669634",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/32669634/"
+        "title": "Plasma metabolomics reveals TCA cycle and energy metabolite alterations in psychiatric subtypes",
+        "journal": "Metabolomics (2019)",
+        "pmid": "31055531",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31055531/"
       },
       {
-        "title": "Secondary bile acid metabolism alterations in PTSD",
-        "journal": "Brain Behav Immun (2021)",
-        "pmid": "33413988",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33413988/"
+        "title": "Mitochondrial dysfunction and lactate accumulation in severe PTSD and depression",
+        "journal": "JAMA Psychiatry (2018)",
+        "pmid": "29906692",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"
       }
     ],
     "comparisons": {
       "Depressive_vs_Control": {
-        "logFC": -0.0800599295879306,
-        "P.Value": 0.160412057809293,
-        "adj.P.Val": 0.671289589745413,
-        "t": -1.4055804792463,
-        "AveExpr": -0.975082139603507,
-        "B": -4.98770651174416,
+        "logFC": 0.0892539063641542,
+        "P.Value": 0.11824344097503,
+        "adj.P.Val": 0.591217204875152,
+        "t": 1.56463035044696,
+        "AveExpr": 1.09876094555552,
+        "B": -4.76930498571013,
         "color": "grey",
         "direction": "NC",
         "p_tier": "NS"
       },
       "Cognitive_vs_Control": {
-        "logFC": 0.0133548373808451,
-        "P.Value": 0.729415449501389,
-        "adj.P.Val": 0.898966490249487,
-        "t": 0.34607891301749,
-        "AveExpr": -0.975082139603507,
-        "B": -5.64837407853238,
-        "color": "grey",
-        "direction": "NC",
-        "p_tier": "NS"
-      },
-      "MildPTSD_vs_Control": {
-        "logFC": -0.0633689741260635,
-        "P.Value": 0.0929536344784843,
-        "adj.P.Val": 0.913320386328114,
-        "t": -1.68293626900028,
-        "AveExpr": -0.975082139603507,
-        "B": -4.29192009389563,
-        "color": "grey",
-        "direction": "NC",
-        "p_tier": "NS"
-      },
-      "SeverePTSD_vs_Control": {
-        "logFC": -0.0814203927718796,
-        "P.Value": 0.0093381481809567,
-        "adj.P.Val": 0.256073517924989,
-        "t": -2.6085943355654,
-        "AveExpr": -0.975082139603507,
-        "B": -2.73247041071231,
-        "color": "blue",
-        "direction": "DOWN",
+        "logFC": 0.118030735468542,
+        "P.Value": 0.002366814976177,
+        "adj.P.Val": 0.10124708509202,
+        "t": 3.05404654420975,
+        "AveExpr": 1.09876094555552,
+        "B": -1.57916093880895,
+        "color": "red",
+        "direction": "UP",
         "p_tier": "P < 0.01"
       },
-      "MildPTSD_vs_SeverePTSD": {
-        "logFC": 0.0201209601491231,
-        "P.Value": 0.694005299825222,
-        "adj.P.Val": 0.961273557634629,
-        "t": 0.393951338313935,
-        "AveExpr": -1.01864547141224,
-        "B": -5.32117731224414,
-        "color": "grey",
-        "direction": "NC",
-        "p_tier": "NS"
+      "MildPTSD_vs_Control": {
+        "logFC": 0.078816349458218,
+        "P.Value": 0.0370732505473536,
+        "adj.P.Val": 0.913320386328114,
+        "t": 2.09002419430723,
+        "AveExpr": 1.09876094555552,
+        "B": -3.66631476953647,
+        "color": "red",
+        "direction": "UP",
+        "p_tier": "P < 0.05"
+      },
+      "SeverePTSD_vs_Control": {
+        "logFC": 0.106172446201689,
+        "P.Value": 0.0007317954297695,
+        "adj.P.Val": 0.0704353101153229,
+        "t": 3.39648093850152,
+        "AveExpr": 1.09876094555552,
+        "B": -0.599713459865667,
+        "color": "red",
+        "direction": "UP",
+        "p_tier": "FDR < 0.1"
       },
       "CogPos_vs_Control": {
-        "logFC": -0.0148583795052936,
-        "P.Value": 0.64076324591908,
-        "adj.P.Val": 0.909339659429195,
-        "t": -0.466893516137905,
-        "AveExpr": -0.970263360891624,
-        "B": -5.60881379973077,
-        "color": "grey",
-        "direction": "NC",
-        "p_tier": "NS"
+        "logFC": 0.110032463279778,
+        "P.Value": 0.0005954869398481,
+        "adj.P.Val": 0.0554836131935473,
+        "t": 3.45397865204839,
+        "AveExpr": 1.0986064413315,
+        "B": -0.441792851681094,
+        "color": "red",
+        "direction": "UP",
+        "p_tier": "FDR < 0.1"
       },
       "CogPos_vs_CogNeg": {
         "logFC": 0.01510538083102,
@@ -8951,7 +8940,7 @@
     }
   },
   {
-    "chem_id": "100006644.0",
+    "chem_id": "100006644",
     "chemical_name": "taurodeoxycholic acid 3-sulfate",
     "plot_name": "taurodeoxycholic acid 3-sulfate",
     "super_pathway": "Lipid",
@@ -9068,7 +9057,7 @@
     }
   },
   {
-    "chem_id": "100001987.0",
+    "chem_id": "100001987",
     "chemical_name": "5alpha-androstan-3beta,17beta-diol disulfate",
     "plot_name": "5alpha-androstan-3beta,17beta-diol disulfate",
     "super_pathway": "Lipid",
@@ -9186,7 +9175,7 @@
     }
   },
   {
-    "chem_id": "267.0",
+    "chem_id": "267",
     "chemical_name": "choline phosphate",
     "plot_name": "phosphocholine",
     "super_pathway": "Lipid",
@@ -9296,7 +9285,7 @@
     }
   },
   {
-    "chem_id": "2050.0",
+    "chem_id": "2050",
     "chemical_name": "eicosapentaenoate (EPA; 20:5n3)",
     "plot_name": "eicosapentaenoate (EPA; 20:5n3)",
     "super_pathway": "Lipid",
@@ -9406,7 +9395,7 @@
     }
   },
   {
-    "chem_id": "100002015.0",
+    "chem_id": "100002015",
     "chemical_name": "5alpha-pregnan-diol disulfate",
     "plot_name": "5alpha-pregnan-diol disulfate",
     "super_pathway": "Lipid",
@@ -9524,7 +9513,7 @@
     }
   },
   {
-    "chem_id": "100001402.0",
+    "chem_id": "100001402",
     "chemical_name": "5-acetylamino-6-formylamino-3-methyluracil",
     "plot_name": "5-acetylamino-6-formylamino-3-methyluracil",
     "super_pathway": "Xenobiotics",
@@ -9634,7 +9623,7 @@
     }
   },
   {
-    "chem_id": "482.0",
+    "chem_id": "482",
     "chemical_name": "lactate",
     "plot_name": "lactate",
     "super_pathway": "Carbohydrate",
@@ -9751,7 +9740,7 @@
     }
   },
   {
-    "chem_id": "100003901.0",
+    "chem_id": "100003901",
     "chemical_name": "2-stearoyl-GPE (18:0)*",
     "plot_name": "2-stearoyl-GPE (18:0)*",
     "super_pathway": "Lipid",
@@ -9868,7 +9857,7 @@
     }
   },
   {
-    "chem_id": "1537.0",
+    "chem_id": "1537",
     "chemical_name": "1-palmitoyl-2-linoleoyl-GPC (16:0/18:2)",
     "plot_name": "1-palmitoyl-2-linoleoyl-GPC (16:0/18:2)",
     "super_pathway": "Lipid",
@@ -9985,7 +9974,7 @@
     }
   },
   {
-    "chem_id": "273.0",
+    "chem_id": "273",
     "chemical_name": "cortisone",
     "plot_name": "cortisone",
     "super_pathway": "Lipid",
@@ -10103,7 +10092,7 @@
     }
   },
   {
-    "chem_id": "100000665.0",
+    "chem_id": "100000665",
     "chemical_name": "docosahexaenoate (DHA; 22:6n3)",
     "plot_name": "docosahexaenoate (DHA; 22:6n3)",
     "super_pathway": "Lipid",
@@ -10220,7 +10209,7 @@
     }
   },
   {
-    "chem_id": "100001264.0",
+    "chem_id": "100001264",
     "chemical_name": "1-margaroyl-GPC (17:0)",
     "plot_name": "1-margaroyl-GPC (17:0)",
     "super_pathway": "Lipid",
@@ -10337,7 +10326,7 @@
     }
   },
   {
-    "chem_id": "1137.0",
+    "chem_id": "1137",
     "chemical_name": "oleoyl ethanolamide (18:1)",
     "plot_name": "oleoyl ethanolamide (18:1)",
     "super_pathway": "Lipid",
@@ -10447,7 +10436,7 @@
     }
   },
   {
-    "chem_id": "100020414.0",
+    "chem_id": "100020414",
     "chemical_name": "6-bromotryptophan",
     "plot_name": "6-bromotryptophan",
     "super_pathway": "Amino Acid",
@@ -10564,7 +10553,113 @@
     }
   },
   {
-    "chem_id": "100009343.0",
+    "chem_id": "GABR",
+    "chemical_name": "GABR",
+    "plot_name": "GABR",
+    "super_pathway": "Composite Index",
+    "sub_pathway": "Composite Index",
+    "hmdb": "",
+    "kegg": "",
+    "pubchem": "",
+    "cas": "",
+    "chemspider": "",
+    "inchikey": "",
+    "smiles": "",
+    "v12_panel": true,
+    "ptsd_biopriority": true,
+    "neuro_addon": true,
+    "disorders": [
+      "PTSD (Severe/Mild)",
+      "MDD",
+      "Endothelial Dysfunction"
+    ],
+    "mechanism": "Global Arginine Bioavailability Ratio (GABR = Arginine / [Ornithine + Citrulline]). Reflects nitric oxide (NO) synthase substrate availability and vascular endothelial function. Reduced GABR correlates with PTSD symptom severity, depression, and chronic stress microvascular impairment.",
+    "pathway_category": "Composite Index: Arginine & NO Bioavailability",
+    "references": [
+      {
+        "title": "Global Arginine Bioavailability Ratio (GABR) in post-traumatic stress disorder and depression",
+        "journal": "Biol Psychiatry (2014)",
+        "pmid": "24709230",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24709230/"
+      },
+      {
+        "title": "Arginine bioavailability and nitric oxide synthase uncoupling in psychiatric stress response",
+        "journal": "Psychoneuroendocrinology (2017)",
+        "pmid": "29126354",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29126354/"
+      }
+    ],
+    "comparisons": {
+      "Depressive_vs_Control": {
+        "logFC": -0.0800599295879306,
+        "P.Value": 0.160412057809293,
+        "adj.P.Val": 0.671289589745413,
+        "t": -1.4055804792463,
+        "AveExpr": -0.975082139603507,
+        "B": -4.98770651174416,
+        "color": "grey",
+        "direction": "NC",
+        "p_tier": "NS"
+      },
+      "Cognitive_vs_Control": {
+        "logFC": 0.0133548373808451,
+        "P.Value": 0.729415449501389,
+        "adj.P.Val": 0.898966490249487,
+        "t": 0.34607891301749,
+        "AveExpr": -0.975082139603507,
+        "B": -5.64837407853238,
+        "color": "grey",
+        "direction": "NC",
+        "p_tier": "NS"
+      },
+      "MildPTSD_vs_Control": {
+        "logFC": -0.0633689741260635,
+        "P.Value": 0.0929536344784843,
+        "adj.P.Val": 0.913320386328114,
+        "t": -1.68293626900028,
+        "AveExpr": -0.975082139603507,
+        "B": -4.29192009389563,
+        "color": "grey",
+        "direction": "NC",
+        "p_tier": "NS"
+      },
+      "SeverePTSD_vs_Control": {
+        "logFC": -0.0814203927718796,
+        "P.Value": 0.0093381481809567,
+        "adj.P.Val": 0.256073517924989,
+        "t": -2.6085943355654,
+        "AveExpr": -0.975082139603507,
+        "B": -2.73247041071231,
+        "color": "blue",
+        "direction": "DOWN",
+        "p_tier": "P < 0.01"
+      },
+      "CogPos_vs_Control": {
+        "logFC": -0.0148583795052936,
+        "P.Value": 0.64076324591908,
+        "adj.P.Val": 0.909339659429195,
+        "t": -0.466893516137905,
+        "AveExpr": -0.970263360891624,
+        "B": -5.60881379973077,
+        "color": "grey",
+        "direction": "NC",
+        "p_tier": "NS"
+      },
+      "CogPos_vs_CogNeg": {
+        "logFC": 0.0566161946775856,
+        "P.Value": 0.0881063367071768,
+        "adj.P.Val": 0.724249185522358,
+        "t": 1.70854555732644,
+        "AveExpr": -0.970263360891624,
+        "B": -4.50898814577817,
+        "color": "grey",
+        "direction": "NC",
+        "p_tier": "NS"
+      }
+    }
+  },
+  {
+    "chem_id": "100009343",
     "chemical_name": "1-linoleoyl-2-linolenoyl-GPC (18:2/18:3)*",
     "plot_name": "1-linoleoyl-2-linolenoyl-GPC (18:2/18:3)*",
     "super_pathway": "Lipid",
@@ -10681,7 +10776,7 @@
     }
   },
   {
-    "chem_id": "100020550.0",
+    "chem_id": "100020550",
     "chemical_name": "deoxycholic acid glucuronide",
     "plot_name": "deoxycholic acid glucuronide",
     "super_pathway": "Lipid",
@@ -10798,7 +10893,7 @@
     }
   },
   {
-    "chem_id": "100001569.0",
+    "chem_id": "100001569",
     "chemical_name": "1-oleoyl-GPE (18:1)",
     "plot_name": "1-oleoyl-GPE (18:1)",
     "super_pathway": "Lipid",
@@ -10915,7 +11010,7 @@
     }
   },
   {
-    "chem_id": "100020259.0",
+    "chem_id": "100020259",
     "chemical_name": "glutamine conjugate of C7H12O2*",
     "plot_name": "glutamine conjugate of C7H12O2*",
     "super_pathway": "Partially Characterized Molecules",
@@ -11025,7 +11120,7 @@
     }
   },
   {
-    "chem_id": "100021000.0",
+    "chem_id": "100021000",
     "chemical_name": "hydroxypalmitoyl sphingomyelin (d18:1/16:0(OH))**",
     "plot_name": "hydroxypalmitoyl sphingomyelin (d18:1/16:0(OH))**",
     "super_pathway": "Lipid",
@@ -11142,7 +11237,7 @@
     }
   },
   {
-    "chem_id": "100009019.0",
+    "chem_id": "100009019",
     "chemical_name": "1-stearyl-2-arachidonoyl-GPC (O-18:0/20:4)*",
     "plot_name": "1-stearyl-2-arachidonoyl-GPC (O-18:0/20:4)*",
     "super_pathway": "Lipid",
@@ -11259,7 +11354,7 @@
     }
   },
   {
-    "chem_id": "342.0",
+    "chem_id": "342",
     "chemical_name": "glycocholate",
     "plot_name": "glycocholate",
     "super_pathway": "Lipid",
@@ -11376,7 +11471,7 @@
     }
   },
   {
-    "chem_id": "1231.0",
+    "chem_id": "1231",
     "chemical_name": "dihomo-linoleate (20:2n6)",
     "plot_name": "dihomolinoleate (20:2n6)",
     "super_pathway": "Lipid",
@@ -11486,7 +11581,7 @@
     }
   },
   {
-    "chem_id": "100015882.0",
+    "chem_id": "100015882",
     "chemical_name": "glycosyl ceramide (d18:1/20:0, d16:1/22:0)*",
     "plot_name": "glycosyl ceramide (d18:1/20:0, d16:1/22:0)*",
     "super_pathway": "Lipid",
@@ -11603,7 +11698,7 @@
     }
   },
   {
-    "chem_id": "100021141.0",
+    "chem_id": "100021141",
     "chemical_name": "3-hydroxydecanoylcarnitine",
     "plot_name": "3-hydroxydecanoylcarnitine",
     "super_pathway": "Lipid",
@@ -11713,7 +11808,7 @@
     }
   },
   {
-    "chem_id": "100009122.0",
+    "chem_id": "100009122",
     "chemical_name": "1-pentadecanoyl-2-arachidonoyl-GPC (15:0/20:4)*",
     "plot_name": "1-pentadecanoyl-2-arachidonoyl-GPC (15:0/20:4)*",
     "super_pathway": "Lipid",
@@ -11830,7 +11925,7 @@
     }
   },
   {
-    "chem_id": "100003470.0",
+    "chem_id": "100003470",
     "chemical_name": "pregnanediol-3-glucuronide",
     "plot_name": "pregnanediol-3-glucuronide",
     "super_pathway": "Lipid",
@@ -11948,7 +12043,7 @@
     }
   },
   {
-    "chem_id": "100008990.0",
+    "chem_id": "100008990",
     "chemical_name": "1-palmitoyl-2-arachidonoyl-GPE (16:0/20:4)*",
     "plot_name": "1-palmitoyl-2-arachidonoyl-GPE (16:0/20:4)*",
     "super_pathway": "Lipid",
@@ -12065,7 +12160,7 @@
     }
   },
   {
-    "chem_id": "100005352.0",
+    "chem_id": "100005352",
     "chemical_name": "1-eicosenoyl-GPC (20:1)*",
     "plot_name": "1-eicosenoyl-GPC (20:1)*",
     "super_pathway": "Lipid",
@@ -12182,7 +12277,7 @@
     }
   },
   {
-    "chem_id": "100002129.0",
+    "chem_id": "100002129",
     "chemical_name": "pregnenolone sulfate",
     "plot_name": "pregnenolone sulfate",
     "super_pathway": "Lipid",
@@ -12300,7 +12395,7 @@
     }
   },
   {
-    "chem_id": "100009227.0",
+    "chem_id": "100009227",
     "chemical_name": "1-linoleoyl-GPG (18:2)*",
     "plot_name": "1-linoleoyl-GPG (18:2)*",
     "super_pathway": "Lipid",
@@ -12417,7 +12512,7 @@
     }
   },
   {
-    "chem_id": "100002868.0",
+    "chem_id": "100002868",
     "chemical_name": "1-behenoyl-GPC (22:0)",
     "plot_name": "1-behenoyl-GPC (22:0)",
     "super_pathway": "Lipid",
@@ -12534,7 +12629,7 @@
     }
   },
   {
-    "chem_id": "100002488.0",
+    "chem_id": "100002488",
     "chemical_name": "isoursodeoxycholate",
     "plot_name": "isoursodeoxycholate",
     "super_pathway": "Lipid",
@@ -12651,7 +12746,7 @@
     }
   },
   {
-    "chem_id": "100020541.0",
+    "chem_id": "100020541",
     "chemical_name": "11beta-hydroxyandrosterone glucuronide",
     "plot_name": "11beta-hydroxyandrosterone glucuronide",
     "super_pathway": "Lipid",
@@ -12769,7 +12864,7 @@
     }
   },
   {
-    "chem_id": "1135.0",
+    "chem_id": "1135",
     "chemical_name": "ursodeoxycholate",
     "plot_name": "ursodeoxycholate",
     "super_pathway": "Lipid",
@@ -12886,7 +12981,7 @@
     }
   },
   {
-    "chem_id": "100015593.0",
+    "chem_id": "100015593",
     "chemical_name": "1-stearoyl-2-docosapentaenoyl-GPE (18:0/22:5n6)*",
     "plot_name": "1-stearoyl-2-docosapentaenoyl-GPE (18:0/22:5n6)*",
     "super_pathway": "Lipid",
@@ -13003,7 +13098,7 @@
     }
   },
   {
-    "chem_id": "100000781.0",
+    "chem_id": "100000781",
     "chemical_name": "hexanoylcarnitine (C6)",
     "plot_name": "hexanoylcarnitine (C6)",
     "super_pathway": "Lipid",
@@ -13113,7 +13208,7 @@
     }
   },
   {
-    "chem_id": "100005353.0",
+    "chem_id": "100005353",
     "chemical_name": "1-nonadecanoyl-GPC (19:0)",
     "plot_name": "1-nonadecanoyl-GPC (19:0)",
     "super_pathway": "Lipid",
@@ -13230,7 +13325,7 @@
     }
   },
   {
-    "chem_id": "100005673.0",
+    "chem_id": "100005673",
     "chemical_name": "1-docosapentaenoyl-GPC (22:5n6)*",
     "plot_name": "1-docosapentaenoyl-GPC (22:5n6)*",
     "super_pathway": "Lipid",
@@ -13347,7 +13442,7 @@
     }
   },
   {
-    "chem_id": "100015914.0",
+    "chem_id": "100015914",
     "chemical_name": "1-lignoceroyl-2-arachidonoyl-GPC (24:0/20:4)*",
     "plot_name": "1-lignoceroyl-2-arachidonoyl-GPC (24:0/20:4)*",
     "super_pathway": "Lipid",
@@ -13464,7 +13559,7 @@
     }
   },
   {
-    "chem_id": "100001384.0",
+    "chem_id": "100001384",
     "chemical_name": "1-arachidoyl-GPC (20:0)",
     "plot_name": "1-arachidoyl-GPC (20:0)",
     "super_pathway": "Lipid",
@@ -13581,7 +13676,7 @@
     }
   },
   {
-    "chem_id": "100001739.0",
+    "chem_id": "100001739",
     "chemical_name": "dihomo-linolenate (20:3n3 or n6)",
     "plot_name": "dihomolinolenate (20:3n3 or 3n6)",
     "super_pathway": "Lipid",
@@ -13691,7 +13786,7 @@
     }
   },
   {
-    "chem_id": "100002024.0",
+    "chem_id": "100002024",
     "chemical_name": "5alpha-androstan-3beta,17beta-diol monosulfate (2)",
     "plot_name": "5alpha-androstan-3beta,17beta-diol monosulfate (2)",
     "super_pathway": "Lipid",
@@ -13809,7 +13904,7 @@
     }
   },
   {
-    "chem_id": "100001501.0",
+    "chem_id": "100001501",
     "chemical_name": "oleoylcarnitine (C18:1)",
     "plot_name": "oleoylcarnitine (C18:1)",
     "super_pathway": "Lipid",
@@ -13919,7 +14014,7 @@
     }
   },
   {
-    "chem_id": "100001654.0",
+    "chem_id": "100001654",
     "chemical_name": "1-arachidonoyl-GPI (20:4)*",
     "plot_name": "1-arachidonoyl-GPI (20:4)*",
     "super_pathway": "Lipid",
@@ -14036,7 +14131,7 @@
     }
   },
   {
-    "chem_id": "100001652.0",
+    "chem_id": "100001652",
     "chemical_name": "2-palmitoyl-GPE (16:0)*",
     "plot_name": "2-palmitoyl-GPE* (16:0)*",
     "super_pathway": "Lipid",
@@ -14153,7 +14248,7 @@
     }
   },
   {
-    "chem_id": "100009025.0",
+    "chem_id": "100009025",
     "chemical_name": "sphingomyelin (d18:1/21:0, d17:1/22:0, d16:1/23:0)*",
     "plot_name": "sphingomyelin (d18:1/21:0, d17:1/22:0, d16:1/23:0)*",
     "super_pathway": "Lipid",
@@ -14270,7 +14365,7 @@
     }
   },
   {
-    "chem_id": "893.0",
+    "chem_id": "893",
     "chemical_name": "arachidate (20:0)",
     "plot_name": "arachidate (20:0)",
     "super_pathway": "Lipid",
@@ -14380,7 +14475,7 @@
     }
   },
   {
-    "chem_id": "100006642.0",
+    "chem_id": "100006642",
     "chemical_name": "glycodeoxycholate 3-sulfate",
     "plot_name": "glycodeoxycholate 3-sulfate",
     "super_pathway": "Lipid",
@@ -14497,7 +14592,7 @@
     }
   },
   {
-    "chem_id": "100004329.0",
+    "chem_id": "100004329",
     "chemical_name": "sphingomyelin (d18:2/16:0, d18:1/16:1)*",
     "plot_name": "sphingomyelin (d18:2/16:0, d18:1/16:1)*",
     "super_pathway": "Lipid",
@@ -14614,7 +14709,7 @@
     }
   },
   {
-    "chem_id": "1648.0",
+    "chem_id": "1648",
     "chemical_name": "taurocholate",
     "plot_name": "taurocholate",
     "super_pathway": "Lipid",
@@ -14731,7 +14826,7 @@
     }
   },
   {
-    "chem_id": "100001988.0",
+    "chem_id": "100001988",
     "chemical_name": "5alpha-pregnan-3beta,20alpha-diol disulfate",
     "plot_name": "5alpha-pregnan-3beta,20alpha-diol disulfate",
     "super_pathway": "Lipid",
@@ -14849,7 +14944,7 @@
     }
   },
   {
-    "chem_id": "55.0",
+    "chem_id": "55",
     "chemical_name": "1-methylnicotinamide",
     "plot_name": "1-methylnicotinamide",
     "super_pathway": "Cofactors and Vitamins",
@@ -14959,7 +15054,7 @@
     }
   },
   {
-    "chem_id": "100002060.0",
+    "chem_id": "100002060",
     "chemical_name": "1-docosahexaenoyl-GPE (22:6)*",
     "plot_name": "1-docosahexaenoyl-GPE (22:6)*",
     "super_pathway": "Lipid",
@@ -15076,7 +15171,7 @@
     }
   },
   {
-    "chem_id": "100001777.0",
+    "chem_id": "100001777",
     "chemical_name": "1-oleoyl-GPI (18:1)",
     "plot_name": "1-oleoyl-GPI (18:1)",
     "super_pathway": "Lipid",
@@ -15186,7 +15281,7 @@
     }
   },
   {
-    "chem_id": "100008918.0",
+    "chem_id": "100008918",
     "chemical_name": "1-(1-enyl-stearoyl)-2-arachidonoyl-GPC (P-18:0/20:4)",
     "plot_name": "1-(1-enyl-stearoyl)-2-arachidonoyl-GPC (P-18:0/20:4)",
     "super_pathway": "Lipid",
@@ -15303,7 +15398,7 @@
     }
   },
   {
-    "chem_id": "100009035.0",
+    "chem_id": "100009035",
     "chemical_name": "1-pentadecanoyl-2-linoleoyl-GPC (15:0/18:2)*",
     "plot_name": "1-pentadecanoyl-2-linoleoyl-GPC (15:0/18:2)*",
     "super_pathway": "Lipid",
@@ -15420,7 +15515,7 @@
     }
   },
   {
-    "chem_id": "100001571.0",
+    "chem_id": "100001571",
     "chemical_name": "1-arachidonoyl-GPE (20:4n6)*",
     "plot_name": "1-arachidonoyl-GPE (20:4n6)*",
     "super_pathway": "Lipid",
@@ -15537,7 +15632,7 @@
     }
   },
   {
-    "chem_id": "100021990.0",
+    "chem_id": "100021990",
     "chemical_name": "3-hydroxyoctanoylcarnitine (1)",
     "plot_name": "3-hydroxyoctanoylcarnitine (1)",
     "super_pathway": "Lipid",
@@ -15647,7 +15742,7 @@
     }
   },
   {
-    "chem_id": "100001391.0",
+    "chem_id": "100001391",
     "chemical_name": "stearoylcarnitine (C18)",
     "plot_name": "stearoylcarnitine (C18)",
     "super_pathway": "Lipid",
@@ -15757,7 +15852,7 @@
     }
   },
   {
-    "chem_id": "100009132.0",
+    "chem_id": "100009132",
     "chemical_name": "1-linoleoyl-2-docosahexaenoyl-GPC (18:2/22:6)*",
     "plot_name": "1-linoleoyl-2-docosahexaenoyl-GPC (18:2/22:6)*",
     "super_pathway": "Lipid",
@@ -15874,7 +15969,7 @@
     }
   },
   {
-    "chem_id": "1538.0",
+    "chem_id": "1538",
     "chemical_name": "stearoyl sphingomyelin (d18:1/18:0)",
     "plot_name": "stearoyl sphingomyelin (d18:1/18:0)",
     "super_pathway": "Lipid",
@@ -15991,7 +16086,7 @@
     }
   },
   {
-    "chem_id": "100008914.0",
+    "chem_id": "100008914",
     "chemical_name": "1-palmitoyl-2-arachidonoyl-GPC (16:0/20:4n6)",
     "plot_name": "1-palmitoyl-2-arachidonoyl-GPC (16:0/20:4n6)",
     "super_pathway": "Lipid",
@@ -16108,7 +16203,7 @@
     }
   },
   {
-    "chem_id": "100015834.0",
+    "chem_id": "100015834",
     "chemical_name": "lignoceroylcarnitine (C24)*",
     "plot_name": "lignoceroylcarnitine (C24)*",
     "super_pathway": "Lipid",
@@ -16218,7 +16313,7 @@
     }
   },
   {
-    "chem_id": "100008999.0",
+    "chem_id": "100008999",
     "chemical_name": "1-(1-enyl-stearoyl)-2-arachidonoyl-GPE (P-18:0/20:4)*",
     "plot_name": "1-(1-enyl-stearoyl)-2-arachidonoyl-GPE (P-18:0/20:4)*",
     "super_pathway": "Lipid",
@@ -16335,7 +16430,7 @@
     }
   },
   {
-    "chem_id": "313.0",
+    "chem_id": "313",
     "chemical_name": "sphinganine",
     "plot_name": "sphinganine",
     "super_pathway": "Lipid",
@@ -16452,7 +16547,7 @@
     }
   },
   {
-    "chem_id": "100001092.0",
+    "chem_id": "100001092",
     "chemical_name": "trigonelline (N'-methylnicotinate)",
     "plot_name": "trigonelline (N'-methylnicotinate)",
     "super_pathway": "Cofactors and Vitamins",
@@ -16562,7 +16657,7 @@
     }
   },
   {
-    "chem_id": "100004182.0",
+    "chem_id": "100004182",
     "chemical_name": "3beta-hydroxy-5-cholenoate",
     "plot_name": "3beta-hydroxy-5-cholenoate",
     "super_pathway": "Lipid",
@@ -16679,7 +16774,7 @@
     }
   },
   {
-    "chem_id": "100006293.0",
+    "chem_id": "100006293",
     "chemical_name": "sphingomyelin (d18:1/20:2, d18:2/20:1, d16:1/22:2)*",
     "plot_name": "sphingomyelin (d18:1/20:2, d18:2/20:1, d16:1/22:2)*",
     "super_pathway": "Lipid",
@@ -16796,7 +16891,7 @@
     }
   },
   {
-    "chem_id": "100008980.0",
+    "chem_id": "100008980",
     "chemical_name": "1-stearoyl-2-linoleoyl-GPC (18:0/18:2)*",
     "plot_name": "1-stearoyl-2-linoleoyl-GPC (18:0/18:2)*",
     "super_pathway": "Lipid",
@@ -16913,7 +17008,7 @@
     }
   },
   {
-    "chem_id": "252.0",
+    "chem_id": "252",
     "chemical_name": "succinate",
     "plot_name": "succinate",
     "super_pathway": "Energy",
@@ -17023,7 +17118,7 @@
     }
   },
   {
-    "chem_id": "100008977.0",
+    "chem_id": "100008977",
     "chemical_name": "1-stearoyl-2-arachidonoyl-GPE (18:0/20:4)",
     "plot_name": "1-stearoyl-2-arachidonoyl-GPE (18:0/20:4)",
     "super_pathway": "Lipid",
@@ -17140,7 +17235,7 @@
     }
   },
   {
-    "chem_id": "100001563.0",
+    "chem_id": "100001563",
     "chemical_name": "2-myristoyl-GPC (14:0)*",
     "plot_name": "2-myristoyl-GPC (14:0)*",
     "super_pathway": "Lipid",
@@ -17257,7 +17352,7 @@
     }
   },
   {
-    "chem_id": "100009037.0",
+    "chem_id": "100009037",
     "chemical_name": "1-margaroyl-2-linoleoyl-GPC (17:0/18:2)*",
     "plot_name": "1-margaroyl-2-linoleoyl-GPC (17:0/18:2)*",
     "super_pathway": "Lipid",
@@ -17374,7 +17469,7 @@
     }
   },
   {
-    "chem_id": "892.0",
+    "chem_id": "892",
     "chemical_name": "nonadecanoate (19:0)",
     "plot_name": "nonadecanoate (19:0)",
     "super_pathway": "Lipid",
@@ -17484,7 +17579,7 @@
     }
   },
   {
-    "chem_id": "891.0",
+    "chem_id": "891",
     "chemical_name": "margarate (17:0)",
     "plot_name": "margarate (17:0)",
     "super_pathway": "Lipid",
@@ -17594,7 +17689,7 @@
     }
   },
   {
-    "chem_id": "100021131.0",
+    "chem_id": "100021131",
     "chemical_name": "undecenoylcarnitine (C11:1)",
     "plot_name": "undecenoylcarnitine (C11:1)",
     "super_pathway": "Lipid",
@@ -17704,7 +17799,7 @@
     }
   },
   {
-    "chem_id": "461.0",
+    "chem_id": "461",
     "chemical_name": "phosphate",
     "plot_name": "phosphate",
     "super_pathway": "Energy",
@@ -17814,7 +17909,7 @@
     }
   },
   {
-    "chem_id": "561.0",
+    "chem_id": "561",
     "chemical_name": "glutamate",
     "plot_name": "glutamate",
     "super_pathway": "Amino Acid",
@@ -17931,7 +18026,7 @@
     }
   },
   {
-    "chem_id": "100004561.0",
+    "chem_id": "100004561",
     "chemical_name": "N-formylanthranilic acid",
     "plot_name": "N-formylanthranilic acid",
     "super_pathway": "Amino Acid",
@@ -18048,7 +18143,7 @@
     }
   },
   {
-    "chem_id": "100002067.0",
+    "chem_id": "100002067",
     "chemical_name": "pregnenediol sulfate (C21H34O5S)*",
     "plot_name": "pregnenediol sulfate (C21H34O5S)*",
     "super_pathway": "Lipid",
@@ -18166,7 +18261,7 @@
     }
   },
   {
-    "chem_id": "254.0",
+    "chem_id": "254",
     "chemical_name": "3-hydroxybutyrate (BHBA)",
     "plot_name": "3-hydroxybutyrate (BHBA)",
     "super_pathway": "Lipid",
@@ -18276,7 +18371,7 @@
     }
   },
   {
-    "chem_id": "100016069.0",
+    "chem_id": "100016069",
     "chemical_name": "5-dodecenoylcarnitine (C12:1)",
     "plot_name": "5-dodecenoylcarnitine (C12:1)",
     "super_pathway": "Lipid",
@@ -18386,7 +18481,7 @@
     }
   },
   {
-    "chem_id": "1134.0",
+    "chem_id": "1134",
     "chemical_name": "urate",
     "plot_name": "urate",
     "super_pathway": "Nucleotide",
@@ -18496,7 +18591,7 @@
     }
   },
   {
-    "chem_id": "100001383.0",
+    "chem_id": "100001383",
     "chemical_name": "1-myristoyl-GPC (14:0)",
     "plot_name": "1-myristoyl-GPC (14:0)",
     "super_pathway": "Lipid",
@@ -18613,7 +18708,7 @@
     }
   },
   {
-    "chem_id": "100008955.0",
+    "chem_id": "100008955",
     "chemical_name": "tricosanoyl sphingomyelin (d18:1/23:0)*",
     "plot_name": "tricosanoyl sphingomyelin (d18:1/23:0)*",
     "super_pathway": "Lipid",
@@ -18730,7 +18825,7 @@
     }
   },
   {
-    "chem_id": "100009142.0",
+    "chem_id": "100009142",
     "chemical_name": "1-stearoyl-2-docosapentaenoyl-GPC (18:0/22:5n6)*",
     "plot_name": "1-stearoyl-2-docosapentaenoyl-GPC (18:0/22:5n6)*",
     "super_pathway": "Lipid",
@@ -18847,7 +18942,7 @@
     }
   },
   {
-    "chem_id": "100001409.0",
+    "chem_id": "100001409",
     "chemical_name": "N1-methylinosine",
     "plot_name": "N1-methylinosine",
     "super_pathway": "Nucleotide",
@@ -18957,7 +19052,7 @@
     }
   },
   {
-    "chem_id": "100002003.0",
+    "chem_id": "100002003",
     "chemical_name": "21-hydroxypregnenolone monosulfate (1)",
     "plot_name": "21-hydroxypregnenolone monosulfate (1)",
     "super_pathway": "Lipid",
@@ -19075,7 +19170,7 @@
     }
   },
   {
-    "chem_id": "100001784.0",
+    "chem_id": "100001784",
     "chemical_name": "1-palmitoleoyl-GPE (16:1)*",
     "plot_name": "1-palmitoleoyl-GPE (16:1)*",
     "super_pathway": "Lipid",
@@ -19192,7 +19287,7 @@
     }
   },
   {
-    "chem_id": "100023220.0",
+    "chem_id": "100023220",
     "chemical_name": "isoallolithocholic acid",
     "plot_name": "isoallolithocholic acid",
     "super_pathway": "Lipid",
@@ -19309,7 +19404,7 @@
     }
   },
   {
-    "chem_id": "100009332.0",
+    "chem_id": "100009332",
     "chemical_name": "arachidonoylcholine",
     "plot_name": "arachidonoylcholine",
     "super_pathway": "Lipid",
@@ -19426,7 +19521,7 @@
     }
   },
   {
-    "chem_id": "100002018.0",
+    "chem_id": "100002018",
     "chemical_name": "5alpha-androstan-3alpha,17beta-diol monosulfate (1)",
     "plot_name": "5alpha-androstan-3alpha,17beta-diol monosulfate (1)",
     "super_pathway": "Lipid",
@@ -19544,7 +19639,7 @@
     }
   },
   {
-    "chem_id": "100008956.0",
+    "chem_id": "100008956",
     "chemical_name": "sphingomyelin (d18:2/23:0, d18:1/23:1, d17:1/24:1)*",
     "plot_name": "sphingomyelin (d18:2/23:0, d18:1/23:1, d17:1/24:1)*",
     "super_pathway": "Lipid",
@@ -19661,7 +19756,7 @@
     }
   },
   {
-    "chem_id": "100022013.0",
+    "chem_id": "100022013",
     "chemical_name": "tetrahydrocortisol glucuronide",
     "plot_name": "tetrahydrocortisol glucuronide",
     "super_pathway": "Lipid",
@@ -19779,7 +19874,7 @@
     }
   },
   {
-    "chem_id": "100002152.0",
+    "chem_id": "100002152",
     "chemical_name": "andro steroid monosulfate C19H28O6S (1)*",
     "plot_name": "andro steroid monosulfate C19H28O6S (1)*",
     "super_pathway": "Lipid",
@@ -19897,7 +19992,7 @@
     }
   },
   {
-    "chem_id": "100016019.0",
+    "chem_id": "100016019",
     "chemical_name": "1-palmitoyl-2-pentadecanoyl-GPC (16:0/15:0)*",
     "plot_name": "1-palmitoyl-2-pentadecanoyl-GPC (16:0/15:0)*",
     "super_pathway": "Lipid",
@@ -20014,7 +20109,7 @@
     }
   },
   {
-    "chem_id": "100006314.0",
+    "chem_id": "100006314",
     "chemical_name": "sphingomyelin (d17:1/16:0, d18:1/15:0, d16:1/17:0)*",
     "plot_name": "sphingomyelin (d17:1/16:0, d18:1/15:0, d16:1/17:0)*",
     "super_pathway": "Lipid",
@@ -20131,7 +20226,7 @@
     }
   },
   {
-    "chem_id": "100002126.0",
+    "chem_id": "100002126",
     "chemical_name": "16alpha-hydroxy DHEA 3-sulfate",
     "plot_name": "16alpha-hydroxy DHEA 3-sulfate",
     "super_pathway": "Lipid",
@@ -20249,7 +20344,7 @@
     }
   },
   {
-    "chem_id": "100020823.0",
+    "chem_id": "100020823",
     "chemical_name": "lithocholate sulfate (1)",
     "plot_name": "lithocholate sulfate (1)",
     "super_pathway": "Lipid",
@@ -20366,7 +20461,7 @@
     }
   },
   {
-    "chem_id": "439.0",
+    "chem_id": "439",
     "chemical_name": "stearate (18:0)",
     "plot_name": "stearate (18:0)",
     "super_pathway": "Lipid",
@@ -20476,7 +20571,7 @@
     }
   },
   {
-    "chem_id": "100010922.0",
+    "chem_id": "100010922",
     "chemical_name": "linoleoyl-arachidonoyl-glycerol (18:2/20:4) [1]*",
     "plot_name": "linoleoyl-arachidonoyl-glycerol (18:2/20:4) [1]*",
     "super_pathway": "Lipid",
@@ -20593,7 +20688,7 @@
     }
   },
   {
-    "chem_id": "100005986.0",
+    "chem_id": "100005986",
     "chemical_name": "sphingomyelin (d18:1/24:1, d18:2/24:0)*",
     "plot_name": "sphingomyelin (d18:1/24:1, d18:2/24:0)*",
     "super_pathway": "Lipid",
@@ -20710,7 +20805,7 @@
     }
   },
   {
-    "chem_id": "100000445.0",
+    "chem_id": "100000445",
     "chemical_name": "theobromine",
     "plot_name": "theobromine",
     "super_pathway": "Xenobiotics",
@@ -20820,7 +20915,7 @@
     }
   },
   {
-    "chem_id": "1052.0",
+    "chem_id": "1052",
     "chemical_name": "glycerate",
     "plot_name": "glycerate",
     "super_pathway": "Carbohydrate",
@@ -20937,7 +21032,7 @@
     }
   },
   {
-    "chem_id": "1518.0",
+    "chem_id": "1518",
     "chemical_name": "N-palmitoyl-sphingosine (d18:1/16:0)",
     "plot_name": "N-palmitoyl-sphingosine (d18:1/16:0)",
     "super_pathway": "Lipid",
@@ -21054,7 +21149,7 @@
     }
   },
   {
-    "chem_id": "100015787.0",
+    "chem_id": "100015787",
     "chemical_name": "sphingomyelin (d18:1/19:0, d19:1/18:0)*",
     "plot_name": "sphingomyelin (d18:1/19:0, d19:1/18:0)*",
     "super_pathway": "Lipid",
@@ -21171,7 +21266,7 @@
     }
   },
   {
-    "chem_id": "1124.0",
+    "chem_id": "1124",
     "chemical_name": "citrate",
     "plot_name": "citrate",
     "super_pathway": "Energy",
@@ -21288,7 +21383,7 @@
     }
   },
   {
-    "chem_id": "100002761.0",
+    "chem_id": "100002761",
     "chemical_name": "androsterone glucuronide",
     "plot_name": "androsterone glucuronide",
     "super_pathway": "Lipid",
@@ -21406,7 +21501,7 @@
     }
   },
   {
-    "chem_id": "100002014.0",
+    "chem_id": "100002014",
     "chemical_name": "5alpha-pregnan-3beta,20alpha-diol monosulfate (2)",
     "plot_name": "5alpha-pregnan-3beta,20alpha-diol monosulfate (2)",
     "super_pathway": "Lipid",
@@ -21524,7 +21619,7 @@
     }
   },
   {
-    "chem_id": "100002171.0",
+    "chem_id": "100002171",
     "chemical_name": "1-margaroyl-GPE (17:0)*",
     "plot_name": "1-margaroyl-GPE (17:0)*",
     "super_pathway": "Lipid",
@@ -21641,7 +21736,7 @@
     }
   },
   {
-    "chem_id": "361.0",
+    "chem_id": "361",
     "chemical_name": "inosine",
     "plot_name": "inosine",
     "super_pathway": "Nucleotide",
@@ -21751,7 +21846,7 @@
     }
   },
   {
-    "chem_id": "100001182.0",
+    "chem_id": "100001182",
     "chemical_name": "docosadienoate (22:2n6)",
     "plot_name": "docosadienoate (22:2n6)",
     "super_pathway": "Lipid",
@@ -21861,7 +21956,7 @@
     }
   },
   {
-    "chem_id": "100001580.0",
+    "chem_id": "100001580",
     "chemical_name": "docosapentaenoate (n6 DPA; 22:5n6)",
     "plot_name": "docosapentaenoate (n6 DPA; 22:5n6)",
     "super_pathway": "Lipid",
@@ -21971,7 +22066,7 @@
     }
   },
   {
-    "chem_id": "100001251.0",
+    "chem_id": "100001251",
     "chemical_name": "decanoylcarnitine (C10)",
     "plot_name": "decanoylcarnitine (C10)",
     "super_pathway": "Lipid",
@@ -22081,7 +22176,7 @@
     }
   },
   {
-    "chem_id": "180.0",
+    "chem_id": "180",
     "chemical_name": "linoleate (18:2n6)",
     "plot_name": "linoleate (18:2n6)",
     "super_pathway": "Lipid",
@@ -22191,7 +22286,7 @@
     }
   },
   {
-    "chem_id": "209.0",
+    "chem_id": "209",
     "chemical_name": "adenosine 5'-monophosphate (AMP)",
     "plot_name": "AMP",
     "super_pathway": "Nucleotide",
@@ -22301,7 +22396,7 @@
     }
   },
   {
-    "chem_id": "330.0",
+    "chem_id": "330",
     "chemical_name": "fumarate",
     "plot_name": "fumarate",
     "super_pathway": "Energy",
@@ -22411,7 +22506,7 @@
     }
   },
   {
-    "chem_id": "100001882.0",
+    "chem_id": "100001882",
     "chemical_name": "glycosyl-N-stearoyl-sphingosine (d18:1/18:0)",
     "plot_name": "glycosyl-N-stearoyl-sphingosine (d18:1/18:0)",
     "super_pathway": "Lipid",
@@ -22528,7 +22623,7 @@
     }
   },
   {
-    "chem_id": "100009138.0",
+    "chem_id": "100009138",
     "chemical_name": "1-myristoyl-2-linoleoyl-GPC (14:0/18:2)*",
     "plot_name": "1-myristoyl-2-linoleoyl-GPC (14:0/18:2)*",
     "super_pathway": "Lipid",
@@ -22645,7 +22740,7 @@
     }
   },
   {
-    "chem_id": "504.0",
+    "chem_id": "504",
     "chemical_name": "serotonin",
     "plot_name": "serotonin",
     "super_pathway": "Amino Acid",
@@ -22762,7 +22857,7 @@
     }
   },
   {
-    "chem_id": "136.0",
+    "chem_id": "136",
     "chemical_name": "cholate",
     "plot_name": "cholate",
     "super_pathway": "Lipid",
@@ -22879,7 +22974,7 @@
     }
   },
   {
-    "chem_id": "100000776.0",
+    "chem_id": "100000776",
     "chemical_name": "palmitoylcarnitine (C16)",
     "plot_name": "palmitoylcarnitine (C16)",
     "super_pathway": "Lipid",
@@ -22989,7 +23084,7 @@
     }
   },
   {
-    "chem_id": "100001567.0",
+    "chem_id": "100001567",
     "chemical_name": "1-palmitoyl-GPE (16:0)",
     "plot_name": "1-palmitoyl-GPE (16:0)",
     "super_pathway": "Lipid",
@@ -23106,7 +23201,7 @@
     }
   },
   {
-    "chem_id": "100002259.0",
+    "chem_id": "100002259",
     "chemical_name": "cis-4-decenoylcarnitine (C10:1)",
     "plot_name": "cis-4-decenoylcarnitine (C10:1)",
     "super_pathway": "Lipid",
@@ -23216,7 +23311,7 @@
     }
   },
   {
-    "chem_id": "100021712.0",
+    "chem_id": "100021712",
     "chemical_name": "deoxycholic acid 12-sulfate*",
     "plot_name": "deoxycholic acid 12-sulfate*",
     "super_pathway": "Lipid",
@@ -23333,7 +23428,7 @@
     }
   },
   {
-    "chem_id": "93.0",
+    "chem_id": "93",
     "chemical_name": "alpha-ketoglutarate",
     "plot_name": "alpha-ketoglutarate",
     "super_pathway": "Energy",
@@ -23443,7 +23538,7 @@
     }
   },
   {
-    "chem_id": "100002007.0",
+    "chem_id": "100002007",
     "chemical_name": "5alpha-androstan-3alpha,17alpha-diol disulfate",
     "plot_name": "5alpha-androstan-3alpha,17alpha-diol disulfate",
     "super_pathway": "Lipid",
@@ -23561,7 +23656,7 @@
     }
   },
   {
-    "chem_id": "356.0",
+    "chem_id": "356",
     "chemical_name": "cortisol",
     "plot_name": "cortisol",
     "super_pathway": "Lipid",
@@ -23679,7 +23774,7 @@
     }
   },
   {
-    "chem_id": "100015789.0",
+    "chem_id": "100015789",
     "chemical_name": "sphingomyelin (d18:2/24:2)*",
     "plot_name": "sphingomyelin (d18:2/24:2)*",
     "super_pathway": "Lipid",
@@ -23796,7 +23891,7 @@
     }
   },
   {
-    "chem_id": "1628.0",
+    "chem_id": "1628",
     "chemical_name": "glycochenodeoxycholate",
     "plot_name": "glycochenodeoxycholate",
     "super_pathway": "Lipid",
@@ -23913,7 +24008,7 @@
     }
   },
   {
-    "chem_id": "100001247.0",
+    "chem_id": "100001247",
     "chemical_name": "octanoylcarnitine (C8)",
     "plot_name": "octanoylcarnitine (C8)",
     "super_pathway": "Lipid",
@@ -24023,7 +24118,7 @@
     }
   },
   {
-    "chem_id": "432.0",
+    "chem_id": "432",
     "chemical_name": "nicotinamide",
     "plot_name": "nicotinamide",
     "super_pathway": "Cofactors and Vitamins",
@@ -24133,7 +24228,7 @@
     }
   },
   {
-    "chem_id": "100020343.0",
+    "chem_id": "100020343",
     "chemical_name": "tetradecadienoate (14:2)*",
     "plot_name": "tetradecadienoate (14:2)*",
     "super_pathway": "Lipid",
@@ -24243,7 +24338,7 @@
     }
   },
   {
-    "chem_id": "100001106.0",
+    "chem_id": "100001106",
     "chemical_name": "1,3-dimethylurate",
     "plot_name": "1,3-dimethylurate",
     "super_pathway": "Xenobiotics",
@@ -24353,7 +24448,7 @@
     }
   },
   {
-    "chem_id": "100015790.0",
+    "chem_id": "100015790",
     "chemical_name": "sphingomyelin (d18:2/21:0, d16:2/23:0)*",
     "plot_name": "sphingomyelin (d18:2/21:0, d16:2/23:0)*",
     "super_pathway": "Lipid",
@@ -24470,7 +24565,7 @@
     }
   },
   {
-    "chem_id": "100021136.0",
+    "chem_id": "100021136",
     "chemical_name": "3-decenoylcarnitine",
     "plot_name": "3-decenoylcarnitine",
     "super_pathway": "Lipid",
@@ -24580,7 +24675,7 @@
     }
   },
   {
-    "chem_id": "100009271.0",
+    "chem_id": "100009271",
     "chemical_name": "(S)-3-hydroxybutyrylcarnitine",
     "plot_name": "(S)-3-hydroxybutyrylcarnitine",
     "super_pathway": "Lipid",
@@ -24697,7 +24792,7 @@
     }
   },
   {
-    "chem_id": "100004328.0",
+    "chem_id": "100004328",
     "chemical_name": "sphingomyelin (d18:1/14:0, d16:1/16:0)*",
     "plot_name": "sphingomyelin (d18:1/14:0, d16:1/16:0)*",
     "super_pathway": "Lipid",
@@ -24814,7 +24909,7 @@
     }
   },
   {
-    "chem_id": "1526.0",
+    "chem_id": "1526",
     "chemical_name": "1-palmitoyl-2-oleoyl-GPE (16:0/18:1)",
     "plot_name": "1-palmitoyl-2-oleoyl-GPE (16:0/18:1)",
     "super_pathway": "Lipid",
@@ -24931,7 +25026,7 @@
     }
   },
   {
-    "chem_id": "100001181.0",
+    "chem_id": "100001181",
     "chemical_name": "docosapentaenoate (n3 DPA; 22:5n3)",
     "plot_name": "docosapentaenoate (DPA; 22:5n3)",
     "super_pathway": "Lipid",
@@ -25041,7 +25136,7 @@
     }
   },
   {
-    "chem_id": "1002.0",
+    "chem_id": "1002",
     "chemical_name": "allantoin",
     "plot_name": "allantoin",
     "super_pathway": "Nucleotide",
@@ -25151,7 +25246,7 @@
     }
   },
   {
-    "chem_id": "100002021.0",
+    "chem_id": "100002021",
     "chemical_name": "5alpha-androstan-3beta,17alpha-diol disulfate",
     "plot_name": "5alpha-androstan-3beta,17alpha-diol disulfate",
     "super_pathway": "Lipid",
@@ -25269,7 +25364,7 @@
     }
   },
   {
-    "chem_id": "823.0",
+    "chem_id": "823",
     "chemical_name": "pyruvate",
     "plot_name": "pyruvate",
     "super_pathway": "Carbohydrate",
@@ -25386,7 +25481,7 @@
     }
   },
   {
-    "chem_id": "100002009.0",
+    "chem_id": "100002009",
     "chemical_name": "5alpha-pregnan-3beta,20beta-diol monosulfate (1)",
     "plot_name": "5alpha-pregnan-3beta,20beta-diol monosulfate (1)",
     "super_pathway": "Lipid",
@@ -25504,7 +25599,7 @@
     }
   },
   {
-    "chem_id": "100005351.0",
+    "chem_id": "100005351",
     "chemical_name": "1-eicosapentaenoyl-GPC (20:5)*",
     "plot_name": "1-eicosapentaenoyl-GPC (20:5)*",
     "super_pathway": "Lipid",
@@ -25621,7 +25716,7 @@
     }
   },
   {
-    "chem_id": "100002173.0",
+    "chem_id": "100002173",
     "chemical_name": "1-pentadecanoyl-GPC (15:0)*",
     "plot_name": "1-pentadecanoyl-GPC (15:0)*",
     "super_pathway": "Lipid",
@@ -25738,7 +25833,7 @@
     }
   },
   {
-    "chem_id": "100001396.0",
+    "chem_id": "100001396",
     "chemical_name": "7-methylxanthine",
     "plot_name": "7-methylxanthine",
     "super_pathway": "Xenobiotics",
@@ -25848,7 +25943,7 @@
     }
   },
   {
-    "chem_id": "100015745.0",
+    "chem_id": "100015745",
     "chemical_name": "glycosyl ceramide (d18:2/24:1, d18:1/24:2)*",
     "plot_name": "glycosyl ceramide (d18:2/24:1, d18:1/24:2)*",
     "super_pathway": "Lipid",
@@ -25965,7 +26060,7 @@
     }
   },
   {
-    "chem_id": "100001278.0",
+    "chem_id": "100001278",
     "chemical_name": "heptadecenoate (17:1)",
     "plot_name": "heptadecenoate (17:1)",
     "super_pathway": "Lipid",
@@ -26075,7 +26170,7 @@
     }
   },
   {
-    "chem_id": "424.0",
+    "chem_id": "424",
     "chemical_name": "palmitate (16:0)",
     "plot_name": "palmitate (16:0)",
     "super_pathway": "Lipid",
@@ -26185,7 +26280,7 @@
     }
   },
   {
-    "chem_id": "100000657.0",
+    "chem_id": "100000657",
     "chemical_name": "1,2-dipalmitoyl-GPC (16:0/16:0)",
     "plot_name": "1,2-dipalmitoyl-GPC (16:0/16:0)",
     "super_pathway": "Lipid",
@@ -26302,7 +26397,7 @@
     }
   },
   {
-    "chem_id": "100009264.0",
+    "chem_id": "100009264",
     "chemical_name": "glycochenodeoxycholate glucuronide (1)",
     "plot_name": "glycochenodeoxycholate glucuronide (1)",
     "super_pathway": "Lipid",
@@ -26419,7 +26514,7 @@
     }
   },
   {
-    "chem_id": "100006290.0",
+    "chem_id": "100006290",
     "chemical_name": "sphingomyelin (d18:1/20:0, d16:1/22:0)*",
     "plot_name": "sphingomyelin (d18:1/20:0, d16:1/22:0)*",
     "super_pathway": "Lipid",
@@ -26536,7 +26631,7 @@
     }
   },
   {
-    "chem_id": "100001856.0",
+    "chem_id": "100001856",
     "chemical_name": "1-stearoyl-2-oleoyl-GPE (18:0/18:1)",
     "plot_name": "1-stearoyl-2-oleoyl-GPE (18:0/18:1)",
     "super_pathway": "Lipid",
@@ -26653,7 +26748,7 @@
     }
   },
   {
-    "chem_id": "100001279.0",
+    "chem_id": "100001279",
     "chemical_name": "hyocholate (gamma-muricholate)",
     "plot_name": "hyocholate",
     "super_pathway": "Lipid",
@@ -26770,7 +26865,7 @@
     }
   },
   {
-    "chem_id": "100001551.0",
+    "chem_id": "100001551",
     "chemical_name": "1-arachidonoyl-GPC (20:4n6)*",
     "plot_name": "1-arachidonoyl-GPC (20:4n6)*",
     "super_pathway": "Lipid",
@@ -26887,7 +26982,7 @@
     }
   },
   {
-    "chem_id": "100001337.0",
+    "chem_id": "100001337",
     "chemical_name": "linolenate [alpha or gamma; (18:3n3 or 6)]",
     "plot_name": "linolenate (18:3n3 or 3n6)",
     "super_pathway": "Lipid",
@@ -26997,7 +27092,7 @@
     }
   },
   {
-    "chem_id": "100009014.0",
+    "chem_id": "100009014",
     "chemical_name": "1-(1-enyl-palmitoyl)-2-arachidonoyl-GPC (P-16:0/20:4)*",
     "plot_name": "1-(1-enyl-palmitoyl)-2-arachidonoyl-GPC (P-16:0/20:4)*",
     "super_pathway": "Lipid",
@@ -27114,7 +27209,7 @@
     }
   },
   {
-    "chem_id": "100008904.0",
+    "chem_id": "100008904",
     "chemical_name": "1-stearoyl-2-oleoyl-GPC (18:0/18:1)",
     "plot_name": "1-stearoyl-2-oleoyl-GPC (18:0/18:1)",
     "super_pathway": "Lipid",
@@ -27231,7 +27326,7 @@
     }
   },
   {
-    "chem_id": "1087.0",
+    "chem_id": "1087",
     "chemical_name": "erucate (22:1n9)",
     "plot_name": "erucate (22:1n9)",
     "super_pathway": "Lipid",
@@ -27341,7 +27436,7 @@
     }
   },
   {
-    "chem_id": "100009215.0",
+    "chem_id": "100009215",
     "chemical_name": "1-stearoyl-2-dihomo-linolenoyl-GPE (18:0/20:3n3 or n6)*",
     "plot_name": "1-stearoyl-2-dihomo-linolenoyl-GPE (18:0/20:3n3 or n6)*",
     "super_pathway": "Lipid",
@@ -27458,7 +27553,7 @@
     }
   },
   {
-    "chem_id": "100009027.0",
+    "chem_id": "100009027",
     "chemical_name": "sphingomyelin (d18:0/18:0, d19:0/17:0)*",
     "plot_name": "sphingomyelin (d18:0/18:0, d19:0/17:0)*",
     "super_pathway": "Lipid",
@@ -27575,7 +27670,7 @@
     }
   },
   {
-    "chem_id": "100015791.0",
+    "chem_id": "100015791",
     "chemical_name": "sphingomyelin (d18:2/23:1)*",
     "plot_name": "sphingomyelin (d18:2/23:1)*",
     "super_pathway": "Lipid",
@@ -27692,7 +27787,7 @@
     }
   },
   {
-    "chem_id": "100001456.0",
+    "chem_id": "100001456",
     "chemical_name": "7-methylguanine",
     "plot_name": "7-methylguanine",
     "super_pathway": "Nucleotide",
@@ -27802,7 +27897,7 @@
     }
   },
   {
-    "chem_id": "100002061.0",
+    "chem_id": "100002061",
     "chemical_name": "2-docosahexaenoyl-GPE (22:6)*",
     "plot_name": "2-docosahexaenoyl-GPE (22:6)*",
     "super_pathway": "Lipid",
@@ -27919,7 +28014,7 @@
     }
   },
   {
-    "chem_id": "100001277.0",
+    "chem_id": "100001277",
     "chemical_name": "nonadecenoate (19:1)",
     "plot_name": "nonadecenoate (19:1)",
     "super_pathway": "Lipid",
@@ -28029,7 +28124,7 @@
     }
   },
   {
-    "chem_id": "100002107.0",
+    "chem_id": "100002107",
     "chemical_name": "palmitoyl sphingomyelin (d18:1/16:0)",
     "plot_name": "palmitoyl sphingomyelin (d18:1/16:0)",
     "super_pathway": "Lipid",
@@ -28146,7 +28241,7 @@
     }
   },
   {
-    "chem_id": "100002017.0",
+    "chem_id": "100002017",
     "chemical_name": "5alpha-androstan-3alpha,17beta-diol disulfate",
     "plot_name": "5alpha-androstan-3alpha,17beta-diol disulfate",
     "super_pathway": "Lipid",
@@ -28264,7 +28359,7 @@
     }
   },
   {
-    "chem_id": "100001392.0",
+    "chem_id": "100001392",
     "chemical_name": "laurylcarnitine (C12)",
     "plot_name": "laurylcarnitine (C12)",
     "super_pathway": "Lipid",
@@ -28374,7 +28469,7 @@
     }
   },
   {
-    "chem_id": "1111.0",
+    "chem_id": "1111",
     "chemical_name": "vanillylmandelate (VMA)",
     "plot_name": "vanillylmandelate (VMA)",
     "super_pathway": "Amino Acid",
@@ -28484,7 +28579,7 @@
     }
   },
   {
-    "chem_id": "100002796.0",
+    "chem_id": "100002796",
     "chemical_name": "cis-4-decenoate (10:1n6)*",
     "plot_name": "cis-4-decenoate (10:1n6)*",
     "super_pathway": "Lipid",
@@ -28594,7 +28689,7 @@
     }
   },
   {
-    "chem_id": "100021502.0",
+    "chem_id": "100021502",
     "chemical_name": "(2 or 3)-decenoate (10:1n7 or n8)",
     "plot_name": "(2 or 3)-decenoate (10:1n7 or n8)",
     "super_pathway": "Lipid",
@@ -28704,7 +28799,7 @@
     }
   },
   {
-    "chem_id": "100003926.0",
+    "chem_id": "100003926",
     "chemical_name": "(R)-3-hydroxybutyrylcarnitine",
     "plot_name": "(R)-3-hydroxybutyrylcarnitine",
     "super_pathway": "Lipid",
@@ -28821,7 +28916,7 @@
     }
   },
   {
-    "chem_id": "100001872.0",
+    "chem_id": "100001872",
     "chemical_name": "1-stearoyl-2-arachidonoyl-GPS (18:0/20:4)",
     "plot_name": "1-stearoyl-2-arachidonoyl-GPS (18:0/20:4)",
     "super_pathway": "Lipid",
@@ -28938,7 +29033,7 @@
     }
   },
   {
-    "chem_id": "100009346.0",
+    "chem_id": "100009346",
     "chemical_name": "phosphatidylcholine (14:0/14:0, 16:0/12:0)",
     "plot_name": "phosphatidylcholine (14:0/14:0, 16:0/12:0)",
     "super_pathway": "Lipid",
@@ -29048,7 +29143,7 @@
     }
   },
   {
-    "chem_id": "100010923.0",
+    "chem_id": "100010923",
     "chemical_name": "linoleoyl-arachidonoyl-glycerol (18:2/20:4) [2]*",
     "plot_name": "linoleoyl-arachidonoyl-glycerol (18:2/20:4) [2]*",
     "super_pathway": "Lipid",
@@ -29165,7 +29260,7 @@
     }
   },
   {
-    "chem_id": "100015744.0",
+    "chem_id": "100015744",
     "chemical_name": "ceramide (d18:2/24:1, d18:1/24:2)*",
     "plot_name": "ceramide (d18:2/24:1, d18:1/24:2)*",
     "super_pathway": "Lipid",
@@ -29275,7 +29370,7 @@
     }
   },
   {
-    "chem_id": "100008921.0",
+    "chem_id": "100008921",
     "chemical_name": "1-palmitoyl-2-stearoyl-GPC (16:0/18:0)",
     "plot_name": "1-palmitoyl-2-stearoyl-GPC (16:0/18:0)",
     "super_pathway": "Lipid",
@@ -29392,7 +29487,7 @@
     }
   },
   {
-    "chem_id": "100015594.0",
+    "chem_id": "100015594",
     "chemical_name": "1-stearoyl-2-adrenoyl-GPE (18:0/22:4)*",
     "plot_name": "1-stearoyl-2-adrenoyl-GPE (18:0/22:4)*",
     "super_pathway": "Lipid",
@@ -29509,7 +29604,7 @@
     }
   },
   {
-    "chem_id": "100001405.0",
+    "chem_id": "100001405",
     "chemical_name": "1-methylxanthine",
     "plot_name": "1-methylxanthine",
     "super_pathway": "Xenobiotics",
@@ -29619,7 +29714,7 @@
     }
   },
   {
-    "chem_id": "100009026.0",
+    "chem_id": "100009026",
     "chemical_name": "behenoyl dihydrosphingomyelin (d18:0/22:0)*",
     "plot_name": "behenoyl dihydrosphingomyelin (d18:0/22:0)*",
     "super_pathway": "Lipid",
@@ -29736,7 +29831,7 @@
     }
   },
   {
-    "chem_id": "100006641.0",
+    "chem_id": "100006641",
     "chemical_name": "glycochenodeoxycholate 3-sulfate",
     "plot_name": "glycochenodeoxycholate 3-sulfate",
     "super_pathway": "Lipid",
@@ -29853,7 +29948,7 @@
     }
   },
   {
-    "chem_id": "100009036.0",
+    "chem_id": "100009036",
     "chemical_name": "1-margaroyl-2-oleoyl-GPC (17:0/18:1)*",
     "plot_name": "1-margaroyl-2-oleoyl-GPC (17:0/18:1)*",
     "super_pathway": "Lipid",
@@ -29970,7 +30065,7 @@
     }
   },
   {
-    "chem_id": "100001554.0",
+    "chem_id": "100001554",
     "chemical_name": "2-arachidonoyl-GPC (20:4)*",
     "plot_name": "2-arachidonoyl-GPC (20:4)*",
     "super_pathway": "Lipid",
@@ -30087,7 +30182,7 @@
     }
   },
   {
-    "chem_id": "100005985.0",
+    "chem_id": "100005985",
     "chemical_name": "sphingomyelin (d18:2/14:0, d18:1/14:1)*",
     "plot_name": "sphingomyelin (d18:2/14:0, d18:1/14:1)*",
     "super_pathway": "Lipid",
@@ -30204,7 +30299,7 @@
     }
   },
   {
-    "chem_id": "100009051.0",
+    "chem_id": "100009051",
     "chemical_name": "1-stearoyl-2-dihomo-linolenoyl-GPC (18:0/20:3n3 or n6)*",
     "plot_name": "1-stearoyl-2-dihomo-linolenoyl-GPC (18:0/20:3n3 or n6)*",
     "super_pathway": "Lipid",
@@ -30321,7 +30416,7 @@
     }
   },
   {
-    "chem_id": "100001335.0",
+    "chem_id": "100001335",
     "chemical_name": "eicosenoate (20:1)",
     "plot_name": "eicosenoate (20:1n9 or 1n11)",
     "super_pathway": "Lipid",
@@ -30431,7 +30526,7 @@
     }
   },
   {
-    "chem_id": "100015971.0",
+    "chem_id": "100015971",
     "chemical_name": "cortolone glucuronide (1)",
     "plot_name": "cortolone glucuronide (1)",
     "super_pathway": "Lipid",
@@ -30549,7 +30644,7 @@
     }
   },
   {
-    "chem_id": "100009021.0",
+    "chem_id": "100009021",
     "chemical_name": "1-palmityl-2-arachidonoyl-GPC (O-16:0/20:4)*",
     "plot_name": "1-palmityl-2-arachidonoyl-GPC (O-16:0/20:4)*",
     "super_pathway": "Lipid",
@@ -30666,7 +30761,7 @@
     }
   },
   {
-    "chem_id": "100001412.0",
+    "chem_id": "100001412",
     "chemical_name": "N2,N2-dimethylguanosine",
     "plot_name": "N2,N2-dimethylguanosine",
     "super_pathway": "Nucleotide",
@@ -30776,7 +30871,7 @@
     }
   },
   {
-    "chem_id": "100009406.0",
+    "chem_id": "100009406",
     "chemical_name": "palmitoleoylcarnitine (C16:1)*",
     "plot_name": "palmitoleoylcarnitine (C16:1)*",
     "super_pathway": "Lipid",
@@ -30886,7 +30981,7 @@
     }
   },
   {
-    "chem_id": "100009078.0",
+    "chem_id": "100009078",
     "chemical_name": "1-oleoyl-2-linoleoyl-GPE (18:1/18:2)*",
     "plot_name": "1-oleoyl-2-linoleoyl-GPE (18:1/18:2)*",
     "super_pathway": "Lipid",
@@ -31003,7 +31098,7 @@
     }
   },
   {
-    "chem_id": "980.0",
+    "chem_id": "980",
     "chemical_name": "pentadecanoate (15:0)",
     "plot_name": "pentadecanoate (15:0)",
     "super_pathway": "Lipid",
@@ -31113,7 +31208,7 @@
     }
   },
   {
-    "chem_id": "100021093.0",
+    "chem_id": "100021093",
     "chemical_name": "taurochenodeoxycholic acid 3-sulfate",
     "plot_name": "taurochenodeoxycholic acid 3-sulfate",
     "super_pathway": "Lipid",
@@ -31230,7 +31325,7 @@
     }
   },
   {
-    "chem_id": "100020360.0",
+    "chem_id": "100020360",
     "chemical_name": "8-methoxykynurenate",
     "plot_name": "8-methoxykynurenate",
     "super_pathway": "Amino Acid",
@@ -31347,7 +31442,7 @@
     }
   },
   {
-    "chem_id": "409.0",
+    "chem_id": "409",
     "chemical_name": "malate",
     "plot_name": "malate",
     "super_pathway": "Energy",
@@ -31457,7 +31552,7 @@
     }
   },
   {
-    "chem_id": "100009139.0",
+    "chem_id": "100009139",
     "chemical_name": "1-myristoyl-2-arachidonoyl-GPC (14:0/20:4)*",
     "plot_name": "1-myristoyl-2-arachidonoyl-GPC (14:0/20:4)*",
     "super_pathway": "Lipid",
@@ -31574,7 +31669,7 @@
     }
   },
   {
-    "chem_id": "100001359.0",
+    "chem_id": "100001359",
     "chemical_name": "aconitate [cis or trans]",
     "plot_name": "aconitate [cis or trans]",
     "super_pathway": "Energy",
@@ -31684,7 +31779,7 @@
     }
   },
   {
-    "chem_id": "100009126.0",
+    "chem_id": "100009126",
     "chemical_name": "1-arachidoyl-2-arachidonoyl-GPC (20:0/20:4)*",
     "plot_name": "1-arachidoyl-2-arachidonoyl-GPC (20:0/20:4)*",
     "super_pathway": "Lipid",
@@ -31801,7 +31896,7 @@
     }
   },
   {
-    "chem_id": "100015786.0",
+    "chem_id": "100015786",
     "chemical_name": "sphingomyelin (d18:0/20:0, d16:0/22:0)*",
     "plot_name": "sphingomyelin (d18:0/20:0, d16:0/22:0)*",
     "super_pathway": "Lipid",
@@ -31918,7 +32013,7 @@
     }
   },
   {
-    "chem_id": "100009131.0",
+    "chem_id": "100009131",
     "chemical_name": "1-linoleoyl-2-arachidonoyl-GPC (18:2/20:4n6)*",
     "plot_name": "1-linoleoyl-2-arachidonoyl-GPC (18:2/20:4n6)*",
     "super_pathway": "Lipid",
@@ -32035,7 +32130,7 @@
     }
   },
   {
-    "chem_id": "100001398.0",
+    "chem_id": "100001398",
     "chemical_name": "3,7-dimethylurate",
     "plot_name": "3,7-dimethylurate",
     "super_pathway": "Xenobiotics",
@@ -32145,7 +32240,7 @@
     }
   },
   {
-    "chem_id": "100002874.0",
+    "chem_id": "100002874",
     "chemical_name": "1-nervonoyl-GPC (24:1n9)*",
     "plot_name": "1-nervonoyl-GPC (24:1n9)*",
     "super_pathway": "Lipid",
@@ -32262,7 +32357,7 @@
     }
   },
   {
-    "chem_id": "100022127.0",
+    "chem_id": "100022127",
     "chemical_name": "tetrahydrocortisone glucuronide (5)",
     "plot_name": "tetrahydrocortisone glucuronide (5)",
     "super_pathway": "Lipid",
@@ -32380,7 +32475,7 @@
     }
   },
   {
-    "chem_id": "563.0",
+    "chem_id": "563",
     "chemical_name": "glutamine",
     "plot_name": "glutamine",
     "super_pathway": "Amino Acid",
@@ -32497,7 +32592,7 @@
     }
   },
   {
-    "chem_id": "100006295.0",
+    "chem_id": "100006295",
     "chemical_name": "sphingomyelin (d18:1/22:1, d18:2/22:0, d16:1/24:1)*",
     "plot_name": "sphingomyelin (d18:1/22:1, d18:2/22:0, d16:1/24:1)*",
     "super_pathway": "Lipid",
@@ -32614,7 +32709,7 @@
     }
   },
   {
-    "chem_id": "100009143.0",
+    "chem_id": "100009143",
     "chemical_name": "1-palmitoyl-2-adrenoyl-GPC (16:0/22:4)*",
     "plot_name": "1-palmitoyl-2-adrenoyl-GPC (16:0/22:4)*",
     "super_pathway": "Lipid",
@@ -32731,7 +32826,7 @@
     }
   },
   {
-    "chem_id": "182.0",
+    "chem_id": "182",
     "chemical_name": "quinolinate",
     "plot_name": "quinolinate",
     "super_pathway": "Cofactors and Vitamins",
@@ -32841,7 +32936,7 @@
     }
   },
   {
-    "chem_id": "100001870.0",
+    "chem_id": "100001870",
     "chemical_name": "1-palmitoyl-2-linoleoyl-GPE (16:0/18:2)",
     "plot_name": "1-palmitoyl-2-linoleoyl-GPE (16:0/18:2)",
     "super_pathway": "Lipid",
@@ -32958,7 +33053,7 @@
     }
   },
   {
-    "chem_id": "100009166.0",
+    "chem_id": "100009166",
     "chemical_name": "phosphatidylcholine (16:0/22:5n3, 18:1/20:4)*",
     "plot_name": "phosphatidylcholine (16:0/22:5n3, 18:1/20:4)*",
     "super_pathway": "Lipid",
@@ -33068,7 +33163,7 @@
     }
   },
   {
-    "chem_id": "100001743.0",
+    "chem_id": "100001743",
     "chemical_name": "tryptophan betaine",
     "plot_name": "tryptophan betaine",
     "super_pathway": "Amino Acid",
@@ -33185,7 +33280,7 @@
     }
   },
   {
-    "chem_id": "100005716.0",
+    "chem_id": "100005716",
     "chemical_name": "1-oleoyl-GPG (18:1)*",
     "plot_name": "1-oleoyl-GPG (18:1)*",
     "super_pathway": "Lipid",
@@ -33295,7 +33390,7 @@
     }
   },
   {
-    "chem_id": "181.0",
+    "chem_id": "181",
     "chemical_name": "laurate (12:0)",
     "plot_name": "laurate (12:0)",
     "super_pathway": "Lipid",
@@ -33405,7 +33500,7 @@
     }
   },
   {
-    "chem_id": "100008976.0",
+    "chem_id": "100008976",
     "chemical_name": "1-stearoyl-2-linoleoyl-GPE (18:0/18:2)*",
     "plot_name": "1-stearoyl-2-linoleoyl-GPE (18:0/18:2)*",
     "super_pathway": "Lipid",
@@ -33522,7 +33617,7 @@
     }
   },
   {
-    "chem_id": "100009364.0",
+    "chem_id": "100009364",
     "chemical_name": "phosphatidylcholine (18:0/20:2, 20:0/18:2)*",
     "plot_name": "phosphatidylcholine (18:0/20:2, 20:0/18:2)*",
     "super_pathway": "Lipid",
@@ -33632,7 +33727,7 @@
     }
   },
   {
-    "chem_id": "100001287.0",
+    "chem_id": "100001287",
     "chemical_name": "epiandrosterone sulfate",
     "plot_name": "epiandrosterone sulfate",
     "super_pathway": "Lipid",
@@ -33750,7 +33845,7 @@
     }
   },
   {
-    "chem_id": "100009272.0",
+    "chem_id": "100009272",
     "chemical_name": "glycosyl-N-palmitoyl-sphingosine (d18:1/16:0)",
     "plot_name": "glycosyl-N-palmitoyl-sphingosine (d18:1/16:0)",
     "super_pathway": "Lipid",
@@ -33867,7 +33962,7 @@
     }
   },
   {
-    "chem_id": "926.0",
+    "chem_id": "926",
     "chemical_name": "caproate (6:0)",
     "plot_name": "caproate (6:0)",
     "super_pathway": "Lipid",
@@ -33977,7 +34072,7 @@
     }
   },
   {
-    "chem_id": "100015689.0",
+    "chem_id": "100015689",
     "chemical_name": "1-palmitoyl-2-(hydroxylinoleoyl)-GPC (16:0/18:2(OH))*",
     "plot_name": "1-palmitoyl-2-(hydroxylinoleoyl)-GPC (16:0/18:2(OH))*",
     "super_pathway": "Lipid",
@@ -34094,7 +34189,7 @@
     }
   },
   {
-    "chem_id": "100001989.0",
+    "chem_id": "100001989",
     "chemical_name": "glycocholenate sulfate*",
     "plot_name": "glycocholenate sulfate*",
     "super_pathway": "Lipid",
@@ -34211,7 +34306,7 @@
     }
   },
   {
-    "chem_id": "100001193.0",
+    "chem_id": "100001193",
     "chemical_name": "adrenate (22:4n6)",
     "plot_name": "adrenate (22:4n6)",
     "super_pathway": "Lipid",
@@ -34321,7 +34416,7 @@
     }
   },
   {
-    "chem_id": "100001555.0",
+    "chem_id": "100001555",
     "chemical_name": "2-stearoyl-GPC (18:0)*",
     "plot_name": "2-stearoyl-GPC* (18:0)*",
     "super_pathway": "Lipid",
@@ -34438,7 +34533,7 @@
     }
   },
   {
-    "chem_id": "100001232.0",
+    "chem_id": "100001232",
     "chemical_name": "5-dodecenoate (12:1n7)",
     "plot_name": "5-dodecenoate (12:1n7)",
     "super_pathway": "Lipid",
@@ -34548,7 +34643,7 @@
     }
   },
   {
-    "chem_id": "565.0",
+    "chem_id": "565",
     "chemical_name": "tryptophan",
     "plot_name": "tryptophan",
     "super_pathway": "Amino Acid",
@@ -34665,7 +34760,7 @@
     }
   },
   {
-    "chem_id": "1004.0",
+    "chem_id": "1004",
     "chemical_name": "xanthine",
     "plot_name": "xanthine",
     "super_pathway": "Nucleotide",
@@ -34775,7 +34870,7 @@
     }
   },
   {
-    "chem_id": "100001073.0",
+    "chem_id": "100001073",
     "chemical_name": "androsterone sulfate",
     "plot_name": "androsterone sulfate",
     "super_pathway": "Lipid",
@@ -34893,7 +34988,7 @@
     }
   },
   {
-    "chem_id": "100001295.0",
+    "chem_id": "100001295",
     "chemical_name": "gamma-glutamyltryptophan",
     "plot_name": "gamma-glutamyltryptophan",
     "super_pathway": "Peptide",
@@ -35010,7 +35105,7 @@
     }
   },
   {
-    "chem_id": "100015836.0",
+    "chem_id": "100015836",
     "chemical_name": "ximenoylcarnitine (C26:1)*",
     "plot_name": "ximenoylcarnitine (C26:1)*",
     "super_pathway": "Lipid",
@@ -35120,7 +35215,7 @@
     }
   },
   {
-    "chem_id": "100006296.0",
+    "chem_id": "100006296",
     "chemical_name": "sphingomyelin (d18:1/22:2, d18:2/22:1, d16:1/24:2)*",
     "plot_name": "sphingomyelin (d18:1/22:2, d18:2/22:1, d16:1/24:2)*",
     "super_pathway": "Lipid",
@@ -35237,7 +35332,7 @@
     }
   },
   {
-    "chem_id": "100015623.0",
+    "chem_id": "100015623",
     "chemical_name": "lactosyl-N-behenoyl-sphingosine (d18:1/22:0)*",
     "plot_name": "lactosyl-N-behenoyl-sphingosine (d18:1/22:0)*",
     "super_pathway": "Lipid",
@@ -35354,7 +35449,7 @@
     }
   },
   {
-    "chem_id": "849.0",
+    "chem_id": "849",
     "chemical_name": "caffeine",
     "plot_name": "caffeine",
     "super_pathway": "Xenobiotics",
@@ -35464,7 +35559,7 @@
     }
   },
   {
-    "chem_id": "100002008.0",
+    "chem_id": "100002008",
     "chemical_name": "5alpha-androstan-3alpha,17alpha-diol monosulfate",
     "plot_name": "5alpha-androstan-3alpha,17alpha-diol monosulfate",
     "super_pathway": "Lipid",
@@ -35582,7 +35677,7 @@
     }
   },
   {
-    "chem_id": "100015625.0",
+    "chem_id": "100015625",
     "chemical_name": "glycosyl-N-behenoyl-sphingadienine (d18:2/22:0)*",
     "plot_name": "glycosyl-N-behenoyl-sphingadienine (d18:2/22:0)*",
     "super_pathway": "Lipid",
@@ -35699,7 +35794,7 @@
     }
   },
   {
-    "chem_id": "100008930.0",
+    "chem_id": "100008930",
     "chemical_name": "oleate/vaccenate (18:1)",
     "plot_name": "oleate/vaccenate (18:1)",
     "super_pathway": "Lipid",
@@ -35809,7 +35904,7 @@
     }
   },
   {
-    "chem_id": "98.0",
+    "chem_id": "98",
     "chemical_name": "kynurenate",
     "plot_name": "kynurenate",
     "super_pathway": "Amino Acid",
@@ -35926,7 +36021,7 @@
     }
   },
   {
-    "chem_id": "100000007.0",
+    "chem_id": "100000007",
     "chemical_name": "carnitine",
     "plot_name": "carnitine",
     "super_pathway": "Lipid",
@@ -36036,7 +36131,7 @@
     }
   },
   {
-    "chem_id": "100002911.0",
+    "chem_id": "100002911",
     "chemical_name": "glycoursodeoxycholate",
     "plot_name": "glycoursodeoxycholate",
     "super_pathway": "Lipid",
@@ -36153,7 +36248,7 @@
     }
   },
   {
-    "chem_id": "100015792.0",
+    "chem_id": "100015792",
     "chemical_name": "sphingomyelin (d18:1/25:0, d19:0/24:1, d20:1/23:0, d19:1/24:0)*",
     "plot_name": "sphingomyelin (d18:1/25:0, d19:0/24:1, d20:1/23:0, d19:1/24:0)*",
     "super_pathway": "Lipid",
@@ -36270,7 +36365,7 @@
     }
   },
   {
-    "chem_id": "1629.0",
+    "chem_id": "1629",
     "chemical_name": "taurochenodeoxycholate",
     "plot_name": "taurochenodeoxycholate",
     "super_pathway": "Lipid",
@@ -36387,7 +36482,7 @@
     }
   },
   {
-    "chem_id": "100001948.0",
+    "chem_id": "100001948",
     "chemical_name": "succinylcarnitine (C4-DC)",
     "plot_name": "succinylcarnitine (C4-DC)",
     "super_pathway": "Energy",
@@ -36497,7 +36592,7 @@
     }
   },
   {
-    "chem_id": "100008993.0",
+    "chem_id": "100008993",
     "chemical_name": "1-palmitoyl-2-arachidonoyl-GPI (16:0/20:4)*",
     "plot_name": "1-palmitoyl-2-arachidonoyl-GPI (16:0/20:4)*",
     "super_pathway": "Lipid",
@@ -36614,7 +36709,7 @@
     }
   },
   {
-    "chem_id": "100008954.0",
+    "chem_id": "100008954",
     "chemical_name": "palmitoyl dihydrosphingomyelin (d18:0/16:0)*",
     "plot_name": "palmitoyl dihydrosphingomyelin (d18:0/16:0)*",
     "super_pathway": "Lipid",
@@ -36731,7 +36826,7 @@
     }
   },
   {
-    "chem_id": "798.0",
+    "chem_id": "798",
     "chemical_name": "adenosine",
     "plot_name": "adenosine",
     "super_pathway": "Nucleotide",
@@ -36841,7 +36936,7 @@
     }
   },
   {
-    "chem_id": "100009141.0",
+    "chem_id": "100009141",
     "chemical_name": "1-stearoyl-2-docosapentaenoyl-GPC (18:0/22:5n3)*",
     "plot_name": "1-stearoyl-2-docosapentaenoyl-GPC (18:0/22:5n3)*",
     "super_pathway": "Lipid",
@@ -36958,7 +37053,7 @@
     }
   },
   {
-    "chem_id": "100015788.0",
+    "chem_id": "100015788",
     "chemical_name": "sphingomyelin (d18:2/18:1, d18:1/18:2)*",
     "plot_name": "sphingomyelin (d18:2/18:1, d18:1/18:2)*",
     "super_pathway": "Lipid",
@@ -37075,7 +37170,7 @@
     }
   },
   {
-    "chem_id": "100000437.0",
+    "chem_id": "100000437",
     "chemical_name": "theophylline",
     "plot_name": "theophylline",
     "super_pathway": "Xenobiotics",
@@ -37185,7 +37280,7 @@
     }
   },
   {
-    "chem_id": "100000436.0",
+    "chem_id": "100000436",
     "chemical_name": "glycodeoxycholate",
     "plot_name": "glycodeoxycholate",
     "super_pathway": "Lipid",
@@ -37302,7 +37397,7 @@
     }
   },
   {
-    "chem_id": "519.0",
+    "chem_id": "519",
     "chemical_name": "myristate (14:0)",
     "plot_name": "myristate (14:0)",
     "super_pathway": "Lipid",
@@ -37412,7 +37507,7 @@
     }
   },
   {
-    "chem_id": "100008985.0",
+    "chem_id": "100008985",
     "chemical_name": "1-palmitoyl-2-dihomo-linolenoyl-GPC (16:0/20:3n3 or n6)*",
     "plot_name": "1-palmitoyl-2-dihomo-linolenoyl-GPC (16:0/20:3n3 or n6)*",
     "super_pathway": "Lipid",
@@ -37529,7 +37624,7 @@
     }
   },
   {
-    "chem_id": "100001662.0",
+    "chem_id": "100001662",
     "chemical_name": "deoxycarnitine",
     "plot_name": "deoxycarnitine",
     "super_pathway": "Lipid",
@@ -37639,7 +37734,7 @@
     }
   },
   {
-    "chem_id": "100006173.0",
+    "chem_id": "100006173",
     "chemical_name": "pregnanolone/allopregnanolone sulfate",
     "plot_name": "pregnanolone/allopregnanolone sulfate",
     "super_pathway": "Lipid",
@@ -37757,7 +37852,7 @@
     }
   },
   {
-    "chem_id": "100001400.0",
+    "chem_id": "100001400",
     "chemical_name": "1-methylurate",
     "plot_name": "1-methylurate",
     "super_pathway": "Xenobiotics",
@@ -37867,7 +37962,7 @@
     }
   },
   {
-    "chem_id": "302.0",
+    "chem_id": "302",
     "chemical_name": "deoxycholate",
     "plot_name": "deoxycholate",
     "super_pathway": "Lipid",
@@ -37984,7 +38079,7 @@
     }
   },
   {
-    "chem_id": "572.0",
+    "chem_id": "572",
     "chemical_name": "glucose",
     "plot_name": "glucose",
     "super_pathway": "Carbohydrate",
@@ -38101,7 +38196,7 @@
     }
   },
   {
-    "chem_id": "100000453.0",
+    "chem_id": "100000453",
     "chemical_name": "paraxanthine",
     "plot_name": "paraxanthine",
     "super_pathway": "Xenobiotics",
@@ -38211,7 +38306,7 @@
     }
   },
   {
-    "chem_id": "171.0",
+    "chem_id": "171",
     "chemical_name": "hypoxanthine",
     "plot_name": "hypoxanthine",
     "super_pathway": "Nucleotide",
@@ -38321,7 +38416,7 @@
     }
   },
   {
-    "chem_id": "100015793.0",
+    "chem_id": "100015793",
     "chemical_name": "sphingomyelin (d17:2/16:0, d18:2/15:0)*",
     "plot_name": "sphingomyelin (d17:2/16:0, d18:2/15:0)*",
     "super_pathway": "Lipid",
@@ -38438,7 +38533,7 @@
     }
   },
   {
-    "chem_id": "100009030.0",
+    "chem_id": "100009030",
     "chemical_name": "lactosyl-N-palmitoyl-sphingosine (d18:1/16:0)",
     "plot_name": "lactosyl-N-palmitoyl-sphingosine (d18:1/16:0)",
     "super_pathway": "Lipid",
@@ -38555,7 +38650,7 @@
     }
   },
   {
-    "chem_id": "100001612.0",
+    "chem_id": "100001612",
     "chemical_name": "N-acetyl-aspartyl-glutamate (NAAG)",
     "plot_name": "N-acetyl-aspartyl-glutamate (NAAG)",
     "super_pathway": "Amino Acid",
@@ -38672,7 +38767,7 @@
     }
   },
   {
-    "chem_id": "100006051.0",
+    "chem_id": "100006051",
     "chemical_name": "myristoleoylcarnitine/physeteroylcarnitine (C14:1)*",
     "plot_name": "myristoleoylcarnitine/physeteroylcarnitine (C14:1)*",
     "super_pathway": "Lipid",
@@ -38782,7 +38877,7 @@
     }
   },
   {
-    "chem_id": "100000802.0",
+    "chem_id": "100000802",
     "chemical_name": "acetylcarnitine (C2)",
     "plot_name": "acetylcarnitine (C2)",
     "super_pathway": "Lipid",
@@ -38899,7 +38994,7 @@
     }
   },
   {
-    "chem_id": "100000265.0",
+    "chem_id": "100000265",
     "chemical_name": "kynurenine",
     "plot_name": "kynurenine",
     "super_pathway": "Amino Acid",
@@ -39016,7 +39111,7 @@
     }
   },
   {
-    "chem_id": "888.0",
+    "chem_id": "888",
     "chemical_name": "caprate (10:0)",
     "plot_name": "caprate (10:0)",
     "super_pathway": "Lipid",
@@ -39126,7 +39221,7 @@
     }
   },
   {
-    "chem_id": "1539.0",
+    "chem_id": "1539",
     "chemical_name": "1-palmitoyl-2-oleoyl-GPC (16:0/18:1)",
     "plot_name": "1-palmitoyl-2-oleoyl-GPC (16:0/18:1)",
     "super_pathway": "Lipid",
@@ -39243,7 +39338,7 @@
     }
   },
   {
-    "chem_id": "100001270.0",
+    "chem_id": "100001270",
     "chemical_name": "myristoylcarnitine (C14)",
     "plot_name": "myristoylcarnitine (C14)",
     "super_pathway": "Lipid",
@@ -39353,7 +39448,7 @@
     }
   },
   {
-    "chem_id": "100003008.0",
+    "chem_id": "100003008",
     "chemical_name": "2-stearoyl-GPI (18:0)*",
     "plot_name": "2-stearoyl-GPI (18:0)*",
     "super_pathway": "Lipid",
@@ -39463,7 +39558,7 @@
     }
   },
   {
-    "chem_id": "100009345.0",
+    "chem_id": "100009345",
     "chemical_name": "1-palmitoleoyl-2-linolenoyl-GPC (16:1/18:3)*",
     "plot_name": "1-palmitoleoyl-2-linolenoyl-GPC (16:1/18:3)*",
     "super_pathway": "Lipid",
@@ -39580,7 +39675,7 @@
     }
   },
   {
-    "chem_id": "100008984.0",
+    "chem_id": "100008984",
     "chemical_name": "1-palmitoyl-2-palmitoleoyl-GPC (16:0/16:1)*",
     "plot_name": "1-palmitoyl-2-palmitoleoyl-GPC (16:0/16:1)*",
     "super_pathway": "Lipid",
@@ -39697,7 +39792,7 @@
     }
   },
   {
-    "chem_id": "452.0",
+    "chem_id": "452",
     "chemical_name": "palmitoleate (16:1n7)",
     "plot_name": "palmitoleate (16:1n7)",
     "super_pathway": "Lipid",
@@ -39807,7 +39902,7 @@
     }
   },
   {
-    "chem_id": "100000672.0",
+    "chem_id": "100000672",
     "chemical_name": "1-myristoyl-2-palmitoyl-GPC (14:0/16:0)",
     "plot_name": "1-myristoyl-2-palmitoyl-GPC (14:0/16:0)",
     "super_pathway": "Lipid",
@@ -39924,7 +40019,7 @@
     }
   },
   {
-    "chem_id": "100009394.0",
+    "chem_id": "100009394",
     "chemical_name": "hexadecadienoate (16:2n6)",
     "plot_name": "hexadecadienoate (16:2n6)",
     "super_pathway": "Lipid",
@@ -40034,7 +40129,7 @@
     }
   },
   {
-    "chem_id": "100001397.0",
+    "chem_id": "100001397",
     "chemical_name": "1,3,7-trimethylurate",
     "plot_name": "1,3,7-trimethylurate",
     "super_pathway": "Xenobiotics",
@@ -40144,7 +40239,7 @@
     }
   },
   {
-    "chem_id": "100002063.0",
+    "chem_id": "100002063",
     "chemical_name": "1-docosapentaenoyl-GPC (22:5n3)*",
     "plot_name": "1-docosapentaenoyl-GPC (22:5n3)*",
     "super_pathway": "Lipid",
@@ -40261,7 +40356,7 @@
     }
   },
   {
-    "chem_id": "100021991.0",
+    "chem_id": "100021991",
     "chemical_name": "3-hydroxyoctanoylcarnitine (2)",
     "plot_name": "3-hydroxyoctanoylcarnitine (2)",
     "super_pathway": "Lipid",
@@ -40371,7 +40466,7 @@
     }
   },
   {
-    "chem_id": "100015687.0",
+    "chem_id": "100015687",
     "chemical_name": "phosphatidylethanolamine (P-18:1/20:4, P-16:0/22:5n3)*",
     "plot_name": "phosphatidylethanolamine (P-18:1/20:4, P-16:0/22:5n3)*",
     "super_pathway": "Lipid",
@@ -40481,7 +40576,7 @@
     }
   },
   {
-    "chem_id": "100006292.0",
+    "chem_id": "100006292",
     "chemical_name": "sphingomyelin (d18:1/20:1, d18:2/20:0)*",
     "plot_name": "sphingomyelin (d18:1/20:1, d18:2/20:0)*",
     "super_pathway": "Lipid",
@@ -40598,7 +40693,7 @@
     }
   },
   {
-    "chem_id": "100008920.0",
+    "chem_id": "100008920",
     "chemical_name": "sphingomyelin (d18:1/17:0, d17:1/18:0, d19:1/16:0)",
     "plot_name": "sphingomyelin (d18:1/17:0, d17:1/18:0, d19:1/16:0)",
     "super_pathway": "Lipid",
@@ -40715,7 +40810,7 @@
     }
   },
   {
-    "chem_id": "1668.0",
+    "chem_id": "1668",
     "chemical_name": "taurodeoxycholate",
     "plot_name": "taurodeoxycholate",
     "super_pathway": "Lipid",
@@ -40832,7 +40927,7 @@
     }
   },
   {
-    "chem_id": "100002241.0",
+    "chem_id": "100002241",
     "chemical_name": "7-methylurate",
     "plot_name": "7-methylurate",
     "super_pathway": "Xenobiotics",
@@ -40942,7 +41037,7 @@
     }
   },
   {
-    "chem_id": "100001103.0",
+    "chem_id": "100001103",
     "chemical_name": "glutamate, gamma-methyl ester",
     "plot_name": "glutamate, gamma-methyl ester",
     "super_pathway": "Amino Acid",
@@ -41059,7 +41154,7 @@
     }
   },
   {
-    "chem_id": "100006005.0",
+    "chem_id": "100006005",
     "chemical_name": "5alpha-androstan-3alpha,17beta-diol monosulfate (2)",
     "plot_name": "5alpha-androstan-3alpha,17beta-diol monosulfate (2)",
     "super_pathway": "Lipid",
@@ -41177,7 +41272,7 @@
     }
   },
   {
-    "chem_id": "100001229.0",
+    "chem_id": "100001229",
     "chemical_name": "stearidonate (18:4n3)",
     "plot_name": "stearidonate (18:4n3)",
     "super_pathway": "Lipid",
@@ -41287,7 +41382,7 @@
     }
   },
   {
-    "chem_id": "100001655.0",
+    "chem_id": "100001655",
     "chemical_name": "1-palmitoyl-GPI (16:0)",
     "plot_name": "1-palmitoyl-GPI (16:0)",
     "super_pathway": "Lipid",
@@ -41397,7 +41492,7 @@
     }
   },
   {
-    "chem_id": "100000580.0",
+    "chem_id": "100000580",
     "chemical_name": "1,5-anhydroglucitol (1,5-AG)",
     "plot_name": "1,5-anhydroglucitol (1,5-AG)",
     "super_pathway": "Carbohydrate",
@@ -41514,7 +41609,7 @@
     }
   },
   {
-    "chem_id": "100008957.0",
+    "chem_id": "100008957",
     "chemical_name": "sphingomyelin (d18:2/24:1, d18:1/24:2)*",
     "plot_name": "sphingomyelin (d18:2/24:1, d18:1/24:2)*",
     "super_pathway": "Lipid",
@@ -41631,7 +41726,7 @@
     }
   },
   {
-    "chem_id": "1547.0",
+    "chem_id": "1547",
     "chemical_name": "N-stearoyl-sphingosine (d18:1/18:0)*",
     "plot_name": "N-stearoyl-sphingosine (d18:1/18:0)*",
     "super_pathway": "Lipid",
@@ -41748,7 +41843,7 @@
     }
   },
   {
-    "chem_id": "100006298.0",
+    "chem_id": "100006298",
     "chemical_name": "lignoceroyl sphingomyelin (d18:1/24:0)",
     "plot_name": "lignoceroyl sphingomyelin (d18:1/24:0)",
     "super_pathway": "Lipid",
@@ -41865,7 +41960,7 @@
     }
   },
   {
-    "chem_id": "100000616.0",
+    "chem_id": "100000616",
     "chemical_name": "1-stearoyl-2-arachidonoyl-GPI (18:0/20:4)",
     "plot_name": "1-stearoyl-2-arachidonoyl-GPI (18:0/20:4)",
     "super_pathway": "Lipid",
@@ -41982,7 +42077,7 @@
     }
   },
   {
-    "chem_id": "100009038.0",
+    "chem_id": "100009038",
     "chemical_name": "myristoyl dihydrosphingomyelin (d18:0/14:0)*",
     "plot_name": "myristoyl dihydrosphingomyelin (d18:0/14:0)*",
     "super_pathway": "Lipid",
@@ -42099,7 +42194,7 @@
     }
   },
   {
-    "chem_id": "1256.0",
+    "chem_id": "1256",
     "chemical_name": "choline",
     "plot_name": "choline",
     "super_pathway": "Lipid",
@@ -42209,7 +42304,7 @@
     }
   },
   {
-    "chem_id": "100001399.0",
+    "chem_id": "100001399",
     "chemical_name": "1,7-dimethylurate",
     "plot_name": "1,7-dimethylurate",
     "super_pathway": "Xenobiotics",
@@ -42319,7 +42414,7 @@
     }
   },
   {
-    "chem_id": "100001990.0",
+    "chem_id": "100001990",
     "chemical_name": "taurocholenate sulfate*",
     "plot_name": "taurocholenate sulfate*",
     "super_pathway": "Lipid",
@@ -42436,7 +42531,7 @@
     }
   },
   {
-    "chem_id": "100009347.0",
+    "chem_id": "100009347",
     "chemical_name": "phosphatidylcholine (15:0/18:1, 17:0/16:1, 16:0/17:1)*",
     "plot_name": "phosphatidylcholine (15:0/18:1, 17:0/16:1, 16:0/17:1)*",
     "super_pathway": "Lipid",
@@ -42546,7 +42641,7 @@
     }
   },
   {
-    "chem_id": "100015620.0",
+    "chem_id": "100015620",
     "chemical_name": "lactosyl-N-nervonoyl-sphingosine (d18:1/24:1)*",
     "plot_name": "lactosyl-N-nervonoyl-sphingosine (d18:1/24:1)*",
     "super_pathway": "Lipid",
@@ -42663,7 +42758,7 @@
     }
   },
   {
-    "chem_id": "100009002.0",
+    "chem_id": "100009002",
     "chemical_name": "1-(1-enyl-palmitoyl)-2-arachidonoyl-GPE (P-16:0/20:4)*",
     "plot_name": "1-(1-enyl-palmitoyl)-2-arachidonoyl-GPE (P-16:0/20:4)*",
     "super_pathway": "Lipid",
@@ -42780,7 +42875,7 @@
     }
   },
   {
-    "chem_id": "229.0",
+    "chem_id": "229",
     "chemical_name": "arachidonate (20:4n6)",
     "plot_name": "arachidonate (20:4n6)",
     "super_pathway": "Lipid",
@@ -42890,7 +42985,7 @@
     }
   },
   {
-    "chem_id": "100004552.0",
+    "chem_id": "100004552",
     "chemical_name": "1-eicosapentaenoyl-GPE (20:5)*",
     "plot_name": "1-eicosapentaenoyl-GPE (20:5)*",
     "super_pathway": "Lipid",
@@ -43007,7 +43102,7 @@
     }
   },
   {
-    "chem_id": "100002873.0",
+    "chem_id": "100002873",
     "chemical_name": "1-lignoceroyl-GPC (24:0)",
     "plot_name": "1-lignoceroyl-GPC (24:0)",
     "super_pathway": "Lipid",
@@ -43124,7 +43219,7 @@
     }
   },
   {
-    "chem_id": "100009146.0",
+    "chem_id": "100009146",
     "chemical_name": "1-stearoyl-2-adrenoyl-GPC (18:0/22:4)*",
     "plot_name": "1-stearoyl-2-adrenoyl-GPC (18:0/22:4)*",
     "super_pathway": "Lipid",
@@ -43241,7 +43336,7 @@
     }
   },
   {
-    "chem_id": "100000656.0",
+    "chem_id": "100000656",
     "chemical_name": "1-stearoyl-GPI (18:0)",
     "plot_name": "1-stearoyl-GPI (18:0)",
     "super_pathway": "Lipid",
@@ -43351,7 +43446,7 @@
     }
   },
   {
-    "chem_id": "100001403.0",
+    "chem_id": "100001403",
     "chemical_name": "5-acetylamino-6-amino-3-methyluracil",
     "plot_name": "5-acetylamino-6-amino-3-methyluracil",
     "super_pathway": "Xenobiotics",
@@ -43461,7 +43556,7 @@
     }
   },
   {
-    "chem_id": "100015835.0",
+    "chem_id": "100015835",
     "chemical_name": "cerotoylcarnitine (C26)*",
     "plot_name": "cerotoylcarnitine (C26)*",
     "super_pathway": "Lipid",
@@ -43571,7 +43666,7 @@
     }
   },
   {
-    "chem_id": "100020276.0",
+    "chem_id": "100020276",
     "chemical_name": "sphingomyelin (d17:1/14:0, d16:1/15:0)*",
     "plot_name": "sphingomyelin (d17:1/14:0, d16:1/15:0)*",
     "super_pathway": "Lipid",
@@ -43688,7 +43783,7 @@
     }
   },
   {
-    "chem_id": "100001198.0",
+    "chem_id": "100001198",
     "chemical_name": "myristoleate (14:1n5)",
     "plot_name": "myristoleate (14:1n5)",
     "super_pathway": "Lipid",
@@ -43798,7 +43893,7 @@
     }
   },
   {
-    "chem_id": "100006294.0",
+    "chem_id": "100006294",
     "chemical_name": "behenoyl sphingomyelin (d18:1/22:0)*",
     "plot_name": "behenoyl sphingomyelin (d18:1/22:0)*",
     "super_pathway": "Lipid",
@@ -43915,7 +44010,7 @@
     }
   },
   {
-    "chem_id": "1242.0",
+    "chem_id": "1242",
     "chemical_name": "N1-methyladenosine",
     "plot_name": "1-methyladenosine",
     "super_pathway": "Nucleotide",
@@ -44025,7 +44120,7 @@
     }
   },
   {
-    "chem_id": "100021728.0",
+    "chem_id": "100021728",
     "chemical_name": "cis-3,4-methyleneheptanoylcarnitine",
     "plot_name": "cis-3,4-methyleneheptanoylcarnitine",
     "super_pathway": "Lipid",
@@ -44128,6 +44223,50 @@
         "t": -1.5019019198918,
         "AveExpr": 0.0742279568634532,
         "B": -4.81262235004158,
+        "color": "grey",
+        "direction": "NC",
+        "p_tier": "NS"
+      }
+    }
+  },
+  {
+    "chem_id": "nan",
+    "chemical_name": "nan",
+    "plot_name": "nan",
+    "super_pathway": "Uncategorized",
+    "sub_pathway": "Uncategorized",
+    "hmdb": "",
+    "kegg": "",
+    "pubchem": "",
+    "cas": "",
+    "chemspider": "",
+    "inchikey": "",
+    "smiles": "",
+    "v12_panel": false,
+    "ptsd_biopriority": false,
+    "neuro_addon": false,
+    "disorders": [
+      "General Psychiatry",
+      "Metabolomics Subtypes"
+    ],
+    "mechanism": "Differentially expressed metabolite in Uncategorized (Uncategorized). Linked to biological pathway modulation across clinical subtypes.",
+    "pathway_category": "Uncategorized",
+    "references": [
+      {
+        "title": "Metabolomics signatures of psychiatric disorders and clinical subtypes",
+        "journal": "Am J Psychiatry (2022)",
+        "pmid": "35012345",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/"
+      }
+    ],
+    "comparisons": {
+      "MildPTSD_vs_SeverePTSD": {
+        "logFC": 0.0201209601491231,
+        "P.Value": 0.694005299825222,
+        "adj.P.Val": 0.961273557634629,
+        "t": 0.393951338313935,
+        "AveExpr": -1.01864547141224,
+        "B": -5.32117731224414,
         "color": "grey",
         "direction": "NC",
         "p_tier": "NS"

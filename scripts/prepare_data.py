@@ -2,7 +2,6 @@
 import pandas as pd
 import json
 import os
-import glob
 
 v12_dir = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity/result_V12"
 final_prod_dir = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity/result_FINAL_PRODUCTION/IPW_Six_Comparisons"
@@ -18,6 +17,26 @@ file_mapping = {
 }
 
 ANNOTATION_DATABASE = [
+    {
+        "pattern": ["gabr", "arginine bioavailability"],
+        "disorders": ["PTSD (Severe/Mild)", "MDD", "Endothelial Dysfunction"],
+        "mechanism": "Global Arginine Bioavailability Ratio (GABR = Arginine / [Ornithine + Citrulline]). Reflects nitric oxide (NO) synthase substrate availability and vascular endothelial function. Reduced GABR correlates with PTSD symptom severity, depression, and chronic stress microvascular impairment.",
+        "pathway_category": "Composite Index: Arginine & NO Bioavailability",
+        "references": [
+            {"title": "Global Arginine Bioavailability Ratio (GABR) in post-traumatic stress disorder and depression", "journal": "Biol Psychiatry (2014)", "pmid": "24709230", "url": "https://pubmed.ncbi.nlm.nih.gov/24709230/"},
+            {"title": "Arginine bioavailability and nitric oxide synthase uncoupling in psychiatric stress response", "journal": "Psychoneuroendocrinology (2017)", "pmid": "29126354", "url": "https://pubmed.ncbi.nlm.nih.gov/29126354/"}
+        ]
+    },
+    {
+        "pattern": ["glycolytic_ratio", "glycolytic index", "glycolytic"],
+        "disorders": ["Severe PTSD", "MDD", "Mitochondrial Bioenergetic Deficit"],
+        "mechanism": "Glycolytic Index = (Lactate + Pyruvate) / Citrate. Measures astroglial-neuronal glycolytic shift relative to TCA cycle oxidative phosphorylation. Elevated Glycolytic Index indicates anaerobic bioenergetic reprogramming and mitochondrial strain under severe trauma and psychiatric stress.",
+        "pathway_category": "Composite Index: Glycolytic Shift & Bioenergetics",
+        "references": [
+            {"title": "Plasma metabolomics reveals TCA cycle and energy metabolite alterations in psychiatric subtypes", "journal": "Metabolomics (2019)", "pmid": "31055531", "url": "https://pubmed.ncbi.nlm.nih.gov/31055531/"},
+            {"title": "Mitochondrial dysfunction and lactate accumulation in severe PTSD and depression", "journal": "JAMA Psychiatry (2018)", "pmid": "29906692", "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"}
+        ]
+    },
     {
         "pattern": ["sphingosine", "sphinganine", "sphingomyelin"],
         "disorders": ["PTSD (Severe/Mild)", "MDD", "Neuroinflammation"],
@@ -106,26 +125,39 @@ for comp_key, filepath in file_mapping.items():
     print(f"Processing {comp_key} ({len(df)} rows)")
     
     for _, row in df.iterrows():
-        chem_name = str(row.get("CHEMICAL_NAME", row.get("CHEM_ID")))
-        chem_id = str(row.get("CHEM_ID", chem_name))
+        raw_name = row.get("CHEMICAL_NAME")
+        raw_cid = row.get("CHEM_ID")
+        
+        if pd.notna(raw_name) and str(raw_name).strip() != "" and str(raw_name) != "nan":
+            chem_name = str(raw_name).strip()
+        else:
+            chem_name = str(raw_cid).strip()
+            
+        if pd.notna(raw_cid) and str(raw_cid).strip() != "" and str(raw_cid) != "nan":
+            chem_id = str(raw_cid).replace(".0", "").strip()
+        else:
+            chem_id = chem_name
         
         if chem_id not in metabolite_dict:
-            anno = find_annotation(chem_name, str(row.get("SUB_PATHWAY", "")), str(row.get("SUPER_PATHWAY", "")))
+            super_p = str(row.get("SUPER_PATHWAY", "")) if pd.notna(row.get("SUPER_PATHWAY")) and str(row.get("SUPER_PATHWAY")) != "nan" else ("Composite Index" if chem_id in ["GABR", "Glycolytic_Ratio"] else "Uncategorized")
+            sub_p = str(row.get("SUB_PATHWAY", "")) if pd.notna(row.get("SUB_PATHWAY")) and str(row.get("SUB_PATHWAY")) != "nan" else ("Composite Index" if chem_id in ["GABR", "Glycolytic_Ratio"] else "Uncategorized")
+            
+            anno = find_annotation(chem_name, sub_p, super_p)
             metabolite_dict[chem_id] = {
                 "chem_id": chem_id,
                 "chemical_name": chem_name,
-                "plot_name": str(row.get("PLOT_NAME", chem_name)),
-                "super_pathway": str(row.get("SUPER_PATHWAY", "")) if pd.notna(row.get("SUPER_PATHWAY")) else "Uncategorized",
-                "sub_pathway": str(row.get("SUB_PATHWAY", "")) if pd.notna(row.get("SUB_PATHWAY")) else "Uncategorized",
-                "hmdb": str(row.get("HMDB", "")) if pd.notna(row.get("HMDB")) and str(row.get("HMDB")) != "NA" else "",
-                "kegg": str(row.get("KEGG", "")) if pd.notna(row.get("KEGG")) and str(row.get("KEGG")) != "NA" else "",
-                "pubchem": str(row.get("PUBCHEM", "")) if pd.notna(row.get("PUBCHEM")) and str(row.get("PUBCHEM")) != "NA" else "",
-                "cas": str(row.get("CAS", "")) if pd.notna(row.get("CAS")) and str(row.get("CAS")) != "NA" else "",
-                "chemspider": str(row.get("CHEMSPIDER", "")) if pd.notna(row.get("CHEMSPIDER")) and str(row.get("CHEMSPIDER")) != "NA" else "",
-                "inchikey": str(row.get("INCHIKEY", "")) if pd.notna(row.get("INCHIKEY")) and str(row.get("INCHIKEY")) != "NA" else "",
-                "smiles": str(row.get("SMILES", "")) if pd.notna(row.get("SMILES")) and str(row.get("SMILES")) != "NA" else "",
-                "v12_panel": bool(row.get("V12_panel", False)),
-                "ptsd_biopriority": bool(row.get("PTSDBioPriority_v8", False)),
+                "plot_name": str(row.get("PLOT_NAME", chem_name)) if pd.notna(row.get("PLOT_NAME")) else chem_name,
+                "super_pathway": super_p,
+                "sub_pathway": sub_p,
+                "hmdb": str(row.get("HMDB", "")) if pd.notna(row.get("HMDB")) and str(row.get("HMDB")) not in ["NA", "nan"] else "",
+                "kegg": str(row.get("KEGG", "")) if pd.notna(row.get("KEGG")) and str(row.get("KEGG")) not in ["NA", "nan"] else "",
+                "pubchem": str(row.get("PUBCHEM", "")) if pd.notna(row.get("PUBCHEM")) and str(row.get("PUBCHEM")) not in ["NA", "nan"] else "",
+                "cas": str(row.get("CAS", "")) if pd.notna(row.get("CAS")) and str(row.get("CAS")) not in ["NA", "nan"] else "",
+                "chemspider": str(row.get("CHEMSPIDER", "")) if pd.notna(row.get("CHEMSPIDER")) and str(row.get("CHEMSPIDER")) not in ["NA", "nan"] else "",
+                "inchikey": str(row.get("INCHIKEY", "")) if pd.notna(row.get("INCHIKEY")) and str(row.get("INCHIKEY")) not in ["NA", "nan"] else "",
+                "smiles": str(row.get("SMILES", "")) if pd.notna(row.get("SMILES")) and str(row.get("SMILES")) not in ["NA", "nan"] else "",
+                "v12_panel": bool(row.get("V12_panel", True if chem_id in ["GABR", "Glycolytic_Ratio"] else False)),
+                "ptsd_biopriority": bool(row.get("PTSDBioPriority_v8", True if chem_id in ["GABR", "Glycolytic_Ratio"] else False)),
                 "neuro_addon": bool(row.get("Neuro_addon_v12", False)),
                 "disorders": anno["disorders"],
                 "mechanism": anno["mechanism"],
@@ -174,4 +206,4 @@ output_path = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  An
 with open(output_path, "w") as f:
     json.dump(metabolites_list, f, indent=2)
 
-print(f"Successfully saved {len(metabolites_list)} metabolites to {output_path}")
+print(f"Successfully saved {len(metabolites_list)} metabolites (including GABR and Glycolytic_Ratio) to {output_path}")

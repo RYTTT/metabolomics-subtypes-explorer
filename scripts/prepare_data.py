@@ -12,7 +12,6 @@ file_mapping = {
     "MildPTSD_vs_Control": os.path.join(v12_dir, "Subtypes_MildPTSD_vs_Control.csv"),
     "SeverePTSD_vs_Control": os.path.join(v12_dir, "Subtypes_SeverePTSD_vs_Control.csv"),
     "MildPTSD_vs_SeverePTSD": os.path.join(final_prod_dir, "Pairwise_MildPTSD_vs_SeverePTSD.csv"),
-    "CogPos_vs_Control": os.path.join(v12_dir, "Cognitive_CogPos_vs_Control.csv"),
     "CogPos_vs_CogNeg": os.path.join(v12_dir, "Cognitive_CogPos_vs_CogNeg.csv")
 }
 
@@ -206,4 +205,4 @@ output_path = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  An
 with open(output_path, "w") as f:
     json.dump(metabolites_list, f, indent=2)
 
-print(f"Successfully saved {len(metabolites_list)} metabolites (including GABR and Glycolytic_Ratio) to {output_path}")
+print(f"Successfully saved {len(metabolites_list)} metabolites (6 comparisons) to {output_path}")

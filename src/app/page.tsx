@@ -23,7 +23,6 @@ const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }>
   MildPTSD_vs_Control: { title: "Mild PTSD+ vs PTSD-", subtitle: "Mild PTSD vs Control" },
   SeverePTSD_vs_Control: { title: "Severe PTSD+ vs PTSD-", subtitle: "Severe PTSD vs Control" },
   MildPTSD_vs_SeverePTSD: { title: "Mild vs Severe PTSD", subtitle: "Mild vs Severe" },
-  CogPos_vs_Control: { title: "CogPos vs Control", subtitle: "+Cog vs Control" },
   CogPos_vs_CogNeg: { title: "CogPos vs CogNeg", subtitle: "+Cog vs -Cog" },
 };
 
@@ -161,8 +160,6 @@ export default function Home() {
       "SeverePTSD_vs_Control_PValue",
       "MildPTSD_vs_SeverePTSD_logFC",
       "MildPTSD_vs_SeverePTSD_PValue",
-      "CogPos_vs_Control_logFC",
-      "CogPos_vs_Control_PValue",
       "CogPos_vs_CogNeg_logFC",
       "CogPos_vs_CogNeg_PValue",
     ];
@@ -185,8 +182,6 @@ export default function Home() {
       m.comparisons.SeverePTSD_vs_Control?.["P.Value"] ?? "",
       m.comparisons.MildPTSD_vs_SeverePTSD?.logFC ?? "",
       m.comparisons.MildPTSD_vs_SeverePTSD?.["P.Value"] ?? "",
-      m.comparisons.CogPos_vs_Control?.logFC ?? "",
-      m.comparisons.CogPos_vs_Control?.["P.Value"] ?? "",
       m.comparisons.CogPos_vs_CogNeg?.logFC ?? "",
       m.comparisons.CogPos_vs_CogNeg?.["P.Value"] ?? "",
     ]);
@@ -227,14 +222,14 @@ export default function Home() {
                 v12 Differential Panel
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-950 text-purple-300 border border-purple-500/40">
-                Cognitive Subtype (CogPos) &amp; PTSD
+                MDD+ vs MDD- &amp; CogPos vs CogNeg
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
               Differentially Expressed Metabolites Portal
             </h1>
             <p className="text-slate-400 text-sm mt-1 max-w-3xl">
-              Cross-compare, search, and inspect 384 metabolites across 7 clinical subtype comparisons including <strong>Cognitive Subtype (CogPos)</strong>, <strong>PTSD+ vs PTSD- Controls</strong> (Severe &amp; Mild), <strong>MDD</strong>, and <strong>CogPos vs CogNeg</strong> with biological annotations &amp; literature references.
+              Cross-compare, search, and inspect 386 metabolites across 6 clinical subtype comparisons including <strong>MDD+ vs MDD-</strong>, <strong>CogPos vs CogNeg</strong>, <strong>Cognitive Subtype</strong>, and <strong>Mild/Severe PTSD</strong> with biological annotations &amp; literature references.
             </p>
           </div>
 
@@ -362,7 +357,7 @@ export default function Home() {
               : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
           }`}
         >
-          <Layers className="w-4 h-4" /> Cross-Comparison Matrix (7 Comparisons Side-by-Side)
+          <Layers className="w-4 h-4" /> Cross-Comparison Matrix (6 Comparisons Side-by-Side)
         </button>
 
         <button
@@ -373,7 +368,7 @@ export default function Home() {
               : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
           }`}
         >
-          <Activity className="w-4 h-4" /> Volcano Plot Explorer (Cognitive &amp; PTSD Subtypes)
+          <Activity className="w-4 h-4" /> Volcano Plot Explorer (MDD+, PTSD+ &amp; Subtypes)
         </button>
 
         <button
@@ -393,7 +388,7 @@ export default function Home() {
         <section className="glass-panel rounded-2xl p-4 border border-slate-800 space-y-4">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
             <p className="text-xs text-slate-400">
-              Displaying <strong className="text-white">{sortedMetabolites.length}</strong> metabolites across all 7 comparisons. Click any column header to sort by logFC. Click any row for full annotation.
+              Displaying <strong className="text-white">{sortedMetabolites.length}</strong> metabolites across all 6 comparisons. Click any column header to sort by logFC. Click any row for full annotation.
             </p>
           </div>
 
@@ -457,7 +452,7 @@ export default function Home() {
                       {m.super_pathway}
                     </td>
 
-                    {/* 7 Comparative Columns */}
+                    {/* 6 Comparative Columns */}
                     {(Object.keys(COMPARISON_LABELS) as ComparisonKey[]).map((key) => {
                       const comp = m.comparisons[key];
                       if (!comp) return <td key={key} className="text-center text-slate-600">-</td>;

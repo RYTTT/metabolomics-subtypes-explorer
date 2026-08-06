@@ -50,11 +50,11 @@ export type ComparisonKey =
   | "CogPos_vs_CogNeg";
 
 export const COMPARISON_LABELS: Record<ComparisonKey, string> = {
-  Depressive_vs_Control: "Depressive MDD vs Control",
-  Cognitive_vs_Control: "Cognitive Subtype vs Control",
-  MildPTSD_vs_Control: "Mild PTSD (PTSD+) vs Control (PTSD-)",
-  SeverePTSD_vs_Control: "Severe PTSD (PTSD+) vs Control (PTSD-)",
-  MildPTSD_vs_SeverePTSD: "Mild PTSD vs Severe PTSD",
-  CogPos_vs_Control: "CogPos vs Control",
-  CogPos_vs_CogNeg: "CogPos vs CogNeg",
+  Depressive_vs_Control: "Depressive Subtype (MDD) vs Control",
+  Cognitive_vs_Control: "Cognitive Subtype (CogPos) vs Control",
+  MildPTSD_vs_Control: "Mild PTSD Subtype (PTSD+) vs Control (PTSD-)",
+  SeverePTSD_vs_Control: "Severe PTSD Subtype (PTSD+) vs Control (PTSD-)",
+  MildPTSD_vs_SeverePTSD: "Mild PTSD vs Severe PTSD Subtype",
+  CogPos_vs_Control: "Cognitive Positive (CogPos) vs Control",
+  CogPos_vs_CogNeg: "Cognitive Positive (CogPos) vs Cognitive Negative (CogNeg)",
 };

@@ -17,6 +17,16 @@ import VolcanoPlot from "@/components/VolcanoPlot";
 import MetaboliteModal from "@/components/MetaboliteModal";
 import LiteratureHub from "@/components/LiteratureHub";
 
+const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }> = {
+  Depressive_vs_Control: { title: "Depressive Subtype", subtitle: "MDD vs Control" },
+  Cognitive_vs_Control: { title: "Cognitive Subtype", subtitle: "CogPos vs Control" },
+  MildPTSD_vs_Control: { title: "Mild PTSD", subtitle: "PTSD+ vs Control" },
+  SeverePTSD_vs_Control: { title: "Severe PTSD", subtitle: "PTSD+ vs Control" },
+  MildPTSD_vs_SeverePTSD: { title: "Mild vs Severe", subtitle: "Mild vs Severe PTSD" },
+  CogPos_vs_Control: { title: "CogPos Overall", subtitle: "+Cog vs Control" },
+  CogPos_vs_CogNeg: { title: "CogPos vs CogNeg", subtitle: "+Cog vs -Cog" },
+};
+
 export default function Home() {
   const metabolites = rawData as Metabolite[];
 
@@ -217,14 +227,14 @@ export default function Home() {
                 v12 Differential Panel
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-950 text-purple-300 border border-purple-500/40">
-                PTSD+ vs PTSD- Controls
+                Cognitive Subtype (CogPos) &amp; PTSD
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
               Differentially Expressed Metabolites Portal
             </h1>
             <p className="text-slate-400 text-sm mt-1 max-w-3xl">
-              Cross-compare, search, and inspect 384 metabolites across 7 clinical subtype comparisons including <strong>PTSD+ vs PTSD- Controls</strong> (Severe &amp; Mild PTSD), <strong>MDD</strong>, <strong>Cognitive Subtypes</strong>, and <strong>CogPos vs CogNeg</strong> with biological annotations &amp; literature references.
+              Cross-compare, search, and inspect 384 metabolites across 7 clinical subtype comparisons including <strong>Cognitive Subtype (CogPos)</strong>, <strong>PTSD+ vs PTSD- Controls</strong> (Severe &amp; Mild), <strong>MDD</strong>, and <strong>CogPos vs CogNeg</strong> with biological annotations &amp; literature references.
             </p>
           </div>
 
@@ -363,7 +373,7 @@ export default function Home() {
               : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
           }`}
         >
-          <Activity className="w-4 h-4" /> Volcano Plot Explorer (PTSD+ vs PTSD- &amp; Subtypes)
+          <Activity className="w-4 h-4" /> Volcano Plot Explorer (Cognitive &amp; PTSD Subtypes)
         </button>
 
         <button
@@ -407,20 +417,23 @@ export default function Home() {
                       Super Pathway <ArrowUpDown className="w-3 h-3 text-slate-500" />
                     </div>
                   </th>
-                  {Object.entries(COMPARISON_LABELS).map(([key, label]) => (
-                    <th
-                      key={key}
-                      onClick={() => handleSort(key)}
-                      className="py-3 px-3 text-center cursor-pointer hover:text-cyan-400 transition min-w-[110px]"
-                    >
-                      <div className="flex flex-col items-center">
-                        <span>{key.replace("_vs_Control", "").replace("_vs_CogNeg", "").replace("_vs_SeverePTSD", " vs Severe")}</span>
-                        <span className="text-[9px] text-slate-500 font-normal capitalize">
-                          {key.includes("Control") ? "PTSD+ / Sub vs Ctrl" : key.includes("SeverePTSD") ? "Mild vs Severe" : "vs CogNeg"}
-                        </span>
-                      </div>
-                    </th>
-                  ))}
+                  {Object.entries(COMPARISON_LABELS).map(([key]) => {
+                    const headerInfo = MATRIX_HEADERS[key as ComparisonKey] || { title: key, subtitle: "" };
+                    return (
+                      <th
+                        key={key}
+                        onClick={() => handleSort(key)}
+                        className="py-3 px-3 text-center cursor-pointer hover:text-cyan-400 transition min-w-[120px]"
+                      >
+                        <div className="flex flex-col items-center">
+                          <span>{headerInfo.title}</span>
+                          <span className="text-[9px] text-slate-500 font-normal">
+                            {headerInfo.subtitle}
+                          </span>
+                        </div>
+                      </th>
+                    );
+                  })}
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 font-mono">

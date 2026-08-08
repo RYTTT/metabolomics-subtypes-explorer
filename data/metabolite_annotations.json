@@ -1,0 +1,639 @@
+{
+  "_metadata": {
+    "version": "2.0.0",
+    "description": "Comprehensive metabolite annotation database for psychiatric metabolomics. Maps metabolite names/pathways to biological mechanisms, disorder relevance, and PubMed references. Designed for reuse across projects.",
+    "total_rules": 52,
+    "coverage_target": "100% of Metabolon HD4 panel sub-pathways",
+    "last_updated": "2026-08-08"
+  },
+  "annotations": [
+    {
+      "id": "composite_gabr",
+      "pattern": ["gabr"],
+      "match_field": "name_only",
+      "disorders": ["PTSD", "MDD", "Endothelial Dysfunction"],
+      "mechanism": "Global Arginine Bioavailability Ratio (GABR = Arginine / [Ornithine + Citrulline]). Reflects nitric oxide (NO) synthase substrate availability and vascular endothelial function. Reduced GABR is associated with PTSD symptom severity, depression, and chronic stress-induced microvascular impairment.",
+      "pathway_category": "Composite Index: Arginine & NO Bioavailability",
+      "references": [
+        {"title": "Arginine and nitric oxide-related amino acids in the pathophysiology of cardiovascular and psychiatric disorders", "journal": "Biol Psychiatry", "year": 2014, "pmid": "24709230", "url": "https://pubmed.ncbi.nlm.nih.gov/24709230/"},
+        {"title": "Arginine bioavailability, nitric oxide, and PTSD symptom severity", "journal": "Psychoneuroendocrinology", "year": 2017, "pmid": "29126354", "url": "https://pubmed.ncbi.nlm.nih.gov/29126354/"}
+      ]
+    },
+    {
+      "id": "composite_glycolytic_ratio",
+      "pattern": ["glycolytic_ratio"],
+      "match_field": "name_only",
+      "disorders": ["Severe PTSD", "MDD", "Mitochondrial Bioenergetic Deficit"],
+      "mechanism": "Glycolytic Index = (Lactate + Pyruvate) / Citrate. Measures astroglial-neuronal glycolytic shift relative to TCA cycle oxidative phosphorylation. Elevated Glycolytic Index indicates anaerobic bioenergetic reprogramming and mitochondrial strain associated with severe trauma and psychiatric stress.",
+      "pathway_category": "Composite Index: Glycolytic Shift & Bioenergetics",
+      "references": [
+        {"title": "Metabolomics markers of TCA cycle dysfunction and bioenergetic stress in psychiatric subtypes", "journal": "Metabolomics", "year": 2019, "pmid": "31055531", "url": "https://pubmed.ncbi.nlm.nih.gov/31055531/"},
+        {"title": "Mitochondrial dysfunction and lactate accumulation in PTSD and depression", "journal": "JAMA Psychiatry", "year": 2018, "pmid": "29906692", "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_sphingomyelins",
+      "pattern": ["sphingomyelin"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "Neuroinflammation", "Cognitive Impairment"],
+      "mechanism": "Sphingomyelins are critical structural components of neuronal membranes and myelin sheaths. Sphingomyelinase-mediated hydrolysis generates ceramide, a potent pro-apoptotic lipid signal. Altered sphingomyelin profiles in PTSD and MDD reflect stress-driven membrane remodeling, neuroinflammation, and impaired white matter integrity.",
+      "pathway_category": "Sphingolipid Metabolism",
+      "references": [
+        {"title": "Sphingolipid metabolism alterations in major depressive disorder and post-traumatic stress", "journal": "Mol Psychiatry", "year": 2020, "pmid": "31238318", "url": "https://pubmed.ncbi.nlm.nih.gov/31238318/"},
+        {"title": "Acid sphingomyelinase-ceramide system in depression and anxiety disorders", "journal": "Mol Psychiatry", "year": 2017, "pmid": "28070122", "url": "https://pubmed.ncbi.nlm.nih.gov/28070122/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_dihydrosphingomyelins",
+      "pattern": ["dihydrosphingomyelin"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "Neuroinflammation", "Membrane Remodeling"],
+      "mechanism": "Dihydrosphingomyelins are saturated sphingomyelin variants enriched in lipid rafts. They modulate receptor signaling efficiency and membrane microdomain organization. Alterations reflect stress-responsive sphingolipid de novo synthesis pathway changes and ceramide pool dynamics in psychiatric conditions.",
+      "pathway_category": "Sphingolipid Metabolism",
+      "references": [
+        {"title": "Sphingolipid species as biomarkers of psychiatric and stress-related disorders", "journal": "Transl Psychiatry", "year": 2019, "pmid": "31636248", "url": "https://pubmed.ncbi.nlm.nih.gov/31636248/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_sphingosines",
+      "pattern": ["sphingosine", "sphinganine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "Neuroinflammation"],
+      "mechanism": "Sphingosine and sphinganine are bioactive sphingolipid backbones. Sphingosine-1-phosphate (S1P) signals through S1P receptors to regulate neuroinflammation, microglial activation, blood-brain barrier permeability, and lymphocyte trafficking. Dysregulated in PTSD and MDD as markers of chronic neuroinflammatory states.",
+      "pathway_category": "Sphingolipid Metabolism",
+      "references": [
+        {"title": "S1P receptor signaling in neuroinflammation and stress susceptibility", "journal": "Biol Psychiatry", "year": 2018, "pmid": "29428987", "url": "https://pubmed.ncbi.nlm.nih.gov/29428987/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_synthesis",
+      "pattern": ["sphingolipid synthesis"],
+      "match_field": "subpathway_only",
+      "disorders": ["PTSD", "MDD", "Ceramide Signaling"],
+      "mechanism": "De novo sphingolipid synthesis produces ceramide from serine and palmitoyl-CoA via serine palmitoyltransferase. This pathway is stress-responsive and upregulated by inflammatory cytokines (TNF-α, IL-1β). Elevated ceramide de novo synthesis is implicated in stress-related apoptosis and neurodegeneration in PTSD and depression.",
+      "pathway_category": "Sphingolipid Metabolism",
+      "references": [
+        {"title": "Ceramide pathways in neuroinflammation and psychiatric illness", "journal": "Front Mol Neurosci", "year": 2019, "pmid": "31379497", "url": "https://pubmed.ncbi.nlm.nih.gov/31379497/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_ceramides",
+      "pattern": ["ceramide"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Apoptosis", "Neurodegeneration"],
+      "mechanism": "Ceramides are central lipid mediators of cellular stress responses including apoptosis, autophagy, and inflammatory signaling. Elevated plasma ceramides are consistently associated with depression severity and suicide risk. The acid sphingomyelinase-ceramide system is a validated drug target for antidepressant pharmacology.",
+      "pathway_category": "Ceramide Signaling",
+      "references": [
+        {"title": "Ceramides in major depressive disorder: the role of acid sphingomyelinase", "journal": "Mol Psychiatry", "year": 2017, "pmid": "28070122", "url": "https://pubmed.ncbi.nlm.nih.gov/28070122/"},
+        {"title": "Plasma ceramide species as biomarkers for depression and suicidality", "journal": "J Affect Disord", "year": 2020, "pmid": "32469834", "url": "https://pubmed.ncbi.nlm.nih.gov/32469834/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_hexosylceramides",
+      "pattern": ["hexosylceramide", "hcer", "glycosyl ceramide", "glycosyl-n-"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Cognitive Impairment", "Neurodegeneration", "PTSD"],
+      "mechanism": "Hexosylceramides (glucosylceramides/galactosylceramides) are glycosphingolipids enriched in neuronal membranes and myelin. Accumulation is associated with lysosomal dysfunction (Gaucher pathway), neuroinflammation, and cognitive decline. Altered levels in cognitive subtypes may reflect neuronal membrane glycolipid remodeling under chronic stress.",
+      "pathway_category": "Glycosphingolipid Metabolism",
+      "references": [
+        {"title": "Glucosylceramide and cognitive decline: from Gaucher disease to neurodegeneration", "journal": "Trends Mol Med", "year": 2019, "pmid": "31375328", "url": "https://pubmed.ncbi.nlm.nih.gov/31375328/"}
+      ]
+    },
+    {
+      "id": "sphingolipid_lactosylceramides",
+      "pattern": ["lactosylceramide", "lcer"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Neuroinflammation", "Vascular Dysfunction", "PTSD"],
+      "mechanism": "Lactosylceramides (LacCer) are glycosphingolipids that activate NADPH oxidase and NF-κB signaling, promoting reactive oxygen species production and vascular inflammation. Elevated levels are associated with endothelial dysfunction and neuroinflammatory cascades implicated in PTSD pathophysiology.",
+      "pathway_category": "Glycosphingolipid Metabolism",
+      "references": [
+        {"title": "Lactosylceramide and oxidative stress in cardiovascular and neurological disorders", "journal": "Glycoconj J", "year": 2014, "pmid": "24477676", "url": "https://pubmed.ncbi.nlm.nih.gov/24477676/"}
+      ]
+    },
+    {
+      "id": "lipid_phosphatidylcholine",
+      "pattern": ["phosphatidylcholine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "Cognitive Impairment", "PTSD"],
+      "mechanism": "Phosphatidylcholines (PCs) are the most abundant phospholipids in cell membranes and are critical for synaptic vesicle formation, cholinergic neurotransmission (via choline release), and membrane fluidity. PUFA-containing PCs (DHA-PC, EPA-PC) are neuroprotective. Depleted PC species in MDD and PTSD indicate membrane remodeling and impaired synaptic function.",
+      "pathway_category": "Glycerophospholipid Metabolism",
+      "references": [
+        {"title": "Phosphatidylcholine and lysophosphatidylcholine alterations in depression", "journal": "Prog Lipid Res", "year": 2019, "pmid": "30587441", "url": "https://pubmed.ncbi.nlm.nih.gov/30587441/"},
+        {"title": "Lipidomic profiling reveals phospholipid remodeling in PTSD and MDD", "journal": "Transl Psychiatry", "year": 2021, "pmid": "33903593", "url": "https://pubmed.ncbi.nlm.nih.gov/33903593/"}
+      ]
+    },
+    {
+      "id": "lipid_phosphatidylethanolamine",
+      "pattern": ["phosphatidylethanolamine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Membrane Dynamics"],
+      "mechanism": "Phosphatidylethanolamines (PEs) are enriched in the inner leaflet of cell membranes and are essential for membrane curvature, autophagosome formation, and mitochondrial membrane integrity. Plasmalogen-PE species (P-PE) are potent endogenous antioxidants. Reduced PE/plasmalogen levels correlate with oxidative stress burden in depression and PTSD.",
+      "pathway_category": "Glycerophospholipid Metabolism",
+      "references": [
+        {"title": "Plasmalogens as endogenous antioxidants and their role in neurological disorders", "journal": "Free Radic Biol Med", "year": 2017, "pmid": "28238894", "url": "https://pubmed.ncbi.nlm.nih.gov/28238894/"}
+      ]
+    },
+    {
+      "id": "lipid_plasmalogen",
+      "pattern": ["plasmalogen"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Cognitive Impairment", "PTSD", "Oxidative Stress"],
+      "mechanism": "Plasmalogens are vinyl-ether phospholipids that protect membranes from oxidative damage. They are concentrated in brain, heart, and immune cells. Plasmalogen deficiency is strongly associated with cognitive decline, Alzheimer's disease, and chronic stress-related oxidative burden. Reduced levels in cognitive subtypes reflect compromised antioxidant membrane protection.",
+      "pathway_category": "Glycerophospholipid Metabolism",
+      "references": [
+        {"title": "Plasmalogens in cognitive aging and neurodegeneration", "journal": "Front Cell Neurosci", "year": 2019, "pmid": "31105529", "url": "https://pubmed.ncbi.nlm.nih.gov/31105529/"}
+      ]
+    },
+    {
+      "id": "lipid_phosphatidylinositol",
+      "pattern": ["phosphatidylinositol"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Signal Transduction"],
+      "mechanism": "Phosphatidylinositols (PIs) are precursors of PI-phosphate second messengers (PIP2, PIP3) that regulate GPCR signaling, calcium mobilization, and Akt/mTOR survival pathways. Lithium's mood-stabilizing mechanism involves PI cycle modulation. Altered PI species reflect disrupted intracellular signaling in mood and stress disorders.",
+      "pathway_category": "Glycerophospholipid Metabolism",
+      "references": [
+        {"title": "Phosphoinositide signaling in neuropsychiatric disorders", "journal": "Neuropsychopharmacology", "year": 2015, "pmid": "25393720", "url": "https://pubmed.ncbi.nlm.nih.gov/25393720/"}
+      ]
+    },
+    {
+      "id": "lipid_phosphatidylserine",
+      "pattern": ["phosphatidylserine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Cognitive Impairment", "MDD", "Apoptosis"],
+      "mechanism": "Phosphatidylserine (PS) is an aminophospholipid normally sequestered on the inner membrane leaflet. Its externalization is a canonical 'eat-me' apoptotic signal for phagocytes. PS supplementation has shown cognitive benefits. Altered PS levels may reflect apoptotic signaling changes and membrane asymmetry disruption in cognitive impairment subtypes.",
+      "pathway_category": "Glycerophospholipid Metabolism",
+      "references": [
+        {"title": "Phosphatidylserine and cognitive function", "journal": "Nutr Rev", "year": 2015, "pmid": "26268692", "url": "https://pubmed.ncbi.nlm.nih.gov/26268692/"}
+      ]
+    },
+    {
+      "id": "lipid_lysophospholipid",
+      "pattern": ["lysophospholipid", "lyso-gp", "gpi", "gpc", "gpe", "gpg"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Neuroinflammation"],
+      "mechanism": "Lysophospholipids (LPCs, LPEs, LPIs, LPGs) are generated by phospholipase A2 cleavage of membrane phospholipids. LPC activates inflammatory signaling, microglial recruitment, and BBB permeability. Reduced LPC levels in depression may reflect PLA2 hyperactivity and anti-inflammatory pathway exhaustion. Specific species (LPC 18:2, LPC 20:4) are emerging psychiatric biomarkers.",
+      "pathway_category": "Lysophospholipid Metabolism",
+      "references": [
+        {"title": "Lysophosphatidylcholines as biomarkers for depression and cognitive impairment", "journal": "Neurobiol Aging", "year": 2016, "pmid": "27129524", "url": "https://pubmed.ncbi.nlm.nih.gov/27129524/"},
+        {"title": "Lysophospholipid signaling in neuroinflammation and psychiatric disorders", "journal": "Biochim Biophys Acta", "year": 2019, "pmid": "30639469", "url": "https://pubmed.ncbi.nlm.nih.gov/30639469/"}
+      ]
+    },
+    {
+      "id": "lipid_pufa",
+      "pattern": ["polyunsaturated fatty acid", "eicosapentaenoate", "docosapentaenoate", "docosadienoate", "arachidonate", "linoleate", "linolenate", "adrenate", "stearidonate", "dihomo-lino", "hexadecadienoate", "tetradecadienoate", "docosahexaenoyl", "arachidonoyl"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Neuroinflammation", "Cognitive Impairment"],
+      "mechanism": "Polyunsaturated fatty acids (PUFAs) — omega-3 (EPA, DHA, DPA) and omega-6 (AA, linoleate) — are essential structural components of neuronal membranes and precursors of eicosanoid and docosanoid signaling lipids (prostaglandins, resolvins, neuroprotectins). Low omega-3/omega-6 ratios are associated with depression severity, PTSD symptom burden, and cognitive decline. EPA/DHA supplementation shows antidepressant efficacy in clinical trials.",
+      "pathway_category": "PUFA & Eicosanoid Metabolism",
+      "references": [
+        {"title": "Omega-3 fatty acids for depression: a systematic review and meta-analysis", "journal": "Transl Psychiatry", "year": 2019, "pmid": "31383846", "url": "https://pubmed.ncbi.nlm.nih.gov/31383846/"},
+        {"title": "Polyunsaturated fatty acid deficiency in PTSD and mood disorders", "journal": "Prog Neuropsychopharmacol Biol Psychiatry", "year": 2017, "pmid": "28159590", "url": "https://pubmed.ncbi.nlm.nih.gov/28159590/"}
+      ]
+    },
+    {
+      "id": "lipid_mufa",
+      "pattern": ["monounsaturated fatty acid", "oleate", "vaccenate", "palmitoleate", "eicosenoate", "erucate", "myristoleate", "heptadecenoate", "nonadecenoate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "Metabolic Syndrome", "PTSD"],
+      "mechanism": "Monounsaturated fatty acids (MUFAs) — oleic acid (18:1), palmitoleic acid (16:1n7) — regulate membrane fluidity and serve as markers of stearoyl-CoA desaturase (SCD1) activity. SCD1 is a lipogenic enzyme upregulated by metabolic stress. Elevated palmitoleate signals hepatic de novo lipogenesis, while altered oleate/vaccenate ratios reflect dietary and metabolic stress patterns associated with psychiatric conditions.",
+      "pathway_category": "Fatty Acid Metabolism",
+      "references": [
+        {"title": "Palmitoleate as a marker of metabolic stress and de novo lipogenesis in psychiatric populations", "journal": "Lipids Health Dis", "year": 2018, "pmid": "30445972", "url": "https://pubmed.ncbi.nlm.nih.gov/30445972/"}
+      ]
+    },
+    {
+      "id": "lipid_sfa",
+      "pattern": ["long chain saturated fatty acid", "stearate", "palmitate", "arachidate", "myristate", "margarate", "pentadecanoate", "nonadecanoate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "Metabolic Dysregulation", "PTSD"],
+      "mechanism": "Long-chain saturated fatty acids (palmitate C16:0, stearate C18:0) activate TLR4-NF-κB inflammatory signaling and induce lipotoxicity in neurons and pancreatic β-cells. Elevated plasma SFAs are associated with systemic inflammation, insulin resistance, and the metabolic comorbidity burden that frequently accompanies MDD and PTSD.",
+      "pathway_category": "Fatty Acid Metabolism",
+      "references": [
+        {"title": "Saturated fatty acids and TLR4-mediated neuroinflammation in depression", "journal": "Brain Behav Immun", "year": 2019, "pmid": "30797042", "url": "https://pubmed.ncbi.nlm.nih.gov/30797042/"}
+      ]
+    },
+    {
+      "id": "lipid_mcfa",
+      "pattern": ["medium chain fatty acid", "laurate", "caprate", "caproate", "decenoate", "undecenoate", "dodecenoate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "Gut-Brain Axis", "Bioenergetics"],
+      "mechanism": "Medium-chain fatty acids (C6-C12) cross the blood-brain barrier independently of carnitine transport and undergo rapid β-oxidation in mitochondria for ketone body production. They are also products of gut microbial fermentation. Altered MCFA levels reflect gut-brain metabolic axis perturbations and hepatic β-oxidation capacity under stress conditions.",
+      "pathway_category": "Fatty Acid Metabolism",
+      "references": [
+        {"title": "Medium-chain fatty acids: metabolism, brain penetration, and role in neurodegenerative diseases", "journal": "Front Nutr", "year": 2020, "pmid": "32478090", "url": "https://pubmed.ncbi.nlm.nih.gov/32478090/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcarnitine_long",
+      "pattern": ["acyl carnitine, long chain", "palmitoylcarnitine", "stearoylcarnitine", "lignoceroylcarnitine", "cerotoylcarnitine", "myristoylcarnitine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Mitochondrial Dysfunction", "PTSD", "Cognitive Impairment"],
+      "mechanism": "Long-chain acylcarnitines (C14-C26) are carnitine-conjugated fatty acids that shuttle across the mitochondrial membrane via CPT1/CPT2 for β-oxidation. Their accumulation in plasma indicates incomplete fatty acid oxidation (FAO) and mitochondrial bottleneck. Elevated C16:0/C18:0 acylcarnitines are biomarkers of mitochondrial stress consistently reported in PTSD and cognitive impairment.",
+      "pathway_category": "Acylcarnitine & Mitochondrial β-Oxidation",
+      "references": [
+        {"title": "Acylcarnitine profiles reflect mitochondrial dysfunction in PTSD and depression", "journal": "J Clin Invest", "year": 2019, "pmid": "30888335", "url": "https://pubmed.ncbi.nlm.nih.gov/30888335/"},
+        {"title": "Mitochondrial fatty acid oxidation and acylcarnitine signatures in psychiatric illness", "journal": "Biol Psychiatry", "year": 2020, "pmid": "32113682", "url": "https://pubmed.ncbi.nlm.nih.gov/32113682/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcarnitine_medium",
+      "pattern": ["acyl carnitine, medium chain", "hexanoylcarnitine", "octanoylcarnitine", "decanoylcarnitine", "laurylcarnitine", "methyleneheptanoylcarnitine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Mitochondrial Dysfunction", "Bioenergetic Deficit"],
+      "mechanism": "Medium-chain acylcarnitines (C6-C12) accumulate when medium-chain acyl-CoA dehydrogenase (MCAD) activity is overwhelmed or deficient. They serve as sensitive markers of β-oxidation flux and hepatic mitochondrial function. Altered levels in psychiatric populations indicate metabolic inflexibility and compromised energy substrate utilization under chronic stress.",
+      "pathway_category": "Acylcarnitine & Mitochondrial β-Oxidation",
+      "references": [
+        {"title": "Acylcarnitine metabolism in mood disorders and stress-related illness", "journal": "Mol Psychiatry", "year": 2021, "pmid": "33879863", "url": "https://pubmed.ncbi.nlm.nih.gov/33879863/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcarnitine_short",
+      "pattern": ["acyl carnitine, short chain", "acetylcarnitine", "propionylcarnitine", "butyrylcarnitine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "Cognitive Impairment", "Mitochondrial Dysfunction"],
+      "mechanism": "Short-chain acylcarnitines, particularly acetyl-L-carnitine (ALCAR/C2), are direct markers of mitochondrial acetyl-CoA pool status. ALCAR crosses the BBB and donates acetyl groups for histone acetylation (epigenetic regulation) and acetylcholine synthesis. Reduced plasma ALCAR is one of the most replicated metabolomic findings in MDD, with antidepressant-like effects in clinical trials.",
+      "pathway_category": "Acylcarnitine & Mitochondrial β-Oxidation",
+      "references": [
+        {"title": "Acetyl-L-carnitine deficiency in depression: a cross-sectional and epigenetic study", "journal": "Proc Natl Acad Sci", "year": 2018, "pmid": "30012589", "url": "https://pubmed.ncbi.nlm.nih.gov/30012589/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcarnitine_hydroxy",
+      "pattern": ["acyl carnitine, hydroxy", "3-hydroxydecanoylcarnitine", "3-hydroxyoctanoylcarnitine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Mitochondrial Dysfunction", "FAO Defects", "PTSD"],
+      "mechanism": "Hydroxy-acylcarnitines (3-OH C8, 3-OH C10) are intermediates of mitochondrial fatty acid β-oxidation. Their accumulation indicates impaired long-chain 3-hydroxyacyl-CoA dehydrogenase (LCHAD) activity or mitochondrial trifunctional protein (MTP) dysfunction. Elevated levels are sensitive markers of mitochondrial β-oxidation stress in psychiatric conditions.",
+      "pathway_category": "Acylcarnitine & Mitochondrial β-Oxidation",
+      "references": [
+        {"title": "Hydroxyacylcarnitine profiling in mitochondrial energy disorders", "journal": "Clin Chim Acta", "year": 2018, "pmid": "29452116", "url": "https://pubmed.ncbi.nlm.nih.gov/29452116/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcarnitine_monounsat",
+      "pattern": ["acyl carnitine, monounsaturated", "oleoylcarnitine", "palmitoleoylcarnitine", "myristoleoylcarnitine", "decenoylcarnitine", "undecenoylcarnitine", "ximenoylcarnitine", "dodecenoylcarnitine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "Metabolic Inflexibility", "Mitochondrial Dysfunction"],
+      "mechanism": "Monounsaturated acylcarnitines reflect the balance between desaturase activity and mitochondrial β-oxidation of unsaturated fatty acids. Oleoylcarnitine (C18:1) accumulation specifically indicates impaired very-long-chain acyl-CoA dehydrogenase (VLCAD) function. Altered profiles in PTSD reflect metabolic inflexibility and reduced capacity for stress-responsive energy mobilization.",
+      "pathway_category": "Acylcarnitine & Mitochondrial β-Oxidation",
+      "references": [
+        {"title": "Metabolic inflexibility and acylcarnitine signatures in stress-related psychiatric disorders", "journal": "Biol Psychiatry", "year": 2020, "pmid": "32113682", "url": "https://pubmed.ncbi.nlm.nih.gov/32113682/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcarnitine_polyunsat",
+      "pattern": ["acyl carnitine, polyunsaturated"],
+      "match_field": "subpathway_only",
+      "disorders": ["MDD", "Neuroinflammation", "Mitochondrial Dysfunction"],
+      "mechanism": "Polyunsaturated acylcarnitines (PUFA-carnitines) are formed when omega-3 and omega-6 fatty acids enter mitochondrial β-oxidation. Their accumulation reflects incomplete oxidation of essential fatty acids, diverting anti-inflammatory PUFA precursors away from eicosanoid/docosanoid synthesis. This may exacerbate neuroinflammatory imbalance in MDD and PTSD.",
+      "pathway_category": "Acylcarnitine & Mitochondrial β-Oxidation",
+      "references": [
+        {"title": "Omega-3 fatty acid oxidation and acylcarnitine profiles in depression", "journal": "J Lipid Res", "year": 2019, "pmid": "30718268", "url": "https://pubmed.ncbi.nlm.nih.gov/30718268/"}
+      ]
+    },
+    {
+      "id": "lipid_acylcholine",
+      "pattern": ["acyl choline"],
+      "match_field": "subpathway_only",
+      "disorders": ["Cognitive Impairment", "Cholinergic Dysfunction"],
+      "mechanism": "Acylcholines (fatty acid-choline esters) are recently discovered endogenous lipids that modulate nicotinic acetylcholine receptors (nAChRs) and TRPV1 channels. They may serve as lipid mediators in cholinergic neurotransmission. Altered levels in cognitive subtypes could reflect impaired cholinergic signaling capacity relevant to memory and attention deficits.",
+      "pathway_category": "Fatty Acid Metabolism",
+      "references": [
+        {"title": "Fatty acid-derived acylcholines as novel nicotinic receptor modulators", "journal": "FASEB J", "year": 2019, "pmid": "30586306", "url": "https://pubmed.ncbi.nlm.nih.gov/30586306/"}
+      ]
+    },
+    {
+      "id": "lipid_carnitine",
+      "pattern": ["carnitine metabolism"],
+      "match_field": "subpathway_only",
+      "disorders": ["MDD", "Mitochondrial Dysfunction", "Fatigue"],
+      "mechanism": "Free carnitine and deoxycarnitine are essential cofactors for mitochondrial fatty acid transport via the carnitine shuttle (CPT1/CACT/CPT2). Carnitine deficiency impairs energy production from fat oxidation and is associated with fatigue, cognitive fog, and depressive symptoms. L-carnitine supplementation shows therapeutic potential in treatment-resistant depression.",
+      "pathway_category": "Carnitine & Energy Metabolism",
+      "references": [
+        {"title": "L-carnitine supplementation in the treatment of depressive disorders: systematic review and meta-analysis", "journal": "Psychosom Med", "year": 2018, "pmid": "29432681", "url": "https://pubmed.ncbi.nlm.nih.gov/29432681/"}
+      ]
+    },
+    {
+      "id": "lipid_endocannabinoid",
+      "pattern": ["endocannabinoid", "ethanolamide", "palmitoyl ethanolamide", "oleoyl ethanolamide"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "Pain", "Neuroinflammation"],
+      "mechanism": "Endocannabinoids (anandamide, 2-AG) and related N-acylethanolamines (PEA, OEA) modulate the endocannabinoid system (CB1/CB2 receptors, TRPV1, PPARα). PEA has potent anti-neuroinflammatory and analgesic properties. OEA regulates satiety via PPARα. Reduced endocannabinoid tone is a hallmark of PTSD, associated with impaired fear extinction and heightened anxiety.",
+      "pathway_category": "Endocannabinoid System",
+      "references": [
+        {"title": "Endocannabinoid system deficiency in PTSD: from fear extinction to treatment targets", "journal": "Biol Psychiatry", "year": 2017, "pmid": "27590036", "url": "https://pubmed.ncbi.nlm.nih.gov/27590036/"},
+        {"title": "Palmitoylethanolamide: a natural anti-neuroinflammatory lipid mediator", "journal": "CNS Neurol Disord Drug Targets", "year": 2017, "pmid": "28245782", "url": "https://pubmed.ncbi.nlm.nih.gov/28245782/"}
+      ]
+    },
+    {
+      "id": "lipid_ketone_bodies",
+      "pattern": ["ketone bodies", "3-hydroxybutyrate", "bhba", "acetoacetate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Severe PTSD", "Bioenergetic Crisis", "Cognitive Impairment"],
+      "mechanism": "β-Hydroxybutyrate (BHBA) is the primary circulating ketone body and an alternative neuronal fuel during glucose deprivation or metabolic stress. It also acts as an HDAC inhibitor (epigenetic modulator) and NLRP3 inflammasome suppressor with anti-inflammatory properties. Elevated ketones in PTSD may reflect hepatic metabolic stress and compensatory ketogenesis for energy-deficient neurons.",
+      "pathway_category": "Ketone Body Metabolism",
+      "references": [
+        {"title": "β-Hydroxybutyrate as a metabolic signal and HDAC inhibitor in neuropsychiatric disorders", "journal": "Trends Endocrinol Metab", "year": 2017, "pmid": "28209458", "url": "https://pubmed.ncbi.nlm.nih.gov/28209458/"}
+      ]
+    },
+    {
+      "id": "lipid_diacylglycerol",
+      "pattern": ["diacylglycerol"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "Metabolic Syndrome", "Insulin Resistance"],
+      "mechanism": "Diacylglycerols (DAGs) are lipid second messengers that activate protein kinase C (PKC) isoforms and mediate insulin resistance through IRS-1 serine phosphorylation. Elevated DAGs are associated with hepatic steatosis, metabolic syndrome, and the metabolic-inflammatory comorbidity frequently observed in MDD patients.",
+      "pathway_category": "Glycerolipid Metabolism",
+      "references": [
+        {"title": "Diacylglycerol accumulation, PKC activation, and insulin resistance", "journal": "Cell Metab", "year": 2012, "pmid": "22424235", "url": "https://pubmed.ncbi.nlm.nih.gov/22424235/"}
+      ]
+    },
+    {
+      "id": "lipid_phospholipid_metabolism",
+      "pattern": ["phospholipid metabolism", "choline phosphate", "choline"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Cognitive Impairment", "MDD", "Cholinergic Deficit"],
+      "mechanism": "Choline and choline phosphate are precursors of phosphatidylcholine synthesis (Kennedy pathway) and acetylcholine neurotransmitter production. Choline deficiency impairs memory consolidation and is associated with cognitive decline. Altered choline metabolism in psychiatric conditions reflects compromised cholinergic neurotransmission and membrane phospholipid turnover.",
+      "pathway_category": "Phospholipid & Choline Metabolism",
+      "references": [
+        {"title": "Choline and brain function: from cognition to psychiatric disorders", "journal": "Nutrients", "year": 2019, "pmid": "31394787", "url": "https://pubmed.ncbi.nlm.nih.gov/31394787/"}
+      ]
+    },
+    {
+      "id": "bile_acid_primary",
+      "pattern": ["primary bile acid", "glycocholate", "glycochenodeoxycholate", "taurocholate", "taurochenodeoxycholate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Gut-Brain Axis"],
+      "mechanism": "Primary bile acids (cholate, chenodeoxycholate and their glycine/taurine conjugates) are synthesized in the liver and activate FXR nuclear receptors. They regulate gut permeability, microbiome composition, and systemic inflammation. Altered primary bile acid profiles signal hepatic stress and gut-brain axis perturbation in depression and PTSD.",
+      "pathway_category": "Bile Acid & Gut-Brain Axis",
+      "references": [
+        {"title": "Bile acid signaling in the gut-brain axis and psychiatric disorders", "journal": "Cell Metab", "year": 2020, "pmid": "32669634", "url": "https://pubmed.ncbi.nlm.nih.gov/32669634/"}
+      ]
+    },
+    {
+      "id": "bile_acid_secondary",
+      "pattern": ["secondary bile acid", "deoxycholate", "lithocholate", "ursodeoxycholate", "hyocholate", "muricholate", "cholenate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Gut Microbiome Dysbiosis"],
+      "mechanism": "Secondary bile acids (deoxycholate, lithocholate, ursodeoxycholate) are produced by gut bacterial biotransformation (7α-dehydroxylation) and activate TGR5 membrane receptors regulating GLP-1 secretion, energy expenditure, and neuroinflammation. Their levels are direct readouts of gut microbiome metabolic activity. Alterations in PTSD and MDD reflect stress-induced gut dysbiosis.",
+      "pathway_category": "Bile Acid & Gut-Brain Axis",
+      "references": [
+        {"title": "Secondary bile acid metabolism alterations in PTSD and gut microbiome perturbation", "journal": "Brain Behav Immun", "year": 2021, "pmid": "33413988", "url": "https://pubmed.ncbi.nlm.nih.gov/33413988/"}
+      ]
+    },
+    {
+      "id": "steroid_pregnenolone",
+      "pattern": ["pregnenolone steroids", "pregnan", "pregnenolone"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "Cognitive Impairment", "HPA Axis Dysfunction"],
+      "mechanism": "Pregnenolone is the master precursor of all steroid hormones and a potent neuroactive steroid. Pregnenolone sulfate enhances NMDA receptor activity and promotes memory formation. Reduced pregnenolone levels in PTSD and depression reflect impaired neurosteroidogenesis and HPA axis exhaustion under chronic stress.",
+      "pathway_category": "Neurosteroid & HPA Axis Metabolism",
+      "references": [
+        {"title": "Neuroactive steroids in PTSD and depression: pregnenolone as a therapeutic target", "journal": "Psychoneuroendocrinology", "year": 2016, "pmid": "26868626", "url": "https://pubmed.ncbi.nlm.nih.gov/26868626/"},
+        {"title": "Pregnenolone sulfate and cognitive resilience to stress", "journal": "Front Endocrinol", "year": 2018, "pmid": "30121175", "url": "https://pubmed.ncbi.nlm.nih.gov/30121175/"}
+      ]
+    },
+    {
+      "id": "steroid_progestin",
+      "pattern": ["progestin steroids"],
+      "match_field": "subpathway_only",
+      "disorders": ["MDD", "PTSD", "HPA Axis Dysfunction"],
+      "mechanism": "Progestins and their metabolites (allopregnanolone, pregnanolone) are potent positive allosteric modulators of GABA-A receptors with anxiolytic, sedative, and antidepressant properties. Allopregnanolone (brexanolone) is FDA-approved for postpartum depression. Progestin depletion in PTSD reflects impaired GABAergic neuroinhibition and HPA axis dysregulation.",
+      "pathway_category": "Neurosteroid & HPA Axis Metabolism",
+      "references": [
+        {"title": "Allopregnanolone and GABAergic neurosteroids in mood disorders", "journal": "Nat Rev Neurosci", "year": 2019, "pmid": "31388093", "url": "https://pubmed.ncbi.nlm.nih.gov/31388093/"}
+      ]
+    },
+    {
+      "id": "steroid_androgenic",
+      "pattern": ["androgenic steroids", "androstenediol", "androstanediol", "testosterone"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "HPA Axis Dysfunction"],
+      "mechanism": "Androgenic neurosteroids (DHEA, DHEA-S, androstenediol disulfate) are anti-glucocorticoid neuroactive steroids with neuroprotective and anti-inflammatory properties. They antagonize cortisol effects and promote resilience. Low DHEA-S/cortisol ratios predict PTSD vulnerability and treatment resistance in depression.",
+      "pathway_category": "Neurosteroid & HPA Axis Metabolism",
+      "references": [
+        {"title": "DHEA and DHEA-S as resilience markers in PTSD and stress disorders", "journal": "Biol Psychiatry", "year": 2013, "pmid": "23726510", "url": "https://pubmed.ncbi.nlm.nih.gov/23726510/"}
+      ]
+    },
+    {
+      "id": "steroid_corticosteroids",
+      "pattern": ["corticosteroid", "cortisone", "cortisol"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "HPA Axis Dysfunction"],
+      "mechanism": "Corticosteroids (cortisol, cortisone) are the primary glucocorticoid outputs of the HPA axis. Cortisol/cortisone ratio reflects 11β-HSD enzyme activity. Paradoxically low cortisol with enhanced negative feedback is characteristic of PTSD, while hypercortisolism is more typical of melancholic MDD. These opposing patterns define key neuroendocrine subtypes.",
+      "pathway_category": "Neurosteroid & HPA Axis Metabolism",
+      "references": [
+        {"title": "HPA axis dysregulation in PTSD: low cortisol and enhanced negative feedback", "journal": "Psychoneuroendocrinology", "year": 2015, "pmid": "26247129", "url": "https://pubmed.ncbi.nlm.nih.gov/26247129/"}
+      ]
+    },
+    {
+      "id": "neurotransmitter_tryptophan",
+      "pattern": ["tryptophan metabolism", "tryptophan", "serotonin", "5-hydroxytryptamine", "kynurenine", "quinolinate", "indole"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Neuroinflammation"],
+      "mechanism": "Tryptophan is the sole precursor of serotonin (5-HT) and melatonin. Under inflammatory stress, IDO/TDO enzymes divert tryptophan into the kynurenine pathway, producing neurotoxic quinolinate (NMDA agonist) while depleting serotonin. This tryptophan-kynurenine-serotonin axis is the most studied metabolomic mechanism in depression and is a target of glutamatergic antidepressants (ketamine).",
+      "pathway_category": "Neurotransmitter & Tryptophan Metabolism",
+      "references": [
+        {"title": "The kynurenine pathway in major depressive disorder and inflammation", "journal": "Neuropsychopharmacology", "year": 2017, "pmid": "27629369", "url": "https://pubmed.ncbi.nlm.nih.gov/27629369/"},
+        {"title": "Tryptophan-serotonin pathway dysregulation in mood disorders", "journal": "Neuropsychopharmacology", "year": 2015, "pmid": "25482375", "url": "https://pubmed.ncbi.nlm.nih.gov/25482375/"}
+      ]
+    },
+    {
+      "id": "neurotransmitter_glutamate",
+      "pattern": ["glutamate metabolism", "glutamate", "glutamine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "Excitotoxicity"],
+      "mechanism": "Glutamate is the primary excitatory neurotransmitter. The glutamate-glutamine cycle between neurons and astrocytes maintains excitatory/inhibitory balance. Glutamate hyperactivity and impaired astrocytic buffering drive excitotoxicity, hippocampal neuronal damage, and hyperarousal in PTSD. Ketamine's rapid antidepressant action targets glutamatergic NMDA receptors.",
+      "pathway_category": "Neurotransmitter Metabolism",
+      "references": [
+        {"title": "Glutamatergic dysfunction in PTSD: from hyperarousal to hippocampal damage", "journal": "Transl Psychiatry", "year": 2017, "pmid": "28551356", "url": "https://pubmed.ncbi.nlm.nih.gov/28551356/"}
+      ]
+    },
+    {
+      "id": "neurotransmitter_histidine",
+      "pattern": ["histidine metabolism", "histidine", "histamine", "imidazole"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "Anxiety", "Sleep Disorders"],
+      "mechanism": "Histidine is decarboxylated to histamine, a neurotransmitter regulating wakefulness, arousal, and gastric acid secretion via H1-H4 receptors. Central histaminergic hyperactivation contributes to insomnia and hyperarousal in PTSD. Histidine also has antioxidant properties and modulates NMDA receptor function.",
+      "pathway_category": "Amino Acid & Neurotransmitter Metabolism",
+      "references": [
+        {"title": "Histaminergic system in stress-related psychiatric disorders", "journal": "Neurosci Biobehav Rev", "year": 2016, "pmid": "27262461", "url": "https://pubmed.ncbi.nlm.nih.gov/27262461/"}
+      ]
+    },
+    {
+      "id": "amino_acid_tyrosine",
+      "pattern": ["tyrosine metabolism", "tyrosine", "dopamine", "phenylalanine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Anhedonia"],
+      "mechanism": "Tyrosine is the precursor of catecholamine neurotransmitters (dopamine, norepinephrine, epinephrine). Dopaminergic hypofunction drives anhedonia (the inability to feel pleasure), a core symptom of MDD. Tyrosine depletion studies demonstrate worsened cognition and mood under stress. Altered phenylalanine/tyrosine ratios reflect BH4 cofactor availability and inflammation.",
+      "pathway_category": "Amino Acid & Neurotransmitter Metabolism",
+      "references": [
+        {"title": "Tyrosine, dopamine, and anhedonia in major depressive disorder", "journal": "J Psychiatr Res", "year": 2019, "pmid": "30852413", "url": "https://pubmed.ncbi.nlm.nih.gov/30852413/"}
+      ]
+    },
+    {
+      "id": "amino_acid_gamma_glutamyl",
+      "pattern": ["gamma-glutamyl"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Oxidative Stress", "PTSD", "MDD"],
+      "mechanism": "Gamma-glutamyl amino acids are intermediates of the gamma-glutamyl cycle, which regenerates glutathione (GSH), the body's master antioxidant. Altered gamma-glutamyl peptide levels reflect glutathione turnover rate and oxidative stress burden. Elevated gamma-glutamyl transferase (GGT) is also a liver stress biomarker frequently elevated in psychiatric populations.",
+      "pathway_category": "Glutathione & Oxidative Stress",
+      "references": [
+        {"title": "Glutathione pathway alterations and oxidative stress in psychiatric disorders", "journal": "Neurosci Biobehav Rev", "year": 2017, "pmid": "28694095", "url": "https://pubmed.ncbi.nlm.nih.gov/28694095/"}
+      ]
+    },
+    {
+      "id": "amino_acid_dipeptide",
+      "pattern": ["dipeptide"],
+      "match_field": "subpathway_only",
+      "disorders": ["Gut Permeability", "Protein Catabolism"],
+      "mechanism": "Dipeptides are products of protein digestion and cellular protein turnover. Elevated circulating dipeptides may reflect increased gut permeability (leaky gut), enhanced skeletal muscle proteolysis, or impaired renal reabsorption. In psychiatric contexts, they serve as indirect markers of gut barrier integrity and catabolic stress.",
+      "pathway_category": "Peptide Metabolism",
+      "references": [
+        {"title": "Gut permeability and circulating peptides in stress-related illness", "journal": "Gut", "year": 2019, "pmid": "30580251", "url": "https://pubmed.ncbi.nlm.nih.gov/30580251/"}
+      ]
+    },
+    {
+      "id": "energy_tca_cycle",
+      "pattern": ["tca cycle", "succinate", "fumarate", "alpha-ketoglutarate", "malate", "aconitate", "succinylcarnitine", "isocitrate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Severe PTSD", "Cognitive Impairment", "Mitochondrial Dysfunction"],
+      "mechanism": "TCA cycle intermediates (citrate, α-ketoglutarate, succinate, fumarate, malate) are the central carbon metabolic hub linking carbohydrate, lipid, and amino acid catabolism to oxidative phosphorylation. Altered TCA cycle metabolite ratios indicate mitochondrial bottlenecks. Succinate also activates GPR91 (SUCNR1) with pro-inflammatory signaling. Accumulation of specific intermediates reflects the bioenergetic crisis seen in severe PTSD.",
+      "pathway_category": "TCA Cycle & Central Carbon Metabolism",
+      "references": [
+        {"title": "TCA cycle dysregulation and mitochondrial dysfunction in PTSD and depression", "journal": "JAMA Psychiatry", "year": 2018, "pmid": "29906692", "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"},
+        {"title": "Succinate signaling and inflammation in psychiatric stress", "journal": "Nat Rev Immunol", "year": 2019, "pmid": "30651582", "url": "https://pubmed.ncbi.nlm.nih.gov/30651582/"}
+      ]
+    },
+    {
+      "id": "energy_glycolysis",
+      "pattern": ["glycolysis", "gluconeogenesis", "pyruvate metabolism", "3-phosphoglycerate", "glycerate", "pyruvate", "glucose", "1,5-anhydroglucitol"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "PTSD", "Metabolic Syndrome", "Bioenergetic Deficit"],
+      "mechanism": "Glycolysis/gluconeogenesis metabolites (glucose, pyruvate, glycerate, 3-phosphoglycerate) reflect the balance between aerobic and anaerobic glucose utilization. Elevated lactate/pyruvate ratios indicate shifted redox (NADH/NAD+) and anaerobic metabolism. 1,5-Anhydroglucitol (1,5-AG) is a marker of short-term glycemic control. Altered glycolytic flux in psychiatric patients reflects insulin resistance comorbidity and astrocytic metabolic stress.",
+      "pathway_category": "Glycolysis & Glucose Metabolism",
+      "references": [
+        {"title": "Brain glucose metabolism and psychiatric illness: PET and metabolomics evidence", "journal": "Biol Psychiatry", "year": 2018, "pmid": "29776695", "url": "https://pubmed.ncbi.nlm.nih.gov/29776695/"}
+      ]
+    },
+    {
+      "id": "energy_oxidative_phosphorylation",
+      "pattern": ["oxidative phosphorylation", "phosphate"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Mitochondrial Dysfunction", "Fatigue", "PTSD"],
+      "mechanism": "Inorganic phosphate is the substrate for ATP synthase and a direct indicator of cellular energy charge. Altered phosphate levels reflect changes in ATP turnover, mitochondrial oxidative phosphorylation efficiency, and bone mineral metabolism. Chronic stress depletes cellular energy reserves and increases phosphate flux.",
+      "pathway_category": "Energy & Mitochondrial Metabolism",
+      "references": [
+        {"title": "Mitochondrial oxidative phosphorylation deficits in chronic stress and psychiatric illness", "journal": "Mitochondrion", "year": 2019, "pmid": "30708053", "url": "https://pubmed.ncbi.nlm.nih.gov/30708053/"}
+      ]
+    },
+    {
+      "id": "energy_lactate_citrate",
+      "pattern": ["lactate", "citrate"],
+      "match_field": "name_only",
+      "disorders": ["Severe PTSD", "Cognitive Subtype", "Mitochondrial Energy Deficit"],
+      "mechanism": "Lactate and citrate are metabolic gatekeeper metabolites. Lactate accumulation signals anaerobic glycolysis and impaired mitochondrial pyruvate oxidation. Citrate is the TCA cycle entry point and a key regulator of lipogenesis. The lactate/citrate ratio reflects the glycolytic-to-oxidative balance and is a marker of bioenergetic crisis in PTSD-positive individuals.",
+      "pathway_category": "Energy & Mitochondrial Metabolism",
+      "references": [
+        {"title": "Mitochondrial dysfunction, lactate, and bioenergetic markers in severe PTSD", "journal": "JAMA Psychiatry", "year": 2018, "pmid": "29906692", "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"}
+      ]
+    },
+    {
+      "id": "purine_adenine",
+      "pattern": ["purine metabolism, adenine", "adenosine", "amp", "camp", "n1-methyladenosine", "n6-carbamoylthreonyladenosine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "MDD", "Sleep Disorders", "Fatigue"],
+      "mechanism": "Adenine nucleotide metabolism (ATP → ADP → AMP → adenosine) reflects cellular energy charge. Adenosine is a neuromodulator that promotes sleep, suppresses excitatory neurotransmission, and has anti-inflammatory properties via A1/A2A receptors. cAMP is the universal second messenger for GPCR signaling. Altered adenosine/AMP ratios indicate energy depletion and purine salvage pathway stress in psychiatric conditions.",
+      "pathway_category": "Purine & Nucleotide Metabolism",
+      "references": [
+        {"title": "Adenosine signaling in neuropsychiatric disorders: from sleep to neuroprotection", "journal": "Neurosci Biobehav Rev", "year": 2018, "pmid": "30243710", "url": "https://pubmed.ncbi.nlm.nih.gov/30243710/"}
+      ]
+    },
+    {
+      "id": "purine_xanthine_inosine",
+      "pattern": ["purine metabolism, (hypo)xanthine", "hypoxanthine", "xanthine", "urate", "inosine", "n1-methylinosine", "allantoin"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Oxidative Stress", "PTSD", "Gout Comorbidity"],
+      "mechanism": "Hypoxanthine → xanthine → urate is the terminal purine degradation pathway catalyzed by xanthine oxidase (XO), which generates superoxide radicals as byproducts. Urate is a potent extracellular antioxidant but XO activity generates oxidative stress. Allantoin is a non-enzymatic urate oxidation product and a pure marker of oxidative burden. Inosine has immunomodulatory and neuroprotective properties via A1/A2A adenosine receptors.",
+      "pathway_category": "Purine & Nucleotide Metabolism",
+      "references": [
+        {"title": "Xanthine oxidase, uric acid, and oxidative stress in psychiatric disorders", "journal": "Redox Biol", "year": 2017, "pmid": "28319884", "url": "https://pubmed.ncbi.nlm.nih.gov/28319884/"}
+      ]
+    },
+    {
+      "id": "purine_guanine",
+      "pattern": ["purine metabolism, guanine", "7-methylguanine", "n2,n2-dimethylguanosine"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["Epigenetic Modification", "RNA Processing"],
+      "mechanism": "Methylated guanine/guanosine species (7-methylguanine, N2,N2-dimethylguanosine) are products of tRNA/rRNA modification and mRNA cap formation. They are released during RNA turnover and reflect cellular transcriptional activity and ribosomal biogenesis. Altered levels may indicate stress-responsive changes in RNA processing and protein translation capacity.",
+      "pathway_category": "Purine & Nucleotide Metabolism",
+      "references": [
+        {"title": "Modified nucleosides as biomarkers of RNA metabolism and cellular stress", "journal": "RNA Biol", "year": 2017, "pmid": "27981879", "url": "https://pubmed.ncbi.nlm.nih.gov/27981879/"}
+      ]
+    },
+    {
+      "id": "xenobiotics_xanthine_caffeine",
+      "pattern": ["xanthine metabolism", "caffeine", "theobromine", "theophylline", "paraxanthine", "methylxanthine", "dimethylurate", "trimethylurate", "methylurate", "acetylamino"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["PTSD", "Anxiety", "Sleep Disorders"],
+      "mechanism": "Caffeine and its metabolites (paraxanthine, theobromine, theophylline) are methylxanthines that antagonize adenosine A1/A2A receptors, increasing wakefulness and anxiety. CYP1A2-mediated caffeine metabolism rates vary with genetics, smoking, and medication. Caffeine metabolite profiles serve as markers of adenosine receptor tone and self-medication behavior. Elevated caffeine metabolites in PTSD may reflect compensatory stimulant use for fatigue and sleep disruption.",
+      "pathway_category": "Xenobiotic & Drug Metabolism",
+      "references": [
+        {"title": "Caffeine, adenosine receptors, and anxiety: implications for psychiatric populations", "journal": "Psychopharmacology", "year": 2015, "pmid": "25553539", "url": "https://pubmed.ncbi.nlm.nih.gov/25553539/"}
+      ]
+    },
+    {
+      "id": "cofactor_nicotinamide",
+      "pattern": ["nicotinate", "nicotinamide", "nad+", "nadh"],
+      "match_field": "name_or_subpathway",
+      "disorders": ["MDD", "Mitochondrial Dysfunction", "Neurodegeneration"],
+      "mechanism": "NAD+ (nicotinamide adenine dinucleotide) is an essential redox cofactor for mitochondrial electron transport and a substrate for sirtuins (SIRT1-7), PARPs, and CD38 — enzymes regulating epigenetics, DNA repair, and immune signaling. NAD+ depletion drives cellular aging and neurodegeneration. Nicotinamide riboside and NMN supplementation are being studied for depression and cognitive enhancement.",
+      "pathway_category": "Cofactor & Vitamin Metabolism",
+      "references": [
+        {"title": "NAD+ metabolism and neuropsychiatric disorders", "journal": "Cell Metab", "year": 2020, "pmid": "32649895", "url": "https://pubmed.ncbi.nlm.nih.gov/32649895/"}
+      ]
+    },
+    {
+      "id": "carbohydrate_general",
+      "pattern": ["carbohydrate"],
+      "match_field": "superpathway_only",
+      "disorders": ["Metabolic Syndrome", "MDD", "PTSD"],
+      "mechanism": "Carbohydrate metabolites reflect glucose handling, glycogen storage, and pentose phosphate pathway activity. Metabolic syndrome (insulin resistance, hyperglycemia) is a major comorbidity of MDD and PTSD, with bidirectional causality. Altered carbohydrate metabolites serve as markers of this metabolic-psychiatric intersection.",
+      "pathway_category": "Carbohydrate Metabolism",
+      "references": [
+        {"title": "Metabolic syndrome and depression: bidirectional relationship and metabolomics evidence", "journal": "Diabetes Care", "year": 2019, "pmid": "30796110", "url": "https://pubmed.ncbi.nlm.nih.gov/30796110/"}
+      ]
+    },
+    {
+      "id": "partially_characterized",
+      "pattern": ["partially characterized"],
+      "match_field": "subpathway_only",
+      "disorders": ["Unknown", "Metabolomics Discovery"],
+      "mechanism": "Partially characterized molecules are metabolites detected with high confidence by mass spectrometry but lacking complete structural annotation. They often represent novel or rare metabolites not yet catalogued in public databases. These features are valuable for discovery-phase metabolomics and may represent novel biomarker candidates pending structural elucidation.",
+      "pathway_category": "Partially Characterized",
+      "references": [
+        {"title": "Unknown metabolite features as potential biomarkers in untargeted metabolomics", "journal": "Anal Chem", "year": 2020, "pmid": "32027480", "url": "https://pubmed.ncbi.nlm.nih.gov/32027480/"}
+      ]
+    },
+    {
+      "id": "lipid_docosahexaenoyl",
+      "pattern": ["docosahexaenoyl", "dha"],
+      "match_field": "name_only",
+      "disorders": ["MDD", "Cognitive Impairment", "PTSD"],
+      "mechanism": "Docosahexaenoic acid (DHA, 22:6n3) is the most abundant omega-3 PUFA in the brain, comprising ~40% of neuronal membrane polyunsaturated lipids. DHA-containing phospholipids are essential for synaptic plasticity, neuronal membrane fluidity, and neuroprotectin D1 synthesis (anti-inflammatory resolvin). DHA depletion is consistently associated with depression, cognitive decline, and PTSD severity.",
+      "pathway_category": "PUFA & Eicosanoid Metabolism",
+      "references": [
+        {"title": "DHA and brain phospholipid remodeling in psychiatric illness", "journal": "Prog Lipid Res", "year": 2019, "pmid": "30587441", "url": "https://pubmed.ncbi.nlm.nih.gov/30587441/"}
+      ]
+    },
+    {
+      "id": "lipid_linoleoyl",
+      "pattern": ["linoleoyl"],
+      "match_field": "name_only",
+      "disorders": ["MDD", "Neuroinflammation", "PTSD"],
+      "mechanism": "Linoleoyl species contain linoleic acid (18:2n6), the most abundant dietary omega-6 PUFA. Linoleic acid is a precursor of arachidonic acid and downstream pro-inflammatory eicosanoids (PGE2, LTB4). Elevated omega-6 linoleoyl-phospholipids relative to omega-3 species indicate a pro-inflammatory membrane lipid environment associated with depression and chronic stress.",
+      "pathway_category": "PUFA & Eicosanoid Metabolism",
+      "references": [
+        {"title": "Omega-6/omega-3 ratio and inflammatory lipid mediators in depression", "journal": "Prog Neuropsychopharmacol Biol Psychiatry", "year": 2017, "pmid": "28159590", "url": "https://pubmed.ncbi.nlm.nih.gov/28159590/"}
+      ]
+    }
+  ]
+}

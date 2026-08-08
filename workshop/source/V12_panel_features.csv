@@ -1,0 +1,386 @@
+CHEM_ID,Original_ID,CHEMICAL_NAME,SUPER_PATHWAY,SUB_PATHWAY
+,Glycolytic_Ratio,Glycolytic_Ratio,,
+100001563.0,100001563,2-myristoyl-GPC (14:0)*,Lipid,Lysophospholipid
+100009346.0,100009346,"phosphatidylcholine (14:0/14:0, 16:0/12:0)",Lipid,Phosphatidylcholine (PC)
+100000672.0,100000672,1-myristoyl-2-palmitoyl-GPC (14:0/16:0),Lipid,Phosphatidylcholine (PC)
+100002014.0,100002014,"5alpha-pregnan-3beta,20alpha-diol monosulfate (2)",Lipid,Progestin Steroids
+100001988.0,100001988,"5alpha-pregnan-3beta,20alpha-diol disulfate",Lipid,Progestin Steroids
+100009271.0,100009271,(S)-3-hydroxybutyrylcarnitine,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)"
+100001383.0,100001383,1-myristoyl-GPC (14:0),Lipid,Lysophospholipid
+100000802.0,100000802,acetylcarnitine (C2),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Short Chain)"
+1124.0,1124,citrate,Energy,TCA Cycle
+100009130.0,100009130,1-oleoyl-2-docosahexaenoyl-GPC (18:1/22:6)*,Lipid,Phosphatidylcholine (PC)
+100009038.0,100009038,myristoyl dihydrosphingomyelin (d18:0/14:0)*,Lipid,Dihydrosphingomyelins
+100020214.0,100020214,glyco-beta-muricholate**,Lipid,Primary Bile Acid Metabolism
+1539.0,1539,1-palmitoyl-2-oleoyl-GPC (16:0/18:1),Lipid,Phosphatidylcholine (PC)
+100008984.0,100008984,1-palmitoyl-2-palmitoleoyl-GPC (16:0/16:1)*,Lipid,Phosphatidylcholine (PC)
+100009138.0,100009138,1-myristoyl-2-linoleoyl-GPC (14:0/18:2)*,Lipid,Phosphatidylcholine (PC)
+482.0,482,lactate,Carbohydrate,"Glycolysis, Gluconeogenesis, and Pyruvate Metabolism"
+100001511.0,100001511,1-palmitoleoyl-GPC (16:1)*,Lipid,Lysophospholipid
+100009347.0,100009347,"phosphatidylcholine (15:0/18:1, 17:0/16:1, 16:0/17:1)*",Lipid,Phosphatidylcholine (PC)
+100003470.0,100003470,pregnanediol-3-glucuronide,Lipid,Progestin Steroids
+100021990.0,100021990,3-hydroxyoctanoylcarnitine (1),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)"
+100000665.0,100000665,docosahexaenoate (DHA; 22:6n3),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100002009.0,100002009,"5alpha-pregnan-3beta,20beta-diol monosulfate (1)",Lipid,Progestin Steroids
+100001882.0,100001882,glycosyl-N-stearoyl-sphingosine (d18:1/18:0),Lipid,Hexosylceramides (HCER)
+100009051.0,100009051,1-stearoyl-2-dihomo-linolenoyl-GPC (18:0/20:3n3 or n6)*,Lipid,Phosphatidylcholine (PC)
+100003926.0,100003926,(R)-3-hydroxybutyrylcarnitine,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)"
+100002067.0,100002067,pregnenediol sulfate (C21H34O5S)*,Lipid,Pregnenolone Steroids
+100000626.0,100000626,sphingosine 1-phosphate,Lipid,Sphingosines
+100009125.0,100009125,1-margaroyl-2-docosahexaenoyl-GPC (17:0/22:6)*,Lipid,Phosphatidylcholine (PC)
+504.0,504,serotonin,Amino Acid,Tryptophan Metabolism
+100015786.0,100015786,"sphingomyelin (d18:0/20:0, d16:0/22:0)*",Lipid,Dihydrosphingomyelins
+100001784.0,100001784,1-palmitoleoyl-GPE (16:1)*,Lipid,Lysophospholipid
+100009027.0,100009027,"sphingomyelin (d18:0/18:0, d19:0/17:0)*",Lipid,Dihydrosphingomyelins
+254.0,254,3-hydroxybutyrate (BHBA),Lipid,Ketone Bodies
+100001872.0,100001872,1-stearoyl-2-arachidonoyl-GPS (18:0/20:4),Lipid,Phosphatidylserine (PS)
+100008916.0,100008916,1-stearoyl-2-docosahexaenoyl-GPC (18:0/22:6),Lipid,Phosphatidylcholine (PC)
+100008993.0,100008993,1-palmitoyl-2-arachidonoyl-GPI (16:0/20:4)*,Lipid,Phosphatidylinositol (PI)
+100009139.0,100009139,1-myristoyl-2-arachidonoyl-GPC (14:0/20:4)*,Lipid,Phosphatidylcholine (PC)
+100001229.0,100001229,stearidonate (18:4n3),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100001337.0,100001337,linolenate [alpha or gamma; (18:3n3 or 6)],Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100020343.0,100020343,tetradecadienoate (14:2)*,Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100002003.0,100002003,21-hydroxypregnenolone monosulfate (1),Lipid,Pregnenolone Steroids
+100001197.0,100001197,10-undecenoate (11:1n1),Lipid,Medium Chain Fatty Acid
+100009215.0,100009215,1-stearoyl-2-dihomo-linolenoyl-GPE (18:0/20:3n3 or n6)*,Lipid,Phosphatidylethanolamine (PE)
+100006644.0,100006644,taurodeoxycholic acid 3-sulfate,Lipid,Secondary Bile Acid Metabolism
+100009146.0,100009146,1-stearoyl-2-adrenoyl-GPC (18:0/22:4)*,Lipid,Phosphatidylcholine (PC)
+100021991.0,100021991,3-hydroxyoctanoylcarnitine (2),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)"
+100009143.0,100009143,1-palmitoyl-2-adrenoyl-GPC (16:0/22:4)*,Lipid,Phosphatidylcholine (PC)
+100000616.0,100000616,1-stearoyl-2-arachidonoyl-GPI (18:0/20:4),Lipid,Phosphatidylinositol (PI)
+100021728.0,100021728,"cis-3,4-methyleneheptanoylcarnitine",Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)"
+100001181.0,100001181,docosapentaenoate (n3 DPA; 22:5n3),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100002488.0,100002488,isoursodeoxycholate,Lipid,Secondary Bile Acid Metabolism
+100002871.0,100002871,1-adrenoyl-GPC (22:4)*,Lipid,Lysophospholipid
+100008985.0,100008985,1-palmitoyl-2-dihomo-linolenoyl-GPC (16:0/20:3n3 or n6)*,Lipid,Phosphatidylcholine (PC)
+100009345.0,100009345,1-palmitoleoyl-2-linolenoyl-GPC (16:1/18:3)*,Lipid,Phosphatidylcholine (PC)
+100002015.0,100002015,5alpha-pregnan-diol disulfate,Lipid,Progestin Steroids
+180.0,180,linoleate (18:2n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100002021.0,100002021,"5alpha-androstan-3beta,17alpha-diol disulfate",Lipid,Androgenic Steroids
+100009123.0,100009123,1-pentadecanoyl-2-docosahexaenoyl-GPC (15:0/22:6)*,Lipid,Phosphatidylcholine (PC)
+1002.0,1002,allantoin,Nucleotide,"Purine Metabolism, (Hypo)Xanthine/Inosine containing"
+100001092.0,100001092,trigonelline (N'-methylnicotinate),Cofactors and Vitamins,Nicotinate and Nicotinamide Metabolism
+100001552.0,100001552,1-dihomo-linolenoyl-GPC (20:3n3 or n6)*,Lipid,Lysophospholipid
+2050.0,2050,eicosapentaenoate (EPA; 20:5n3),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100020261.0,100020261,glutamine conjugate of C6H10O2 (1)*,Partially Characterized Molecules,Partially Characterized Molecules
+100001359.0,100001359,aconitate [cis or trans],Energy,TCA Cycle
+100021141.0,100021141,3-hydroxydecanoylcarnitine,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)"
+100009332.0,100009332,arachidonoylcholine,Lipid,Fatty Acid Metabolism (Acyl Choline)
+100006051.0,100006051,myristoleoylcarnitine/physeteroylcarnitine (C14:1)*,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+100001396.0,100001396,7-methylxanthine,Xenobiotics,Xanthine Metabolism
+563.0,563,glutamine,Amino Acid,Glutamate Metabolism
+98.0,98,kynurenate,Amino Acid,Tryptophan Metabolism
+100001263.0,100001263,1-palmitoyl-GPC (16:0),Lipid,Lysophospholipid
+1135.0,1135,ursodeoxycholate,Lipid,Secondary Bile Acid Metabolism
+100001657.0,100001657,glycolithocholate sulfate*,Lipid,Secondary Bile Acid Metabolism
+100020259.0,100020259,glutamine conjugate of C7H12O2*,Partially Characterized Molecules,Partially Characterized Molecules
+100015593.0,100015593,1-stearoyl-2-docosapentaenoyl-GPE (18:0/22:5n6)*,Lipid,Phosphatidylethanolamine (PE)
+100001999.0,100001999,21-hydroxypregnenolone disulfate,Lipid,Pregnenolone Steroids
+100016019.0,100016019,1-palmitoyl-2-pentadecanoyl-GPC (16:0/15:0)*,Lipid,Phosphatidylcholine (PC)
+100002796.0,100002796,cis-4-decenoate (10:1n6)*,Lipid,Medium Chain Fatty Acid
+1629.0,1629,taurochenodeoxycholate,Lipid,Primary Bile Acid Metabolism
+100000580.0,100000580,"1,5-anhydroglucitol (1,5-AG)",Carbohydrate,"Glycolysis, Gluconeogenesis, and Pyruvate Metabolism"
+1052.0,1052,glycerate,Carbohydrate,"Glycolysis, Gluconeogenesis, and Pyruvate Metabolism"
+100001743.0,100001743,tryptophan betaine,Amino Acid,Tryptophan Metabolism
+980.0,980,pentadecanoate (15:0),Lipid,Long Chain Saturated Fatty Acid
+100021712.0,100021712,deoxycholic acid 12-sulfate*,Lipid,Secondary Bile Acid Metabolism
+100002911.0,100002911,glycoursodeoxycholate,Lipid,Secondary Bile Acid Metabolism
+100001335.0,100001335,eicosenoate (20:1),Lipid,Long Chain Monounsaturated Fatty Acid
+100000657.0,100000657,"1,2-dipalmitoyl-GPC (16:0/16:0)",Lipid,Phosphatidylcholine (PC)
+100002129.0,100002129,pregnenolone sulfate,Lipid,Pregnenolone Steroids
+892.0,892,nonadecanoate (19:0),Lipid,Long Chain Saturated Fatty Acid
+100008930.0,100008930,oleate/vaccenate (18:1),Lipid,Long Chain Monounsaturated Fatty Acid
+100006642.0,100006642,glycodeoxycholate 3-sulfate,Lipid,Secondary Bile Acid Metabolism
+100020262.0,100020262,glutamine conjugate of C6H10O2 (2)*,Partially Characterized Molecules,Partially Characterized Molecules
+207.0,207,"adenosine 3',5'-cyclic monophosphate (cAMP)",Nucleotide,"Purine Metabolism, Adenine containing"
+100005371.0,100005371,1-dihomo-linolenoyl-GPE (20:3n3 or n6)*,Lipid,Lysophospholipid
+100001993.0,100001993,pregnenediol disulfate (C21H34O8S2)*,Lipid,Pregnenolone Steroids
+561.0,561,glutamate,Amino Acid,Glutamate Metabolism
+100001398.0,100001398,"3,7-dimethylurate",Xenobiotics,Xanthine Metabolism
+100001566.0,100001566,1-docosahexaenoyl-GPC (22:6)*,Lipid,Lysophospholipid
+100009394.0,100009394,hexadecadienoate (16:2n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100002259.0,100002259,cis-4-decenoylcarnitine (C10:1),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+100008915.0,100008915,1-palmitoyl-2-docosahexaenoyl-GPC (16:0/22:6),Lipid,Phosphatidylcholine (PC)
+100001571.0,100001571,1-arachidonoyl-GPE (20:4n6)*,Lipid,Lysophospholipid
+100001567.0,100001567,1-palmitoyl-GPE (16:0),Lipid,Lysophospholipid
+100001994.0,100001994,"androstenediol (3beta,17beta) disulfate (2)",Lipid,Androgenic Steroids
+100001468.0,100001468,N1-methyl-2-pyridone-5-carboxamide,Cofactors and Vitamins,Nicotinate and Nicotinamide Metabolism
+100008914.0,100008914,1-palmitoyl-2-arachidonoyl-GPC (16:0/20:4n6),Lipid,Phosphatidylcholine (PC)
+100002128.0,100002128,17alpha-hydroxypregnenolone 3-sulfate,Lipid,Pregnenolone Steroids
+100001232.0,100001232,5-dodecenoate (12:1n7),Lipid,Medium Chain Fatty Acid
+100002126.0,100002126,16alpha-hydroxy DHEA 3-sulfate,Lipid,Androgenic Steroids
+100001876.0,100001876,sphinganine-1-phosphate,Lipid,Sphingolipid Synthesis
+100015792.0,100015792,"sphingomyelin (d18:1/25:0, d19:0/24:1, d20:1/23:0, d19:1/24:0)*",Lipid,Sphingomyelins
+100000656.0,100000656,1-stearoyl-GPI (18:0),Lipid,Lysophospholipid
+100015687.0,100015687,"phosphatidylethanolamine (P-18:1/20:4, P-16:0/22:5n3)*",Lipid,Phosphatidylethanolamine (PE)
+100001654.0,100001654,1-arachidonoyl-GPI (20:4)*,Lipid,Lysophospholipid
+100016069.0,100016069,5-dodecenoylcarnitine (C12:1),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+100009036.0,100009036,1-margaroyl-2-oleoyl-GPC (17:0/18:1)*,Lipid,Phosphatidylcholine (PC)
+100009141.0,100009141,1-stearoyl-2-docosapentaenoyl-GPC (18:0/22:5n3)*,Lipid,Phosphatidylcholine (PC)
+100023220.0,100023220,isoallolithocholic acid,Lipid,Secondary Bile Acid Metabolism
+100002007.0,100002007,"5alpha-androstan-3alpha,17alpha-diol disulfate",Lipid,Androgenic Steroids
+100002152.0,100002152,andro steroid monosulfate C19H28O6S (1)*,Lipid,Androgenic Steroids
+100020360.0,100020360,8-methoxykynurenate,Amino Acid,Tryptophan Metabolism
+1242.0,1242,N1-methyladenosine,Nucleotide,"Purine Metabolism, Adenine containing"
+100008904.0,100008904,1-stearoyl-2-oleoyl-GPC (18:0/18:1),Lipid,Phosphatidylcholine (PC)
+100006361.0,100006361,dopamine 3-O-sulfate,Amino Acid,Tyrosine Metabolism
+100004083.0,100004083,glycohyocholate,Lipid,Secondary Bile Acid Metabolism
+1628.0,1628,glycochenodeoxycholate,Lipid,Primary Bile Acid Metabolism
+565.0,565,tryptophan,Amino Acid,Tryptophan Metabolism
+100001415.0,100001415,N6-carbamoylthreonyladenosine,Nucleotide,"Purine Metabolism, Adenine containing"
+100020864.0,100020864,1-(14 or 15)-methylpalmitoyl-GPC (a17:0 or i17:0)*,Lipid,Lysophospholipid
+1526.0,1526,1-palmitoyl-2-oleoyl-GPE (16:0/18:1),Lipid,Phosphatidylethanolamine (PE)
+229.0,229,arachidonate (20:4n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100001461.0,100001461,1-stearoyl-GPE (18:0),Lipid,Lysophospholipid
+100006292.0,100006292,"sphingomyelin (d18:1/20:1, d18:2/20:0)*",Lipid,Sphingomyelins
+100009026.0,100009026,behenoyl dihydrosphingomyelin (d18:0/22:0)*,Lipid,Dihydrosphingomyelins
+100000781.0,100000781,hexanoylcarnitine (C6),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)"
+273.0,273,cortisone,Lipid,Corticosteroids
+100001272.0,100001272,1-oleoyl-GPC (18:1),Lipid,Lysophospholipid
+100006005.0,100006005,"5alpha-androstan-3alpha,17beta-diol monosulfate (2)",Lipid,Androgenic Steroids
+302.0,302,deoxycholate,Lipid,Secondary Bile Acid Metabolism
+182.0,182,quinolinate,Cofactors and Vitamins,Nicotinate and Nicotinamide Metabolism
+572.0,572,glucose,Carbohydrate,"Glycolysis, Gluconeogenesis, and Pyruvate Metabolism"
+100005986.0,100005986,"sphingomyelin (d18:1/24:1, d18:2/24:0)*",Lipid,Sphingomyelins
+100001570.0,100001570,1-linoleoyl-GPE (18:2)*,Lipid,Lysophospholipid
+100001658.0,100001658,taurolithocholate 3-sulfate,Lipid,Secondary Bile Acid Metabolism
+100001384.0,100001384,1-arachidoyl-GPC (20:0),Lipid,Lysophospholipid
+891.0,891,margarate (17:0),Lipid,Long Chain Saturated Fatty Acid
+100001870.0,100001870,1-palmitoyl-2-linoleoyl-GPE (16:0/18:2),Lipid,Phosphatidylethanolamine (PE)
+100001569.0,100001569,1-oleoyl-GPE (18:1),Lipid,Lysophospholipid
+100000445.0,100000445,theobromine,Xenobiotics,Xanthine Metabolism
+100009142.0,100009142,1-stearoyl-2-docosapentaenoyl-GPC (18:0/22:5n6)*,Lipid,Phosphatidylcholine (PC)
+100001776.0,100001776,2-linoleoyl-GPE (18:2)*,Lipid,Lysophospholipid
+132.0,132,3-phosphoglycerate,Carbohydrate,"Glycolysis, Gluconeogenesis, and Pyruvate Metabolism"
+100006726.0,100006726,linoleoyl ethanolamide (18:2),Lipid,Endocannabinoid
+100001652.0,100001652,2-palmitoyl-GPE (16:0)*,Lipid,Lysophospholipid
+100001778.0,100001778,1-linoleoyl-GPI (18:2)*,Lipid,Lysophospholipid
+100001108.0,100001108,3-methylxanthine,Xenobiotics,Xanthine Metabolism
+1547.0,1547,N-stearoyl-sphingosine (d18:1/18:0)*,Lipid,Ceramides
+452.0,452,palmitoleate (16:1n7),Lipid,Long Chain Monounsaturated Fatty Acid
+100005985.0,100005985,"sphingomyelin (d18:2/14:0, d18:1/14:1)*",Lipid,Sphingomyelins
+100001278.0,100001278,heptadecenoate (17:1),Lipid,Long Chain Monounsaturated Fatty Acid
+100002761.0,100002761,androsterone glucuronide,Lipid,Androgenic Steroids
+100002017.0,100002017,"5alpha-androstan-3alpha,17beta-diol disulfate",Lipid,Androgenic Steroids
+100015689.0,100015689,1-palmitoyl-2-(hydroxylinoleoyl)-GPC (16:0/18:2(OH))*,Lipid,Phosphatidylcholine (PC)
+100009126.0,100009126,1-arachidoyl-2-arachidonoyl-GPC (20:0/20:4)*,Lipid,Phosphatidylcholine (PC)
+100002060.0,100002060,1-docosahexaenoyl-GPE (22:6)*,Lipid,Lysophospholipid
+100021131.0,100021131,undecenoylcarnitine (C11:1),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+100021136.0,100021136,3-decenoylcarnitine,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+439.0,439,stearate (18:0),Lipid,Long Chain Saturated Fatty Acid
+100006296.0,100006296,"sphingomyelin (d18:1/22:2, d18:2/22:1, d16:1/24:2)*",Lipid,Sphingomyelins
+100009264.0,100009264,glycochenodeoxycholate glucuronide (1),Lipid,Primary Bile Acid Metabolism
+1537.0,1537,1-palmitoyl-2-linoleoyl-GPC (16:0/18:2),Lipid,Phosphatidylcholine (PC)
+926.0,926,caproate (6:0),Lipid,Medium Chain Fatty Acid
+100008921.0,100008921,1-palmitoyl-2-stearoyl-GPC (16:0/18:0),Lipid,Phosphatidylcholine (PC)
+100008990.0,100008990,1-palmitoyl-2-arachidonoyl-GPE (16:0/20:4)*,Lipid,Phosphatidylethanolamine (PE)
+100020541.0,100020541,11beta-hydroxyandrosterone glucuronide,Lipid,Androgenic Steroids
+100008976.0,100008976,1-stearoyl-2-linoleoyl-GPE (18:0/18:2)*,Lipid,Phosphatidylethanolamine (PE)
+100002171.0,100002171,1-margaroyl-GPE (17:0)*,Lipid,Lysophospholipid
+100001869.0,100001869,1-stearoyl-2-arachidonoyl-GPC (18:0/20:4),Lipid,Phosphatidylcholine (PC)
+424.0,424,palmitate (16:0),Lipid,Long Chain Saturated Fatty Acid
+100001674.0,100001674,2-arachidonoyl-GPE (20:4)*,Lipid,Lysophospholipid
+100009272.0,100009272,glycosyl-N-palmitoyl-sphingosine (d18:1/16:0),Lipid,Hexosylceramides (HCER)
+100001251.0,100001251,decanoylcarnitine (C10),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)"
+100005673.0,100005673,1-docosapentaenoyl-GPC (22:5n6)*,Lipid,Lysophospholipid
+297.0,297,sphingosine,Lipid,Sphingosines
+100001198.0,100001198,myristoleate (14:1n5),Lipid,Long Chain Monounsaturated Fatty Acid
+100002018.0,100002018,"5alpha-androstan-3alpha,17beta-diol monosulfate (1)",Lipid,Androgenic Steroids
+100001399.0,100001399,"1,7-dimethylurate",Xenobiotics,Xanthine Metabolism
+100005350.0,100005350,1-linolenoyl-GPC (18:3)*,Lipid,Lysophospholipid
+100001402.0,100001402,5-acetylamino-6-formylamino-3-methyluracil,Xenobiotics,Xanthine Metabolism
+100006314.0,100006314,"sphingomyelin (d17:1/16:0, d18:1/15:0, d16:1/17:0)*",Lipid,Sphingomyelins
+100001247.0,100001247,octanoylcarnitine (C8),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)"
+100002027.0,100002027,"androstenediol (3alpha, 17alpha) monosulfate (3)",Lipid,Androgenic Steroids
+100000453.0,100000453,paraxanthine,Xenobiotics,Xanthine Metabolism
+100001992.0,100001992,"androstenediol (3beta,17beta) disulfate (1)",Lipid,Androgenic Steroids
+1231.0,1231,dihomo-linoleate (20:2n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100006379.0,100006379,C-glycosyltryptophan,Amino Acid,Tryptophan Metabolism
+100009364.0,100009364,"phosphatidylcholine (18:0/20:2, 20:0/18:2)*",Lipid,Phosphatidylcholine (PC)
+100006293.0,100006293,"sphingomyelin (d18:1/20:2, d18:2/20:1, d16:1/22:2)*",Lipid,Sphingomyelins
+100002873.0,100002873,1-lignoceroyl-GPC (24:0),Lipid,Lysophospholipid
+1648.0,1648,taurocholate,Lipid,Primary Bile Acid Metabolism
+171.0,171,hypoxanthine,Nucleotide,"Purine Metabolism, (Hypo)Xanthine/Inosine containing"
+100001400.0,100001400,1-methylurate,Xenobiotics,Xanthine Metabolism
+100020823.0,100020823,lithocholate sulfate (1),Lipid,Secondary Bile Acid Metabolism
+100015789.0,100015789,sphingomyelin (d18:2/24:2)*,Lipid,Sphingomyelins
+267.0,267,choline phosphate,Lipid,Phospholipid Metabolism
+1134.0,1134,urate,Nucleotide,"Purine Metabolism, (Hypo)Xanthine/Inosine containing"
+330.0,330,fumarate,Energy,TCA Cycle
+100010923.0,100010923,linoleoyl-arachidonoyl-glycerol (18:2/20:4) [2]*,Lipid,Diacylglycerol
+100010937.0,100010937,oleoyl-arachidonoyl-glycerol (18:1/20:4) [2]*,Lipid,Diacylglycerol
+100009140.0,100009140,1-myristoyl-2-docosahexaenoyl-GPC (14:0/22:6)*,Lipid,Phosphatidylcholine (PC)
+55.0,55,1-methylnicotinamide,Cofactors and Vitamins,Nicotinate and Nicotinamide Metabolism
+100009014.0,100009014,1-(1-enyl-palmitoyl)-2-arachidonoyl-GPC (P-16:0/20:4)*,Lipid,Plasmalogen
+100000776.0,100000776,palmitoylcarnitine (C16),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)"
+100000437.0,100000437,theophylline,Xenobiotics,Xanthine Metabolism
+100005352.0,100005352,1-eicosenoyl-GPC (20:1)*,Lipid,Lysophospholipid
+100008957.0,100008957,"sphingomyelin (d18:2/24:1, d18:1/24:2)*",Lipid,Sphingomyelins
+893.0,893,arachidate (20:0),Lipid,Long Chain Saturated Fatty Acid
+100015788.0,100015788,"sphingomyelin (d18:2/18:1, d18:1/18:2)*",Lipid,Sphingomyelins
+519.0,519,myristate (14:0),Lipid,Long Chain Saturated Fatty Acid
+100001551.0,100001551,1-arachidonoyl-GPC (20:4n6)*,Lipid,Lysophospholipid
+100003008.0,100003008,2-stearoyl-GPI (18:0)*,Lipid,Lysophospholipid
+100005353.0,100005353,1-nonadecanoyl-GPC (19:0),Lipid,Lysophospholipid
+100008954.0,100008954,palmitoyl dihydrosphingomyelin (d18:0/16:0)*,Lipid,Dihydrosphingomyelins
+100001856.0,100001856,1-stearoyl-2-oleoyl-GPE (18:0/18:1),Lipid,Phosphatidylethanolamine (PE)
+100001655.0,100001655,1-palmitoyl-GPI (16:0),Lipid,Lysophospholipid
+823.0,823,pyruvate,Carbohydrate,"Glycolysis, Gluconeogenesis, and Pyruvate Metabolism"
+100009002.0,100009002,1-(1-enyl-palmitoyl)-2-arachidonoyl-GPE (P-16:0/20:4)*,Lipid,Plasmalogen
+100001392.0,100001392,laurylcarnitine (C12),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)"
+100001739.0,100001739,dihomo-linolenate (20:3n3 or n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+93.0,93,alpha-ketoglutarate,Energy,TCA Cycle
+100001182.0,100001182,docosadienoate (22:2n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100020542.0,100020542,11beta-hydroxyetiocholanolone glucuronide*,Lipid,Androgenic Steroids
+100002173.0,100002173,1-pentadecanoyl-GPC (15:0)*,Lipid,Lysophospholipid
+409.0,409,malate,Energy,TCA Cycle
+1668.0,1668,taurodeoxycholate,Lipid,Secondary Bile Acid Metabolism
+432.0,432,nicotinamide,Cofactors and Vitamins,Nicotinate and Nicotinamide Metabolism
+100021103.0,100021103,pregnenetriol sulfate*,Lipid,Pregnenolone Steroids
+100003901.0,100003901,2-stearoyl-GPE (18:0)*,Lipid,Lysophospholipid
+100001277.0,100001277,nonadecenoate (19:1),Lipid,Long Chain Monounsaturated Fatty Acid
+100001553.0,100001553,1-dihomo-linoleoyl-GPC (20:2)*,Lipid,Lysophospholipid
+100001989.0,100001989,glycocholenate sulfate*,Lipid,Secondary Bile Acid Metabolism
+100001403.0,100001403,5-acetylamino-6-amino-3-methyluracil,Xenobiotics,Xanthine Metabolism
+100009122.0,100009122,1-pentadecanoyl-2-arachidonoyl-GPC (15:0/20:4)*,Lipid,Phosphatidylcholine (PC)
+100001254.0,100001254,N-acetyltryptophan,Amino Acid,Tryptophan Metabolism
+100001287.0,100001287,epiandrosterone sulfate,Lipid,Androgenic Steroids
+100000015.0,100000015,xanthurenate,Amino Acid,Tryptophan Metabolism
+100009035.0,100009035,1-pentadecanoyl-2-linoleoyl-GPC (15:0/18:2)*,Lipid,Phosphatidylcholine (PC)
+100005714.0,100005714,1-linolenoyl-GPE (18:3)*,Lipid,Lysophospholipid
+100001397.0,100001397,"1,3,7-trimethylurate",Xenobiotics,Xanthine Metabolism
+100009124.0,100009124,1-margaroyl-2-arachidonoyl-GPC (17:0/20:4)*,Lipid,Phosphatidylcholine (PC)
+100015791.0,100015791,sphingomyelin (d18:2/23:1)*,Lipid,Sphingomyelins
+849.0,849,caffeine,Xenobiotics,Xanthine Metabolism
+100009406.0,100009406,palmitoleoylcarnitine (C16:1)*,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+100009037.0,100009037,1-margaroyl-2-linoleoyl-GPC (17:0/18:2)*,Lipid,Phosphatidylcholine (PC)
+100001271.0,100001271,1-stearoyl-GPC (18:0),Lipid,Lysophospholipid
+100015623.0,100015623,lactosyl-N-behenoyl-sphingosine (d18:1/22:0)*,Lipid,Lactosylceramides (LCER)
+252.0,252,succinate,Energy,TCA Cycle
+1111.0,1111,vanillylmandelate (VMA),Amino Acid,Tyrosine Metabolism
+100008903.0,100008903,"1,2-dilinoleoyl-GPC (18:2/18:2)",Lipid,Phosphatidylcholine (PC)
+100001405.0,100001405,1-methylxanthine,Xenobiotics,Xanthine Metabolism
+1256.0,1256,choline,Lipid,Phospholipid Metabolism
+100009343.0,100009343,1-linoleoyl-2-linolenoyl-GPC (18:2/18:3)*,Lipid,Phosphatidylcholine (PC)
+100001103.0,100001103,"glutamate, gamma-methyl ester",Amino Acid,Glutamate Metabolism
+100015594.0,100015594,1-stearoyl-2-adrenoyl-GPE (18:0/22:4)*,Lipid,Phosphatidylethanolamine (PE)
+100015745.0,100015745,"glycosyl ceramide (d18:2/24:1, d18:1/24:2)*",Lipid,Hexosylceramides (HCER)
+100008920.0,100008920,"sphingomyelin (d18:1/17:0, d17:1/18:0, d19:1/16:0)",Lipid,Sphingomyelins
+,GABR,GABR,,
+356.0,356,cortisol,Lipid,Corticosteroids
+100008999.0,100008999,1-(1-enyl-stearoyl)-2-arachidonoyl-GPE (P-18:0/20:4)*,Lipid,Plasmalogen
+100004328.0,100004328,"sphingomyelin (d18:1/14:0, d16:1/16:0)*",Lipid,Sphingomyelins
+100000792.0,100000792,dehydroepiandrosterone sulfate (DHEA-S),Lipid,Androgenic Steroids
+100015793.0,100015793,"sphingomyelin (d17:2/16:0, d18:2/15:0)*",Lipid,Sphingomyelins
+100000007.0,100000007,carnitine,Lipid,Carnitine Metabolism
+100022127.0,100022127,tetrahydrocortisone glucuronide (5),Lipid,Corticosteroids
+100015620.0,100015620,lactosyl-N-nervonoyl-sphingosine (d18:1/24:1)*,Lipid,Lactosylceramides (LCER)
+100001270.0,100001270,myristoylcarnitine (C14),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)"
+1489.0,1489,palmitoyl ethanolamide (16:0),Lipid,Endocannabinoid
+100001612.0,100001612,N-acetyl-aspartyl-glutamate (NAAG),Amino Acid,Glutamate Metabolism
+100001662.0,100001662,deoxycarnitine,Lipid,Carnitine Metabolism
+100015835.0,100015835,cerotoylcarnitine (C26)*,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)"
+100003594.0,100003594,phenylalanyltryptophan,Peptide,Dipeptide
+100006641.0,100006641,glycochenodeoxycholate 3-sulfate,Lipid,Primary Bile Acid Metabolism
+100001948.0,100001948,succinylcarnitine (C4-DC),Energy,TCA Cycle
+100002028.0,100002028,"androstenediol (3beta,17beta) monosulfate (1)",Lipid,Androgenic Steroids
+100002868.0,100002868,1-behenoyl-GPC (22:0),Lipid,Lysophospholipid
+100006295.0,100006295,"sphingomyelin (d18:1/22:1, d18:2/22:0, d16:1/24:1)*",Lipid,Sphingomyelins
+342.0,342,glycocholate,Lipid,Primary Bile Acid Metabolism
+100015787.0,100015787,"sphingomyelin (d18:1/19:0, d19:1/18:0)*",Lipid,Sphingomyelins
+100021000.0,100021000,hydroxypalmitoyl sphingomyelin (d18:1/16:0(OH))**,Lipid,Sphingomyelins
+100004561.0,100004561,N-formylanthranilic acid,Amino Acid,Tryptophan Metabolism
+100015914.0,100015914,1-lignoceroyl-2-arachidonoyl-GPC (24:0/20:4)*,Lipid,Phosphatidylcholine (PC)
+100009132.0,100009132,1-linoleoyl-2-docosahexaenoyl-GPC (18:2/22:6)*,Lipid,Phosphatidylcholine (PC)
+100021502.0,100021502,(2 or 3)-decenoate (10:1n7 or n8),Lipid,Medium Chain Fatty Acid
+100009131.0,100009131,1-linoleoyl-2-arachidonoyl-GPC (18:2/20:4n6)*,Lipid,Phosphatidylcholine (PC)
+100009078.0,100009078,1-oleoyl-2-linoleoyl-GPE (18:1/18:2)*,Lipid,Phosphatidylethanolamine (PE)
+100001556.0,100001556,2-oleoyl-GPC (18:1)*,Lipid,Lysophospholipid
+100008977.0,100008977,1-stearoyl-2-arachidonoyl-GPE (18:0/20:4),Lipid,Phosphatidylethanolamine (PE)
+100009220.0,100009220,1-oleoyl-2-docosahexaenoyl-GPE (18:1/22:6)*,Lipid,Phosphatidylethanolamine (PE)
+100000436.0,100000436,glycodeoxycholate,Lipid,Secondary Bile Acid Metabolism
+100008955.0,100008955,tricosanoyl sphingomyelin (d18:1/23:0)*,Lipid,Sphingomyelins
+100001106.0,100001106,"1,3-dimethylurate",Xenobiotics,Xanthine Metabolism
+100021104.0,100021104,pregnenetriol disulfate*,Lipid,Pregnenolone Steroids
+100002241.0,100002241,7-methylurate,Xenobiotics,Xanthine Metabolism
+100001987.0,100001987,"5alpha-androstan-3beta,17beta-diol disulfate",Lipid,Androgenic Steroids
+100020276.0,100020276,"sphingomyelin (d17:1/14:0, d16:1/15:0)*",Lipid,Sphingomyelins
+100001409.0,100001409,N1-methylinosine,Nucleotide,"Purine Metabolism, (Hypo)Xanthine/Inosine containing"
+100006298.0,100006298,lignoceroyl sphingomyelin (d18:1/24:0),Lipid,Sphingomyelins
+888.0,888,caprate (10:0),Lipid,Medium Chain Fatty Acid
+1518.0,1518,N-palmitoyl-sphingosine (d18:1/16:0),Lipid,Ceramides
+100004552.0,100004552,1-eicosapentaenoyl-GPE (20:5)*,Lipid,Lysophospholipid
+100001554.0,100001554,2-arachidonoyl-GPC (20:4)*,Lipid,Lysophospholipid
+100015971.0,100015971,cortolone glucuronide (1),Lipid,Corticosteroids
+100015790.0,100015790,"sphingomyelin (d18:2/21:0, d16:2/23:0)*",Lipid,Sphingomyelins
+100001279.0,100001279,hyocholate (gamma-muricholate),Lipid,Secondary Bile Acid Metabolism
+100008989.0,100008989,1-palmitoyl-2-eicosapentaenoyl-GPC (16:0/20:5)*,Lipid,Phosphatidylcholine (PC)
+100009227.0,100009227,1-linoleoyl-GPG (18:2)*,Lipid,Lysophospholipid
+1538.0,1538,stearoyl sphingomyelin (d18:1/18:0),Lipid,Sphingomyelins
+100006294.0,100006294,behenoyl sphingomyelin (d18:1/22:0)*,Lipid,Sphingomyelins
+100001990.0,100001990,taurocholenate sulfate*,Lipid,Secondary Bile Acid Metabolism
+100001777.0,100001777,1-oleoyl-GPI (18:1),Lipid,Lysophospholipid
+100004182.0,100004182,3beta-hydroxy-5-cholenoate,Lipid,Secondary Bile Acid Metabolism
+100001562.0,100001562,2-palmitoyl-GPC (16:0)*,Lipid,Lysophospholipid
+100009025.0,100009025,"sphingomyelin (d18:1/21:0, d17:1/22:0, d16:1/23:0)*",Lipid,Sphingomyelins
+100015882.0,100015882,"glycosyl ceramide (d18:1/20:0, d16:1/22:0)*",Lipid,Hexosylceramides (HCER)
+100001555.0,100001555,2-stearoyl-GPC (18:0)*,Lipid,Lysophospholipid
+100015834.0,100015834,lignoceroylcarnitine (C24)*,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)"
+100004329.0,100004329,"sphingomyelin (d18:2/16:0, d18:1/16:1)*",Lipid,Sphingomyelins
+355.0,355,histidine,Amino Acid,Histidine Metabolism
+100001295.0,100001295,gamma-glutamyltryptophan,Peptide,Gamma-glutamyl Amino Acid
+100009219.0,100009219,1-oleoyl-2-arachidonoyl-GPE (18:1/20:4)*,Lipid,Phosphatidylethanolamine (PE)
+100001651.0,100001651,2-oleoyl-GPE (18:1)*,Lipid,Lysophospholipid
+100001580.0,100001580,docosapentaenoate (n6 DPA; 22:5n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100005351.0,100005351,1-eicosapentaenoyl-GPC (20:5)*,Lipid,Lysophospholipid
+100001395.0,100001395,1-linoleoyl-GPC (18:2),Lipid,Lysophospholipid
+100009166.0,100009166,"phosphatidylcholine (16:0/22:5n3, 18:1/20:4)*",Lipid,Phosphatidylcholine (PC)
+100000265.0,100000265,kynurenine,Amino Acid,Tryptophan Metabolism
+100001073.0,100001073,androsterone sulfate,Lipid,Androgenic Steroids
+100001557.0,100001557,2-linoleoyl-GPC (18:2)*,Lipid,Lysophospholipid
+100006290.0,100006290,"sphingomyelin (d18:1/20:0, d16:1/22:0)*",Lipid,Sphingomyelins
+798.0,798,adenosine,Nucleotide,"Purine Metabolism, Adenine containing"
+100002026.0,100002026,"androstenediol (3alpha, 17alpha) monosulfate (2)",Lipid,Androgenic Steroids
+100022013.0,100022013,tetrahydrocortisol glucuronide,Lipid,Corticosteroids
+100009030.0,100009030,lactosyl-N-palmitoyl-sphingosine (d18:1/16:0),Lipid,Lactosylceramides (LCER)
+100002107.0,100002107,palmitoyl sphingomyelin (d18:1/16:0),Lipid,Sphingomyelins
+1137.0,1137,oleoyl ethanolamide (18:1),Lipid,Endocannabinoid
+100008918.0,100008918,1-(1-enyl-stearoyl)-2-arachidonoyl-GPC (P-18:0/20:4),Lipid,Plasmalogen
+100001501.0,100001501,oleoylcarnitine (C18:1),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+100005716.0,100005716,1-oleoyl-GPG (18:1)*,Lipid,Lysophospholipid
+1004.0,1004,xanthine,Nucleotide,"Purine Metabolism, (Hypo)Xanthine/Inosine containing"
+100003151.0,100003151,linoleoylcarnitine (C18:2)*,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Polyunsaturated)"
+313.0,313,sphinganine,Lipid,Sphingolipid Synthesis
+100015836.0,100015836,ximenoylcarnitine (C26:1)*,Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)"
+461.0,461,phosphate,Energy,Oxidative Phosphorylation
+100001193.0,100001193,adrenate (22:4n6),Lipid,Long Chain Polyunsaturated Fatty Acid (n3 and n6)
+100001391.0,100001391,stearoylcarnitine (C18),Lipid,"Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)"
+100008980.0,100008980,1-stearoyl-2-linoleoyl-GPC (18:0/18:2)*,Lipid,Phosphatidylcholine (PC)
+136.0,136,cholate,Lipid,Primary Bile Acid Metabolism
+209.0,209,adenosine 5'-monophosphate (AMP),Nucleotide,"Purine Metabolism, Adenine containing"
+100006173.0,100006173,pregnanolone/allopregnanolone sulfate,Lipid,Progestin Steroids
+100010922.0,100010922,linoleoyl-arachidonoyl-glycerol (18:2/20:4) [1]*,Lipid,Diacylglycerol
+100002061.0,100002061,2-docosahexaenoyl-GPE (22:6)*,Lipid,Lysophospholipid
+100001264.0,100001264,1-margaroyl-GPC (17:0),Lipid,Lysophospholipid
+100001412.0,100001412,"N2,N2-dimethylguanosine",Nucleotide,"Purine Metabolism, Guanine containing"
+100008956.0,100008956,"sphingomyelin (d18:2/23:0, d18:1/23:1, d17:1/24:1)*",Lipid,Sphingomyelins
+100002063.0,100002063,1-docosapentaenoyl-GPC (22:5n3)*,Lipid,Lysophospholipid
+100001456.0,100001456,7-methylguanine,Nucleotide,"Purine Metabolism, Guanine containing"
+100021093.0,100021093,taurochenodeoxycholic acid 3-sulfate,Lipid,Secondary Bile Acid Metabolism
+100015625.0,100015625,glycosyl-N-behenoyl-sphingadienine (d18:2/22:0)*,Lipid,Hexosylceramides (HCER)
+361.0,361,inosine,Nucleotide,"Purine Metabolism, (Hypo)Xanthine/Inosine containing"
+100020550.0,100020550,deoxycholic acid glucuronide,Lipid,Secondary Bile Acid Metabolism
+1087.0,1087,erucate (22:1n9),Lipid,Long Chain Monounsaturated Fatty Acid
+100020414.0,100020414,6-bromotryptophan,Amino Acid,Tryptophan Metabolism
+181.0,181,laurate (12:0),Lipid,Medium Chain Fatty Acid
+100002008.0,100002008,"5alpha-androstan-3alpha,17alpha-diol monosulfate",Lipid,Androgenic Steroids
+100015744.0,100015744,"ceramide (d18:2/24:1, d18:1/24:2)*",Lipid,Ceramides
+100009209.0,100009209,1-palmitoyl-2-eicosapentaenoyl-GPE (16:0/20:5)*,Lipid,Phosphatidylethanolamine (PE)
+100002106.0,100002106,"sphingomyelin (d18:1/18:1, d18:2/18:0)",Lipid,Sphingomyelins
+100008991.0,100008991,1-palmitoyl-2-docosahexaenoyl-GPE (16:0/22:6)*,Lipid,Phosphatidylethanolamine (PE)
+100008992.0,100008992,1-stearoyl-2-docosahexaenoyl-GPE (18:0/22:6)*,Lipid,Phosphatidylethanolamine (PE)
+100009019.0,100009019,1-stearyl-2-arachidonoyl-GPC (O-18:0/20:4)*,Lipid,Plasmalogen
+100009021.0,100009021,1-palmityl-2-arachidonoyl-GPC (O-16:0/20:4)*,Lipid,Plasmalogen
+100002874.0,100002874,1-nervonoyl-GPC (24:1n9)*,Lipid,Lysophospholipid
+100010936.0,100010936,oleoyl-arachidonoyl-glycerol (18:1/20:4) [1]*,Lipid,Diacylglycerol
+100002024.0,100002024,"5alpha-androstan-3beta,17beta-diol monosulfate (2)",Lipid,Androgenic Steroids

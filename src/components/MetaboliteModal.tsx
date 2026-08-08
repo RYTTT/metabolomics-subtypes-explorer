@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   X,
   ExternalLink,
@@ -29,7 +29,20 @@ interface MetaboliteModalProps {
 }
 
 export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModalProps) {
+  // Escape key handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (metabolite) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [metabolite, onClose]);
+
   if (!metabolite) return null;
+
+  const comparisonCount = Object.keys(COMPARISON_LABELS).length;
 
   const barData = Object.entries(COMPARISON_LABELS).map(([key, label]) => {
     const comp = metabolite.comparisons[key];
@@ -174,7 +187,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
         <div className="mt-6">
           <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-2">
             <Layers className="w-4 h-4 text-cyan-400" />
-            Differential Statistics across 7 Comparisons
+            Differential Statistics across {comparisonCount} Comparisons
           </h3>
           <div className="overflow-x-auto rounded-xl border border-slate-800">
             <table className="w-full text-xs text-left">

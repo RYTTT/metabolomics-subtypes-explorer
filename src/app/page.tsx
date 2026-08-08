@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import {
   Search,
   Download,
@@ -10,6 +10,10 @@ import {
   Layers,
   BookOpen,
   ArrowUpDown,
+  ChevronUp,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import rawData from "@/data/metabolites_data.json";
 import { Metabolite, ComparisonKey, COMPARISON_LABELS } from "@/types/metabolite";
@@ -26,6 +30,8 @@ const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }>
   CogPos_vs_CogNeg: { title: "CogPos vs CogNeg", subtitle: "+Cog vs -Cog" },
 };
 
+const ROWS_PER_PAGE = 50;
+
 export default function Home() {
   const metabolites = rawData as Metabolite[];
 
@@ -40,6 +46,19 @@ export default function Home() {
   const [sortColumn, setSortColumn] = useState<string>("name");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [inspectedMetabolite, setInspectedMetabolite] = useState<Metabolite | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  // Debounced search
+  const [debouncedQuery, setDebouncedQuery] = useState<string>("");
+  const debounceTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleSearchChange = useCallback((value: string) => {
+    setSearchQuery(value);
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(() => {
+      setDebouncedQuery(value);
+      setCurrentPage(1);
+    }, 300);
+  }, []);
 
   // Extract list of Super Pathways
   const superPathways = useMemo(() => {
@@ -50,12 +69,28 @@ export default function Home() {
     return ["All", ...Array.from(set).sort()];
   }, [metabolites]);
 
+  // Dynamically computed stats
+  const stats = useMemo(() => {
+    const compKeys = Object.keys(COMPARISON_LABELS) as ComparisonKey[];
+    const sig01Set = new Set<string>();
+    const fdr01Set = new Set<string>();
+    metabolites.forEach((m) => {
+      compKeys.forEach((k) => {
+        const comp = m.comparisons[k];
+        if (!comp) return;
+        if (comp["P.Value"] < 0.01) sig01Set.add(m.chem_id);
+        if (comp["adj.P.Val"] < 0.1) fdr01Set.add(m.chem_id);
+      });
+    });
+    return { sig01: sig01Set.size, fdr01: fdr01Set.size };
+  }, [metabolites]);
+
   // Filtering Logic
   const filteredMetabolites = useMemo(() => {
     return metabolites.filter((m) => {
-      // Search match
-      if (searchQuery) {
-        const q = searchQuery.toLowerCase();
+      // Search match (uses debounced query)
+      if (debouncedQuery) {
+        const q = debouncedQuery.toLowerCase();
         const matchesName = m.chemical_name.toLowerCase().includes(q);
         const matchesChemId = m.chem_id.toLowerCase().includes(q);
         const matchesHmdb = m.hmdb.toLowerCase().includes(q);
@@ -105,7 +140,7 @@ export default function Home() {
 
       return true;
     });
-  }, [metabolites, searchQuery, selectedSuperPathway, selectedSigTier, selectedDirection, v12PanelOnly]);
+  }, [metabolites, debouncedQuery, selectedSuperPathway, selectedSigTier, selectedDirection, v12PanelOnly]);
 
   // Sorting Logic
   const sortedMetabolites = useMemo(() => {
@@ -130,6 +165,13 @@ export default function Home() {
     });
   }, [filteredMetabolites, sortColumn, sortDirection]);
 
+  // Pagination
+  const totalPages = Math.max(1, Math.ceil(sortedMetabolites.length / ROWS_PER_PAGE));
+  const paginatedMetabolites = useMemo(() => {
+    const start = (currentPage - 1) * ROWS_PER_PAGE;
+    return sortedMetabolites.slice(start, start + ROWS_PER_PAGE);
+  }, [sortedMetabolites, currentPage]);
+
   // Sort Toggle Handler
   const handleSort = (col: string) => {
     if (sortColumn === col) {
@@ -138,10 +180,18 @@ export default function Home() {
       setSortColumn(col);
       setSortDirection("desc");
     }
+    setCurrentPage(1);
   };
 
-  // CSV Export Handler
+  // Sort indicator helper (not a component — returns JSX directly)
+  const sortIcon = (col: string) => {
+    if (sortColumn !== col) return <ArrowUpDown className="w-3 h-3 text-slate-500" />;
+    return sortDirection === "asc" ? <ChevronUp className="w-3 h-3 text-cyan-400" /> : <ChevronDown className="w-3 h-3 text-cyan-400" />;
+  };
+
+  // CSV Export Handler (includes FDR)
   const exportCSV = () => {
+    const compKeys = Object.keys(COMPARISON_LABELS) as ComparisonKey[];
     const headers = [
       "CHEM_ID",
       "CHEMICAL_NAME",
@@ -150,18 +200,7 @@ export default function Home() {
       "HMDB",
       "KEGG",
       "V12_PANEL",
-      "Depressive_vs_Control_logFC",
-      "Depressive_vs_Control_PValue",
-      "Cognitive_vs_Control_logFC",
-      "Cognitive_vs_Control_PValue",
-      "MildPTSD_vs_Control_logFC",
-      "MildPTSD_vs_Control_PValue",
-      "SeverePTSD_vs_Control_logFC",
-      "SeverePTSD_vs_Control_PValue",
-      "MildPTSD_vs_SeverePTSD_logFC",
-      "MildPTSD_vs_SeverePTSD_PValue",
-      "CogPos_vs_CogNeg_logFC",
-      "CogPos_vs_CogNeg_PValue",
+      ...compKeys.flatMap((k) => [`${k}_logFC`, `${k}_PValue`, `${k}_adjPVal`]),
     ];
 
     const rows = sortedMetabolites.map((m) => [
@@ -172,18 +211,10 @@ export default function Home() {
       `"${m.hmdb}"`,
       `"${m.kegg}"`,
       m.v12_panel ? "TRUE" : "FALSE",
-      m.comparisons.Depressive_vs_Control?.logFC ?? "",
-      m.comparisons.Depressive_vs_Control?.["P.Value"] ?? "",
-      m.comparisons.Cognitive_vs_Control?.logFC ?? "",
-      m.comparisons.Cognitive_vs_Control?.["P.Value"] ?? "",
-      m.comparisons.MildPTSD_vs_Control?.logFC ?? "",
-      m.comparisons.MildPTSD_vs_Control?.["P.Value"] ?? "",
-      m.comparisons.SeverePTSD_vs_Control?.logFC ?? "",
-      m.comparisons.SeverePTSD_vs_Control?.["P.Value"] ?? "",
-      m.comparisons.MildPTSD_vs_SeverePTSD?.logFC ?? "",
-      m.comparisons.MildPTSD_vs_SeverePTSD?.["P.Value"] ?? "",
-      m.comparisons.CogPos_vs_CogNeg?.logFC ?? "",
-      m.comparisons.CogPos_vs_CogNeg?.["P.Value"] ?? "",
+      ...compKeys.flatMap((k) => {
+        const c = m.comparisons[k];
+        return [c?.logFC ?? "", c?.["P.Value"] ?? "", c?.["adj.P.Val"] ?? ""];
+      }),
     ]);
 
     const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
@@ -199,10 +230,12 @@ export default function Home() {
   // Reset Filters
   const resetFilters = () => {
     setSearchQuery("");
+    setDebouncedQuery("");
     setSelectedSuperPathway("All");
     setSelectedSigTier("All");
     setSelectedDirection("All");
     setV12PanelOnly(false);
+    setCurrentPage(1);
   };
 
   return (
@@ -229,7 +262,7 @@ export default function Home() {
               Differentially Expressed Metabolites Portal
             </h1>
             <p className="text-slate-400 text-sm mt-1 max-w-3xl">
-              Cross-compare, search, and inspect 386 metabolites across 6 clinical subtype comparisons including <strong>MDD+ vs MDD-</strong>, <strong>CogPos vs CogNeg</strong>, <strong>Cognitive Subtype</strong>, and <strong>Mild/Severe PTSD</strong> with biological annotations &amp; literature references.
+              Cross-compare, search, and inspect {metabolites.length} metabolites across {Object.keys(COMPARISON_LABELS).length} clinical subtype comparisons including <strong>MDD+ vs MDD-</strong>, <strong>CogPos vs CogNeg</strong>, <strong>Cognitive Subtype</strong>, and <strong>Mild/Severe PTSD</strong> with biological annotations &amp; literature references.
             </p>
           </div>
 
@@ -244,7 +277,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Quick Stats Grid */}
+        {/* Quick Stats Grid — all dynamically computed */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-800/80">
           <div className="glass-card p-3.5 rounded-xl border border-slate-800">
             <p className="text-xs text-slate-400 font-medium">Total Metabolites</p>
@@ -252,11 +285,11 @@ export default function Home() {
           </div>
           <div className="glass-card p-3.5 rounded-xl border border-slate-800">
             <p className="text-xs text-slate-400 font-medium">Significant Hits (P &lt; 0.01)</p>
-            <p className="text-2xl font-extrabold text-amber-400 mt-0.5">57</p>
+            <p className="text-2xl font-extrabold text-amber-400 mt-0.5">{stats.sig01}</p>
           </div>
           <div className="glass-card p-3.5 rounded-xl border border-slate-800">
             <p className="text-xs text-slate-400 font-medium">FDR &lt; 0.1 Discoveries</p>
-            <p className="text-2xl font-extrabold text-cyan-400 mt-0.5">14</p>
+            <p className="text-2xl font-extrabold text-cyan-400 mt-0.5">{stats.fdr01}</p>
           </div>
           <div className="glass-card p-3.5 rounded-xl border border-slate-800">
             <p className="text-xs text-slate-400 font-medium">Filtered Selection</p>
@@ -275,7 +308,7 @@ export default function Home() {
               type="text"
               placeholder="Search by metabolite name, HMDB, KEGG, SMILES..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl pl-10 pr-4 py-2.5 outline-none transition"
             />
           </div>
@@ -284,7 +317,7 @@ export default function Home() {
           <div>
             <select
               value={selectedSuperPathway}
-              onChange={(e) => setSelectedSuperPathway(e.target.value)}
+              onChange={(e) => { setSelectedSuperPathway(e.target.value); setCurrentPage(1); }}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl px-3 py-2.5 outline-none transition cursor-pointer"
             >
               <option value="All">Super Pathway: All</option>
@@ -300,7 +333,7 @@ export default function Home() {
           <div>
             <select
               value={selectedSigTier}
-              onChange={(e) => setSelectedSigTier(e.target.value)}
+              onChange={(e) => { setSelectedSigTier(e.target.value); setCurrentPage(1); }}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl px-3 py-2.5 outline-none transition cursor-pointer"
             >
               <option value="All">P-value Filter: All</option>
@@ -314,7 +347,7 @@ export default function Home() {
           <div>
             <select
               value={selectedDirection}
-              onChange={(e) => setSelectedDirection(e.target.value)}
+              onChange={(e) => { setSelectedDirection(e.target.value); setCurrentPage(1); }}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl px-3 py-2.5 outline-none transition cursor-pointer"
             >
               <option value="All">Direction: All</option>
@@ -331,7 +364,7 @@ export default function Home() {
               <input
                 type="checkbox"
                 checked={v12PanelOnly}
-                onChange={(e) => setV12PanelOnly(e.target.checked)}
+                onChange={(e) => { setV12PanelOnly(e.target.checked); setCurrentPage(1); }}
                 className="rounded bg-slate-900 border-slate-700 text-cyan-500 focus:ring-0"
               />
               <span className="font-medium">Show v12 Biomarker Panel Only</span>
@@ -357,7 +390,7 @@ export default function Home() {
               : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
           }`}
         >
-          <Layers className="w-4 h-4" /> Cross-Comparison Matrix (6 Comparisons Side-by-Side)
+          <Layers className="w-4 h-4" /> Cross-Comparison Matrix ({Object.keys(COMPARISON_LABELS).length} Comparisons)
         </button>
 
         <button
@@ -368,7 +401,7 @@ export default function Home() {
               : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
           }`}
         >
-          <Activity className="w-4 h-4" /> Volcano Plot Explorer (MDD+, PTSD+ &amp; Subtypes)
+          <Activity className="w-4 h-4" /> Volcano Plot Explorer
         </button>
 
         <button
@@ -388,7 +421,11 @@ export default function Home() {
         <section className="glass-panel rounded-2xl p-4 border border-slate-800 space-y-4">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
             <p className="text-xs text-slate-400">
-              Displaying <strong className="text-white">{sortedMetabolites.length}</strong> metabolites across all 6 comparisons. Click any column header to sort by logFC. Click any row for full annotation.
+              Displaying <strong className="text-white">{sortedMetabolites.length}</strong> metabolites across all {Object.keys(COMPARISON_LABELS).length} comparisons. Click any column header to sort. Click any row for full annotation.
+            </p>
+            {/* Pagination Info */}
+            <p className="text-xs text-slate-500">
+              Page <strong className="text-slate-300">{currentPage}</strong> of <strong className="text-slate-300">{totalPages}</strong> ({ROWS_PER_PAGE} per page)
             </p>
           </div>
 
@@ -401,7 +438,7 @@ export default function Home() {
                     className="py-3 px-4 cursor-pointer hover:text-cyan-400 transition"
                   >
                     <div className="flex items-center gap-1">
-                      Metabolite Name <ArrowUpDown className="w-3 h-3 text-slate-500" />
+                      Metabolite Name {sortIcon("name")}
                     </div>
                   </th>
                   <th
@@ -409,7 +446,7 @@ export default function Home() {
                     className="py-3 px-3 cursor-pointer hover:text-cyan-400 transition"
                   >
                     <div className="flex items-center gap-1">
-                      Super Pathway <ArrowUpDown className="w-3 h-3 text-slate-500" />
+                      Super Pathway {sortIcon("pathway")}
                     </div>
                   </th>
                   {Object.entries(COMPARISON_LABELS).map(([key]) => {
@@ -421,7 +458,7 @@ export default function Home() {
                         className="py-3 px-3 text-center cursor-pointer hover:text-cyan-400 transition min-w-[120px]"
                       >
                         <div className="flex flex-col items-center">
-                          <span>{headerInfo.title}</span>
+                          <span className="flex items-center gap-1">{headerInfo.title} {sortIcon(key)}</span>
                           <span className="text-[9px] text-slate-500 font-normal">
                             {headerInfo.subtitle}
                           </span>
@@ -432,7 +469,7 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 font-mono">
-                {sortedMetabolites.map((m) => (
+                {paginatedMetabolites.map((m) => (
                   <tr
                     key={m.chem_id}
                     onClick={() => setInspectedMetabolite(m)}
@@ -452,7 +489,7 @@ export default function Home() {
                       {m.super_pathway}
                     </td>
 
-                    {/* 6 Comparative Columns */}
+                    {/* Comparative Columns */}
                     {(Object.keys(COMPARISON_LABELS) as ComparisonKey[]).map((key) => {
                       const comp = m.comparisons[key];
                       if (!comp) return <td key={key} className="text-center text-slate-600">-</td>;
@@ -487,6 +524,53 @@ export default function Home() {
               </tbody>
             </table>
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between pt-2">
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1 cursor-pointer"
+              >
+                <ChevronLeft className="w-3.5 h-3.5" /> Previous
+              </button>
+              <div className="flex items-center gap-1">
+                {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                  let pageNum: number;
+                  if (totalPages <= 7) {
+                    pageNum = i + 1;
+                  } else if (currentPage <= 4) {
+                    pageNum = i + 1;
+                  } else if (currentPage >= totalPages - 3) {
+                    pageNum = totalPages - 6 + i;
+                  } else {
+                    pageNum = currentPage - 3 + i;
+                  }
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => setCurrentPage(pageNum)}
+                      className={`w-8 h-8 rounded-lg text-xs font-bold transition cursor-pointer ${
+                        currentPage === pageNum
+                          ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20"
+                          : "bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                })}
+              </div>
+              <button
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1 cursor-pointer"
+              >
+                Next <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
         </section>
       )}
 
@@ -533,6 +617,11 @@ export default function Home() {
         metabolite={inspectedMetabolite}
         onClose={() => setInspectedMetabolite(null)}
       />
+
+      {/* Footer with data version */}
+      <footer className="text-center text-xs text-slate-600 pb-4 border-t border-slate-800/40 pt-4">
+        Data version: v12 Panel · {metabolites.length} metabolites · {Object.keys(COMPARISON_LABELS).length} comparisons · Built 2026-08-08
+      </footer>
     </main>
   );
 }

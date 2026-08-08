@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
+"""
+Metabolomics Data Pipeline v2.0
+- Loads differential expression CSVs
+- Annotates with comprehensive metabolite_annotations.json
+- Filters out invalid entries (nan IDs)
+- Outputs src-ready JSON
+"""
 import pandas as pd
 import json
 import os
 
-v12_dir = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity/result_V12"
-final_prod_dir = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity/result_FINAL_PRODUCTION/IPW_Six_Comparisons"
+BASE_DIR = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity"
+v12_dir = os.path.join(BASE_DIR, "result_V12")
+final_prod_dir = os.path.join(BASE_DIR, "result_FINAL_PRODUCTION/IPW_Six_Comparisons")
 
 file_mapping = {
     "Depressive_vs_Control": os.path.join(v12_dir, "Subtypes_Depressive_vs_Control.csv"),
@@ -15,132 +23,91 @@ file_mapping = {
     "CogPos_vs_CogNeg": os.path.join(v12_dir, "Cognitive_CogPos_vs_CogNeg.csv")
 }
 
-ANNOTATION_DATABASE = [
-    {
-        "pattern": ["gabr", "arginine bioavailability"],
-        "disorders": ["PTSD (Severe/Mild)", "MDD", "Endothelial Dysfunction"],
-        "mechanism": "Global Arginine Bioavailability Ratio (GABR = Arginine / [Ornithine + Citrulline]). Reflects nitric oxide (NO) synthase substrate availability and vascular endothelial function. Reduced GABR correlates with PTSD symptom severity, depression, and chronic stress microvascular impairment.",
-        "pathway_category": "Composite Index: Arginine & NO Bioavailability",
-        "references": [
-            {"title": "Global Arginine Bioavailability Ratio (GABR) in post-traumatic stress disorder and depression", "journal": "Biol Psychiatry (2014)", "pmid": "24709230", "url": "https://pubmed.ncbi.nlm.nih.gov/24709230/"},
-            {"title": "Arginine bioavailability and nitric oxide synthase uncoupling in psychiatric stress response", "journal": "Psychoneuroendocrinology (2017)", "pmid": "29126354", "url": "https://pubmed.ncbi.nlm.nih.gov/29126354/"}
-        ]
-    },
-    {
-        "pattern": ["glycolytic_ratio", "glycolytic index", "glycolytic"],
-        "disorders": ["Severe PTSD", "MDD", "Mitochondrial Bioenergetic Deficit"],
-        "mechanism": "Glycolytic Index = (Lactate + Pyruvate) / Citrate. Measures astroglial-neuronal glycolytic shift relative to TCA cycle oxidative phosphorylation. Elevated Glycolytic Index indicates anaerobic bioenergetic reprogramming and mitochondrial strain under severe trauma and psychiatric stress.",
-        "pathway_category": "Composite Index: Glycolytic Shift & Bioenergetics",
-        "references": [
-            {"title": "Plasma metabolomics reveals TCA cycle and energy metabolite alterations in psychiatric subtypes", "journal": "Metabolomics (2019)", "pmid": "31055531", "url": "https://pubmed.ncbi.nlm.nih.gov/31055531/"},
-            {"title": "Mitochondrial dysfunction and lactate accumulation in severe PTSD and depression", "journal": "JAMA Psychiatry (2018)", "pmid": "29906692", "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"}
-        ]
-    },
-    {
-        "pattern": ["sphingosine", "sphinganine", "sphingomyelin"],
-        "disorders": ["PTSD (Severe/Mild)", "MDD", "Neuroinflammation"],
-        "mechanism": "Sphingolipid and sphingosine-1-phosphate (S1P) signaling regulates neuroinflammation, microglial activation, and blood-brain barrier integrity. Upregulated in severe PTSD+ vs PTSD- controls and MDD, serving as key markers of chronic stress-induced neuroinflammatory response.",
-        "pathway_category": "Sphingolipid Metabolism & Signaling",
-        "references": [
-            {"title": "Sphingolipid metabolism in post-traumatic stress disorder and major depressive disorder", "journal": "Mol Psychiatry (2020)", "pmid": "31238318", "url": "https://pubmed.ncbi.nlm.nih.gov/31238318/"},
-            {"title": "Sphingosine-1-phosphate receptor signaling in neuroinflammation and stress susceptibility", "journal": "Biol Psychiatry (2018)", "pmid": "29428987", "url": "https://pubmed.ncbi.nlm.nih.gov/29428987/"}
-        ]
-    },
-    {
-        "pattern": ["glutamate", "serotonin", "5-hydroxytryptamine", "tryptophan"],
-        "disorders": ["PTSD (Severe)", "MDD", "Mood Disorders"],
-        "mechanism": "Glutamatergic excitotoxicity and serotonergic neurotransmitter depletion are central pathophysiological hallmarks of severe PTSD (PTSD+ vs PTSD-) and depression. Glutamate hyper-activation correlates with hyperarousal symptoms and hippocampal volume loss.",
-        "pathway_category": "Neurotransmitter Systems",
-        "references": [
-            {"title": "Glutamatergic alterations in Post-Traumatic Stress Disorder", "journal": "Transl Psychiatry (2017)", "pmid": "28551356", "url": "https://pubmed.ncbi.nlm.nih.gov/28551356/"},
-            {"title": "Serotonin and tryptophan pathway dysregulation in depressive subtypes", "journal": "Neuropsychopharmacology (2015)", "pmid": "25482375", "url": "https://pubmed.ncbi.nlm.nih.gov/25482375/"}
-        ]
-    },
-    {
-        "pattern": ["docosahexaenoyl", "dha", "linoleoyl", "arachidonoyl", "gpc", "gpe"],
-        "disorders": ["MDD (Depressive Subtype)", "Cognitive Impairment", "PTSD"],
-        "mechanism": "Docosahexaenoic acid (DHA) and polyunsaturated fatty acid (PUFA) containing glycerophospholipids (PCs/PEs) are crucial for synaptic fluidity and neuroprotection. Significant depletion in MDD and PTSD+ indicates membrane lipid remodeling and impaired synaptic plasticity.",
-        "pathway_category": "Glycerophospholipids & PUFAs",
-        "references": [
-            {"title": "Omega-3 fatty acids and docosahexaenoyl-phospholipids in depression and neuroinflammation", "journal": "Prog Lipid Res (2019)", "pmid": "30587441", "url": "https://pubmed.ncbi.nlm.nih.gov/30587441/"},
-            {"title": "Plasma lysophosphatidylcholines as biomarkers for cognitive impairment and mood disorders", "journal": "Neurobiol Aging (2016)", "pmid": "27129524", "url": "https://pubmed.ncbi.nlm.nih.gov/27129524/"}
-        ]
-    },
-    {
-        "pattern": ["pregnan", "pregnenolone", "androstenediol", "disulfate", "monosulfates", "cortisone", "steroid"],
-        "disorders": ["MDD", "PTSD", "Cognitive Subtype", "HPA Axis Dysfunction"],
-        "mechanism": "Neuroactive steroids (pregnenolone/androstenediol sulfates) act as allosteric modulators of GABA-A and NMDA receptors. Dysregulation reflects stress-induced HPA axis impairment and neurosteroidogenesis alterations across depressive, PTSD, and cognitive subtypes.",
-        "pathway_category": "Neurosteroids & Steroidogenesis",
-        "references": [
-            {"title": "Neuroactive steroid alterations in post-traumatic stress disorder and major depressive disorder", "journal": "Psychoneuroendocrinology (2016)", "pmid": "26868626", "url": "https://pubmed.ncbi.nlm.nih.gov/26868626/"},
-            {"title": "Pregnenolone and progesterone disulfates in cognitive functioning and stress adaptability", "journal": "Front Endocrinology (2018)", "pmid": "30121175", "url": "https://pubmed.ncbi.nlm.nih.gov/30121175/"}
-        ]
-    },
-    {
-        "pattern": ["lactate", "citrate", "hydroxybutyrylcarnitine", "acetylcarnitine"],
-        "disorders": ["Severe PTSD", "Cognitive Subtype", "Mitochondrial Energy Deficit"],
-        "mechanism": "Lactate accumulation and TCA cycle intermediate alterations (citrate, acylcarnitines) signify astrocyte-neuron energy shuttle breakdown, mitochondrial strain, and metabolic bioenergetic crisis in PTSD+ patients.",
-        "pathway_category": "Energy & Mitochondrial Metabolism",
-        "references": [
-            {"title": "Mitochondrial dysfunction and lactate accumulation in severe PTSD and depression", "journal": "JAMA Psychiatry (2018)", "pmid": "29906692", "url": "https://pubmed.ncbi.nlm.nih.gov/29906692/"},
-            {"title": "Plasma metabolomics reveals TCA cycle and energy metabolite alterations in psychiatric subtypes", "journal": "Metabolomics (2019)", "pmid": "31055531", "url": "https://pubmed.ncbi.nlm.nih.gov/31055531/"}
-        ]
-    },
-    {
-        "pattern": ["glyco", "deoxycholate", "chenodeoxycholate", "muricholate", "bile acid"],
-        "disorders": ["MDD", "PTSD", "Gut-Brain Axis"],
-        "mechanism": "Primary and secondary bile acids cross the blood-brain barrier and regulate central FXR/TGR5 nuclear receptors. Alterations signal gut-microbiome-brain axis perturbation in major depressive and post-traumatic states (PTSD+).",
-        "pathway_category": "Bile Acid & Gut-Brain Axis",
-        "references": [
-            {"title": "Gut microbiome-derived bile acids in major depressive disorder and stress vulnerability", "journal": "Cell Metab (2020)", "pmid": "32669634", "url": "https://pubmed.ncbi.nlm.nih.gov/32669634/"},
-            {"title": "Secondary bile acid metabolism alterations in PTSD", "journal": "Brain Behav Immun (2021)", "pmid": "33413988", "url": "https://pubmed.ncbi.nlm.nih.gov/33413988/"}
-        ]
-    }
-]
+# ── Load the comprehensive annotation database ──
+anno_path = os.path.join(BASE_DIR, "data/metabolite_annotations.json")
+with open(anno_path) as f:
+    anno_db = json.load(f)
+ANNOTATIONS = anno_db["annotations"]
 
 def find_annotation(chem_name, sub_pathway, super_pathway):
-    text = f"{chem_name} {sub_pathway} {super_pathway}".lower()
-    for anno in ANNOTATION_DATABASE:
+    """
+    Match metabolite to annotation using controlled pattern matching.
+    match_field controls which text is searched to prevent false positives:
+      - name_only: pattern must match in chemical name only
+      - subpathway_only: pattern must match in sub_pathway only
+      - superpathway_only: pattern must match in super_pathway only
+      - name_or_subpathway: pattern can match in name OR sub_pathway (default)
+    """
+    name_lower = chem_name.lower()
+    subpath_lower = sub_pathway.lower() if sub_pathway else ""
+    superpath_lower = super_pathway.lower() if super_pathway else ""
+
+    for anno in ANNOTATIONS:
+        match_field = anno.get("match_field", "name_or_subpathway")
+
         for pat in anno["pattern"]:
-            if pat in text:
+            pat_lower = pat.lower()
+            matched = False
+
+            if match_field == "name_only":
+                matched = pat_lower in name_lower
+            elif match_field == "subpathway_only":
+                matched = pat_lower in subpath_lower
+            elif match_field == "superpathway_only":
+                matched = pat_lower in superpath_lower
+            elif match_field == "name_or_subpathway":
+                matched = pat_lower in name_lower or pat_lower in subpath_lower
+
+            if matched:
                 return anno
+
+    # Fallback
     return {
-        "disorders": ["General Psychiatry", "Metabolomics Subtypes"],
-        "mechanism": f"Differentially expressed metabolite in {super_pathway or 'metabolomics panel'} ({sub_pathway or 'general pathway'}). Linked to biological pathway modulation across clinical subtypes.",
+        "disorders": ["General Metabolomics"],
+        "mechanism": f"Differentially expressed metabolite in {super_pathway or 'metabolomics panel'} ({sub_pathway or 'general pathway'}). Biological mechanism annotation pending for this specific compound.",
         "pathway_category": super_pathway or "Metabolic Pathway",
-        "references": [
-            {"title": "Metabolomics signatures of psychiatric disorders and clinical subtypes", "journal": "Am J Psychiatry (2022)", "pmid": "35012345", "url": "https://pubmed.ncbi.nlm.nih.gov/"}
-        ]
+        "references": []
     }
 
+
+# ── Process CSV files ──
 metabolite_dict = {}
 
 for comp_key, filepath in file_mapping.items():
     if not os.path.exists(filepath):
-        print(f"Warning: {filepath} not found!")
+        print(f"WARNING: {filepath} not found!")
         continue
-    
+
     df = pd.read_csv(filepath)
     print(f"Processing {comp_key} ({len(df)} rows)")
-    
+
     for _, row in df.iterrows():
         raw_name = row.get("CHEMICAL_NAME")
         raw_cid = row.get("CHEM_ID")
-        
-        if pd.notna(raw_name) and str(raw_name).strip() != "" and str(raw_name) != "nan":
+
+        # Resolve chemical name
+        if pd.notna(raw_name) and str(raw_name).strip() not in ("", "nan"):
             chem_name = str(raw_name).strip()
-        else:
+        elif pd.notna(raw_cid) and str(raw_cid).strip() not in ("", "nan"):
             chem_name = str(raw_cid).strip()
-            
-        if pd.notna(raw_cid) and str(raw_cid).strip() != "" and str(raw_cid) != "nan":
+        else:
+            continue  # Skip completely invalid rows
+
+        # Resolve chem_id
+        if pd.notna(raw_cid) and str(raw_cid).strip() not in ("", "nan"):
             chem_id = str(raw_cid).replace(".0", "").strip()
         else:
-            chem_id = chem_name
-        
+            chem_id = chem_name  # Use name as ID for composite indices (GABR, Glycolytic_Ratio)
+
+        # Skip if both name and ID resolve to 'nan'
+        if chem_id == "nan" or chem_name == "nan":
+            continue
+
+        # Create new metabolite entry
         if chem_id not in metabolite_dict:
             super_p = str(row.get("SUPER_PATHWAY", "")) if pd.notna(row.get("SUPER_PATHWAY")) and str(row.get("SUPER_PATHWAY")) != "nan" else ("Composite Index" if chem_id in ["GABR", "Glycolytic_Ratio"] else "Uncategorized")
             sub_p = str(row.get("SUB_PATHWAY", "")) if pd.notna(row.get("SUB_PATHWAY")) and str(row.get("SUB_PATHWAY")) != "nan" else ("Composite Index" if chem_id in ["GABR", "Glycolytic_Ratio"] else "Uncategorized")
-            
+
             anno = find_annotation(chem_name, sub_p, super_p)
             metabolite_dict[chem_id] = {
                 "chem_id": chem_id,
@@ -148,37 +115,38 @@ for comp_key, filepath in file_mapping.items():
                 "plot_name": str(row.get("PLOT_NAME", chem_name)) if pd.notna(row.get("PLOT_NAME")) else chem_name,
                 "super_pathway": super_p,
                 "sub_pathway": sub_p,
-                "hmdb": str(row.get("HMDB", "")) if pd.notna(row.get("HMDB")) and str(row.get("HMDB")) not in ["NA", "nan"] else "",
-                "kegg": str(row.get("KEGG", "")) if pd.notna(row.get("KEGG")) and str(row.get("KEGG")) not in ["NA", "nan"] else "",
-                "pubchem": str(row.get("PUBCHEM", "")) if pd.notna(row.get("PUBCHEM")) and str(row.get("PUBCHEM")) not in ["NA", "nan"] else "",
-                "cas": str(row.get("CAS", "")) if pd.notna(row.get("CAS")) and str(row.get("CAS")) not in ["NA", "nan"] else "",
-                "chemspider": str(row.get("CHEMSPIDER", "")) if pd.notna(row.get("CHEMSPIDER")) and str(row.get("CHEMSPIDER")) not in ["NA", "nan"] else "",
-                "inchikey": str(row.get("INCHIKEY", "")) if pd.notna(row.get("INCHIKEY")) and str(row.get("INCHIKEY")) not in ["NA", "nan"] else "",
-                "smiles": str(row.get("SMILES", "")) if pd.notna(row.get("SMILES")) and str(row.get("SMILES")) not in ["NA", "nan"] else "",
+                "hmdb": str(row.get("HMDB", "")) if pd.notna(row.get("HMDB")) and str(row.get("HMDB")) not in ("NA", "nan") else "",
+                "kegg": str(row.get("KEGG", "")) if pd.notna(row.get("KEGG")) and str(row.get("KEGG")) not in ("NA", "nan") else "",
+                "pubchem": str(row.get("PUBCHEM", "")) if pd.notna(row.get("PUBCHEM")) and str(row.get("PUBCHEM")) not in ("NA", "nan") else "",
+                "cas": str(row.get("CAS", "")) if pd.notna(row.get("CAS")) and str(row.get("CAS")) not in ("NA", "nan") else "",
+                "chemspider": str(row.get("CHEMSPIDER", "")) if pd.notna(row.get("CHEMSPIDER")) and str(row.get("CHEMSPIDER")) not in ("NA", "nan") else "",
+                "inchikey": str(row.get("INCHIKEY", "")) if pd.notna(row.get("INCHIKEY")) and str(row.get("INCHIKEY")) not in ("NA", "nan") else "",
+                "smiles": str(row.get("SMILES", "")) if pd.notna(row.get("SMILES")) and str(row.get("SMILES")) not in ("NA", "nan") else "",
                 "v12_panel": bool(row.get("V12_panel", True if chem_id in ["GABR", "Glycolytic_Ratio"] else False)),
                 "ptsd_biopriority": bool(row.get("PTSDBioPriority_v8", True if chem_id in ["GABR", "Glycolytic_Ratio"] else False)),
                 "neuro_addon": bool(row.get("Neuro_addon_v12", False)),
                 "disorders": anno["disorders"],
                 "mechanism": anno["mechanism"],
                 "pathway_category": anno["pathway_category"],
-                "references": anno["references"],
+                "references": anno.get("references", []),
                 "comparisons": {}
             }
-        
+
+        # Add comparison stats
         log_fc = float(row["logFC"]) if pd.notna(row.get("logFC")) else 0.0
         p_val = float(row["P.Value"]) if pd.notna(row.get("P.Value")) else 1.0
         adj_p = float(row["adj.P.Val"]) if pd.notna(row.get("adj.P.Val")) else 1.0
         t_stat = float(row["t"]) if pd.notna(row.get("t")) else 0.0
         ave_expr = float(row["AveExpr"]) if pd.notna(row.get("AveExpr")) else 0.0
         b_stat = float(row["B"]) if pd.notna(row.get("B")) else 0.0
-        
+
         if p_val < 0.05:
             color = "red" if log_fc > 0 else "blue"
             direction = "UP" if log_fc > 0 else "DOWN"
         else:
             color = "grey"
             direction = "NC"
-            
+
         p_tier = "NS"
         if adj_p < 0.1:
             p_tier = "FDR < 0.1"
@@ -201,8 +169,55 @@ for comp_key, filepath in file_mapping.items():
 
 metabolites_list = list(metabolite_dict.values())
 
-output_path = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity/data/metabolites_data.json"
+# ── QC Report ──
+total = len(metabolites_list)
+annotated = sum(1 for m in metabolites_list if "General Metabolomics" not in m["disorders"])
+generic = total - annotated
+
+sig_01 = set()
+fdr_01 = set()
+for m in metabolites_list:
+    for c in m["comparisons"].values():
+        if c["P.Value"] < 0.01:
+            sig_01.add(m["chem_id"])
+        if c["adj.P.Val"] < 0.1:
+            fdr_01.add(m["chem_id"])
+
+print(f"\n{'='*60}")
+print(f"QC REPORT")
+print(f"{'='*60}")
+print(f"Total metabolites:       {total}")
+print(f"Annotated (specific):    {annotated} ({annotated/total*100:.1f}%)")
+print(f"Generic fallback:        {generic} ({generic/total*100:.1f}%)")
+print(f"Significant P<0.01:      {len(sig_01)}")
+print(f"FDR<0.1 discoveries:     {len(fdr_01)}")
+
+# Check for nan entries
+nan_entries = [m for m in metabolites_list if m["chem_id"] == "nan" or m["chemical_name"] == "nan"]
+if nan_entries:
+    print(f"\nWARNING: {len(nan_entries)} entries with nan chem_id or name!")
+else:
+    print(f"\n✓ No nan entries detected")
+
+# Check for false-positive bile annotations on glycolysis metabolites
+false_pos = [m for m in metabolites_list if "Bile Acid" in m["pathway_category"] and "bile" not in m["sub_pathway"].lower() and "bile" not in m["chemical_name"].lower() and "cholate" not in m["chemical_name"].lower() and "cholenate" not in m["chemical_name"].lower()]
+if false_pos:
+    print(f"\nWARNING: {len(false_pos)} false-positive bile annotations:")
+    for fp in false_pos:
+        print(f"  {fp['chemical_name']} [{fp['sub_pathway']}]")
+else:
+    print(f"✓ No false-positive bile annotations")
+
+print(f"{'='*60}\n")
+
+# ── Write outputs ──
+output_path = os.path.join(BASE_DIR, "data/metabolites_data.json")
 with open(output_path, "w") as f:
     json.dump(metabolites_list, f, indent=2)
 
-print(f"Successfully saved {len(metabolites_list)} metabolites (6 comparisons) to {output_path}")
+src_output = os.path.join(BASE_DIR, "src/data/metabolites_data.json")
+with open(src_output, "w") as f:
+    json.dump(metabolites_list, f, indent=2)
+
+print(f"Saved {total} metabolites to {output_path}")
+print(f"Copied to {src_output}")

@@ -49,7 +49,7 @@ export type ComparisonKey =
   | "CogPos_vs_CogNeg";
 
 export const COMPARISON_LABELS: Record<ComparisonKey, string> = {
-  Depressive_vs_Control: "Depressive Subtype vs Control",
+  Depressive_vs_Control: "MDD Subtype vs Control",
   Cognitive_vs_Control: "Cognitive Subtype vs Control",
   MildPTSD_vs_Control: "Mild PTSD+ vs PTSD-",
   SeverePTSD_vs_Control: "Severe PTSD+ vs PTSD-",

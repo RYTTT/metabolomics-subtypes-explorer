@@ -27,7 +27,7 @@ interface InsightsDashboardProps {
 }
 
 const COMPACT_LABELS: Record<ComparisonKey, string> = {
-  Depressive_vs_Control: "Depressive",
+  Depressive_vs_Control: "MDD",
   Cognitive_vs_Control: "Cognitive",
   MildPTSD_vs_Control: "Mild PTSD",
   SeverePTSD_vs_Control: "Severe PTSD",
@@ -45,7 +45,7 @@ const CHART_COLORS = {
 };
 
 const VENN_SETS = [
-  { id: "depressive", label: "Depressive", color: "#d65d47", mask: 1, comparison: "Depressive_vs_Control" },
+  { id: "depressive", label: "MDD", color: "#d65d47", mask: 1, comparison: "Depressive_vs_Control" },
   { id: "cognitive", label: "Cognitive", color: "#3157d5", mask: 2, comparison: "Cognitive_vs_Control" },
   { id: "mild-ptsd", label: "Mild PTSD", color: "#0f8b8d", mask: 4, comparison: "MildPTSD_vs_Control" },
   { id: "severe-ptsd", label: "Severe PTSD", color: "#d99b2b", mask: 8, comparison: "SeverePTSD_vs_Control" },
@@ -352,8 +352,8 @@ export default function InsightsDashboard({
                 <div>
                   <p className="venn-region-heading">Two subtypes only</p>
                   <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                    <span>Depressive + Cognitive <b>{vennData.regions[3]}</b></span><span>Depressive + Mild PTSD <b>{vennData.regions[5]}</b></span>
-                    <span>Depressive + Severe PTSD <b>{vennData.regions[9]}</b></span><span>Cognitive + Mild PTSD <b>{vennData.regions[6]}</b></span>
+                    <span>MDD + Cognitive <b>{vennData.regions[3]}</b></span><span>MDD + Mild PTSD <b>{vennData.regions[5]}</b></span>
+                    <span>MDD + Severe PTSD <b>{vennData.regions[9]}</b></span><span>Cognitive + Mild PTSD <b>{vennData.regions[6]}</b></span>
                     <span>Cognitive + Severe PTSD <b>{vennData.regions[10]}</b></span><span>Mild + Severe PTSD <b>{vennData.regions[12]}</b></span>
                   </div>
                 </div>
@@ -463,7 +463,7 @@ export default function InsightsDashboard({
           <h3 className="mt-2 text-lg font-bold text-slate-950">Effect-size density across four subtypes</h3>
           <p className="mt-1 text-xs leading-5 text-slate-500">Gaussian kernel density of metabolite log fold changes for each subtype-versus-control comparison.</p>
         </div>
-        <div className="h-[310px] w-full" role="img" aria-label="Density line chart comparing log fold-change distributions for Depressive, Cognitive, Mild PTSD, and Severe PTSD subtypes versus control">
+        <div className="h-[310px] w-full" role="img" aria-label="Density line chart comparing log fold-change distributions for MDD, Cognitive, Mild PTSD, and Severe PTSD subtypes versus control">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={effectDistribution} margin={{ top: 8, right: 18, bottom: 12, left: -4 }}>
               <CartesianGrid vertical={false} stroke="#dfe5ee" strokeDasharray="2 5" />

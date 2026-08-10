@@ -19,7 +19,7 @@ file_mapping = {
     "Cognitive_vs_Control": os.path.join(v12_dir, "Subtypes_Cognitive_vs_Control.csv"),
     "MildPTSD_vs_Control": os.path.join(v12_dir, "Subtypes_MildPTSD_vs_Control.csv"),
     "SeverePTSD_vs_Control": os.path.join(v12_dir, "Subtypes_SeverePTSD_vs_Control.csv"),
-    "MildPTSD_vs_SeverePTSD": os.path.join(final_prod_dir, "Pairwise_MildPTSD_vs_SeverePTSD.csv"),
+    "MildPTSD_vs_SeverePTSD": os.path.join(BASE_DIR, "result_FINAL_PRODUCTION/IPW_V12_Six_Comparisons/Pairwise_MildPTSD_vs_SeverePTSD.csv"),
     "CogPos_vs_CogNeg": os.path.join(v12_dir, "Cognitive_CogPos_vs_CogNeg.csv")
 }
 

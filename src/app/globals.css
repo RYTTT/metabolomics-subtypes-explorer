@@ -167,66 +167,62 @@
   border-radius: 1.1rem;
 }
 
-.venn-set {
-  stroke-width: 2.3;
+.venn-engine-set {
+  fill-opacity: 0.16;
+  stroke-width: 2.2;
   vector-effect: non-scaling-stroke;
+  transition: fill-opacity 160ms ease;
 }
 
-.venn-set-depressive {
-  fill: rgba(214, 93, 71, 0.17);
-  stroke: #c8543f;
+.venn-engine-set:hover {
+  fill-opacity: 0.24;
 }
 
-.venn-set-cognitive {
-  fill: rgba(49, 87, 213, 0.15);
-  stroke: #3157d5;
+.venn-engine-region {
+  fill: #293a57;
+  fill-opacity: 0.08;
+  fill-rule: evenodd;
+  pointer-events: none;
 }
 
-.venn-set-mild {
-  fill: rgba(15, 139, 141, 0.15);
-  stroke: #0f8b8d;
+.venn-engine-region-3 {
+  fill: #172033;
+  fill-opacity: 0.13;
 }
 
-.venn-set-severe {
-  fill: rgba(217, 155, 43, 0.17);
-  stroke: #c7891d;
+.venn-engine-set-label {
+  fill: #344258;
+  font-size: 12px;
+  font-weight: 800;
+  pointer-events: none;
 }
 
-.venn-unique-label {
-  fill: #65728a;
-  font-size: 9px;
-  font-weight: 850;
-  letter-spacing: 0.12em;
+.venn-engine-unique-count {
+  fill: #172033;
+  font-size: 23px;
+  font-weight: 900;
 }
 
-.venn-unique-count {
-  fill: #1f2c41;
-  font-size: 24px;
-  font-weight: 850;
+.venn-engine-unique-caption {
+  fill: #718096;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
-.venn-count {
-  fill: #1f2c41;
-  font-size: 22px;
-  font-weight: 850;
-}
-
-.venn-count-core {
-  font-size: 27px;
-}
-
-.venn-core-label {
-  fill: #526078;
-  font-size: 9px;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-}
-
-.venn-core {
+.venn-engine-overlap-count circle {
   fill: rgba(255, 255, 255, 0.94);
-  stroke: #334155;
-  stroke-width: 1.5;
-  filter: drop-shadow(0 4px 7px rgba(31, 44, 65, 0.16));
+  stroke: rgba(71, 85, 105, 0.34);
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 4px rgba(31, 44, 65, 0.13));
+}
+
+.venn-engine-overlap-count text {
+  fill: #25324a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 850;
 }
 
 .venn-figure-note {
@@ -241,6 +237,26 @@
   background: rgba(248, 250, 252, 0.82);
   border: 1px solid #e0e6ee;
   border-radius: 1.1rem;
+}
+
+.venn-all-four {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem;
+  color: #445168;
+  background: #ffffff;
+  border: 1px solid #dfe5ed;
+  border-radius: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.venn-all-four b {
+  color: #172033;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.84rem;
 }
 
 .venn-region-heading {

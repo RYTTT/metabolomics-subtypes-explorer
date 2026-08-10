@@ -16,6 +16,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { layout, type ISetOverlap } from "@upsetjs/venn.js";
 import { ComparisonKey, COMPARISON_LABELS, Metabolite } from "@/types/metabolite";
 
 interface InsightsDashboardProps {
@@ -41,6 +42,19 @@ const CHART_COLORS = {
   violet: "#7759b7",
   quiet: "#cbd5e1",
 };
+
+const VENN_SETS = [
+  { id: "depressive", label: "Depressive", color: "#d65d47", mask: 1 },
+  { id: "cognitive", label: "Cognitive", color: "#3157d5", mask: 2 },
+  { id: "mild-ptsd", label: "Mild PTSD", color: "#0f8b8d", mask: 4 },
+  { id: "severe-ptsd", label: "Severe PTSD", color: "#d99b2b", mask: 8 },
+] as const;
+
+interface VennArea extends ISetOverlap {
+  exact: number;
+  label: string;
+  mask: number;
+}
 
 const tooltipStyle = {
   background: "#ffffff",
@@ -159,6 +173,35 @@ export default function InsightsDashboard({
     return { regions, totals: sets.map((set) => set.size) };
   }, [metabolites]);
 
+  const vennLayout = useMemo(() => {
+    const areas: VennArea[] = Array.from({ length: 15 }, (_, index) => {
+      const mask = index + 1;
+      const members = VENN_SETS.filter((set) => (mask & set.mask) !== 0);
+      const inclusiveSize = vennData.regions.reduce(
+        (sum, count, regionMask) => ((regionMask & mask) === mask ? sum + count : sum),
+        0,
+      );
+      return {
+        sets: members.map((set) => set.id),
+        size: inclusiveSize,
+        exact: vennData.regions[mask],
+        label: members.map((set) => set.label).join(" + "),
+        mask,
+      };
+    });
+
+    // Pairwise zeroes remain as layout constraints. Empty higher-order regions are
+    // omitted so the package produces an Euler-style geometry matching this dataset.
+    const layoutAreas = areas.filter((area) => area.sets.length <= 2 || area.size > 0);
+    return layout(layoutAreas, {
+      width: 640,
+      height: 400,
+      padding: 24,
+      distinct: true,
+      round: 2,
+    });
+  }, [vennData]);
+
   const correlationMatrix = useMemo(() => {
     const keys = Object.keys(COMPARISON_LABELS) as ComparisonKey[];
     return keys.map((rowKey) => keys.map((columnKey) => {
@@ -233,10 +276,9 @@ export default function InsightsDashboard({
           <div className="venn-layout mt-5">
             <div>
               <ul className="venn-legend" aria-label="Subtype set totals">
-                <li><i className="bg-[#d65d47]" /><span>Depressive</span><b>{vennData.totals[0]}</b></li>
-                <li><i className="bg-[#3157d5]" /><span>Cognitive</span><b>{vennData.totals[1]}</b></li>
-                <li><i className="bg-[#0f8b8d]" /><span>Mild PTSD</span><b>{vennData.totals[2]}</b></li>
-                <li><i className="bg-[#d99b2b]" /><span>Severe PTSD</span><b>{vennData.totals[3]}</b></li>
+                {VENN_SETS.map((set, index) => (
+                  <li key={set.id}><i style={{ backgroundColor: set.color }} /><span>{set.label}</span><b>{vennData.totals[index]}</b></li>
+                ))}
               </ul>
 
               <div className="venn-stage mt-3">
@@ -246,35 +288,46 @@ export default function InsightsDashboard({
                   role="img"
                   aria-labelledby="venn-title venn-description"
                 >
-                  <title id="venn-title">Four-subtype Venn diagram of significant metabolites</title>
-                  <desc id="venn-description">Overlap among Depressive, Cognitive, Mild PTSD, and Severe PTSD subtype comparisons. The outer values show metabolites unique to each subtype and the center shows metabolites shared by all four.</desc>
-                  <circle cx="250" cy="155" r="132" className="venn-set venn-set-depressive" />
-                  <circle cx="390" cy="155" r="132" className="venn-set venn-set-cognitive" />
-                  <circle cx="250" cy="245" r="132" className="venn-set venn-set-mild" />
-                  <circle cx="390" cy="245" r="132" className="venn-set venn-set-severe" />
-
-                  <g className="venn-unique" transform="translate(250 57)">
-                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
-                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[1]}</text>
-                  </g>
-                  <g className="venn-unique" transform="translate(390 57)">
-                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
-                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[2]}</text>
-                  </g>
-                  <g className="venn-unique" transform="translate(250 332)">
-                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
-                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[4]}</text>
-                  </g>
-                  <g className="venn-unique" transform="translate(390 332)">
-                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
-                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[8]}</text>
-                  </g>
-
-                  <circle cx="320" cy="200" r="42" className="venn-core" />
-                  <text x="320" y="191" className="venn-core-label" textAnchor="middle">ALL FOUR</text>
-                  <text x="320" y="224" className="venn-count venn-count-core" textAnchor="middle">{vennData.regions[15]}</text>
+                  <title id="venn-title">Area-proportional four-subtype Venn and Euler diagram</title>
+                  <desc id="venn-description">The diagram is calculated by Venn.js from the observed subtype set sizes and intersections. Set area and overlap are optimized to match the data.</desc>
+                  {vennLayout.filter((area) => area.data.sets.length === 1).map((area) => {
+                    const set = VENN_SETS.find((candidate) => candidate.id === area.data.sets[0]);
+                    return (
+                      <path
+                        key={area.data.sets.join("-")}
+                        d={area.path}
+                        className="venn-engine-set"
+                        style={{ fill: set?.color, stroke: set?.color }}
+                      >
+                        <title>{area.data.label}: {area.data.size} total metabolites</title>
+                      </path>
+                    );
+                  })}
+                  {vennLayout.filter((area) => area.data.sets.length > 1 && area.data.exact > 0).map((area) => (
+                    <path
+                      key={`region-${area.data.mask}`}
+                      d={area.distinctPath}
+                      className={`venn-engine-region venn-engine-region-${area.data.sets.length}`}
+                    >
+                      <title>{area.data.label}: {area.data.exact} exclusive metabolites</title>
+                    </path>
+                  ))}
+                  {vennLayout.filter((area) => area.data.sets.length === 1).map((area) => (
+                    <g key={`label-${area.data.mask}`} transform={`translate(${area.text.x} ${area.text.y})`} className="venn-engine-set-label">
+                      <text y="-7" textAnchor="middle">{area.data.label}</text>
+                      <text y="19" textAnchor="middle" className="venn-engine-unique-count">{area.data.exact}</text>
+                      <text y="34" textAnchor="middle" className="venn-engine-unique-caption">unique</text>
+                    </g>
+                  ))}
+                  {vennLayout.filter((area) => area.data.sets.length > 1 && area.data.exact > 0).map((area) => (
+                    <g key={`count-${area.data.mask}`} transform={`translate(${area.text.x} ${area.text.y})`} className="venn-engine-overlap-count">
+                      <circle r="13" />
+                      <text y="4" textAnchor="middle">{area.data.exact}</text>
+                      <title>{area.data.label}: {area.data.exact} exclusive metabolites</title>
+                    </g>
+                  ))}
                 </svg>
-                <p className="venn-figure-note">Set geometry is schematic; displayed counts are exact.</p>
+                <p className="venn-figure-note">Area-proportional layout calculated from observed set and intersection sizes.</p>
               </div>
             </div>
 
@@ -283,6 +336,7 @@ export default function InsightsDashboard({
                 <p className="chart-eyebrow">Exact intersections</p>
                 <h4 className="mt-1 font-bold text-slate-900">Shared membership</h4>
                 <p className="mt-1 text-xs leading-5 text-slate-500">Each value excludes metabolites found in any additional subtype.</p>
+                <p className="venn-all-four mt-3"><span>All four subtypes</span><b>{vennData.regions[15]}</b></p>
               </div>
               <div className="venn-region-grid mt-5 space-y-5">
                 <div>

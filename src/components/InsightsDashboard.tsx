@@ -25,7 +25,7 @@ interface InsightsDashboardProps {
 }
 
 const COMPACT_LABELS: Record<ComparisonKey, string> = {
-  Depressive_vs_Control: "MDD",
+  Depressive_vs_Control: "Depressive",
   Cognitive_vs_Control: "Cognitive",
   MildPTSD_vs_Control: "Mild PTSD",
   SeverePTSD_vs_Control: "Severe PTSD",
@@ -236,11 +236,11 @@ export default function InsightsDashboard({
             aria-labelledby="venn-title venn-description"
           >
             <title id="venn-title">Venn diagram of significant metabolites</title>
-            <desc id="venn-description">Overlap among MDD, Cognitive, and Severe PTSD comparisons.</desc>
+            <desc id="venn-description">Overlap among Depressive Subtype, Cognitive, and Severe PTSD comparisons.</desc>
             <circle cx="200" cy="155" r="112" fill="#e2674a" fillOpacity="0.23" stroke="#c9543c" strokeWidth="2" />
             <circle cx="320" cy="155" r="112" fill="#3157d5" fillOpacity="0.2" stroke="#3157d5" strokeWidth="2" />
             <circle cx="260" cy="247" r="112" fill="#0f8b8d" fillOpacity="0.22" stroke="#0f8b8d" strokeWidth="2" />
-            <text x="105" y="42" className="venn-label" textAnchor="middle">MDD · {vennData.totals[0]}</text>
+            <text x="105" y="42" className="venn-label" textAnchor="middle">Depressive · {vennData.totals[0]}</text>
             <text x="415" y="42" className="venn-label" textAnchor="middle">Cognitive · {vennData.totals[1]}</text>
             <text x="260" y="384" className="venn-label" textAnchor="middle">Severe PTSD · {vennData.totals[2]}</text>
             <text x="145" y="155" className="venn-count" textAnchor="middle">{vennData.counts.onlyA}</text>

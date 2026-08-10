@@ -29,7 +29,7 @@ interface MetaboliteModalProps {
 }
 
 const COMPARISON_SHORT_LABELS: Record<string, string> = {
-  Depressive_vs_Control: "MDD",
+  Depressive_vs_Control: "Depressive",
   Cognitive_vs_Control: "Cognitive",
   MildPTSD_vs_Control: "Mild PTSD",
   SeverePTSD_vs_Control: "Severe PTSD",

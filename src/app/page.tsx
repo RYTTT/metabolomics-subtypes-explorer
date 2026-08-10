@@ -25,7 +25,7 @@ import InsightsDashboard from "@/components/InsightsDashboard";
 import release from "@/data/release.json";
 
 const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }> = {
-  Depressive_vs_Control: { title: "MDD+ vs MDD-", subtitle: "Depressive Subtype vs Control" },
+  Depressive_vs_Control: { title: "Depressive Subtype", subtitle: "vs Control" },
   Cognitive_vs_Control: { title: "Cognitive Subtype", subtitle: "CogPos vs Control" },
   MildPTSD_vs_Control: { title: "Mild PTSD+ vs PTSD-", subtitle: "Mild PTSD vs Control" },
   SeverePTSD_vs_Control: { title: "Severe PTSD+ vs PTSD-", subtitle: "Severe PTSD vs Control" },
@@ -290,14 +290,14 @@ export default function Home() {
                 v12 Differential Panel
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-950 text-purple-300 border border-purple-500/40">
-                MDD+ vs MDD- &amp; CogPos vs CogNeg
+                Depressive Subtype vs Control &amp; CogPos vs CogNeg
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl font-extrabold text-slate-950 tracking-[-0.035em] leading-[1.05]">
               Differentially Expressed Metabolites Portal
             </h1>
             <p className="text-slate-600 text-sm mt-3 max-w-3xl leading-6">
-              Cross-compare, search, and inspect {metabolites.length} metabolites across {Object.keys(COMPARISON_LABELS).length} clinical subtype comparisons including <strong>MDD+ vs MDD-</strong>, <strong>CogPos vs CogNeg</strong>, <strong>Cognitive Subtype</strong>, and <strong>Mild/Severe PTSD</strong> with biological annotations &amp; literature references.
+              Cross-compare, search, and inspect {metabolites.length} metabolites across {Object.keys(COMPARISON_LABELS).length} clinical subtype comparisons including <strong>Depressive Subtype vs Control</strong>, <strong>CogPos vs CogNeg</strong>, <strong>Cognitive Subtype</strong>, and <strong>Mild/Severe PTSD</strong> with biological annotations &amp; literature references.
             </p>
           </div>
 

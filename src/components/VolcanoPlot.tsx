@@ -78,7 +78,11 @@ export default function VolcanoPlot({
         </div>
       </div>
 
-      <div className="h-[420px] w-full">
+      <div
+        className="h-[360px] sm:h-[420px] w-full min-w-0"
+        role="img"
+        aria-label={`Volcano plot for ${COMPARISON_LABELS[activeComparison]}`}
+      >
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart margin={{ top: 20, right: 30, bottom: 20, left: 10 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />

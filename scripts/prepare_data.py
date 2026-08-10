@@ -6,11 +6,27 @@ Metabolomics Data Pipeline v2.0
 - Filters out invalid entries (nan IDs)
 - Outputs src-ready JSON
 """
-import pandas as pd
+import argparse
 import json
 import os
+from pathlib import Path
 
-BASE_DIR = "/Users/ruotingyang/Desktop/Projects/Meta subtype/Meta subtype  Antigravity"
+import pandas as pd
+
+parser = argparse.ArgumentParser(description="Build the versioned metabolomics JSON data release")
+parser.add_argument(
+    "--base-dir",
+    default=str(Path(__file__).resolve().parents[1]),
+    help="Repository root (defaults to the parent directory of this script)",
+)
+parser.add_argument(
+    "--allow-missing",
+    action="store_true",
+    help="Continue when a configured comparison source is missing",
+)
+args = parser.parse_args()
+
+BASE_DIR = str(Path(args.base_dir).resolve())
 v12_dir = os.path.join(BASE_DIR, "result_V12")
 final_prod_dir = os.path.join(BASE_DIR, "result_FINAL_PRODUCTION/IPW_Six_Comparisons")
 
@@ -23,11 +39,34 @@ file_mapping = {
     "CogPos_vs_CogNeg": os.path.join(v12_dir, "Cognitive_CogPos_vs_CogNeg.csv")
 }
 
+missing_sources = [str(path) for path in file_mapping.values() if not os.path.exists(path)]
+if missing_sources and not args.allow_missing:
+    raise FileNotFoundError(
+        "Missing comparison sources:\n  - " + "\n  - ".join(missing_sources)
+        + "\nPass --allow-missing only for an intentional partial release."
+    )
+
 # ── Load the comprehensive annotation database ──
 anno_path = os.path.join(BASE_DIR, "data/metabolite_annotations.json")
 with open(anno_path) as f:
     anno_db = json.load(f)
 ANNOTATIONS = anno_db["annotations"]
+
+
+def parse_bool(value, default=False):
+    """Parse booleans without treating NaN or non-empty strings as True."""
+    if pd.isna(value):
+        return default
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, float)):
+        return value != 0
+    normalized = str(value).strip().lower()
+    if normalized in {"true", "1", "yes", "y"}:
+        return True
+    if normalized in {"false", "0", "no", "n", ""}:
+        return False
+    raise ValueError(f"Unsupported boolean value: {value!r}")
 
 def find_annotation(chem_name, sub_pathway, super_pathway):
     """
@@ -122,9 +161,9 @@ for comp_key, filepath in file_mapping.items():
                 "chemspider": str(row.get("CHEMSPIDER", "")) if pd.notna(row.get("CHEMSPIDER")) and str(row.get("CHEMSPIDER")) not in ("NA", "nan") else "",
                 "inchikey": str(row.get("INCHIKEY", "")) if pd.notna(row.get("INCHIKEY")) and str(row.get("INCHIKEY")) not in ("NA", "nan") else "",
                 "smiles": str(row.get("SMILES", "")) if pd.notna(row.get("SMILES")) and str(row.get("SMILES")) not in ("NA", "nan") else "",
-                "v12_panel": bool(row.get("V12_panel", True if chem_id in ["GABR", "Glycolytic_Ratio"] else False)),
-                "ptsd_biopriority": bool(row.get("PTSDBioPriority_v8", True if chem_id in ["GABR", "Glycolytic_Ratio"] else False)),
-                "neuro_addon": bool(row.get("Neuro_addon_v12", False)),
+                "v12_panel": parse_bool(row.get("V12_panel"), chem_id in ["GABR", "Glycolytic_Ratio"]),
+                "ptsd_biopriority": parse_bool(row.get("PTSDBioPriority_v8"), chem_id in ["GABR", "Glycolytic_Ratio"]),
+                "neuro_addon": parse_bool(row.get("Neuro_addon_v12"), False),
                 "disorders": anno["disorders"],
                 "mechanism": anno["mechanism"],
                 "pathway_category": anno["pathway_category"],

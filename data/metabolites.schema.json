@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RYTTT/metabolomics-subtypes-explorer/data/metabolites.schema.json",
+  "title": "Metabolomics subtype explorer release",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "chem_id",
+      "chemical_name",
+      "super_pathway",
+      "sub_pathway",
+      "disorders",
+      "mechanism",
+      "references",
+      "comparisons"
+    ],
+    "properties": {
+      "chem_id": { "type": "string", "minLength": 1 },
+      "chemical_name": { "type": "string", "minLength": 1 },
+      "super_pathway": { "type": "string", "minLength": 1 },
+      "sub_pathway": { "type": "string", "minLength": 1 },
+      "v12_panel": { "type": "boolean" },
+      "ptsd_biopriority": { "type": "boolean" },
+      "neuro_addon": { "type": "boolean" },
+      "disorders": { "type": "array", "items": { "type": "string" } },
+      "mechanism": { "type": "string", "minLength": 1 },
+      "references": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["title", "journal", "pmid", "url"],
+          "properties": {
+            "title": { "type": "string" },
+            "journal": { "type": "string" },
+            "pmid": { "type": "string", "pattern": "^[0-9]+$" },
+            "url": { "type": "string", "format": "uri" }
+          }
+        }
+      },
+      "comparisons": {
+        "type": "object",
+        "minProperties": 5,
+        "additionalProperties": { "$ref": "#/$defs/comparison" }
+      }
+    }
+  },
+  "$defs": {
+    "comparison": {
+      "type": "object",
+      "required": ["logFC", "P.Value", "adj.P.Val", "t", "color", "direction", "p_tier"],
+      "properties": {
+        "logFC": { "type": "number" },
+        "P.Value": { "type": "number", "minimum": 0, "maximum": 1 },
+        "adj.P.Val": { "type": "number", "minimum": 0, "maximum": 1 },
+        "t": { "type": "number" },
+        "color": { "enum": ["red", "blue", "grey"] },
+        "direction": { "enum": ["UP", "DOWN", "NC"] },
+        "p_tier": { "enum": ["FDR < 0.1", "P < 0.01", "P < 0.05", "NS"] }
+      }
+    }
+  }
+}

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:data": "node scripts/validate_data.mjs",
+    "test": "npm run validate:data && npm run lint",
+    "check": "npm run test && npm run build"
   },
   "dependencies": {
     "lucide-react": "^1.28.0",

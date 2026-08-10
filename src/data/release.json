@@ -1,0 +1,18 @@
+{
+  "version": "v12 Panel",
+  "released_on": "2026-08-08",
+  "comparison_count": 6,
+  "record_count": 385,
+  "known_missing_comparisons": [
+    {
+      "chem_id": "Glycolytic_Ratio",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Composite index was not present in the pairwise source file."
+    },
+    {
+      "chem_id": "GABR",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Composite index was not present in the pairwise source file."
+    }
+  ]
+}

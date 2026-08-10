@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
 import {
   Search,
   Download,
@@ -20,6 +20,7 @@ import { Metabolite, ComparisonKey, COMPARISON_LABELS } from "@/types/metabolite
 import VolcanoPlot from "@/components/VolcanoPlot";
 import MetaboliteModal from "@/components/MetaboliteModal";
 import LiteratureHub from "@/components/LiteratureHub";
+import release from "@/data/release.json";
 
 const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }> = {
   Depressive_vs_Control: { title: "MDD+ vs MDD-", subtitle: "Depressive Subtype vs Control" },
@@ -47,6 +48,7 @@ export default function Home() {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [inspectedMetabolite, setInspectedMetabolite] = useState<Metabolite | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const closeModal = useCallback(() => setInspectedMetabolite(null), []);
 
   // Debounced search
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
@@ -60,6 +62,12 @@ export default function Home() {
     }, 300);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    };
+  }, []);
+
   // Extract list of Super Pathways
   const superPathways = useMemo(() => {
     const set = new Set<string>();
@@ -68,6 +76,11 @@ export default function Home() {
     });
     return ["All", ...Array.from(set).sort()];
   }, [metabolites]);
+
+  const hasV12Subset = useMemo(
+    () => metabolites.some((m) => m.v12_panel) && metabolites.some((m) => !m.v12_panel),
+    [metabolites],
+  );
 
   // Dynamically computed stats
   const stats = useMemo(() => {
@@ -155,8 +168,8 @@ export default function Home() {
         valA = a.super_pathway.toLowerCase();
         valB = b.super_pathway.toLowerCase();
       } else if (sortColumn in COMPARISON_LABELS) {
-        valA = a.comparisons[sortColumn]?.logFC ?? 0;
-        valB = b.comparisons[sortColumn]?.logFC ?? 0;
+        valA = a.comparisons[sortColumn as ComparisonKey]?.logFC ?? 0;
+        valB = b.comparisons[sortColumn as ComparisonKey]?.logFC ?? 0;
       }
 
       if (valA < valB) return sortDirection === "asc" ? -1 : 1;
@@ -183,6 +196,23 @@ export default function Home() {
     setCurrentPage(1);
   };
 
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    const tabs = Array.from(
+      event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]') ?? [],
+    );
+    if (tabs.length === 0) return;
+    event.preventDefault();
+    const currentIndex = tabs.indexOf(event.currentTarget);
+    const nextIndex = event.key === "Home"
+      ? 0
+      : event.key === "End"
+        ? tabs.length - 1
+        : (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+    tabs[nextIndex].focus();
+    tabs[nextIndex].click();
+  };
+
   // Sort indicator helper (not a component — returns JSX directly)
   const sortIcon = (col: string) => {
     if (sortColumn !== col) return <ArrowUpDown className="w-3 h-3 text-slate-500" />;
@@ -203,13 +233,14 @@ export default function Home() {
       ...compKeys.flatMap((k) => [`${k}_logFC`, `${k}_PValue`, `${k}_adjPVal`]),
     ];
 
+    const csvCell = (value: string | number | boolean) => `"${String(value).replace(/"/g, '""')}"`;
     const rows = sortedMetabolites.map((m) => [
-      `"${m.chem_id}"`,
-      `"${m.chemical_name.replace(/"/g, '""')}"`,
-      `"${m.super_pathway}"`,
-      `"${m.sub_pathway}"`,
-      `"${m.hmdb}"`,
-      `"${m.kegg}"`,
+      csvCell(m.chem_id),
+      csvCell(m.chemical_name),
+      csvCell(m.super_pathway),
+      csvCell(m.sub_pathway),
+      csvCell(m.hmdb),
+      csvCell(m.kegg),
       m.v12_panel ? "TRUE" : "FALSE",
       ...compKeys.flatMap((k) => {
         const c = m.comparisons[k];
@@ -217,14 +248,16 @@ export default function Home() {
       }),
     ]);
 
-    const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
-    const encodedUri = encodeURI(csvContent);
+    const csvContent = [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
+    const objectUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
+    link.setAttribute("href", objectUrl);
     link.setAttribute("download", `metabolites_cross_comparison_v12.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(objectUrl);
   };
 
   // Reset Filters
@@ -239,7 +272,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8 space-y-6 max-w-7xl mx-auto">
+    <main className="min-h-screen w-full min-w-0 overflow-x-hidden bg-slate-950 text-slate-100 p-4 md:p-8 space-y-6 max-w-7xl mx-auto">
       {/* Top Banner & Header */}
       <header className="glass-panel p-6 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
         <div className="absolute -right-10 -top-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -247,7 +280,7 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
           <div>
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-cyan-950 text-cyan-400 border border-cyan-500/40 flex items-center gap-1.5">
                 <Brain className="w-3.5 h-3.5" /> Psychiatric Metabolomics Explorer
               </span>
@@ -305,6 +338,7 @@ export default function Home() {
           <div className="relative col-span-1 sm:col-span-2">
             <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-400" />
             <input
+              aria-label="Search metabolites"
               type="text"
               placeholder="Search by metabolite name, HMDB, KEGG, SMILES..."
               value={searchQuery}
@@ -316,6 +350,7 @@ export default function Home() {
           {/* Super Pathway Filter */}
           <div>
             <select
+              aria-label="Filter by super pathway"
               value={selectedSuperPathway}
               onChange={(e) => { setSelectedSuperPathway(e.target.value); setCurrentPage(1); }}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl px-3 py-2.5 outline-none transition cursor-pointer"
@@ -332,6 +367,7 @@ export default function Home() {
           {/* Significance Tier Filter */}
           <div>
             <select
+              aria-label="Filter by significance"
               value={selectedSigTier}
               onChange={(e) => { setSelectedSigTier(e.target.value); setCurrentPage(1); }}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl px-3 py-2.5 outline-none transition cursor-pointer"
@@ -346,6 +382,7 @@ export default function Home() {
           {/* Direction Filter */}
           <div>
             <select
+              aria-label="Filter by direction"
               value={selectedDirection}
               onChange={(e) => { setSelectedDirection(e.target.value); setCurrentPage(1); }}
               className="w-full bg-slate-900/90 border border-slate-800 focus:border-cyan-500/60 text-slate-200 text-xs rounded-xl px-3 py-2.5 outline-none transition cursor-pointer"
@@ -360,6 +397,7 @@ export default function Home() {
         {/* Toggles & Reset */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-800/60 text-xs">
           <div className="flex items-center gap-4">
+            {hasV12Subset && (
             <label className="flex items-center gap-2 cursor-pointer text-slate-300 hover:text-white">
               <input
                 type="checkbox"
@@ -369,6 +407,7 @@ export default function Home() {
               />
               <span className="font-medium">Show v12 Biomarker Panel Only</span>
             </label>
+            )}
           </div>
 
           <button
@@ -381,8 +420,13 @@ export default function Home() {
       </section>
 
       {/* Navigation Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-2" role="tablist" aria-label="Explorer views">
         <button
+          role="tab"
+          aria-selected={activeTab === "matrix"}
+          aria-controls="matrix-panel"
+          tabIndex={activeTab === "matrix" ? 0 : -1}
+          onKeyDown={handleTabKeyDown}
           onClick={() => setActiveTab("matrix")}
           className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition cursor-pointer ${
             activeTab === "matrix"
@@ -394,6 +438,11 @@ export default function Home() {
         </button>
 
         <button
+          role="tab"
+          aria-selected={activeTab === "volcano"}
+          aria-controls="volcano-panel"
+          tabIndex={activeTab === "volcano" ? 0 : -1}
+          onKeyDown={handleTabKeyDown}
           onClick={() => setActiveTab("volcano")}
           className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition cursor-pointer ${
             activeTab === "volcano"
@@ -405,6 +454,11 @@ export default function Home() {
         </button>
 
         <button
+          role="tab"
+          aria-selected={activeTab === "literature"}
+          aria-controls="literature-panel"
+          tabIndex={activeTab === "literature" ? 0 : -1}
+          onKeyDown={handleTabKeyDown}
           onClick={() => setActiveTab("literature")}
           className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition cursor-pointer ${
             activeTab === "literature"
@@ -418,7 +472,7 @@ export default function Home() {
 
       {/* TAB 1: Cross-Comparison Heat Matrix */}
       {activeTab === "matrix" && (
-        <section className="glass-panel rounded-2xl p-4 border border-slate-800 space-y-4">
+        <section id="matrix-panel" role="tabpanel" className="glass-panel min-w-0 rounded-2xl p-4 border border-slate-800 space-y-4">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
             <p className="text-xs text-slate-400">
               Displaying <strong className="text-white">{sortedMetabolites.length}</strong> metabolites across all {Object.keys(COMPARISON_LABELS).length} comparisons. Click any column header to sort. Click any row for full annotation.
@@ -429,40 +483,40 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-slate-800">
-            <table className="w-full text-xs text-left">
+          <div className="w-full max-w-full min-w-0 overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full min-w-[1060px] text-xs text-left">
               <thead className="bg-slate-900 text-slate-300 font-bold uppercase border-b border-slate-800 select-none">
                 <tr>
                   <th
-                    onClick={() => handleSort("name")}
-                    className="py-3 px-4 cursor-pointer hover:text-cyan-400 transition"
+                    aria-sort={sortColumn === "name" ? (sortDirection === "asc" ? "ascending" : "descending") : "none"}
+                    className="py-3 px-4"
                   >
-                    <div className="flex items-center gap-1">
+                    <button type="button" onClick={() => handleSort("name")} className="flex items-center gap-1 cursor-pointer hover:text-cyan-400 transition">
                       Metabolite Name {sortIcon("name")}
-                    </div>
+                    </button>
                   </th>
                   <th
-                    onClick={() => handleSort("pathway")}
-                    className="py-3 px-3 cursor-pointer hover:text-cyan-400 transition"
+                    aria-sort={sortColumn === "pathway" ? (sortDirection === "asc" ? "ascending" : "descending") : "none"}
+                    className="py-3 px-3"
                   >
-                    <div className="flex items-center gap-1">
+                    <button type="button" onClick={() => handleSort("pathway")} className="flex items-center gap-1 cursor-pointer hover:text-cyan-400 transition">
                       Super Pathway {sortIcon("pathway")}
-                    </div>
+                    </button>
                   </th>
                   {Object.entries(COMPARISON_LABELS).map(([key]) => {
                     const headerInfo = MATRIX_HEADERS[key as ComparisonKey] || { title: key, subtitle: "" };
                     return (
                       <th
                         key={key}
-                        onClick={() => handleSort(key)}
-                        className="py-3 px-3 text-center cursor-pointer hover:text-cyan-400 transition min-w-[120px]"
+                        aria-sort={sortColumn === key ? (sortDirection === "asc" ? "ascending" : "descending") : "none"}
+                        className="py-3 px-3 text-center min-w-[120px]"
                       >
-                        <div className="flex flex-col items-center">
+                        <button type="button" onClick={() => handleSort(key)} className="flex w-full flex-col items-center cursor-pointer hover:text-cyan-400 transition">
                           <span className="flex items-center gap-1">{headerInfo.title} {sortIcon(key)}</span>
                           <span className="text-[9px] text-slate-500 font-normal">
                             {headerInfo.subtitle}
                           </span>
-                        </div>
+                        </button>
                       </th>
                     );
                   })}
@@ -473,7 +527,15 @@ export default function Home() {
                   <tr
                     key={m.chem_id}
                     onClick={() => setInspectedMetabolite(m)}
-                    className="hover:bg-slate-900/70 cursor-pointer transition group"
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setInspectedMetabolite(m);
+                      }
+                    }}
+                    tabIndex={0}
+                    aria-label={`View details for ${m.chemical_name}`}
+                    className="hover:bg-slate-900/70 focus-visible:outline-2 focus-visible:outline-cyan-400 focus-visible:outline-offset-[-2px] cursor-pointer transition group"
                   >
                     <td className="py-2.5 px-4 font-sans font-semibold text-slate-200 group-hover:text-cyan-300">
                       <div className="flex items-center gap-2">
@@ -525,6 +587,12 @@ export default function Home() {
             </table>
           </div>
 
+          {sortedMetabolites.length === 0 && (
+            <div className="rounded-xl border border-dashed border-slate-700 p-8 text-center text-sm text-slate-400">
+              No metabolites match the current filters. Try resetting or broadening the selection.
+            </div>
+          )}
+
           {/* Pagination Controls */}
           {totalPages > 1 && (
             <div className="flex items-center justify-between pt-2">
@@ -551,6 +619,8 @@ export default function Home() {
                     <button
                       key={pageNum}
                       onClick={() => setCurrentPage(pageNum)}
+                      aria-current={currentPage === pageNum ? "page" : undefined}
+                      aria-label={`Page ${pageNum}`}
                       className={`w-8 h-8 rounded-lg text-xs font-bold transition cursor-pointer ${
                         currentPage === pageNum
                           ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20"
@@ -576,7 +646,7 @@ export default function Home() {
 
       {/* TAB 2: Single Comparison Volcano Plot */}
       {activeTab === "volcano" && (
-        <div className="space-y-6">
+        <div id="volcano-panel" role="tabpanel" className="min-w-0 space-y-6">
           {/* Subtype Selector */}
           <div className="glass-panel p-4 rounded-2xl border border-slate-800 flex flex-wrap items-center gap-3">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Select Comparison:</span>
@@ -606,21 +676,23 @@ export default function Home() {
 
       {/* TAB 3: Psychiatric Literature & Annotations */}
       {activeTab === "literature" && (
-        <LiteratureHub
-          metabolites={filteredMetabolites}
-          onSelectMetabolite={(m) => setInspectedMetabolite(m)}
-        />
+        <div id="literature-panel" role="tabpanel">
+          <LiteratureHub
+            metabolites={filteredMetabolites}
+            onSelectMetabolite={(m) => setInspectedMetabolite(m)}
+          />
+        </div>
       )}
 
       {/* Metabolite Detail Modal */}
       <MetaboliteModal
         metabolite={inspectedMetabolite}
-        onClose={() => setInspectedMetabolite(null)}
+        onClose={closeModal}
       />
 
       {/* Footer with data version */}
       <footer className="text-center text-xs text-slate-600 pb-4 border-t border-slate-800/40 pt-4">
-        Data version: v12 Panel · {metabolites.length} metabolites · {Object.keys(COMPARISON_LABELS).length} comparisons · Built 2026-08-08
+        Data version: {release.version} · {metabolites.length} metabolites · {Object.keys(COMPARISON_LABELS).length} comparisons · Released {release.released_on}
       </footer>
     </main>
   );

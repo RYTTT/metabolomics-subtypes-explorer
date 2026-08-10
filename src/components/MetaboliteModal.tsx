@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useId, useRef } from "react";
 import {
   X,
   ExternalLink,
@@ -21,23 +21,72 @@ import {
   Cell,
   ReferenceLine,
 } from "recharts";
-import { Metabolite, COMPARISON_LABELS } from "@/types/metabolite";
+import { Metabolite, ComparisonKey, COMPARISON_LABELS } from "@/types/metabolite";
 
 interface MetaboliteModalProps {
   metabolite: Metabolite | null;
   onClose: () => void;
 }
 
+const COMPARISON_SHORT_LABELS: Record<string, string> = {
+  Depressive_vs_Control: "MDD",
+  Cognitive_vs_Control: "Cognitive",
+  MildPTSD_vs_Control: "Mild PTSD",
+  SeverePTSD_vs_Control: "Severe PTSD",
+  MildPTSD_vs_SeverePTSD: "Mild vs Severe",
+  CogPos_vs_CogNeg: "Cog+ vs Cog−",
+};
+
+function splitIdentifiers(value: string) {
+  return value.split(/[;,]/).map((id) => id.trim()).filter(Boolean);
+}
+
 export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModalProps) {
-  // Escape key handler
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const titleId = useId();
+
   useEffect(() => {
+    if (!metabolite) return;
+
+    const previouslyFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
-    if (metabolite) {
-      document.addEventListener("keydown", handleKeyDown);
-      return () => document.removeEventListener("keydown", handleKeyDown);
-    }
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousBodyOverflow;
+      previouslyFocused?.focus();
+    };
   }, [metabolite, onClose]);
 
   if (!metabolite) return null;
@@ -45,13 +94,13 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
   const comparisonCount = Object.keys(COMPARISON_LABELS).length;
 
   const barData = Object.entries(COMPARISON_LABELS).map(([key, label]) => {
-    const comp = metabolite.comparisons[key];
+    const comp = metabolite.comparisons[key as ComparisonKey];
     const logFC = comp ? comp.logFC : 0;
     const pVal = comp ? comp["P.Value"] : 1;
     const color = comp ? comp.color : "grey";
     return {
       key,
-      shortLabel: key.replace("_vs_", " v ").replace("Control", "Ctrl"),
+      shortLabel: COMPARISON_SHORT_LABELS[key] ?? label,
       fullLabel: label,
       logFC: Number(logFC.toFixed(4)),
       pVal,
@@ -60,10 +109,24 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl glass-panel rounded-2xl p-6 shadow-2xl border border-slate-700 my-8 text-slate-100 max-h-[90vh] overflow-y-auto">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative w-full min-w-0 max-w-4xl glass-panel rounded-2xl p-4 sm:p-6 shadow-2xl border border-slate-700 my-4 sm:my-8 text-slate-100 max-h-[92vh] sm:max-h-[90vh] overflow-y-auto"
+      >
         {/* Close Button */}
         <button
+          ref={closeButtonRef}
+          type="button"
+          aria-label="Close metabolite details"
           onClick={onClose}
           className="absolute top-5 right-5 p-2 rounded-full bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-700 transition"
         >
@@ -77,7 +140,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
           </div>
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-2xl font-extrabold text-white">{metabolite.chemical_name}</h2>
+              <h2 id={titleId} className="text-xl sm:text-2xl font-extrabold text-white">{metabolite.chemical_name}</h2>
               {metabolite.v12_panel && (
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-400 border border-emerald-500/40">
                   v12 Biomarker Panel
@@ -101,28 +164,30 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
 
         {/* Database Links & Identifiers */}
         <div className="my-4 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-          {metabolite.hmdb && (
+          {splitIdentifiers(metabolite.hmdb).map((hmdbId) => (
             <a
-              href={`https://hmdb.ca/metabolites/${metabolite.hmdb}`}
+              key={hmdbId}
+              href={`https://hmdb.ca/metabolites/${hmdbId}`}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 text-cyan-300 transition"
             >
-              <span>HMDB: <strong className="font-mono">{metabolite.hmdb}</strong></span>
+              <span>HMDB: <strong className="font-mono">{hmdbId}</strong></span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
-          )}
-          {metabolite.kegg && (
+          ))}
+          {splitIdentifiers(metabolite.kegg).map((keggId) => (
             <a
-              href={`https://www.genome.jp/entry/${metabolite.kegg}`}
+              key={keggId}
+              href={`https://www.genome.jp/entry/${keggId}`}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 text-emerald-300 transition"
             >
-              <span>KEGG: <strong className="font-mono">{metabolite.kegg}</strong></span>
+              <span>KEGG: <strong className="font-mono">{keggId}</strong></span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
-          )}
+          ))}
           {metabolite.pubchem && (
             <a
               href={`https://pubchem.ncbi.nlm.nih.gov/compound/${metabolite.pubchem}`}
@@ -148,11 +213,11 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
             <Activity className="w-4 h-4 text-cyan-400" />
             Comparative Log2 Fold Change across Subtypes
           </h3>
-          <div className="h-56 w-full glass-card rounded-xl p-3">
+          <div className="h-64 w-full min-w-0 glass-card rounded-xl p-2 sm:p-3" role="img" aria-label={`Fold change chart for ${metabolite.chemical_name}`}>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={barData} margin={{ top: 15, right: 15, bottom: 25, left: 0 }}>
+              <BarChart data={barData} margin={{ top: 15, right: 8, bottom: 48, left: -12 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="shortLabel" stroke="#94a3b8" fontSize={11} interval={0} />
+                <XAxis dataKey="shortLabel" stroke="#94a3b8" fontSize={10} interval={0} angle={-25} textAnchor="end" height={58} />
                 <YAxis stroke="#94a3b8" fontSize={11} />
                 <Tooltip
                   content={({ payload }) => {
@@ -189,8 +254,8 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
             <Layers className="w-4 h-4 text-cyan-400" />
             Differential Statistics across {comparisonCount} Comparisons
           </h3>
-          <div className="overflow-x-auto rounded-xl border border-slate-800">
-            <table className="w-full text-xs text-left">
+          <div className="w-full min-w-0 overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full min-w-[680px] text-xs text-left">
               <thead className="bg-slate-900/90 text-slate-400 border-b border-slate-800 font-semibold uppercase">
                 <tr>
                   <th className="py-2.5 px-3">Comparison</th>
@@ -203,8 +268,15 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
               </thead>
               <tbody className="divide-y divide-slate-800/60 font-mono">
                 {Object.entries(COMPARISON_LABELS).map(([key, label]) => {
-                  const comp = metabolite.comparisons[key];
-                  if (!comp) return null;
+                  const comp = metabolite.comparisons[key as ComparisonKey];
+                  if (!comp) {
+                    return (
+                      <tr key={key} className="bg-slate-950/30">
+                        <td className="py-2 px-3 font-sans text-slate-300 font-medium">{label}</td>
+                        <td colSpan={5} className="py-2 px-3 text-center text-slate-500">Not available in this dataset release</td>
+                      </tr>
+                    );
+                  }
                   return (
                     <tr key={key} className="hover:bg-slate-900/50 transition">
                       <td className="py-2 px-3 font-sans text-slate-300 font-medium">{label}</td>

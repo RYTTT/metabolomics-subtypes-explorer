@@ -37,7 +37,7 @@ export interface Metabolite {
   mechanism: string;
   pathway_category: string;
   references: Reference[];
-  comparisons: Record<string, ComparisonStats>;
+  comparisons: Partial<Record<ComparisonKey, ComparisonStats>>;
 }
 
 export type ComparisonKey =

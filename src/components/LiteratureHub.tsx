@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { BookOpen, ExternalLink, Filter, ChevronDown } from "lucide-react";
-import { Metabolite } from "@/types/metabolite";
+import { Metabolite, ComparisonStats } from "@/types/metabolite";
 
 interface LiteratureHubProps {
   metabolites: Metabolite[];
@@ -72,13 +72,16 @@ export default function LiteratureHub({ metabolites, onSelectMetabolite }: Liter
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {visibleItems.map((m) => {
           // Check top significant comparisons for badge display
-          const sigComps = Object.entries(m.comparisons).filter(([, c]) => c["P.Value"] < 0.05);
+          const sigComps = Object.entries(m.comparisons).filter(
+            (entry): entry is [string, ComparisonStats] => Boolean(entry[1] && entry[1]["P.Value"] < 0.05),
+          );
 
           return (
-            <div
+            <button
+              type="button"
               key={m.chem_id}
               onClick={() => onSelectMetabolite(m)}
-              className="glass-card rounded-2xl p-5 border border-slate-800 hover:border-cyan-500/40 cursor-pointer transition flex flex-col justify-between group"
+              className="glass-card rounded-2xl p-5 border border-slate-800 hover:border-cyan-500/40 focus-visible:outline-2 focus-visible:outline-cyan-400 cursor-pointer transition flex flex-col justify-between group text-left"
             >
               <div>
                 <div className="flex items-start justify-between gap-2 mb-2">
@@ -133,7 +136,7 @@ export default function LiteratureHub({ metabolites, onSelectMetabolite }: Liter
                   </div>
                 )}
               </div>
-            </div>
+            </button>
           );
         })}
       </div>

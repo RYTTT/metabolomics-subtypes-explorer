@@ -142,28 +142,21 @@ export default function InsightsDashboard({
     const keys: ComparisonKey[] = [
       "Depressive_vs_Control",
       "Cognitive_vs_Control",
+      "MildPTSD_vs_Control",
       "SeverePTSD_vs_Control",
     ];
-    const [setA, setB, setC] = keys.map((key) => new Set(
+    const sets = keys.map((key) => new Set(
       metabolites
         .filter((metabolite) => (metabolite.comparisons[key]?.["P.Value"] ?? 1) < 0.05)
         .map((metabolite) => metabolite.chem_id),
     ));
-    const allIds = new Set([...setA, ...setB, ...setC]);
-    const counts = { onlyA: 0, onlyB: 0, onlyC: 0, ab: 0, ac: 0, bc: 0, abc: 0 };
+    const allIds = new Set(sets.flatMap((set) => Array.from(set)));
+    const regions = Array.from({ length: 16 }, () => 0);
     allIds.forEach((id) => {
-      const inA = setA.has(id);
-      const inB = setB.has(id);
-      const inC = setC.has(id);
-      if (inA && inB && inC) counts.abc += 1;
-      else if (inA && inB) counts.ab += 1;
-      else if (inA && inC) counts.ac += 1;
-      else if (inB && inC) counts.bc += 1;
-      else if (inA) counts.onlyA += 1;
-      else if (inB) counts.onlyB += 1;
-      else if (inC) counts.onlyC += 1;
+      const mask = sets.reduce((value, set, index) => value | (set.has(id) ? 1 << index : 0), 0);
+      regions[mask] += 1;
     });
-    return { counts, totals: [setA.size, setB.size, setC.size] };
+    return { regions, totals: sets.map((set) => set.size) };
   }, [metabolites]);
 
   const correlationMatrix = useMemo(() => {
@@ -227,30 +220,52 @@ export default function InsightsDashboard({
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
         <article className="insight-card venn-card rounded-[24px] p-4 sm:p-6 lg:col-span-2">
           <p className="chart-eyebrow">Shared discoveries</p>
-          <h3 className="text-lg font-bold text-slate-950">Three-phenotype Venn diagram</h3>
-          <p className="mt-1 text-xs leading-5 text-slate-500">Exclusive overlap of nominal hits at P &lt; 0.05.</p>
+          <h3 className="text-lg font-bold text-slate-950">Four-subtype Venn diagram</h3>
+          <p className="mt-1 text-xs leading-5 text-slate-500">Exclusive overlap of nominal hits at P &lt; 0.05 across four subtype-vs-control comparisons.</p>
           <svg
             className="mt-3 h-auto w-full"
-            viewBox="0 0 520 390"
+            viewBox="0 0 600 430"
             role="img"
             aria-labelledby="venn-title venn-description"
           >
-            <title id="venn-title">Venn diagram of significant metabolites</title>
-            <desc id="venn-description">Overlap among Depressive Subtype, Cognitive, and Severe PTSD comparisons.</desc>
-            <circle cx="200" cy="155" r="112" fill="#e2674a" fillOpacity="0.23" stroke="#c9543c" strokeWidth="2" />
-            <circle cx="320" cy="155" r="112" fill="#3157d5" fillOpacity="0.2" stroke="#3157d5" strokeWidth="2" />
-            <circle cx="260" cy="247" r="112" fill="#0f8b8d" fillOpacity="0.22" stroke="#0f8b8d" strokeWidth="2" />
-            <text x="105" y="42" className="venn-label" textAnchor="middle">Depressive · {vennData.totals[0]}</text>
-            <text x="415" y="42" className="venn-label" textAnchor="middle">Cognitive · {vennData.totals[1]}</text>
-            <text x="260" y="384" className="venn-label" textAnchor="middle">Severe PTSD · {vennData.totals[2]}</text>
-            <text x="145" y="155" className="venn-count" textAnchor="middle">{vennData.counts.onlyA}</text>
-            <text x="375" y="155" className="venn-count" textAnchor="middle">{vennData.counts.onlyB}</text>
-            <text x="260" y="315" className="venn-count" textAnchor="middle">{vennData.counts.onlyC}</text>
-            <text x="260" y="120" className="venn-count" textAnchor="middle">{vennData.counts.ab}</text>
-            <text x="198" y="235" className="venn-count" textAnchor="middle">{vennData.counts.ac}</text>
-            <text x="322" y="235" className="venn-count" textAnchor="middle">{vennData.counts.bc}</text>
-            <text x="260" y="193" className="venn-count venn-count-core" textAnchor="middle">{vennData.counts.abc}</text>
+            <title id="venn-title">Four-subtype Venn diagram of significant metabolites</title>
+            <desc id="venn-description">Overlap among Depressive Subtype, Cognitive, Mild PTSD, and Severe PTSD comparisons.</desc>
+            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(28 300 210)" fill="#e2674a" fillOpacity="0.2" stroke="#c9543c" strokeWidth="2" />
+            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(-28 300 210)" fill="#3157d5" fillOpacity="0.18" stroke="#3157d5" strokeWidth="2" />
+            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(62 300 210)" fill="#0f8b8d" fillOpacity="0.18" stroke="#0f8b8d" strokeWidth="2" />
+            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(-62 300 210)" fill="#d99b2b" fillOpacity="0.18" stroke="#c7891d" strokeWidth="2" />
+            <text x="105" y="34" className="venn-label" textAnchor="middle">Depressive · {vennData.totals[0]}</text>
+            <text x="495" y="34" className="venn-label" textAnchor="middle">Cognitive · {vennData.totals[1]}</text>
+            <text x="105" y="420" className="venn-label" textAnchor="middle">Mild PTSD · {vennData.totals[2]}</text>
+            <text x="495" y="420" className="venn-label" textAnchor="middle">Severe PTSD · {vennData.totals[3]}</text>
+            <circle cx="300" cy="210" r="39" fill="#ffffff" fillOpacity="0.92" stroke="#334155" strokeWidth="1.5" />
+            <text x="300" y="202" className="venn-core-label" textAnchor="middle">ALL FOUR</text>
+            <text x="300" y="228" className="venn-count venn-count-core" textAnchor="middle">{vennData.regions[15]}</text>
           </svg>
+          <div className="venn-region-grid mt-2 space-y-3" aria-label="Exact exclusive Venn region counts">
+            <div>
+              <p className="venn-region-heading">One subtype only</p>
+              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+                <span>Depressive <b>{vennData.regions[1]}</b></span><span>Cognitive <b>{vennData.regions[2]}</b></span>
+                <span>Mild PTSD <b>{vennData.regions[4]}</b></span><span>Severe PTSD <b>{vennData.regions[8]}</b></span>
+              </div>
+            </div>
+            <div>
+              <p className="venn-region-heading">Exclusive pairs</p>
+              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+                <span>Dep + Cog <b>{vennData.regions[3]}</b></span><span>Dep + Mild <b>{vennData.regions[5]}</b></span>
+                <span>Dep + Severe <b>{vennData.regions[9]}</b></span><span>Cog + Mild <b>{vennData.regions[6]}</b></span>
+                <span>Cog + Severe <b>{vennData.regions[10]}</b></span><span>Mild + Severe <b>{vennData.regions[12]}</b></span>
+              </div>
+            </div>
+            <div>
+              <p className="venn-region-heading">Exclusive triples</p>
+              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+                <span>Dep + Cog + Mild <b>{vennData.regions[7]}</b></span><span>Dep + Cog + Severe <b>{vennData.regions[11]}</b></span>
+                <span>Dep + Mild + Severe <b>{vennData.regions[13]}</b></span><span>Cog + Mild + Severe <b>{vennData.regions[14]}</b></span>
+              </div>
+            </div>
+          </div>
         </article>
 
         <article className="insight-card heatmap-card rounded-[24px] p-4 sm:p-6 lg:col-span-3">

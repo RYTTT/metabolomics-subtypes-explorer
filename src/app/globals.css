@@ -107,6 +107,41 @@
   font-size: 27px;
 }
 
+.venn-core-label {
+  fill: #526078;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.venn-region-heading {
+  color: #65728a;
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.venn-region-grid span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.42rem 0.55rem;
+  color: #526078;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #e1e6ee;
+  border-radius: 0.6rem;
+  font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+.venn-region-grid b {
+  color: #1f2c41;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.76rem;
+}
+
 .heatmap-card {
   background: linear-gradient(145deg, #f8faff, #ffffff 52%, #fff9f6);
 }

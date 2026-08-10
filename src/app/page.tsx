@@ -22,7 +22,7 @@ import MetaboliteModal from "@/components/MetaboliteModal";
 import LiteratureHub from "@/components/LiteratureHub";
 
 const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }> = {
-  Depressive_vs_Control: { title: "MDD+ vs MDD-", subtitle: "Depressive Subtype vs Control" },
+  Depressive_vs_Control: { title: "MDD Subtype vs Control", subtitle: "Depressive MDD vs Control" },
   Cognitive_vs_Control: { title: "Cognitive Subtype", subtitle: "CogPos vs Control" },
   MildPTSD_vs_Control: { title: "Mild PTSD+ vs PTSD-", subtitle: "Mild PTSD vs Control" },
   SeverePTSD_vs_Control: { title: "Severe PTSD+ vs PTSD-", subtitle: "Severe PTSD vs Control" },

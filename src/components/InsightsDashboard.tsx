@@ -2,15 +2,16 @@
 
 import { useMemo } from "react";
 import {
-  Area,
-  AreaChart,
   Bar,
   BarChart,
   CartesianGrid,
   Cell,
   Legend,
+  Line,
+  LineChart,
   Pie,
   PieChart,
+  ReferenceLine,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -44,10 +45,10 @@ const CHART_COLORS = {
 };
 
 const VENN_SETS = [
-  { id: "depressive", label: "Depressive", color: "#d65d47", mask: 1 },
-  { id: "cognitive", label: "Cognitive", color: "#3157d5", mask: 2 },
-  { id: "mild-ptsd", label: "Mild PTSD", color: "#0f8b8d", mask: 4 },
-  { id: "severe-ptsd", label: "Severe PTSD", color: "#d99b2b", mask: 8 },
+  { id: "depressive", label: "Depressive", color: "#d65d47", mask: 1, comparison: "Depressive_vs_Control" },
+  { id: "cognitive", label: "Cognitive", color: "#3157d5", mask: 2, comparison: "Cognitive_vs_Control" },
+  { id: "mild-ptsd", label: "Mild PTSD", color: "#0f8b8d", mask: 4, comparison: "MildPTSD_vs_Control" },
+  { id: "severe-ptsd", label: "Severe PTSD", color: "#d99b2b", mask: 8, comparison: "SeverePTSD_vs_Control" },
 ] as const;
 
 interface VennArea extends ISetOverlap {
@@ -133,24 +134,33 @@ export default function InsightsDashboard({
   }, [activeComparison, metabolites]);
 
   const effectDistribution = useMemo(() => {
-    const values = metabolites
-      .map((metabolite) => metabolite.comparisons[activeComparison]?.logFC)
-      .filter((value): value is number => typeof value === "number" && Number.isFinite(value));
-    if (values.length === 0) return [];
-    const minimum = Math.min(...values);
-    const maximum = Math.max(...values);
-    const binCount = 12;
-    const width = maximum === minimum ? 1 : (maximum - minimum) / binCount;
-    const bins = Array.from({ length: binCount }, (_, index) => ({
-      effect: minimum + width * (index + 0.5),
-      count: 0,
+    const series = VENN_SETS.map((set) => ({
+      ...set,
+      values: metabolites
+        .map((metabolite) => metabolite.comparisons[set.comparison]?.logFC)
+        .filter((value): value is number => typeof value === "number" && Number.isFinite(value)),
     }));
-    values.forEach((value) => {
-      const index = Math.min(binCount - 1, Math.max(0, Math.floor((value - minimum) / width)));
-      bins[index].count += 1;
+    const allValues = series.flatMap((set) => set.values);
+    if (allValues.length === 0) return [];
+
+    const extent = Math.max(...allValues.map((value) => Math.abs(value))) * 1.08 || 1;
+    const pointCount = 61;
+    const normalizer = Math.sqrt(2 * Math.PI);
+    return Array.from({ length: pointCount }, (_, index) => {
+      const effect = -extent + ((extent * 2 * index) / (pointCount - 1));
+      const point: Record<string, number> = { effect };
+      series.forEach((set) => {
+        const mean = set.values.reduce((sum, value) => sum + value, 0) / Math.max(1, set.values.length);
+        const variance = set.values.reduce((sum, value) => sum + ((value - mean) ** 2), 0) / Math.max(1, set.values.length - 1);
+        const bandwidth = Math.max(0.015, 1.06 * Math.sqrt(variance) * (Math.max(1, set.values.length) ** -0.2));
+        point[set.comparison] = set.values.reduce((density, value) => {
+          const distance = (effect - value) / bandwidth;
+          return density + Math.exp(-0.5 * distance * distance);
+        }, 0) / (Math.max(1, set.values.length) * bandwidth * normalizer);
+      });
+      return point;
     });
-    return bins.map((bin) => ({ ...bin, effectLabel: bin.effect.toFixed(2) }));
-  }, [activeComparison, metabolites]);
+  }, [metabolites]);
 
   const vennData = useMemo(() => {
     const keys: ComparisonKey[] = [
@@ -446,24 +456,52 @@ export default function InsightsDashboard({
 
       <article className="insight-card insight-card-quiet rounded-[24px] p-4 sm:p-6">
         <div className="mb-4">
-          <p className="chart-eyebrow">Distribution</p>
-          <h3 className="text-lg font-bold text-slate-950">Effect-size density · {COMPARISON_LABELS[activeComparison]}</h3>
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <p className="chart-eyebrow">Distribution</p>
+            <p className="text-xs font-semibold text-slate-500">Active comparison is emphasized</p>
+          </div>
+          <h3 className="mt-2 text-lg font-bold text-slate-950">Effect-size density across four subtypes</h3>
+          <p className="mt-1 text-xs leading-5 text-slate-500">Gaussian kernel density of metabolite log fold changes for each subtype-versus-control comparison.</p>
         </div>
-        <div className="h-[270px] w-full" role="img" aria-label={`Area chart of log fold-change distribution for ${COMPARISON_LABELS[activeComparison]}`}>
+        <div className="h-[310px] w-full" role="img" aria-label="Density line chart comparing log fold-change distributions for Depressive, Cognitive, Mild PTSD, and Severe PTSD subtypes versus control">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={effectDistribution} margin={{ top: 8, right: 10, bottom: 12, left: -12 }}>
-              <defs>
-                <linearGradient id="effectFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={CHART_COLORS.violet} stopOpacity={0.42} />
-                  <stop offset="100%" stopColor={CHART_COLORS.violet} stopOpacity={0.03} />
-                </linearGradient>
-              </defs>
+            <LineChart data={effectDistribution} margin={{ top: 8, right: 18, bottom: 12, left: -4 }}>
               <CartesianGrid vertical={false} stroke="#dfe5ee" strokeDasharray="2 5" />
-              <XAxis dataKey="effectLabel" tick={{ fill: "#65728a", fontSize: 10 }} axisLine={false} tickLine={false} interval={1} />
-              <YAxis allowDecimals={false} tick={{ fill: "#65728a", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={tooltipStyle} labelFormatter={(label) => `logFC ${label}`} />
-              <Area type="monotone" dataKey="count" stroke={CHART_COLORS.violet} strokeWidth={3} fill="url(#effectFill)" />
-            </AreaChart>
+              <XAxis
+                type="number"
+                dataKey="effect"
+                domain={["dataMin", "dataMax"]}
+                tick={{ fill: "#65728a", fontSize: 10 }}
+                tickFormatter={(value) => Number(value).toFixed(2)}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis tick={{ fill: "#65728a", fontSize: 11 }} tickFormatter={(value) => Number(value).toFixed(1)} axisLine={false} tickLine={false} width={42} />
+              <ReferenceLine x={0} stroke="#94a3b8" strokeDasharray="4 4" />
+              <Tooltip
+                contentStyle={tooltipStyle}
+                labelFormatter={(label) => `logFC ${Number(label).toFixed(3)}`}
+                formatter={(value, name) => [Number(value).toFixed(3), name]}
+              />
+              <Legend verticalAlign="top" align="right" wrapperStyle={{ fontSize: 12, paddingBottom: 12 }} />
+              {VENN_SETS.map((set) => {
+                const hasActiveSubtype = VENN_SETS.some((candidate) => candidate.comparison === activeComparison);
+                const isActive = set.comparison === activeComparison;
+                return (
+                  <Line
+                    key={set.comparison}
+                    type="monotone"
+                    dataKey={set.comparison}
+                    name={set.label}
+                    stroke={set.color}
+                    strokeWidth={isActive ? 4 : 2.4}
+                    strokeOpacity={hasActiveSubtype && !isActive ? 0.48 : 0.9}
+                    dot={false}
+                    activeDot={{ r: 4 }}
+                  />
+                );
+              })}
+            </LineChart>
           </ResponsiveContainer>
         </div>
       </article>

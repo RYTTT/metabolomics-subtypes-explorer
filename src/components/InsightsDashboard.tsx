@@ -217,58 +217,95 @@ export default function InsightsDashboard({
         </div>
       </article>
 
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
-        <article className="insight-card venn-card rounded-[24px] p-4 sm:p-6 lg:col-span-2">
-          <p className="chart-eyebrow">Shared discoveries</p>
-          <h3 className="text-lg font-bold text-slate-950">Four-subtype Venn diagram</h3>
-          <p className="mt-1 text-xs leading-5 text-slate-500">Exclusive overlap of nominal hits at P &lt; 0.05 across four subtype-vs-control comparisons.</p>
-          <svg
-            className="mt-3 h-auto w-full"
-            viewBox="0 0 600 430"
-            role="img"
-            aria-labelledby="venn-title venn-description"
-          >
-            <title id="venn-title">Four-subtype Venn diagram of significant metabolites</title>
-            <desc id="venn-description">Overlap among Depressive Subtype, Cognitive, Mild PTSD, and Severe PTSD comparisons.</desc>
-            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(28 300 210)" fill="#e2674a" fillOpacity="0.2" stroke="#c9543c" strokeWidth="2" />
-            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(-28 300 210)" fill="#3157d5" fillOpacity="0.18" stroke="#3157d5" strokeWidth="2" />
-            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(62 300 210)" fill="#0f8b8d" fillOpacity="0.18" stroke="#0f8b8d" strokeWidth="2" />
-            <ellipse cx="300" cy="210" rx="218" ry="92" transform="rotate(-62 300 210)" fill="#d99b2b" fillOpacity="0.18" stroke="#c7891d" strokeWidth="2" />
-            <text x="105" y="34" className="venn-label" textAnchor="middle">Depressive · {vennData.totals[0]}</text>
-            <text x="495" y="34" className="venn-label" textAnchor="middle">Cognitive · {vennData.totals[1]}</text>
-            <text x="105" y="420" className="venn-label" textAnchor="middle">Mild PTSD · {vennData.totals[2]}</text>
-            <text x="495" y="420" className="venn-label" textAnchor="middle">Severe PTSD · {vennData.totals[3]}</text>
-            <circle cx="300" cy="210" r="39" fill="#ffffff" fillOpacity="0.92" stroke="#334155" strokeWidth="1.5" />
-            <text x="300" y="202" className="venn-core-label" textAnchor="middle">ALL FOUR</text>
-            <text x="300" y="228" className="venn-count venn-count-core" textAnchor="middle">{vennData.regions[15]}</text>
-          </svg>
-          <div className="venn-region-grid mt-2 space-y-3" aria-label="Exact exclusive Venn region counts">
+      <div className="space-y-5">
+        <article className="insight-card venn-card rounded-[24px] p-4 sm:p-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="venn-region-heading">One subtype only</p>
-              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
-                <span>Depressive <b>{vennData.regions[1]}</b></span><span>Cognitive <b>{vennData.regions[2]}</b></span>
-                <span>Mild PTSD <b>{vennData.regions[4]}</b></span><span>Severe PTSD <b>{vennData.regions[8]}</b></span>
+              <p className="chart-eyebrow">Shared discoveries</p>
+              <h3 className="text-lg font-bold text-slate-950">Four-subtype Venn diagram</h3>
+              <p className="mt-1 max-w-2xl text-xs leading-5 text-slate-500">
+                Nominally significant metabolites across four subtype-vs-control comparisons.
+              </p>
+            </div>
+            <span className="venn-threshold">Significance threshold&nbsp; P &lt; 0.05</span>
+          </div>
+
+          <div className="venn-layout mt-5">
+            <div>
+              <ul className="venn-legend" aria-label="Subtype set totals">
+                <li><i className="bg-[#d65d47]" /><span>Depressive</span><b>{vennData.totals[0]}</b></li>
+                <li><i className="bg-[#3157d5]" /><span>Cognitive</span><b>{vennData.totals[1]}</b></li>
+                <li><i className="bg-[#0f8b8d]" /><span>Mild PTSD</span><b>{vennData.totals[2]}</b></li>
+                <li><i className="bg-[#d99b2b]" /><span>Severe PTSD</span><b>{vennData.totals[3]}</b></li>
+              </ul>
+
+              <div className="venn-stage mt-3">
+                <svg
+                  className="h-auto w-full"
+                  viewBox="0 0 640 400"
+                  role="img"
+                  aria-labelledby="venn-title venn-description"
+                >
+                  <title id="venn-title">Four-subtype Venn diagram of significant metabolites</title>
+                  <desc id="venn-description">Overlap among Depressive, Cognitive, Mild PTSD, and Severe PTSD subtype comparisons. The outer values show metabolites unique to each subtype and the center shows metabolites shared by all four.</desc>
+                  <circle cx="250" cy="155" r="132" className="venn-set venn-set-depressive" />
+                  <circle cx="390" cy="155" r="132" className="venn-set venn-set-cognitive" />
+                  <circle cx="250" cy="245" r="132" className="venn-set venn-set-mild" />
+                  <circle cx="390" cy="245" r="132" className="venn-set venn-set-severe" />
+
+                  <g className="venn-unique" transform="translate(250 57)">
+                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
+                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[1]}</text>
+                  </g>
+                  <g className="venn-unique" transform="translate(390 57)">
+                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
+                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[2]}</text>
+                  </g>
+                  <g className="venn-unique" transform="translate(250 332)">
+                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
+                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[4]}</text>
+                  </g>
+                  <g className="venn-unique" transform="translate(390 332)">
+                    <text className="venn-unique-label" textAnchor="middle">UNIQUE</text>
+                    <text y="25" className="venn-unique-count" textAnchor="middle">{vennData.regions[8]}</text>
+                  </g>
+
+                  <circle cx="320" cy="200" r="42" className="venn-core" />
+                  <text x="320" y="191" className="venn-core-label" textAnchor="middle">ALL FOUR</text>
+                  <text x="320" y="224" className="venn-count venn-count-core" textAnchor="middle">{vennData.regions[15]}</text>
+                </svg>
+                <p className="venn-figure-note">Set geometry is schematic; displayed counts are exact.</p>
               </div>
             </div>
-            <div>
-              <p className="venn-region-heading">Exclusive pairs</p>
-              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
-                <span>Dep + Cog <b>{vennData.regions[3]}</b></span><span>Dep + Mild <b>{vennData.regions[5]}</b></span>
-                <span>Dep + Severe <b>{vennData.regions[9]}</b></span><span>Cog + Mild <b>{vennData.regions[6]}</b></span>
-                <span>Cog + Severe <b>{vennData.regions[10]}</b></span><span>Mild + Severe <b>{vennData.regions[12]}</b></span>
+
+            <aside className="venn-intersections" aria-label="Exact exclusive Venn region counts">
+              <div>
+                <p className="chart-eyebrow">Exact intersections</p>
+                <h4 className="mt-1 font-bold text-slate-900">Shared membership</h4>
+                <p className="mt-1 text-xs leading-5 text-slate-500">Each value excludes metabolites found in any additional subtype.</p>
               </div>
-            </div>
-            <div>
-              <p className="venn-region-heading">Exclusive triples</p>
-              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
-                <span>Dep + Cog + Mild <b>{vennData.regions[7]}</b></span><span>Dep + Cog + Severe <b>{vennData.regions[11]}</b></span>
-                <span>Dep + Mild + Severe <b>{vennData.regions[13]}</b></span><span>Cog + Mild + Severe <b>{vennData.regions[14]}</b></span>
+              <div className="venn-region-grid mt-5 space-y-5">
+                <div>
+                  <p className="venn-region-heading">Two subtypes only</p>
+                  <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    <span>Depressive + Cognitive <b>{vennData.regions[3]}</b></span><span>Depressive + Mild PTSD <b>{vennData.regions[5]}</b></span>
+                    <span>Depressive + Severe PTSD <b>{vennData.regions[9]}</b></span><span>Cognitive + Mild PTSD <b>{vennData.regions[6]}</b></span>
+                    <span>Cognitive + Severe PTSD <b>{vennData.regions[10]}</b></span><span>Mild + Severe PTSD <b>{vennData.regions[12]}</b></span>
+                  </div>
+                </div>
+                <div>
+                  <p className="venn-region-heading">Three subtypes only</p>
+                  <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    <span>Dep + Cog + Mild <b>{vennData.regions[7]}</b></span><span>Dep + Cog + Severe <b>{vennData.regions[11]}</b></span>
+                    <span>Dep + Mild + Severe <b>{vennData.regions[13]}</b></span><span>Cog + Mild + Severe <b>{vennData.regions[14]}</b></span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </aside>
           </div>
         </article>
 
-        <article className="insight-card heatmap-card rounded-[24px] p-4 sm:p-6 lg:col-span-3">
+        <article className="insight-card heatmap-card rounded-[24px] p-4 sm:p-6">
           <p className="chart-eyebrow">Concordance</p>
           <h3 className="text-lg font-bold text-slate-950">Comparison correlation heatmap</h3>
           <p className="mt-1 text-xs leading-5 text-slate-500">Pearson correlation of metabolite logFC values using pairwise-complete observations.</p>

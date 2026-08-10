@@ -88,13 +88,121 @@
 }
 
 .venn-card {
-  background: linear-gradient(155deg, #fffdfb, #ffffff 55%, #f4fbfa);
+  background:
+    radial-gradient(circle at 4% 8%, rgba(226, 103, 74, 0.07), transparent 24%),
+    radial-gradient(circle at 96% 92%, rgba(49, 87, 213, 0.07), transparent 28%),
+    #ffffff;
 }
 
-.venn-label {
-  fill: #344258;
-  font-size: 15px;
+.venn-threshold {
+  align-self: flex-start;
+  padding: 0.45rem 0.7rem;
+  color: #46546b;
+  background: #f8fafc;
+  border: 1px solid #dfe5ed;
+  border-radius: 999px;
+  font-size: 0.67rem;
   font-weight: 750;
+  white-space: nowrap;
+}
+
+.venn-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(21rem, 0.75fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.venn-legend {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.venn-legend li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0.6rem 0.65rem;
+  color: #526078;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e1e6ee;
+  border-radius: 0.75rem;
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.venn-legend i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.venn-legend span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.venn-legend b {
+  color: #1f2c41;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.76rem;
+}
+
+.venn-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 0.35rem 0.75rem 0.55rem;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.76)),
+    radial-gradient(circle at center, #edf3f8 0 1px, transparent 1px);
+  background-size: auto, 16px 16px;
+  border: 1px solid #e0e6ee;
+  border-radius: 1.1rem;
+}
+
+.venn-set {
+  stroke-width: 2.3;
+  vector-effect: non-scaling-stroke;
+}
+
+.venn-set-depressive {
+  fill: rgba(214, 93, 71, 0.17);
+  stroke: #c8543f;
+}
+
+.venn-set-cognitive {
+  fill: rgba(49, 87, 213, 0.15);
+  stroke: #3157d5;
+}
+
+.venn-set-mild {
+  fill: rgba(15, 139, 141, 0.15);
+  stroke: #0f8b8d;
+}
+
+.venn-set-severe {
+  fill: rgba(217, 155, 43, 0.17);
+  stroke: #c7891d;
+}
+
+.venn-unique-label {
+  fill: #65728a;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.venn-unique-count {
+  fill: #1f2c41;
+  font-size: 24px;
+  font-weight: 850;
 }
 
 .venn-count {
@@ -109,9 +217,30 @@
 
 .venn-core-label {
   fill: #526078;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 850;
   letter-spacing: 0.12em;
+}
+
+.venn-core {
+  fill: rgba(255, 255, 255, 0.94);
+  stroke: #334155;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 4px 7px rgba(31, 44, 65, 0.16));
+}
+
+.venn-figure-note {
+  margin: -0.15rem 0 0.15rem;
+  color: #7a879a;
+  font-size: 0.62rem;
+  text-align: center;
+}
+
+.venn-intersections {
+  padding: 1.1rem;
+  background: rgba(248, 250, 252, 0.82);
+  border: 1px solid #e0e6ee;
+  border-radius: 1.1rem;
 }
 
 .venn-region-heading {
@@ -127,7 +256,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.42rem 0.55rem;
+  min-height: 2.4rem;
+  padding: 0.48rem 0.58rem;
   color: #526078;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid #e1e6ee;
@@ -140,6 +270,26 @@
   color: #1f2c41;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.76rem;
+}
+
+@media (max-width: 1023px) {
+  .venn-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .venn-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .venn-stage {
+    padding-inline: 0.15rem;
+  }
+
+  .venn-intersections {
+    padding: 0.9rem;
+  }
 }
 
 .heatmap-card {

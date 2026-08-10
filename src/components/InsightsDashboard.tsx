@@ -51,6 +51,31 @@ const tooltipStyle = {
   fontSize: 12,
 };
 
+function pearsonCorrelation(xValues: number[], yValues: number[]) {
+  if (xValues.length < 2 || xValues.length !== yValues.length) return 0;
+  const xMean = xValues.reduce((sum, value) => sum + value, 0) / xValues.length;
+  const yMean = yValues.reduce((sum, value) => sum + value, 0) / yValues.length;
+  let numerator = 0;
+  let xVariance = 0;
+  let yVariance = 0;
+  xValues.forEach((value, index) => {
+    const xDelta = value - xMean;
+    const yDelta = yValues[index] - yMean;
+    numerator += xDelta * yDelta;
+    xVariance += xDelta * xDelta;
+    yVariance += yDelta * yDelta;
+  });
+  const denominator = Math.sqrt(xVariance * yVariance);
+  return denominator === 0 ? 0 : numerator / denominator;
+}
+
+function correlationColor(value: number) {
+  const strength = 0.12 + Math.abs(value) * 0.78;
+  return value >= 0
+    ? `rgba(226, 103, 74, ${strength})`
+    : `rgba(49, 87, 213, ${strength})`;
+}
+
 export default function InsightsDashboard({
   metabolites,
   activeComparison,
@@ -113,6 +138,53 @@ export default function InsightsDashboard({
     return bins.map((bin) => ({ ...bin, effectLabel: bin.effect.toFixed(2) }));
   }, [activeComparison, metabolites]);
 
+  const vennData = useMemo(() => {
+    const keys: ComparisonKey[] = [
+      "Depressive_vs_Control",
+      "Cognitive_vs_Control",
+      "SeverePTSD_vs_Control",
+    ];
+    const [setA, setB, setC] = keys.map((key) => new Set(
+      metabolites
+        .filter((metabolite) => (metabolite.comparisons[key]?.["P.Value"] ?? 1) < 0.05)
+        .map((metabolite) => metabolite.chem_id),
+    ));
+    const allIds = new Set([...setA, ...setB, ...setC]);
+    const counts = { onlyA: 0, onlyB: 0, onlyC: 0, ab: 0, ac: 0, bc: 0, abc: 0 };
+    allIds.forEach((id) => {
+      const inA = setA.has(id);
+      const inB = setB.has(id);
+      const inC = setC.has(id);
+      if (inA && inB && inC) counts.abc += 1;
+      else if (inA && inB) counts.ab += 1;
+      else if (inA && inC) counts.ac += 1;
+      else if (inB && inC) counts.bc += 1;
+      else if (inA) counts.onlyA += 1;
+      else if (inB) counts.onlyB += 1;
+      else if (inC) counts.onlyC += 1;
+    });
+    return { counts, totals: [setA.size, setB.size, setC.size] };
+  }, [metabolites]);
+
+  const correlationMatrix = useMemo(() => {
+    const keys = Object.keys(COMPARISON_LABELS) as ComparisonKey[];
+    return keys.map((rowKey) => keys.map((columnKey) => {
+      const xValues: number[] = [];
+      const yValues: number[] = [];
+      metabolites.forEach((metabolite) => {
+        const x = metabolite.comparisons[rowKey]?.logFC;
+        const y = metabolite.comparisons[columnKey]?.logFC;
+        if (typeof x === "number" && typeof y === "number") {
+          xValues.push(x);
+          yValues.push(y);
+        }
+      });
+      return rowKey === columnKey ? 1 : pearsonCorrelation(xValues, yValues);
+    }));
+  }, [metabolites]);
+
+  const comparisonKeys = Object.keys(COMPARISON_LABELS) as ComparisonKey[];
+
   return (
     <section id="insights-panel" role="tabpanel" className="space-y-5">
       <div className="insights-intro rounded-[28px] p-5 sm:p-7">
@@ -151,6 +223,77 @@ export default function InsightsDashboard({
           </ResponsiveContainer>
         </div>
       </article>
+
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
+        <article className="insight-card venn-card rounded-[24px] p-4 sm:p-6 lg:col-span-2">
+          <p className="chart-eyebrow">Shared discoveries</p>
+          <h3 className="text-lg font-bold text-slate-950">Three-phenotype Venn diagram</h3>
+          <p className="mt-1 text-xs leading-5 text-slate-500">Exclusive overlap of nominal hits at P &lt; 0.05.</p>
+          <svg
+            className="mt-3 h-auto w-full"
+            viewBox="0 0 520 390"
+            role="img"
+            aria-labelledby="venn-title venn-description"
+          >
+            <title id="venn-title">Venn diagram of significant metabolites</title>
+            <desc id="venn-description">Overlap among MDD, Cognitive, and Severe PTSD comparisons.</desc>
+            <circle cx="200" cy="155" r="112" fill="#e2674a" fillOpacity="0.23" stroke="#c9543c" strokeWidth="2" />
+            <circle cx="320" cy="155" r="112" fill="#3157d5" fillOpacity="0.2" stroke="#3157d5" strokeWidth="2" />
+            <circle cx="260" cy="247" r="112" fill="#0f8b8d" fillOpacity="0.22" stroke="#0f8b8d" strokeWidth="2" />
+            <text x="105" y="42" className="venn-label" textAnchor="middle">MDD · {vennData.totals[0]}</text>
+            <text x="415" y="42" className="venn-label" textAnchor="middle">Cognitive · {vennData.totals[1]}</text>
+            <text x="260" y="384" className="venn-label" textAnchor="middle">Severe PTSD · {vennData.totals[2]}</text>
+            <text x="145" y="155" className="venn-count" textAnchor="middle">{vennData.counts.onlyA}</text>
+            <text x="375" y="155" className="venn-count" textAnchor="middle">{vennData.counts.onlyB}</text>
+            <text x="260" y="315" className="venn-count" textAnchor="middle">{vennData.counts.onlyC}</text>
+            <text x="260" y="120" className="venn-count" textAnchor="middle">{vennData.counts.ab}</text>
+            <text x="198" y="235" className="venn-count" textAnchor="middle">{vennData.counts.ac}</text>
+            <text x="322" y="235" className="venn-count" textAnchor="middle">{vennData.counts.bc}</text>
+            <text x="260" y="193" className="venn-count venn-count-core" textAnchor="middle">{vennData.counts.abc}</text>
+          </svg>
+        </article>
+
+        <article className="insight-card heatmap-card rounded-[24px] p-4 sm:p-6 lg:col-span-3">
+          <p className="chart-eyebrow">Concordance</p>
+          <h3 className="text-lg font-bold text-slate-950">Comparison correlation heatmap</h3>
+          <p className="mt-1 text-xs leading-5 text-slate-500">Pearson correlation of metabolite logFC values using pairwise-complete observations.</p>
+          <div className="mt-5 w-full overflow-x-auto pb-2">
+            <table className="correlation-table min-w-[620px] border-separate border-spacing-1" aria-label="Log fold-change correlation matrix">
+              <thead>
+                <tr>
+                  <th scope="col" className="w-28" aria-label="Comparison" />
+                  {comparisonKeys.map((key) => (
+                    <th key={key} scope="col" className="heatmap-axis px-1 pb-2 text-center">{COMPACT_LABELS[key]}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonKeys.map((rowKey, rowIndex) => (
+                  <tr key={rowKey}>
+                    <th scope="row" className="heatmap-axis pr-2 text-right">{COMPACT_LABELS[rowKey]}</th>
+                    {comparisonKeys.map((columnKey, columnIndex) => {
+                      const value = correlationMatrix[rowIndex][columnIndex];
+                      return (
+                        <td
+                          key={columnKey}
+                          className="heatmap-cell h-14 min-w-16 rounded-lg text-center font-mono text-xs font-bold"
+                          style={{ backgroundColor: correlationColor(value), color: Math.abs(value) > 0.52 ? "#ffffff" : "#27364d" }}
+                          title={`${COMPARISON_LABELS[rowKey]} vs ${COMPARISON_LABELS[columnKey]}: r = ${value.toFixed(3)}`}
+                        >
+                          {value.toFixed(2)}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-3 flex items-center justify-end gap-2 text-[11px] font-semibold text-slate-500">
+            <span>−1</span><span className="heatmap-legend" aria-hidden="true" /><span>+1</span>
+          </div>
+        </article>
+      </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
         <article className="insight-card rounded-[24px] p-4 sm:p-6 lg:col-span-3">

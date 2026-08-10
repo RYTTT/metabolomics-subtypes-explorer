@@ -5,7 +5,7 @@ A statically deployable Next.js research portal for exploring differential metab
 ## Product capabilities
 
 - Cross-comparison matrix with search, filtering, sorting, pagination, and CSV export
-- Insights dashboard with discovery-yield, pathway-ranking, directionality, and effect-distribution plots
+- Insights dashboard with discovery-yield, Venn overlap, correlation heatmap, pathway-ranking, directionality, and effect-distribution plots
 - Per-comparison volcano plots
 - Metabolite detail views with identifiers, effect sizes, p-values, FDR values, mechanisms, and citations
 - Disorder- and pathway-oriented literature browsing

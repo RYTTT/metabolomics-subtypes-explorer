@@ -87,6 +87,57 @@
   background: #f8fafc;
 }
 
+.venn-card {
+  background: linear-gradient(155deg, #fffdfb, #ffffff 55%, #f4fbfa);
+}
+
+.venn-label {
+  fill: #344258;
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.venn-count {
+  fill: #1f2c41;
+  font-size: 22px;
+  font-weight: 850;
+}
+
+.venn-count-core {
+  font-size: 27px;
+}
+
+.heatmap-card {
+  background: linear-gradient(145deg, #f8faff, #ffffff 52%, #fff9f6);
+}
+
+.heatmap-axis {
+  color: #59677e;
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.heatmap-cell {
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.heatmap-cell:hover {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.07);
+  box-shadow: 0 7px 18px rgba(31, 44, 69, 0.16);
+}
+
+.heatmap-legend {
+  display: inline-block;
+  width: 132px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3157d5, #f8fafc 50%, #e2674a);
+  border: 1px solid #d9e0ea;
+}
+
 .chart-eyebrow {
   color: #68758c;
   font-size: 0.7rem;

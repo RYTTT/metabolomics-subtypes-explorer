@@ -5,14 +5,69 @@
   "record_count": 385,
   "known_missing_comparisons": [
     {
-      "chem_id": "Glycolytic_Ratio",
+      "chem_id": "355",
       "comparison": "MildPTSD_vs_SeverePTSD",
-      "reason": "Composite index was not present in the pairwise source file."
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
     },
     {
-      "chem_id": "GABR",
+      "chem_id": "100006361",
       "comparison": "MildPTSD_vs_SeverePTSD",
-      "reason": "Composite index was not present in the pairwise source file."
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "100020261",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "100020262",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "267",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "100020259",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "561",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "504",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "1111",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "563",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "100001612",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "100001103",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
+    },
+    {
+      "chem_id": "1256",
+      "comparison": "MildPTSD_vs_SeverePTSD",
+      "reason": "Metabolite was not present in the current IPW V12 pairwise source file."
     }
   ]
 }

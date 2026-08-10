@@ -167,43 +167,52 @@
   border-radius: 1.1rem;
 }
 
-.venn-engine-set {
-  fill-opacity: 0.16;
-  stroke-width: 2.2;
+.venn-classic-set {
+  fill-opacity: 0.14;
+  stroke-width: 2.35;
   vector-effect: non-scaling-stroke;
-  transition: fill-opacity 160ms ease;
+  transition: fill-opacity 160ms ease, stroke-width 160ms ease;
 }
 
-.venn-engine-set:hover {
-  fill-opacity: 0.24;
+.venn-classic-set:hover {
+  fill-opacity: 0.2;
+  stroke-width: 2.8;
 }
 
-.venn-engine-region {
-  fill: #293a57;
-  fill-opacity: 0.08;
-  fill-rule: evenodd;
-  pointer-events: none;
+.venn-classic-depressive {
+  fill: #f29a86;
+  stroke: #c9543c;
 }
 
-.venn-engine-region-3 {
-  fill: #172033;
-  fill-opacity: 0.13;
+.venn-classic-cognitive {
+  fill: #8fa8f3;
+  stroke: #3157d5;
 }
 
-.venn-engine-set-label {
+.venn-classic-mild {
+  fill: #7fc9c7;
+  stroke: #0f8b8d;
+}
+
+.venn-classic-severe {
+  fill: #efc970;
+  stroke: #c7891d;
+}
+
+.venn-classic-label {
   fill: #344258;
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 850;
   pointer-events: none;
 }
 
-.venn-engine-unique-count {
+.venn-classic-count {
   fill: #172033;
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 900;
 }
 
-.venn-engine-unique-caption {
+.venn-classic-caption {
   fill: #718096;
   font-size: 8px;
   font-weight: 800;
@@ -211,18 +220,25 @@
   text-transform: uppercase;
 }
 
-.venn-engine-overlap-count circle {
+.venn-classic-core circle {
   fill: rgba(255, 255, 255, 0.94);
-  stroke: rgba(71, 85, 105, 0.34);
-  stroke-width: 1;
-  filter: drop-shadow(0 2px 4px rgba(31, 44, 65, 0.13));
+  stroke: #40516a;
+  stroke-width: 1.6;
 }
 
-.venn-engine-overlap-count text {
-  fill: #25324a;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
+.venn-classic-core text {
+  fill: #526078;
+  font-size: 9px;
   font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.venn-classic-core-count {
+  fill: #172033 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
 }
 
 .venn-figure-note {
@@ -301,6 +317,26 @@
 
   .venn-stage {
     padding-inline: 0.15rem;
+  }
+
+  .venn-classic-label {
+    font-size: 17px;
+  }
+
+  .venn-classic-count {
+    font-size: 29px;
+  }
+
+  .venn-classic-caption {
+    font-size: 10px;
+  }
+
+  .venn-classic-core text {
+    font-size: 11px;
+  }
+
+  .venn-classic-core-count {
+    font-size: 27px !important;
   }
 
   .venn-intersections {

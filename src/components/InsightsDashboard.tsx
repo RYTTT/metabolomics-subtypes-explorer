@@ -17,7 +17,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { layout, type ISetOverlap } from "@upsetjs/venn.js";
 import { ComparisonKey, COMPARISON_LABELS, Metabolite } from "@/types/metabolite";
 
 interface InsightsDashboardProps {
@@ -27,7 +26,7 @@ interface InsightsDashboardProps {
 }
 
 const COMPACT_LABELS: Record<ComparisonKey, string> = {
-  Depressive_vs_Control: "MDD",
+  Depressive_vs_Control: "Depressive",
   Cognitive_vs_Control: "Cognitive",
   MildPTSD_vs_Control: "Mild PTSD",
   SeverePTSD_vs_Control: "Severe PTSD",
@@ -45,17 +44,11 @@ const CHART_COLORS = {
 };
 
 const VENN_SETS = [
-  { id: "depressive", label: "MDD", color: "#d65d47", mask: 1, comparison: "Depressive_vs_Control" },
+  { id: "depressive", label: "Depressive", color: "#d65d47", mask: 1, comparison: "Depressive_vs_Control" },
   { id: "cognitive", label: "Cognitive", color: "#3157d5", mask: 2, comparison: "Cognitive_vs_Control" },
   { id: "mild-ptsd", label: "Mild PTSD", color: "#0f8b8d", mask: 4, comparison: "MildPTSD_vs_Control" },
   { id: "severe-ptsd", label: "Severe PTSD", color: "#d99b2b", mask: 8, comparison: "SeverePTSD_vs_Control" },
 ] as const;
-
-interface VennArea extends ISetOverlap {
-  exact: number;
-  label: string;
-  mask: number;
-}
 
 const tooltipStyle = {
   background: "#ffffff",
@@ -183,35 +176,6 @@ export default function InsightsDashboard({
     return { regions, totals: sets.map((set) => set.size) };
   }, [metabolites]);
 
-  const vennLayout = useMemo(() => {
-    const areas: VennArea[] = Array.from({ length: 15 }, (_, index) => {
-      const mask = index + 1;
-      const members = VENN_SETS.filter((set) => (mask & set.mask) !== 0);
-      const inclusiveSize = vennData.regions.reduce(
-        (sum, count, regionMask) => ((regionMask & mask) === mask ? sum + count : sum),
-        0,
-      );
-      return {
-        sets: members.map((set) => set.id),
-        size: inclusiveSize,
-        exact: vennData.regions[mask],
-        label: members.map((set) => set.label).join(" + "),
-        mask,
-      };
-    });
-
-    // Pairwise zeroes remain as layout constraints. Empty higher-order regions are
-    // omitted so the package produces an Euler-style geometry matching this dataset.
-    const layoutAreas = areas.filter((area) => area.sets.length <= 2 || area.size > 0);
-    return layout(layoutAreas, {
-      width: 640,
-      height: 400,
-      padding: 24,
-      distinct: true,
-      round: 2,
-    });
-  }, [vennData]);
-
   const correlationMatrix = useMemo(() => {
     const keys = Object.keys(COMPARISON_LABELS) as ComparisonKey[];
     return keys.map((rowKey) => keys.map((columnKey) => {
@@ -294,50 +258,55 @@ export default function InsightsDashboard({
               <div className="venn-stage mt-3">
                 <svg
                   className="h-auto w-full"
-                  viewBox="0 0 640 400"
+                  viewBox="0 0 720 440"
                   role="img"
                   aria-labelledby="venn-title venn-description"
                 >
-                  <title id="venn-title">Area-proportional four-subtype Venn and Euler diagram</title>
-                  <desc id="venn-description">The diagram is calculated by Venn.js from the observed subtype set sizes and intersections. Set area and overlap are optimized to match the data.</desc>
-                  {vennLayout.filter((area) => area.data.sets.length === 1).map((area) => {
-                    const set = VENN_SETS.find((candidate) => candidate.id === area.data.sets[0]);
-                    return (
-                      <path
-                        key={area.data.sets.join("-")}
-                        d={area.path}
-                        className="venn-engine-set"
-                        style={{ fill: set?.color, stroke: set?.color }}
-                      >
-                        <title>{area.data.label}: {area.data.size} total metabolites</title>
-                      </path>
-                    );
-                  })}
-                  {vennLayout.filter((area) => area.data.sets.length > 1 && area.data.exact > 0).map((area) => (
-                    <path
-                      key={`region-${area.data.mask}`}
-                      d={area.distinctPath}
-                      className={`venn-engine-region venn-engine-region-${area.data.sets.length}`}
-                    >
-                      <title>{area.data.label}: {area.data.exact} exclusive metabolites</title>
-                    </path>
-                  ))}
-                  {vennLayout.filter((area) => area.data.sets.length === 1).map((area) => (
-                    <g key={`label-${area.data.mask}`} transform={`translate(${area.text.x} ${area.text.y})`} className="venn-engine-set-label">
-                      <text y="-7" textAnchor="middle">{area.data.label}</text>
-                      <text y="19" textAnchor="middle" className="venn-engine-unique-count">{area.data.exact}</text>
-                      <text y="34" textAnchor="middle" className="venn-engine-unique-caption">unique</text>
-                    </g>
-                  ))}
-                  {vennLayout.filter((area) => area.data.sets.length > 1 && area.data.exact > 0).map((area) => (
-                    <g key={`count-${area.data.mask}`} transform={`translate(${area.text.x} ${area.text.y})`} className="venn-engine-overlap-count">
-                      <circle r="13" />
-                      <text y="4" textAnchor="middle">{area.data.exact}</text>
-                      <title>{area.data.label}: {area.data.exact} exclusive metabolites</title>
-                    </g>
-                  ))}
+                  <title id="venn-title">Four-subtype Venn diagram of significant metabolites</title>
+                  <desc id="venn-description">A clean four-ellipse Venn diagram for Depressive, Cognitive, Mild PTSD, and Severe PTSD subtype comparisons. Unique counts are shown in the outer lobes; exact shared counts are listed beside the diagram.</desc>
+                  <defs>
+                    <filter id="venn-label-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                      <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#334155" floodOpacity="0.16" />
+                    </filter>
+                  </defs>
+
+                  <ellipse cx="320" cy="194" rx="184" ry="90" transform="rotate(48 320 194)" className="venn-classic-set venn-classic-depressive" />
+                  <ellipse cx="400" cy="194" rx="184" ry="90" transform="rotate(-48 400 194)" className="venn-classic-set venn-classic-cognitive" />
+                  <ellipse cx="318" cy="254" rx="184" ry="90" transform="rotate(-20 318 254)" className="venn-classic-set venn-classic-mild" />
+                  <ellipse cx="402" cy="254" rx="184" ry="90" transform="rotate(20 402 254)" className="venn-classic-set venn-classic-severe" />
+
+                  <g transform="translate(238 66)" className="venn-classic-label">
+                    <circle cx="-10" cy="-4" r="4" fill="#d65d47" />
+                    <text textAnchor="middle">Depressive</text>
+                    <text y="28" textAnchor="middle" className="venn-classic-count">{vennData.regions[1]}</text>
+                    <text y="43" textAnchor="middle" className="venn-classic-caption">UNIQUE</text>
+                  </g>
+                  <g transform="translate(482 66)" className="venn-classic-label">
+                    <circle cx="-10" cy="-4" r="4" fill="#3157d5" />
+                    <text textAnchor="middle">Cognitive</text>
+                    <text y="28" textAnchor="middle" className="venn-classic-count">{vennData.regions[2]}</text>
+                    <text y="43" textAnchor="middle" className="venn-classic-caption">UNIQUE</text>
+                  </g>
+                  <g transform="translate(222 342)" className="venn-classic-label">
+                    <circle cx="-10" cy="-4" r="4" fill="#0f8b8d" />
+                    <text textAnchor="middle">Mild PTSD</text>
+                    <text y="28" textAnchor="middle" className="venn-classic-count">{vennData.regions[4]}</text>
+                    <text y="43" textAnchor="middle" className="venn-classic-caption">UNIQUE</text>
+                  </g>
+                  <g transform="translate(498 342)" className="venn-classic-label">
+                    <circle cx="-10" cy="-4" r="4" fill="#d99b2b" />
+                    <text textAnchor="middle">Severe PTSD</text>
+                    <text y="28" textAnchor="middle" className="venn-classic-count">{vennData.regions[8]}</text>
+                    <text y="43" textAnchor="middle" className="venn-classic-caption">UNIQUE</text>
+                  </g>
+
+                  <g transform="translate(360 222)" className="venn-classic-core" filter="url(#venn-label-shadow)">
+                    <circle r="38" />
+                    <text y="-7" textAnchor="middle">ALL FOUR</text>
+                    <text y="22" textAnchor="middle" className="venn-classic-core-count">{vennData.regions[15]}</text>
+                  </g>
                 </svg>
-                <p className="venn-figure-note">Area-proportional layout calculated from observed set and intersection sizes.</p>
+                <p className="venn-figure-note">Four-ellipse set map; exact exclusive intersections are listed alongside.</p>
               </div>
             </div>
 
@@ -352,8 +321,8 @@ export default function InsightsDashboard({
                 <div>
                   <p className="venn-region-heading">Two subtypes only</p>
                   <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                    <span>MDD + Cognitive <b>{vennData.regions[3]}</b></span><span>MDD + Mild PTSD <b>{vennData.regions[5]}</b></span>
-                    <span>MDD + Severe PTSD <b>{vennData.regions[9]}</b></span><span>Cognitive + Mild PTSD <b>{vennData.regions[6]}</b></span>
+                    <span>Depressive + Cognitive <b>{vennData.regions[3]}</b></span><span>Depressive + Mild PTSD <b>{vennData.regions[5]}</b></span>
+                    <span>Depressive + Severe PTSD <b>{vennData.regions[9]}</b></span><span>Cognitive + Mild PTSD <b>{vennData.regions[6]}</b></span>
                     <span>Cognitive + Severe PTSD <b>{vennData.regions[10]}</b></span><span>Mild + Severe PTSD <b>{vennData.regions[12]}</b></span>
                   </div>
                 </div>
@@ -463,7 +432,7 @@ export default function InsightsDashboard({
           <h3 className="mt-2 text-lg font-bold text-slate-950">Effect-size density across four subtypes</h3>
           <p className="mt-1 text-xs leading-5 text-slate-500">Gaussian kernel density of metabolite log fold changes for each subtype-versus-control comparison.</p>
         </div>
-        <div className="h-[310px] w-full" role="img" aria-label="Density line chart comparing log fold-change distributions for MDD, Cognitive, Mild PTSD, and Severe PTSD subtypes versus control">
+        <div className="h-[310px] w-full" role="img" aria-label="Density line chart comparing log fold-change distributions for Depressive, Cognitive, Mild PTSD, and Severe PTSD subtypes versus control">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={effectDistribution} margin={{ top: 8, right: 18, bottom: 12, left: -4 }}>
               <CartesianGrid vertical={false} stroke="#dfe5ee" strokeDasharray="2 5" />

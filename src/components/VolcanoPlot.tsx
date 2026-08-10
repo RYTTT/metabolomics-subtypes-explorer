@@ -59,7 +59,7 @@ export default function VolcanoPlot({
   const getColor = (color: string) => {
     if (color === "red") return "#ef4444"; // Red for up
     if (color === "blue") return "#3b82f6"; // Blue for down
-    return "#64748b"; // Slate for non-sig
+    return "#94a3b8"; // Quiet slate for non-significant
   };
 
   return (
@@ -85,30 +85,30 @@ export default function VolcanoPlot({
       >
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart margin={{ top: 20, right: 30, bottom: 20, left: 10 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#dfe5ee" />
             <XAxis
               type="number"
               dataKey="logFC"
               name="log2 Fold Change"
-              stroke="#94a3b8"
+              stroke="#65728a"
               fontSize={12}
               tickFormatter={(v) => v.toFixed(1)}
-              label={{ value: "log2 Fold Change (logFC)", position: "bottom", fill: "#94a3b8", offset: 0 }}
+              label={{ value: "log2 Fold Change (logFC)", position: "bottom", fill: "#65728a", offset: 0 }}
             />
             <YAxis
               type="number"
               dataKey="negLogP"
               name="-log10(P-value)"
-              stroke="#94a3b8"
+              stroke="#65728a"
               fontSize={12}
-              label={{ value: "-log10(P-value)", angle: -90, position: "insideLeft", fill: "#94a3b8" }}
+              label={{ value: "-log10(P-value)", angle: -90, position: "insideLeft", fill: "#65728a" }}
             />
             {/* P = 0.05 Line */}
             <ReferenceLine y={1.301} stroke="#f59e0b" strokeDasharray="4 4" label={{ value: "P=0.05", fill: "#f59e0b", fontSize: 10 }} />
             {/* P = 0.01 Line */}
             <ReferenceLine y={2.0} stroke="#ef4444" strokeDasharray="4 4" label={{ value: "P=0.01", fill: "#ef4444", fontSize: 10 }} />
             {/* LogFC = 0 center line */}
-            <ReferenceLine x={0} stroke="#475569" strokeDasharray="2 2" />
+            <ReferenceLine x={0} stroke="#94a3b8" strokeDasharray="2 2" />
 
             <Tooltip
               content={({ payload }) => {

@@ -9,6 +9,7 @@ import {
   Activity,
   Layers,
   BookOpen,
+  BarChart3,
   ArrowUpDown,
   ChevronUp,
   ChevronDown,
@@ -20,6 +21,7 @@ import { Metabolite, ComparisonKey, COMPARISON_LABELS } from "@/types/metabolite
 import VolcanoPlot from "@/components/VolcanoPlot";
 import MetaboliteModal from "@/components/MetaboliteModal";
 import LiteratureHub from "@/components/LiteratureHub";
+import InsightsDashboard from "@/components/InsightsDashboard";
 import release from "@/data/release.json";
 
 const MATRIX_HEADERS: Record<ComparisonKey, { title: string; subtitle: string }> = {
@@ -37,7 +39,7 @@ export default function Home() {
   const metabolites = rawData as Metabolite[];
 
   // State Management
-  const [activeTab, setActiveTab] = useState<"matrix" | "volcano" | "literature">("matrix");
+  const [activeTab, setActiveTab] = useState<"matrix" | "insights" | "volcano" | "literature">("matrix");
   const [activeComparison, setActiveComparison] = useState<ComparisonKey>("SeverePTSD_vs_Control");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedSuperPathway, setSelectedSuperPathway] = useState<string>("All");
@@ -272,9 +274,9 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen w-full min-w-0 overflow-x-hidden bg-slate-950 text-slate-100 p-4 md:p-8 space-y-6 max-w-7xl mx-auto">
+    <main className="light-shell min-h-screen w-full min-w-0 overflow-x-hidden bg-slate-50 text-slate-900 p-4 md:p-8 space-y-6 max-w-7xl mx-auto">
       {/* Top Banner & Header */}
-      <header className="glass-panel p-6 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
+      <header className="research-hero glass-panel p-6 sm:p-8 rounded-[32px] border border-slate-200 relative overflow-hidden">
         <div className="absolute -right-10 -top-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute -left-10 -bottom-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -291,10 +293,10 @@ export default function Home() {
                 MDD+ vs MDD- &amp; CogPos vs CogNeg
               </span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-slate-950 tracking-[-0.035em] leading-[1.05]">
               Differentially Expressed Metabolites Portal
             </h1>
-            <p className="text-slate-400 text-sm mt-1 max-w-3xl">
+            <p className="text-slate-600 text-sm mt-3 max-w-3xl leading-6">
               Cross-compare, search, and inspect {metabolites.length} metabolites across {Object.keys(COMPARISON_LABELS).length} clinical subtype comparisons including <strong>MDD+ vs MDD-</strong>, <strong>CogPos vs CogNeg</strong>, <strong>Cognitive Subtype</strong>, and <strong>Mild/Severe PTSD</strong> with biological annotations &amp; literature references.
             </p>
           </div>
@@ -312,19 +314,19 @@ export default function Home() {
 
         {/* Quick Stats Grid — all dynamically computed */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-800/80">
-          <div className="glass-card p-3.5 rounded-xl border border-slate-800">
+          <div className="metric-card glass-card p-3.5 rounded-2xl border border-slate-200">
             <p className="text-xs text-slate-400 font-medium">Total Metabolites</p>
             <p className="text-2xl font-extrabold text-white mt-0.5">{metabolites.length}</p>
           </div>
-          <div className="glass-card p-3.5 rounded-xl border border-slate-800">
+          <div className="metric-card glass-card p-3.5 rounded-2xl border border-slate-200">
             <p className="text-xs text-slate-400 font-medium">Significant Hits (P &lt; 0.01)</p>
             <p className="text-2xl font-extrabold text-amber-400 mt-0.5">{stats.sig01}</p>
           </div>
-          <div className="glass-card p-3.5 rounded-xl border border-slate-800">
+          <div className="metric-card glass-card p-3.5 rounded-2xl border border-slate-200">
             <p className="text-xs text-slate-400 font-medium">FDR &lt; 0.1 Discoveries</p>
             <p className="text-2xl font-extrabold text-cyan-400 mt-0.5">{stats.fdr01}</p>
           </div>
-          <div className="glass-card p-3.5 rounded-xl border border-slate-800">
+          <div className="metric-card glass-card p-3.5 rounded-2xl border border-slate-200">
             <p className="text-xs text-slate-400 font-medium">Filtered Selection</p>
             <p className="text-2xl font-extrabold text-emerald-400 mt-0.5">{filteredMetabolites.length}</p>
           </div>
@@ -435,6 +437,22 @@ export default function Home() {
           }`}
         >
           <Layers className="w-4 h-4" /> Cross-Comparison Matrix ({Object.keys(COMPARISON_LABELS).length} Comparisons)
+        </button>
+
+        <button
+          role="tab"
+          aria-selected={activeTab === "insights"}
+          aria-controls="insights-panel"
+          tabIndex={activeTab === "insights" ? 0 : -1}
+          onKeyDown={handleTabKeyDown}
+          onClick={() => setActiveTab("insights")}
+          className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition cursor-pointer ${
+            activeTab === "insights"
+              ? "insights-tab-active bg-indigo-600 text-white shadow-lg shadow-indigo-500/20"
+              : "bg-white text-slate-600 hover:text-slate-950 hover:bg-indigo-50 border border-slate-200"
+          }`}
+        >
+          <BarChart3 className="w-4 h-4" /> Insights Dashboard
         </button>
 
         <button
@@ -642,6 +660,14 @@ export default function Home() {
             </div>
           )}
         </section>
+      )}
+
+      {activeTab === "insights" && (
+        <InsightsDashboard
+          metabolites={filteredMetabolites}
+          activeComparison={activeComparison}
+          onComparisonChange={setActiveComparison}
+        />
       )}
 
       {/* TAB 2: Single Comparison Volcano Plot */}

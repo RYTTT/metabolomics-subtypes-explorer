@@ -110,7 +110,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto"
+      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -216,9 +216,9 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
           <div className="h-64 w-full min-w-0 glass-card rounded-xl p-2 sm:p-3" role="img" aria-label={`Fold change chart for ${metabolite.chemical_name}`}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={barData} margin={{ top: 15, right: 8, bottom: 48, left: -12 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="shortLabel" stroke="#94a3b8" fontSize={10} interval={0} angle={-25} textAnchor="end" height={58} />
-                <YAxis stroke="#94a3b8" fontSize={11} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#dfe5ee" />
+                <XAxis dataKey="shortLabel" stroke="#65728a" fontSize={10} interval={0} angle={-25} textAnchor="end" height={58} />
+                <YAxis stroke="#65728a" fontSize={11} />
                 <Tooltip
                   content={({ payload }) => {
                     if (payload && payload.length) {
@@ -234,7 +234,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
                     return null;
                   }}
                 />
-                <ReferenceLine y={0} stroke="#475569" />
+                <ReferenceLine y={0} stroke="#94a3b8" />
                 <Bar dataKey="logFC" radius={[4, 4, 0, 0]}>
                   {barData.map((entry, index) => (
                     <Cell

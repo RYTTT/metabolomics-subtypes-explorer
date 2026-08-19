@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "validate:effects": "python3 scripts/add_effect_sizes.py --check",
     "validate:data": "node scripts/validate_data.mjs",
-    "test": "npm run validate:data && npm run lint",
+    "test": "npm run validate:effects && npm run validate:data && npm run lint",
     "check": "npm run test && npm run build"
   },
   "dependencies": {

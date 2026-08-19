@@ -39,6 +39,15 @@ file_mapping = {
     "CogPos_vs_CogNeg": os.path.join(v12_dir, "Cognitive_CogPos_vs_CogNeg.csv")
 }
 
+sample_sizes = {
+    "Depressive_vs_Control": (29, 444),
+    "Cognitive_vs_Control": (84, 444),
+    "MildPTSD_vs_Control": (81, 444),
+    "SeverePTSD_vs_Control": (139, 444),
+    "MildPTSD_vs_SeverePTSD": (81, 139),
+    "CogPos_vs_CogNeg": (143, 180),
+}
+
 missing_sources = [str(path) for path in file_mapping.values() if not os.path.exists(path)]
 if missing_sources and not args.allow_missing:
     raise FileNotFoundError(
@@ -178,6 +187,9 @@ for comp_key, filepath in file_mapping.items():
         t_stat = float(row["t"]) if pd.notna(row.get("t")) else 0.0
         ave_expr = float(row["AveExpr"]) if pd.notna(row.get("AveExpr")) else 0.0
         b_stat = float(row["B"]) if pd.notna(row.get("B")) else 0.0
+        n1, n2 = sample_sizes[comp_key]
+        n_eff = (n1 * n2) / (n1 + n2)
+        effect_size = t_stat / (n_eff ** 0.5)
 
         if p_val < 0.05:
             color = "red" if log_fc > 0 else "blue"
@@ -201,6 +213,7 @@ for comp_key, filepath in file_mapping.items():
             "t": t_stat,
             "AveExpr": ave_expr,
             "B": b_stat,
+            "effect_size": effect_size,
             "color": color,
             "direction": direction,
             "p_tier": p_tier

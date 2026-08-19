@@ -16,6 +16,14 @@ const comparisonKeys = [
   "MildPTSD_vs_SeverePTSD",
   "CogPos_vs_CogNeg",
 ];
+const sampleSizes = {
+  Depressive_vs_Control: [29, 444],
+  Cognitive_vs_Control: [84, 444],
+  MildPTSD_vs_Control: [81, 444],
+  SeverePTSD_vs_Control: [139, 444],
+  MildPTSD_vs_SeverePTSD: [81, 139],
+  CogPos_vs_CogNeg: [143, 180],
+};
 const requiredFields = [
   "chem_id",
   "chemical_name",
@@ -71,6 +79,23 @@ for (const [index, metabolite] of data.entries()) {
     }
     if (!Number.isFinite(comparison.logFC)) {
       errors.push(`${metabolite.chem_id}.${key}.logFC must be finite.`);
+    }
+    if (!Number.isFinite(comparison.t)) {
+      errors.push(`${metabolite.chem_id}.${key}.t must be finite.`);
+    }
+    if (!Number.isFinite(comparison.effect_size)) {
+      errors.push(`${metabolite.chem_id}.${key}.effect_size must be finite.`);
+    } else if (Number.isFinite(comparison.t)) {
+      const [n1, n2] = sampleSizes[key];
+      const nEff = (n1 * n2) / (n1 + n2);
+      const expected = comparison.t / Math.sqrt(nEff);
+      const tolerance = 1e-10 * (1 + Math.abs(expected));
+      if (Math.abs(comparison.effect_size - expected) > tolerance) {
+        errors.push(
+          `${metabolite.chem_id}.${key}.effect_size does not match t/sqrt(N_eff): `
+            + `expected ${expected}, found ${comparison.effect_size}.`,
+        );
+      }
     }
   }
 

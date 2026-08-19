@@ -232,7 +232,7 @@ export default function Home() {
       "HMDB",
       "KEGG",
       "V12_PANEL",
-      ...compKeys.flatMap((k) => [`${k}_logFC`, `${k}_PValue`, `${k}_adjPVal`]),
+      ...compKeys.flatMap((k) => [`${k}_logFC`, `${k}_EffectSize_CohenD`, `${k}_PValue`, `${k}_adjPVal`]),
     ];
 
     const csvCell = (value: string | number | boolean) => `"${String(value).replace(/"/g, '""')}"`;
@@ -246,7 +246,7 @@ export default function Home() {
       m.v12_panel ? "TRUE" : "FALSE",
       ...compKeys.flatMap((k) => {
         const c = m.comparisons[k];
-        return [c?.logFC ?? "", c?.["P.Value"] ?? "", c?.["adj.P.Val"] ?? ""];
+        return [c?.logFC ?? "", c?.effect_size ?? "", c?.["P.Value"] ?? "", c?.["adj.P.Val"] ?? ""];
       }),
     ]);
 

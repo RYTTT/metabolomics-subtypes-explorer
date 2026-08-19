@@ -48,12 +48,13 @@
   "$defs": {
     "comparison": {
       "type": "object",
-      "required": ["logFC", "P.Value", "adj.P.Val", "t", "color", "direction", "p_tier"],
+      "required": ["logFC", "P.Value", "adj.P.Val", "t", "effect_size", "color", "direction", "p_tier"],
       "properties": {
         "logFC": { "type": "number" },
         "P.Value": { "type": "number", "minimum": 0, "maximum": 1 },
         "adj.P.Val": { "type": "number", "minimum": 0, "maximum": 1 },
         "t": { "type": "number" },
+        "effect_size": { "type": "number" },
         "color": { "enum": ["red", "blue", "grey"] },
         "direction": { "enum": ["UP", "DOWN", "NC"] },
         "p_tier": { "enum": ["FDR < 0.1", "P < 0.01", "P < 0.05", "NS"] }

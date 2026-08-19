@@ -190,6 +190,8 @@ for comp_key, filepath in file_mapping.items():
         n1, n2 = sample_sizes[comp_key]
         n_eff = (n1 * n2) / (n1 + n2)
         effect_size = t_stat / (n_eff ** 0.5)
+        correction = 1 - (3 / (4 * (n1 + n2 - 2) - 1))
+        hedges_g = effect_size * correction
 
         if p_val < 0.05:
             color = "red" if log_fc > 0 else "blue"
@@ -214,6 +216,7 @@ for comp_key, filepath in file_mapping.items():
             "AveExpr": ave_expr,
             "B": b_stat,
             "effect_size": effect_size,
+            "hedges_g": hedges_g,
             "color": color,
             "direction": direction,
             "p_tier": p_tier

@@ -14,9 +14,9 @@ npm run validate:data
 
 The preparation command resolves the repository root from its own location. A different root can be provided with `--base-dir`. Missing comparison sources fail the build unless an intentionally partial release uses `--allow-missing`.
 
-## Standardized effect size
+## Standardized effect sizes
 
-Each comparison stores `effect_size`, calculated from its t-statistic as
+Each comparison stores `effect_size` (Cohen's d), calculated from its t-statistic as
 `d = t / sqrt(N_eff)`, where `N_eff = n1 * n2 / (n1 + n2)`. Cohort sizes are:
 
 - Depressive vs Control: 29 vs 444
@@ -26,7 +26,10 @@ Each comparison stores `effect_size`, calculated from its t-statistic as
 - Mild vs Severe PTSD: 81 vs 139
 - CogPos vs CogNeg: 143 vs 180
 
-`scripts/add_effect_sizes.py` adds the same value to the differential-analysis CSV files. Run it with `--check` to verify existing CSV values without rewriting them. Because these values derive from moderated t-statistics, they should be interpreted as t-derived standardized effect estimates.
+Hedges' g applies the small-sample correction
+`J = 1 - 3 / (4 * (n1 + n2 - 2) - 1)` and is stored as `hedges_g = effect_size * J`.
+
+`scripts/add_effect_sizes.py` adds both values to all 37 CSV files containing differential-analysis t-statistics, including original, v12, production, causal, and robustness outputs. Run it with `--check` to verify existing values without rewriting them. Because these values derive from moderated t-statistics, they should be interpreted as t-derived standardized effect estimates rather than raw pooled-SD estimates.
 
 ## Validation and provenance
 

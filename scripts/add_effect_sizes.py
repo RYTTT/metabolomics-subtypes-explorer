@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Add or verify Cohen's d estimates in differential-analysis CSV outputs."""
+"""Add or verify Cohen's d and Hedges' g in differential-analysis CSV outputs."""
 
 import argparse
 import csv
@@ -10,6 +10,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 FILE_SAMPLE_SIZES = {
+    # Original-release analyses retained for reproducibility.
+    "result/Subtypes_Depressive_vs_Control.csv": (29, 444),
+    "result/Subtypes_Cognitive_vs_Control.csv": (84, 444),
+    "result/Subtypes_MildPTSD_vs_Control.csv": (81, 444),
+    "result/Subtypes_SeverePTSD_vs_Control.csv": (139, 444),
+    "result/Cognitive_CogPos_vs_CogNeg.csv": (143, 180),
+    "result/Cognitive_CogPos_vs_Control.csv": (143, 444),
     # Viewer source analyses.
     "result_V12/Subtypes_Depressive_vs_Control.csv": (29, 444),
     "result_V12/Subtypes_Cognitive_vs_Control.csv": (84, 444),
@@ -36,12 +43,27 @@ FILE_SAMPLE_SIZES = {
     "result_FINAL_PRODUCTION/IPW_Limma/Target_Discovery_DR_IPW_Depressive.csv": (29, 444),
     "result_FINAL_PRODUCTION/IPW_Limma/Target_Discovery_DR_IPW_Cognitive.csv": (84, 444),
     "result_FINAL_PRODUCTION/IPW_Limma/Target_Discovery_DR_IPW_MildPTSD.csv": (81, 444),
+    # Causal and robustness analyses.
+    "result_Causal/Causal_Depressive_vs_Control.csv": (29, 444),
+    "result_Causal/Causal_Cognitive_vs_Control.csv": (84, 444),
+    "result_Causal/Causal_MildPTSD_vs_Control.csv": (81, 444),
+    "result_Causal/Causal_SeverePTSD_vs_Control.csv": (139, 444),
+    "result_Causal/RF_IPW_Depressive_vs_Control.csv": (29, 444),
+    "result_Causal/RF_IPW_Cognitive_vs_Control.csv": (84, 444),
+    "result_Causal/RF_IPW_MildPTSD_vs_Control.csv": (81, 444),
+    "result_Causal/First_Principles/Orthogonal_Depressive_vs_InternalPTSD.csv": (29, 220),
+    "result_Causal/First_Principles/Orthogonal_Cognitive_vs_InternalPTSD.csv": (84, 220),
 }
 
 
 def expected_effect(t_stat: float, n1: int, n2: int) -> float:
     n_eff = (n1 * n2) / (n1 + n2)
     return t_stat / math.sqrt(n_eff)
+
+
+def expected_hedges_g(effect_size: float, n1: int, n2: int) -> float:
+    correction = 1 - (3 / (4 * (n1 + n2 - 2) - 1))
+    return effect_size * correction
 
 
 def process_file(relative_path: str, n1: int, n2: int, check_only: bool) -> int:
@@ -59,20 +81,28 @@ def process_file(relative_path: str, n1: int, n2: int, check_only: bool) -> int:
         raise ValueError(f"{relative_path} does not contain a t column")
     if len(rows) != len(raw_lines) - 1:
         raise ValueError(f"{relative_path} contains multiline rows, which this formatter does not support")
-    has_effect_size = "effect_size" in header
-    if has_effect_size and header[-1] != "effect_size":
-        raise ValueError(f"{relative_path} must keep effect_size as its final column")
+    effect_columns = [name for name in ("effect_size", "hedges_g") if name in header]
+    if effect_columns and header[-len(effect_columns):] != effect_columns:
+        raise ValueError(f"{relative_path} must keep effect-size columns at the end")
 
     mismatches = 0
-    output_lines = [raw_lines[0] if has_effect_size else f'{raw_lines[0]},"effect_size"']
+    raw_header = raw_lines[0]
+    for field in ("effect_size", "hedges_g"):
+        if field not in header:
+            raw_header += f',"{field}"'
+    output_lines = [raw_header]
     for row_number, (row, raw_line) in enumerate(zip(rows, raw_lines[1:]), start=2):
         raw_t = row.get("t", "").strip()
         if raw_t in {"", "NA", "NaN", "nan"}:
-            expected_text = ""
+            effect_text = ""
+            hedges_text = ""
         else:
             expected = expected_effect(float(raw_t), n1, n2)
-            expected_text = format(expected, ".15g")
+            expected_g = expected_hedges_g(expected, n1, n2)
+            effect_text = format(expected, ".15g")
+            hedges_text = format(expected_g, ".15g")
             raw_effect = row.get("effect_size", "").strip()
+            raw_hedges = row.get("hedges_g", "").strip()
             if check_only:
                 try:
                     actual = float(raw_effect)
@@ -80,15 +110,22 @@ def process_file(relative_path: str, n1: int, n2: int, check_only: bool) -> int:
                     actual = math.nan
                 tolerance = 1e-10 * (1 + abs(expected))
                 if not math.isfinite(actual) or abs(actual - expected) > tolerance:
-                    print(f"Mismatch: {relative_path}:{row_number}")
+                    print(f"Cohen's d mismatch: {relative_path}:{row_number}")
                     mismatches += 1
-        if has_effect_size:
-            raw_without_effect, separator, _ = raw_line.rpartition(",")
+                try:
+                    actual_g = float(raw_hedges)
+                except ValueError:
+                    actual_g = math.nan
+                g_tolerance = 1e-10 * (1 + abs(expected_g))
+                if not math.isfinite(actual_g) or abs(actual_g - expected_g) > g_tolerance:
+                    print(f"Hedges' g mismatch: {relative_path}:{row_number}")
+                    mismatches += 1
+        raw_without_effects = raw_line
+        for _ in effect_columns:
+            raw_without_effects, separator, _ = raw_without_effects.rpartition(",")
             if not separator:
                 raise ValueError(f"{relative_path}:{row_number} is not a valid CSV row")
-            output_lines.append(f"{raw_without_effect},{expected_text}")
-        else:
-            output_lines.append(f"{raw_line},{expected_text}")
+        output_lines.append(f"{raw_without_effects},{effect_text},{hedges_text}")
 
     if not check_only:
         temporary_path = path.with_suffix(path.suffix + ".tmp")
@@ -111,7 +148,7 @@ def main() -> None:
     if mismatches:
         raise SystemExit(f"Effect-size validation failed with {mismatches} mismatch(es).")
     action = "Validated" if args.check else "Updated"
-    print(f"{action} Cohen's d in {len(FILE_SAMPLE_SIZES)} differential-analysis files.")
+    print(f"{action} Cohen's d and Hedges' g in {len(FILE_SAMPLE_SIZES)} differential-analysis files.")
 
 
 if __name__ == "__main__":

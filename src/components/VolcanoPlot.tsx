@@ -40,6 +40,7 @@ export default function VolcanoPlot({
         pVal: comp["P.Value"],
         adjP: comp["adj.P.Val"],
         effectSize: comp.effect_size,
+        hedgesG: comp.hedges_g,
         color: comp.color,
         direction: comp.direction,
         metabolite: m,
@@ -53,6 +54,7 @@ export default function VolcanoPlot({
     pVal: number;
     adjP: number;
     effectSize: number;
+    hedgesG: number;
     color: "red" | "blue" | "grey";
     direction: "UP" | "DOWN" | "NC";
     metabolite: Metabolite;
@@ -122,6 +124,7 @@ export default function VolcanoPlot({
                       <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-slate-300">
                         <span>logFC:</span> <span className="font-mono text-cyan-300 font-bold">{pt.logFC}</span>
                         <span>Effect size (d):</span> <span className="font-mono text-emerald-300 font-bold">{pt.effectSize > 0 ? "+" : ""}{pt.effectSize.toFixed(3)}</span>
+                        <span>Hedges&apos; g:</span> <span className="font-mono text-violet-300 font-bold">{pt.hedgesG > 0 ? "+" : ""}{pt.hedgesG.toFixed(3)}</span>
                         <span>P-value:</span> <span className="font-mono text-amber-300">{pt.pVal.toExponential(3)}</span>
                         <span>FDR:</span> <span className="font-mono text-indigo-300">{pt.adjP.toExponential(3)}</span>
                         <span>Direction:</span>{" "}

@@ -10,6 +10,7 @@ import {
   Layers,
   BookOpen,
   BarChart3,
+  Scale,
   ArrowUpDown,
   ChevronUp,
   ChevronDown,
@@ -39,7 +40,7 @@ export default function Home() {
   const metabolites = rawData as Metabolite[];
 
   // State Management
-  const [activeTab, setActiveTab] = useState<"matrix" | "insights" | "volcano" | "literature">("matrix");
+  const [activeTab, setActiveTab] = useState<"matrix" | "effects" | "insights" | "volcano" | "literature">("matrix");
   const [activeComparison, setActiveComparison] = useState<ComparisonKey>("SeverePTSD_vs_Control");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedSuperPathway, setSelectedSuperPathway] = useState<string>("All");
@@ -172,6 +173,10 @@ export default function Home() {
       } else if (sortColumn in COMPARISON_LABELS) {
         valA = a.comparisons[sortColumn as ComparisonKey]?.logFC ?? 0;
         valB = b.comparisons[sortColumn as ComparisonKey]?.logFC ?? 0;
+      } else if (sortColumn.includes(".")) {
+        const [comparisonKey, metric] = sortColumn.split(".") as [ComparisonKey, "effect_size" | "hedges_g"];
+        valA = a.comparisons[comparisonKey]?.[metric] ?? 0;
+        valB = b.comparisons[comparisonKey]?.[metric] ?? 0;
       }
 
       if (valA < valB) return sortDirection === "asc" ? -1 : 1;
@@ -232,7 +237,7 @@ export default function Home() {
       "HMDB",
       "KEGG",
       "V12_PANEL",
-      ...compKeys.flatMap((k) => [`${k}_logFC`, `${k}_EffectSize_CohenD`, `${k}_PValue`, `${k}_adjPVal`]),
+      ...compKeys.flatMap((k) => [`${k}_logFC`, `${k}_EffectSize_CohenD`, `${k}_Hedges_g`, `${k}_PValue`, `${k}_adjPVal`]),
     ];
 
     const csvCell = (value: string | number | boolean) => `"${String(value).replace(/"/g, '""')}"`;
@@ -246,7 +251,7 @@ export default function Home() {
       m.v12_panel ? "TRUE" : "FALSE",
       ...compKeys.flatMap((k) => {
         const c = m.comparisons[k];
-        return [c?.logFC ?? "", c?.effect_size ?? "", c?.["P.Value"] ?? "", c?.["adj.P.Val"] ?? ""];
+        return [c?.logFC ?? "", c?.effect_size ?? "", c?.hedges_g ?? "", c?.["P.Value"] ?? "", c?.["adj.P.Val"] ?? ""];
       }),
     ]);
 
@@ -437,6 +442,22 @@ export default function Home() {
           }`}
         >
           <Layers className="w-4 h-4" /> Cross-Comparison Matrix ({Object.keys(COMPARISON_LABELS).length} Comparisons)
+        </button>
+
+        <button
+          role="tab"
+          aria-selected={activeTab === "effects"}
+          aria-controls="effects-panel"
+          tabIndex={activeTab === "effects" ? 0 : -1}
+          onKeyDown={handleTabKeyDown}
+          onClick={() => setActiveTab("effects")}
+          className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition cursor-pointer ${
+            activeTab === "effects"
+              ? "bg-violet-600 text-white shadow-lg shadow-violet-500/20"
+              : "bg-white text-slate-600 hover:text-slate-950 hover:bg-violet-50 border border-slate-200"
+          }`}
+        >
+          <Scale className="w-4 h-4" /> Effect Size Matrix (d &amp; g)
         </button>
 
         <button
@@ -656,6 +677,134 @@ export default function Home() {
                 className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1 cursor-pointer"
               >
                 Next <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
+        </section>
+      )}
+
+      {activeTab === "effects" && (
+        <section id="effects-panel" role="tabpanel" className="min-w-0 rounded-2xl border border-violet-200 bg-white p-4 shadow-sm space-y-4">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <div className="flex items-center gap-2">
+                <Scale className="h-5 w-5 text-violet-600" />
+                <h2 className="text-base font-extrabold text-slate-950">Effect Size Cross-Comparison</h2>
+              </div>
+              <p className="mt-1 max-w-3xl text-xs leading-5 text-slate-600">
+                Cohen&apos;s d and small-sample corrected Hedges&apos; g are shown side by side for every clinical comparison. Select either metric header to sort; select a metabolite row for full statistics.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-wide">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-500">|effect| &lt; 0.20 negligible</span>
+              <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-amber-700">≥ 0.20 small</span>
+              <span className="rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-violet-700">≥ 0.50 medium</span>
+              <span className="rounded-full border border-rose-200 bg-rose-50 px-2.5 py-1 text-rose-700">≥ 0.80 large</span>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between gap-3 text-xs text-slate-500">
+            <span><strong className="text-slate-800">{sortedMetabolites.length}</strong> metabolites</span>
+            <span>Page <strong className="text-slate-800">{currentPage}</strong> of <strong className="text-slate-800">{totalPages}</strong></span>
+          </div>
+
+          <div className="w-full max-w-full min-w-0 overflow-x-auto rounded-xl border border-slate-200">
+            <table className="w-full min-w-[1760px] text-xs text-left">
+              <thead className="select-none border-b border-slate-200 bg-slate-50 text-slate-700">
+                <tr className="border-b border-slate-200">
+                  <th rowSpan={2} className="sticky left-0 z-20 min-w-[260px] bg-slate-50 px-4 py-3 font-extrabold">Metabolite Name</th>
+                  <th rowSpan={2} className="min-w-[140px] px-3 py-3 font-extrabold">Super Pathway</th>
+                  {(Object.keys(COMPARISON_LABELS) as ComparisonKey[]).map((key) => {
+                    const headerInfo = MATRIX_HEADERS[key];
+                    return (
+                      <th key={key} colSpan={2} className="min-w-[210px] border-l border-slate-200 px-3 py-2 text-center">
+                        <span className="block font-extrabold text-slate-900">{headerInfo.title}</span>
+                        <span className="block text-[9px] font-medium text-slate-500">{headerInfo.subtitle}</span>
+                      </th>
+                    );
+                  })}
+                </tr>
+                <tr>
+                  {(Object.keys(COMPARISON_LABELS) as ComparisonKey[]).flatMap((key) => [
+                    <th key={`${key}-d`} aria-sort={sortColumn === `${key}.effect_size` ? (sortDirection === "asc" ? "ascending" : "descending") : "none"} className="border-l border-slate-200 px-2 py-2 text-center">
+                      <button type="button" onClick={() => handleSort(`${key}.effect_size`)} className="mx-auto flex items-center gap-1 font-bold text-emerald-700 hover:text-emerald-500">
+                        Cohen&apos;s d {sortIcon(`${key}.effect_size`)}
+                      </button>
+                    </th>,
+                    <th key={`${key}-g`} aria-sort={sortColumn === `${key}.hedges_g` ? (sortDirection === "asc" ? "ascending" : "descending") : "none"} className="px-2 py-2 text-center">
+                      <button type="button" onClick={() => handleSort(`${key}.hedges_g`)} className="mx-auto flex items-center gap-1 font-bold text-violet-700 hover:text-violet-500">
+                        Hedges&apos; g {sortIcon(`${key}.hedges_g`)}
+                      </button>
+                    </th>,
+                  ])}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 font-mono">
+                {paginatedMetabolites.map((metabolite) => (
+                  <tr
+                    key={metabolite.chem_id}
+                    tabIndex={0}
+                    aria-label={`View effect sizes for ${metabolite.chemical_name}`}
+                    onClick={() => setInspectedMetabolite(metabolite)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setInspectedMetabolite(metabolite);
+                      }
+                    }}
+                    className="group cursor-pointer bg-white transition hover:bg-violet-50/50 focus-visible:outline-2 focus-visible:outline-violet-500 focus-visible:outline-offset-[-2px]"
+                  >
+                    <td className="sticky left-0 z-10 bg-white px-4 py-2.5 font-sans font-semibold text-slate-800 group-hover:bg-violet-50 group-hover:text-violet-800">
+                      <div className="flex items-center gap-2">
+                        <span>{metabolite.chemical_name}</span>
+                        {metabolite.v12_panel && <span className="rounded border border-emerald-200 bg-emerald-50 px-1.5 py-0.5 text-[9px] font-bold text-emerald-700">v12</span>}
+                      </div>
+                    </td>
+                    <td className="max-w-[160px] truncate px-3 py-2.5 font-sans text-[11px] text-slate-500">{metabolite.super_pathway}</td>
+                    {(Object.keys(COMPARISON_LABELS) as ComparisonKey[]).flatMap((key) => {
+                      const comparison = metabolite.comparisons[key];
+                      if (!comparison) {
+                        return [
+                          <td key={`${key}-d`} className="border-l border-slate-100 px-2 py-2.5 text-center text-slate-300">—</td>,
+                          <td key={`${key}-g`} className="px-2 py-2.5 text-center text-slate-300">—</td>,
+                        ];
+                      }
+                      const metricCell = (value: number, metric: "d" | "g") => {
+                        const magnitude = Math.abs(value);
+                        const tone = magnitude >= 0.8
+                          ? "border-rose-200 bg-rose-50 text-rose-700"
+                          : magnitude >= 0.5
+                            ? "border-violet-200 bg-violet-50 text-violet-700"
+                            : magnitude >= 0.2
+                              ? "border-amber-200 bg-amber-50 text-amber-700"
+                              : metric === "d"
+                                ? "border-emerald-100 bg-emerald-50/60 text-emerald-700"
+                                : "border-slate-200 bg-slate-50 text-slate-600";
+                        return <span className={`inline-block min-w-[68px] rounded-md border px-2 py-1 font-bold ${tone}`}>{value > 0 ? "+" : ""}{value.toFixed(3)}</span>;
+                      };
+                      return [
+                        <td key={`${key}-d`} className="border-l border-slate-100 px-2 py-2.5 text-center">{metricCell(comparison.effect_size, "d")}</td>,
+                        <td key={`${key}-g`} className="px-2 py-2.5 text-center">{metricCell(comparison.hedges_g, "g")}</td>,
+                      ];
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {sortedMetabolites.length === 0 && (
+            <div className="rounded-xl border border-dashed border-slate-300 p-8 text-center text-sm text-slate-500">No metabolites match the current filters.</div>
+          )}
+
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between pt-2">
+              <button onClick={() => setCurrentPage((page) => Math.max(1, page - 1))} disabled={currentPage === 1} className="flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40">
+                <ChevronLeft className="h-3.5 w-3.5" /> Previous
+              </button>
+              <span className="text-xs text-slate-500">{(currentPage - 1) * ROWS_PER_PAGE + 1}–{Math.min(currentPage * ROWS_PER_PAGE, sortedMetabolites.length)} of {sortedMetabolites.length}</span>
+              <button onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))} disabled={currentPage === totalPages} className="flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40">
+                Next <ChevronRight className="h-3.5 w-3.5" />
               </button>
             </div>
           )}

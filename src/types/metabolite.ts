@@ -13,6 +13,7 @@ export interface ComparisonStats {
   AveExpr: number;
   B: number;
   effect_size: number;
+  hedges_g: number;
   color: "red" | "blue" | "grey";
   direction: "UP" | "DOWN" | "NC";
   p_tier: "FDR < 0.1" | "P < 0.01" | "P < 0.05" | "NS";

@@ -89,11 +89,22 @@ for (const [index, metabolite] of data.entries()) {
       const [n1, n2] = sampleSizes[key];
       const nEff = (n1 * n2) / (n1 + n2);
       const expected = comparison.t / Math.sqrt(nEff);
+      const correction = 1 - (3 / (4 * (n1 + n2 - 2) - 1));
+      const expectedG = expected * correction;
       const tolerance = 1e-10 * (1 + Math.abs(expected));
       if (Math.abs(comparison.effect_size - expected) > tolerance) {
         errors.push(
           `${metabolite.chem_id}.${key}.effect_size does not match t/sqrt(N_eff): `
             + `expected ${expected}, found ${comparison.effect_size}.`,
+        );
+      }
+      const gTolerance = 1e-10 * (1 + Math.abs(expectedG));
+      if (!Number.isFinite(comparison.hedges_g)) {
+        errors.push(`${metabolite.chem_id}.${key}.hedges_g must be finite.`);
+      } else if (Math.abs(comparison.hedges_g - expectedG) > gTolerance) {
+        errors.push(
+          `${metabolite.chem_id}.${key}.hedges_g does not match d * J(df): `
+            + `expected ${expectedG}, found ${comparison.hedges_g}.`,
         );
       }
     }

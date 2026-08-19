@@ -261,6 +261,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
                   <th className="py-2.5 px-3">Comparison</th>
                   <th className="py-2.5 px-3 text-right">logFC</th>
                   <th className="py-2.5 px-3 text-right">Effect Size (d)</th>
+                  <th className="py-2.5 px-3 text-right">Hedges&apos; g</th>
                   <th className="py-2.5 px-3 text-right">P-value</th>
                   <th className="py-2.5 px-3 text-right">FDR (adj P)</th>
                   <th className="py-2.5 px-3 text-right">t-stat</th>
@@ -274,7 +275,7 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
                     return (
                       <tr key={key} className="bg-slate-950/30">
                         <td className="py-2 px-3 font-sans text-slate-300 font-medium">{label}</td>
-                        <td colSpan={6} className="py-2 px-3 text-center text-slate-500">Not available in this dataset release</td>
+                        <td colSpan={7} className="py-2 px-3 text-center text-slate-500">Not available in this dataset release</td>
                       </tr>
                     );
                   }
@@ -290,6 +291,9 @@ export default function MetaboliteModal({ metabolite, onClose }: MetaboliteModal
                       </td>
                       <td className="py-2 px-3 text-right font-bold text-emerald-300">
                         {comp.effect_size > 0 ? "+" : ""}{comp.effect_size.toFixed(3)}
+                      </td>
+                      <td className="py-2 px-3 text-right font-bold text-violet-300">
+                        {comp.hedges_g > 0 ? "+" : ""}{comp.hedges_g.toFixed(3)}
                       </td>
                       <td className={`py-2 px-3 text-right ${comp["P.Value"] < 0.01 ? "text-amber-400 font-bold" : "text-slate-300"}`}>
                         {comp["P.Value"].toExponential(3)}
